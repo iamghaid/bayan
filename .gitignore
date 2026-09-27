@@ -13,3 +13,4 @@ translations/_*
 __pycache__/
 .vercel/
 tools/_testhelpers.js
+review_cases/

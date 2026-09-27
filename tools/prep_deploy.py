@@ -5,7 +5,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 S = pathlib.Path(__file__).resolve().parent.parent
 D = pathlib.Path.home() / 'Downloads' / 'khutbah-sign-deploy'
 files = ['index.html', 'app.js', 'style.css', 'lexicon.json', 'README.md',
-         'khutbah.html', 'khutbah.js', 'handfix.js', 'signer.js', 'man_dress.js',
+         'khutbah.html', 'khutbah.js', 'handfix.js', 'signfix.js', 'signer.js', 'man_dress.js',
          'lib/three.min.js', 'lib/GLTFLoader.js', 'lib/three-vrm.min.js', 'avatar/man.glb', 'sshi_motion/index.json']
 files += [p.relative_to(S).as_posix() for p in (S / 'sigml').glob('*.sigml')]
 files += [p.relative_to(S).as_posix() for p in (S / 'translations').glob('*_gemini.json')]
