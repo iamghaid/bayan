@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مراجعة ترجمة الخطب</title>
+<style>
+:root{--bg:#f6f5f1;--card:#fff;--ink:#1d2320;--mute:#6b716d;--line:#e2e0d8;--ok:#1f7a4d;--bad:#b3261e;--acc:#205e8c;--chip:#eef3f0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Segoe UI",Tahoma,sans-serif}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);padding:12px 16px;z-index:2}
+h1{font-size:19px;margin:0 0 6px}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:14px;color:var(--mute)}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:2px 8px}
+.stat b{color:var(--ink)}
+main{max-width:980px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+.top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.word{font-size:26px;font-weight:700}
+.arrow{color:var(--mute);margin:0 8px}
+.sign{font-size:22px;color:var(--acc);font-weight:600}
+.why{display:inline-block;background:var(--chip);border-radius:6px;padding:1px 8px;font-size:13px;color:#2d4a3c;margin-top:4px}
+.count{font-size:13px;color:var(--mute)}
+.ex{background:#faf9f6;border-right:3px solid var(--line);padding:6px 10px;margin:8px 0;font-size:15px}
+.ex mark{background:#ffe9a8;padding:0 2px;border-radius:3px}
+.row{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-start;margin-top:10px}
+video{width:220px;max-width:100%;border-radius:8px;background:#000}
+.desc{font-size:13px;color:var(--mute);max-width:280px}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+button{font:inherit;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:6px 14px;cursor:pointer}
+button:hover{border-color:var(--ink)}
+.b-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.b-bad{background:var(--bad);color:#fff;border-color:var(--bad)}
+.alts{margin-top:10px;display:none}
+.alts.on{display:block}
+.alt{display:flex;gap:10px;align-items:center;border-top:1px dashed var(--line);padding:8px 0;flex-wrap:wrap}
+.alt video{width:150px}
+.alt .n{font-weight:600;min-width:120px}
+input[type=search]{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:8px;width:260px;max-width:100%}
+.empty{text-align:center;color:var(--mute);padding:60px 0}
+.gone{opacity:.35;pointer-events:none}
+.hint{font-size:13px;color:var(--mute)}
+</style>
+</head>
+<body>
+<header>
+  <h1>مراجعة ترجمة الخطب إلى لغة الإشارة</h1>
+  <div class="bar" id="bar">جارٍ التحميل…</div>
+</header>
+<main id="list"></main>
+<script>
+const VID = v => v ? 'https://sshi.sa/api/file/' + encodeURIComponent(v) : '';
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let DATA = [];
+
+async function load() {
+  const r = await fetch('/api/items'); const d = await r.json(); DATA = d.items;
+  document.getElementById('bar').innerHTML =
+    `<span class="stat">متبقٍ للمراجعة: <b>${d.items.length}</b></span><span class="stat">تمت مراجعته: <b>${d.done}</b></span>` +
+    d.stats.map(s => `<span class="stat">${s.name}: إشارة <b>${s.sign}%</b> · تهجئة <b>${s.spell}%</b></span>`).join('') +
+    `<span class="hint">الأكثر تكرارًا أولًا — كل قرار يُطبَّق على كل الخطب</span>`;
+  render();
+}
+
+function mark(ex, w) { return esc(ex).split(esc(w)).join(`<mark>${esc(w)}</mark>`); }
+
+function vid(v) { return v ? `<video src="${VID(v)}" controls muted loop preload="none"></video>` : '<span class="hint">لا فيديو</span>'; }
+
+function render() {
+  const L = document.getElementById('list');
+  if (!DATA.length) { L.innerHTML = '<div class="empty">لا شيء للمراجعة 🎉</div>'; return; }
+  L.innerHTML = DATA.slice(0, 40).map((g, i) => `
+  <div class="card" id="c${i}">
+    <div class="top">
+      <div>
+        <span class="word">${esc(g.word)}</span><span class="arrow">←</span>
+        ${g.action === 'sign' ? `<span class="sign">[${esc(g.sign)}]</span>` : `<span class="sign">تهجئة بالحروف</span>`}
+        <div class="why">${esc(g.why)}</div>
+      </div>
+      <div class="count">تكررت ${g.count} مرة · ${g.files.join('، ')}</div>
+    </div>
+    ${g.examples.map(e => `<div class="ex">${mark(e, g.word)}</div>`).join('')}
+    ${g.action === 'sign' ? `<div class="row">${vid(g.video)}<div class="desc">${esc(g.desc)}</div></div>` : ''}
+    <div class="acts">
+      ${g.action === 'sign'
+        ? `<button class="b-ok" onclick="act(${i},'ok')">✓ الإشارة صحيحة</button>
+           <button class="b-bad" onclick="toggle(${i})">✗ خطأ — اختر غيرها</button>
+           <button onclick="act(${i},'spell')">تُهجّأ بالحروف</button>`
+        : `<button class="b-ok" onclick="act(${i},'skip')">✓ التهجئة مناسبة (اسم علم)</button>
+           <button onclick="toggle(${i})">لها إشارة — اخترها</button>`}
+      <button onclick="act(${i},'skip')">تخطَّ</button>
+    </div>
+    <div class="alts" id="a${i}">
+      <div class="hint">إشارات مرشحة (من القاموس نفسه):</div>
+      ${g.cands.map(c => alt(i, c)).join('') || '<div class="hint">لا مرشحين</div>'}
+      <div class="alt"><input type="search" placeholder="ابحث في القاموس… مثل: تقوى" onkeydown="if(event.key==='Enter')find(${i},this.value)">
+        <button onclick="find(${i},this.previousElementSibling.value)">بحث</button></div>
+      <div id="s${i}"></div>
+      ${g.action === 'sign' ? `<div class="alt"><button class="b-bad" onclick="act(${i},'bad')">خطأ فقط (تُهجّأ الآن)</button></div>` : ''}
+    </div>
+  </div>`).join('');
+}
+
+function alt(i, c) {
+  return `<div class="alt"><span class="n">${esc(c.sign)}</span>${vid(c.video)}
+    <span class="desc">${esc(c.cat)}${c.desc ? ' — ' + esc(c.desc) : ''}</span>
+    <button class="b-ok" onclick="act(${i},'use',${c.id})">استخدم هذه</button></div>`;
+}
+
+function toggle(i) { document.getElementById('a' + i).classList.toggle('on'); }
+
+async function find(i, q) {
+  const r = await fetch('/api/search?q=' + encodeURIComponent(q)); const hits = await r.json();
+  document.getElementById('s' + i).innerHTML = hits.map(c => alt(i, c)).join('') || '<div class="hint">لا نتائج</div>';
+}
+
+async function act(i, verdict, id) {
+  const g = DATA[i]; const card = document.getElementById('c' + i); card.classList.add('gone');
+  const body = { key: g.key, norm: g.norm, verdict, id: id ?? g.id, sign: g.sign };
+  if (verdict === 'use') body.id = id;
+  const r = await fetch('/api/decide', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  const d = await r.json();
+  if (!d.ok) { card.classList.remove('gone'); alert('لم يُحفظ'); return; }
+  load();
+}
+load();
+</script>
+</body>
+</html>

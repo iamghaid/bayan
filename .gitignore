@@ -1,0 +1,15 @@
+# Videos from the sign library: never uploaded anywhere
+sshi_motion/src/
+review_video/
+*.mp4
+# Secrets
+tools/.gemini_key*
+*.key
+.env
+# Logs, caches, local-only files
+*.log
+_*.txt
+translations/_*
+__pycache__/
+.vercel/
+tools/_testhelpers.js

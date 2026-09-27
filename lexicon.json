@@ -1,0 +1,557 @@
+{
+ "_readme": "status: verified | pending | ambiguous  (قرار المتخصص الشرعي). sigml: اسم ملف داخل مجلد sigml/ أو null. sign_reviewed: true فقط بعد أن يؤكد مترجم أو شخص أصم أن حركة الأفاتار صحيحة.",
+ "terms": [
+  {
+   "id": "allah",
+   "gloss": "الله",
+   "phrases": [],
+   "variants": [
+    "الله",
+    "لله"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": "sg-allah.sigml",
+   "sign_reviewed": false,
+   "source": "ALSL: الله",
+   "karsl_id": 356,
+   "karsl_label": "الله تعالى",
+   "video": "videos/0356.mp4"
+  },
+  {
+   "id": "salawat",
+   "gloss": "الصلاة على النبي ﷺ",
+   "phrases": [
+    "الصلاة والسلام"
+   ],
+   "variants": [],
+   "status": "pending",
+   "note": "«الصلاة» هنا بمعنى الدعاء والثناء، لا الصلاة المفروضة",
+   "sigml": null,
+   "sign_reviewed": false
+  },
+  {
+   "id": "prophet",
+   "gloss": "النبي ﷺ",
+   "phrases": [
+    "رسول الله"
+   ],
+   "variants": [
+    "النبي",
+    "الرسول",
+    "محمد"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false,
+   "karsl_id": 371,
+   "karsl_label": "رسول",
+   "video": "videos/0371.mp4",
+   "karsl_note": "KArSL فيها أيضًا «محمد رسول الله» رقم 357 — اختاروا الأنسب"
+  },
+  {
+   "id": "jumuah",
+   "gloss": "صلاة الجمعة",
+   "phrases": [
+    "صلاة الجمعة"
+   ],
+   "variants": [
+    "الجمعة"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false
+  },
+  {
+   "id": "salah",
+   "gloss": "الصلاة",
+   "phrases": [],
+   "variants": [
+    "الصلاة",
+    "صلاة",
+    "يصلي",
+    "المصلين",
+    "يصلون"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false,
+   "karsl_id": 365,
+   "karsl_label": "يصلي / الصلاة",
+   "video": "videos/0365.mp4"
+  },
+  {
+   "id": "zakat",
+   "gloss": "الزكاة",
+   "phrases": [],
+   "variants": [
+    "الزكاة",
+    "زكاة"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false,
+   "karsl_id": 366,
+   "karsl_label": "الزكاة",
+   "video": "videos/0366.mp4"
+  },
+  {
+   "id": "sawm",
+   "gloss": "الصيام",
+   "phrases": [],
+   "variants": [
+    "الصيام",
+    "صيام",
+    "الصوم",
+    "صوم"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false,
+   "karsl_id": 367,
+   "karsl_label": "الصوم",
+   "video": "videos/0367.mp4"
+  },
+  {
+   "id": "ramadan",
+   "gloss": "رمضان",
+   "phrases": [],
+   "variants": [
+    "رمضان"
+   ],
+   "status": "pending",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false
+  },
+  {
+   "id": "taqwa",
+   "gloss": "التقوى",
+   "phrases": [],
+   "variants": [
+    "التقوى",
+    "تقوى",
+    "اتقوا",
+    "المتقين",
+    "يتقي"
+   ],
+   "status": "pending",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false
+  },
+  {
+   "id": "jannah",
+   "gloss": "الجنة",
+   "phrases": [],
+   "variants": [
+    "الجنة",
+    "جنة",
+    "جنات"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false,
+   "karsl_id": 429,
+   "karsl_label": "الجنة",
+   "video": "videos/0429.mp4"
+  },
+  {
+   "id": "nar",
+   "gloss": "النار",
+   "phrases": [],
+   "variants": [
+    "النار",
+    "نار"
+   ],
+   "status": "ambiguous",
+   "note": "قد تعني نار الدنيا أو جهنم، والإشارة تختلف — تُحال للمراجع",
+   "sigml": null,
+   "sign_reviewed": false,
+   "karsl_id": 430,
+   "karsl_label": "النار",
+   "video": "videos/0430.mp4",
+   "karsl_note": "الترجمة الإنجليزية في KArSL «fire» — يبقى الالتباس حتى يؤكد المراجع أنها بمعنى جهنم"
+  },
+  {
+   "id": "qiyamah",
+   "gloss": "يوم القيامة",
+   "phrases": [
+    "يوم القيامة"
+   ],
+   "variants": [
+    "القيامة"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false,
+   "karsl_id": 372,
+   "karsl_label": "يوم القيامة",
+   "video": "videos/0372.mp4"
+  },
+  {
+   "id": "rahma",
+   "gloss": "الرحمة",
+   "phrases": [],
+   "variants": [
+    "الرحمة",
+    "رحمة",
+    "يرحم",
+    "ارحموا"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false
+  },
+  {
+   "id": "rahman",
+   "gloss": "الرحمن",
+   "phrases": [],
+   "variants": [
+    "الرحمن"
+   ],
+   "status": "pending",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false
+  },
+  {
+   "id": "quran",
+   "gloss": "القرآن",
+   "phrases": [],
+   "variants": [
+    "القرآن",
+    "قرآن"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false,
+   "karsl_id": 359,
+   "karsl_label": "القرآن الكريم",
+   "video": "videos/0359.mp4"
+  },
+  {
+   "id": "istighfar",
+   "gloss": "الاستغفار",
+   "phrases": [],
+   "variants": [
+    "الاستغفار",
+    "استغفار",
+    "استغفروا",
+    "يستغفر",
+    "نستغفر",
+    "استغفر"
+   ],
+   "status": "pending",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false,
+   "karsl_id": 438,
+   "karsl_label": "مغفرة",
+   "video": "videos/0438.mp4",
+   "karsl_note": "«مغفرة» قريبة من الاستغفار وليست مطابقة — تحتاج قرار المتخصص الشرعي"
+  },
+  {
+   "id": "sabr",
+   "gloss": "الصبر",
+   "phrases": [],
+   "variants": [
+    "الصبر",
+    "صبر",
+    "اصبروا",
+    "الصابرين",
+    "صابرين"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false
+  },
+  {
+   "id": "parents",
+   "gloss": "الوالدان",
+   "phrases": [],
+   "variants": [
+    "الوالدين",
+    "الوالدان",
+    "والديه",
+    "والديك"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": "sg-parents.sigml",
+   "sign_reviewed": false,
+   "source": "ALSL: والدين"
+  },
+  {
+   "id": "sadaqa",
+   "gloss": "الصدقة",
+   "phrases": [],
+   "variants": [
+    "الصدقة",
+    "صدقة",
+    "تصدقوا"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false
+  },
+  {
+   "id": "dua",
+   "gloss": "الدعاء",
+   "phrases": [],
+   "variants": [
+    "الدعاء",
+    "دعاء",
+    "ادعوا"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false
+  },
+  {
+   "id": "masjid",
+   "gloss": "المسجد",
+   "phrases": [],
+   "variants": [
+    "المسجد",
+    "مسجد",
+    "المساجد"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false,
+   "karsl_id": 393,
+   "karsl_label": "مسجد",
+   "video": "videos/0393.mp4"
+  },
+  {
+   "id": "hajj",
+   "gloss": "الحج",
+   "phrases": [],
+   "variants": [
+    "الحج",
+    "حج"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false,
+   "karsl_id": 369,
+   "karsl_label": "الحج",
+   "video": "videos/0369.mp4"
+  },
+  {
+   "id": "hamd",
+   "gloss": "الحمد لله",
+   "phrases": [
+    "الحمد لله"
+   ],
+   "variants": [
+    "الحمدلله"
+   ],
+   "status": "pending",
+   "note": null,
+   "sigml": "sg-hamd.sigml",
+   "sign_reviewed": false,
+   "source": "ALSL: الحمدلله"
+  },
+  {
+   "id": "ghafr",
+   "gloss": "يغفر",
+   "phrases": [],
+   "variants": [
+    "يغفر",
+    "اغفر",
+    "يغفرون"
+   ],
+   "status": "pending",
+   "note": null,
+   "sigml": "sg-ghafr.sigml",
+   "sign_reviewed": false,
+   "source": "ALSL: يغفر"
+  },
+  {
+   "id": "hubb",
+   "gloss": "يحب",
+   "phrases": [],
+   "variants": [
+    "يحب",
+    "يحبون",
+    "احبوا"
+   ],
+   "status": "pending",
+   "note": null,
+   "sigml": "sg-hubb.sigml",
+   "sign_reviewed": false,
+   "source": "ALSL: يحب"
+  },
+  {
+   "id": "help",
+   "gloss": "يساعد",
+   "phrases": [],
+   "variants": [
+    "يساعد",
+    "ساعدوا",
+    "تساعدوا"
+   ],
+   "status": "pending",
+   "note": null,
+   "sigml": "sg-help.sigml",
+   "sign_reviewed": false,
+   "source": "ALSL: يساعد"
+  },
+  {
+   "id": "give",
+   "gloss": "يعطي",
+   "phrases": [],
+   "variants": [
+    "يعطي",
+    "اعطوا"
+   ],
+   "status": "pending",
+   "note": null,
+   "sigml": "sg-give.sigml",
+   "sign_reviewed": false,
+   "source": "ALSL: يعطي"
+  },
+  {
+   "id": "mal",
+   "gloss": "المال",
+   "phrases": [],
+   "variants": [
+    "المال",
+    "مال"
+   ],
+   "status": "pending",
+   "note": null,
+   "sigml": "sg-mal.sigml",
+   "sign_reviewed": false,
+   "source": "ALSL: مال"
+  },
+  {
+   "id": "family",
+   "gloss": "العائلة",
+   "phrases": [],
+   "variants": [
+    "العائلة",
+    "عائلة"
+   ],
+   "status": "pending",
+   "note": null,
+   "sigml": "sg-family.sigml",
+   "sign_reviewed": false,
+   "source": "ALSL: عائلة"
+  },
+  {
+   "id": "shukr",
+   "gloss": "الشكر",
+   "phrases": [],
+   "variants": [
+    "يشكر",
+    "اشكروا",
+    "الشكر"
+   ],
+   "status": "pending",
+   "note": null,
+   "sigml": "sg-shukr.sigml",
+   "sign_reviewed": false,
+   "source": "ALSL: يشكر"
+  },
+  {
+   "id": "mawt",
+   "gloss": "الموت",
+   "phrases": [],
+   "variants": [
+    "الموت",
+    "موت"
+   ],
+   "status": "pending",
+   "note": null,
+   "sigml": "sg-mawt.sigml",
+   "sign_reviewed": false,
+   "source": "ALSL: موت"
+  },
+  {
+   "id": "khutbah_jumuah",
+   "gloss": "خطبة الجمعة",
+   "phrases": [
+    "خطبة الجمعة"
+   ],
+   "variants": [
+    "خطبه الجمعه"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false,
+   "karsl_id": 390,
+   "karsl_label": "خطبة الجمعة",
+   "video": "videos/0390.mp4"
+  },
+  {
+   "id": "khutbah",
+   "gloss": "الخطبة",
+   "phrases": [],
+   "variants": [
+    "الخطبة",
+    "خطبة",
+    "خطبته"
+   ],
+   "status": "verified",
+   "note": null,
+   "sigml": null,
+   "sign_reviewed": false,
+   "karsl_id": 389,
+   "karsl_label": "الخطبة",
+   "video": "videos/0389.mp4"
+  },
+  {
+   "id": "khatib",
+   "gloss": "الخطيب",
+   "phrases": [],
+   "variants": [
+    "الخطيب",
+    "خطيب"
+   ],
+   "status": "ambiguous",
+   "note": "«خطيب» قد تعني الواعظ أو الخاطب؛ وتسمية KArSL الإنجليزية «Fiance» — تُحال للمراجع",
+   "sigml": null,
+   "sign_reviewed": false,
+   "karsl_id": 391,
+   "karsl_label": "الخطيب",
+   "video": "videos/0391.mp4"
+  },
+  {
+   "id": "imam",
+   "gloss": "الإمام",
+   "phrases": [],
+   "variants": [
+    "الإمام",
+    "إمام",
+    "الامام"
+   ],
+   "status": "ambiguous",
+   "note": "تسمية KArSL الإنجليزية «Before» توحي بالخلط بين «إمام» و«أمام» — تُحال للمراجع",
+   "sigml": null,
+   "sign_reviewed": false,
+   "karsl_id": 395,
+   "karsl_label": "الإمام",
+   "video": "videos/0395.mp4"
+  }
+ ],
+ "_source": "الإشارات من قاموس لغة الإشارة الجزائرية (Mami, Slimani, Zerrouki, Mazari — github.com/linuxscout/algerianSignLanguage-avatar) برخصة CC BY-NC 4.0. غير مُراجَعة للإشارة السعودية.",
+ "_video_source": "KArSL-502 (Sidig, Luqman, Mahmoud, Mahmoud — KFUPM). لا تُنشر المقاطع علنًا قبل إذن د. حمزة لقمان."
+}

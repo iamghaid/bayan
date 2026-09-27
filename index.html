@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مترجم الخطبة بلغة الإشارة — أفاتار</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Readex+Pro:wght@400;600&display=swap" rel="stylesheet">
+<!-- محرك الأفاتار CWASA — جامعة إيست أنجليا، رخصة CC BY-SA -->
+<link rel="stylesheet" href="https://vhg.cmp.uea.ac.uk/tech/jas/vhg2023/cwa/cwasa.css">
+<script src="https://vhg.cmp.uea.ac.uk/tech/jas/vhg2023/cwa/allcsa.js"></script>
+<link rel="stylesheet" href="style.css?v=22">
+</head>
+<body>
+<main class="wrap">
+  <h1>مترجم الخطبة بلغة الإشارة</h1>
+  <p class="lede">النص يُطابَق مع قاموس إشارات مُراجَع، والأفاتار يؤدي الإشارة المعتمدة فقط. أي مصطلح غير مُراجَع أو ملتبس يبقى نصًا.</p>
+
+  <div class="main">
+    <section class="panel">
+      <div class="controls">
+        <button class="primary" id="play">تشغيل</button>
+        <button id="restart">من البداية</button>
+        <label><input type="checkbox" id="wait" checked> انتظار انتهاء الإشارة</label>
+        <label class="demo"><input type="checkbox" id="demo"> عرض تجريبي: تشغيل مقاطع وإشارات غير مُراجَعة</label>
+      </div>
+      <div class="transcript" id="transcript"></div>
+      <div class="legend"><span>إشارة معتمدة</span><span class="p">بانتظار المراجعة — نص فقط</span><span class="a">ملتبس — امتناع</span></div>
+      <div class="stats" id="stats"></div>
+      <details>
+        <summary>جرّب نص خطبة آخر</summary>
+        <textarea id="custom" aria-label="نص خطبة"></textarea>
+        <button id="analyze">حلّل النص</button>
+      </details>
+    </section>
+
+    <aside class="stage">
+      <div class="avatar-box"><div class="CWASAAvatar av0"></div><video id="vid" muted playsinline hidden></video></div>
+      <div class="gloss" id="gloss">—</div>
+      <div class="state idle" id="state">جارٍ تحميل الأفاتار…</div>
+      <div class="caption" id="caption">&nbsp;</div>
+    </aside>
+  </div>
+
+  <h2>القاموس</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>المصطلح</th><th>الصيغ</th><th>الحالة الشرعية</th><th>ملف الإشارة (المصدر)</th><th>مراجعة الحركة</th><th></th></tr></thead>
+    <tbody id="lex"></tbody>
+  </table></div>
+
+  <details class="dev">
+    <summary>اختبار الأفاتار بملف SiGML مباشرة</summary>
+    <textarea id="sigmlTest" dir="ltr" placeholder="الصق محتوى ملف .sigml هنا"></textarea>
+    <button id="testPlay">شغّل على الأفاتار</button>
+  </details>
+</main>
+<p class="credit">الإشارات المستخدمة في العرض التجريبي من قاموس لغة الإشارة الجزائرية: Mami, Slimani, Zerrouki, Mazari — <a href="https://github.com/linuxscout/algerianSignLanguage-avatar">algerianSignLanguage-avatar</a> (CC BY-NC 4.0). غير مُراجَعة للإشارة السعودية ولا تُعتمد للاستخدام الفعلي. محرك الأفاتار: CWASA، جامعة إيست أنجليا.</p>
+<script src="app.js?v=22"></script>
+</body>
+</html>
