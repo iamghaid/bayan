@@ -10,6 +10,17 @@
 <link rel="stylesheet" href="https://vhg.cmp.uea.ac.uk/tech/jas/vhg2023/cwa/cwasa.css">
 <script src="https://vhg.cmp.uea.ac.uk/tech/jas/vhg2023/cwa/allcsa.js"></script>
 <link rel="stylesheet" href="style.css?v=22">
+<style>
+.developer-credit{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:18px 12px;margin-top:16px;border-top:1px solid currentColor;font-size:13px;line-height:1.8;color:inherit;text-align:center;opacity:.9}
+.developer-credit nav{display:flex;align-items:center;justify-content:center;gap:12px;margin:0;padding:0;width:auto;overflow:visible}
+.developer-credit a{color:inherit!important;text-decoration:underline;text-underline-offset:4px;font:inherit}
+.developer-credit a:hover{opacity:.75}
+.developer-credit a:focus-visible{outline:2px solid currentColor;outline-offset:4px;border-radius:2px}
+.developer-credit-en{display:none}
+html[lang="en"] .developer-credit-ar{display:none}
+html[lang="en"] .developer-credit-en{display:inline}
+@media(max-width:600px){.developer-credit{flex-direction:column;gap:4px}}
+</style>
 </head>
 <body>
 <main class="wrap">
@@ -56,5 +67,6 @@
 </main>
 <p class="credit">الإشارات المستخدمة في العرض التجريبي من قاموس لغة الإشارة الجزائرية: Mami, Slimani, Zerrouki, Mazari — <a href="https://github.com/linuxscout/algerianSignLanguage-avatar">algerianSignLanguage-avatar</a> (CC BY-NC 4.0). غير مُراجَعة للإشارة السعودية ولا تُعتمد للاستخدام الفعلي. محرك الأفاتار: CWASA، جامعة إيست أنجليا.</p>
 <script src="app.js?v=22"></script>
+<footer><div class="developer-credit" aria-label="Developer credits"><span class="developer-credit-ar">تطوير غيد عبدالكريم</span><span class="developer-credit-en">Developed by Gheid Abdulkarim</span><nav aria-label="Developer profiles"><a href="https://github.com/iamghaid" target="_blank" rel="noopener noreferrer">GitHub</a><span aria-hidden="true">·</span><a href="https://www.linkedin.com/in/gheid-abdulkarim-6567872ab" target="_blank" rel="noopener noreferrer">LinkedIn</a></nav></div></footer>
 </body>
 </html>
