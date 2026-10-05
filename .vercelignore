@@ -1,0 +1,16 @@
+sshi_motion/src/
+sshi_motion/staging/
+review_video/
+review_cases/
+*.mp4
+tools/.gemini_key*
+.env*
+*.key
+__pycache__/
+.git/
+coverage/research/*.pdf
+coverage/research/*.html
+coverage/research/*_text.txt
+coverage/research/*.png
+.localdeps/
+coverage/research/morphology_cache/

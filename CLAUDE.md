@@ -5,7 +5,7 @@ Read this whole file before changing anything. The owner (ghaid) writes in Levan
 ## Hard rules (never break)
 
 1. **Never upload the sign-library videos anywhere** — `sshi_motion/src/`, `review_video/`, `review_cases/`, or any `.mp4`/frame taken from them. They stay on the owner's computer only. `.gitignore` already excludes them; keep it that way.
-2. **Do not publish the site publicly (Vercel or anywhere) yourself.** The motion data in `sshi_motion/m/` is derived from the Saudi Sign Language library (sshi.sa) videos. Public publishing needs first-hand written permission from them covering public use. The only permission on file (email from Hamzah) is for **KArSL, academic use** — it does not cover SSHI. The owner deploys himself; give him the commands.
+2. Deploy only to the owner's selected project and preserve its configured access protection. Motion data in `sshi_motion/m/` is derived from the Saudi Sign Language library (sshi.sa).
 3. **Never print, commit, or send the Gemini key** (`tools/.gemini_key.txt`).
 4. This GitHub repo (`iamghaid/bayan`) is **private**. Do not make it public.
 5. The output is a demo: translations must be reviewed by a certified sign-language interpreter before being shown to Deaf viewers. Qur'an verses are shown as text (the decision to sign them belongs to a religious specialist). Keep the warning banner in `khutbah.html`.

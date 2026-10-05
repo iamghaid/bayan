@@ -1,0 +1,14 @@
+{
+  "processed": 999,
+  "staged": 998,
+  "schema_valid": 998,
+  "source_references_present": 998,
+  "extraction_statuses": {
+    "download_failed": 1,
+    "staged_needs_visual_and_linguistic_review": 998
+  },
+  "active_library": 1148,
+  "active_staged_overlap": 1,
+  "staged_only": 997,
+  "unique_motion_files": 2145
+}

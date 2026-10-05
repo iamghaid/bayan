@@ -1,0 +1,31 @@
+/* Shared Bayan interface; motion and source data remain unchanged. */
+:root{--bg:#f2f6f4;--ink:#17352c;--mute:#62776e;--line:#dce7e1;--acc:#17654e}
+body{background:radial-gradient(ellipse at top right,#deece5,transparent 60%),#f2f6f4;color:var(--ink)}
+main,.wrap{max-width:1240px;padding:32px 24px;margin:auto}
+h1{font-size:clamp(25px,3vw,36px);letter-spacing:-.6px;margin:10px 0;font-weight:700}
+h2{font-size:20px;margin:0 0 16px}
+section,.panel,.stage{border:1px solid #dce7e1;border-radius:20px;padding:24px;background:#fff;box-shadow:0 8px 30px #17352c06}
+button,input,select,textarea{border-radius:10px;min-height:44px;border-color:#ccdcd2;font:inherit}
+button{transition:background .15s,box-shadow .15s;padding:9px 18px;font-weight:600}
+button:hover:not(:disabled){box-shadow:0 3px 10px #17352c18}
+button:disabled{cursor:not-allowed}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid #8ecab5;outline-offset:3px}
+input,select,textarea{background:#fbfdfc;color:#17352c;padding:10px 12px}
+a{color:#17654e;text-underline-offset:4px}
+small,.lede{color:#62776e}
+.warning,.warn{background:#fff7e9;border:1px solid #efd9ac;color:#79571b;border-radius:12px;padding:14px 18px}
+.metrics{gap:8px;margin-top:16px}.metrics span{background:#f0f5f2;border:1px solid #e0e9e4;padding:7px 12px;border-radius:9px;font-size:13px}
+.comparison{gap:24px}.comparison>div{min-width:0}.comparison canvas{height:480px;background:#e8efeb}
+#poseStatus{color:#62776e;font-size:13px}
+.review-header{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:24px}
+.brand-mark{display:inline-flex;align-items:center;gap:10px;color:#17654e;font-size:15px;font-weight:700}.brand-mark:before{content:'ب';display:grid;place-items:center;width:38px;height:38px;background:#17654e;color:white;border-radius:12px;font-size:24px}
+.review-header p{margin:0;color:#62776e}.review-header a{background:white;border:1px solid #dce7e1;padding:9px 16px;border-radius:10px;text-decoration:none;white-space:nowrap}
+.review-passes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.review-passes h2,.review-passes>p{grid-column:1/-1;margin:0}.review-passes label{padding:16px;background:#f7faf8;border:1px solid #e2ebe5;border-radius:12px}.review-passes select{display:block;width:100%;margin:10px 0}.review-passes br{display:none}
+.decision-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:20px 0;padding:16px;background:#f7faf8;border-radius:14px}
+#decisionStatus{margin-inline-start:auto;padding:6px 14px;border-radius:30px;background:#e9eeeb;font-size:14px;font-weight:700}
+#decisionStatus[data-decision=accepted]{background:#dcefe5;color:#17654e}#decisionStatus[data-decision=rejected]{background:#f9e4e2;color:#a3332d}#decisionStatus[data-decision=rework]{background:#fff0cd;color:#806015}
+#acceptMotion,#play{background:#17654e;color:white;border-color:#17654e}#rejectMotion{background:#fff1ef;color:#a3332d;border-color:#e8c6c2}#reworkMotion{background:#fff7e4;color:#806015;border-color:#e8dbb4}#previous,#next,#pause,#save,#export{background:white;color:#244d3d;border-color:#ccdcd2}
+#noteStatus{min-height:28px;color:#17654e}textarea{resize:vertical;line-height:1.8}
+@media(max-width:760px){main,.wrap{padding:18px 12px}.review-header{align-items:flex-start;flex-direction:column}.review-passes{grid-template-columns:1fr}section,.panel,.stage{padding:16px;border-radius:14px}.comparison canvas{height:400px}.controls>*{max-width:100%}.controls label input,.controls label select{max-width:100%}.decision-bar button{flex:1}#decisionStatus{width:100%;margin:0;text-align:center}}
+@media(prefers-reduced-motion:reduce){button{transition:none}}
+.assistant-panel{border-color:#bad6c7}.ai-chip{font-size:12px;background:#dcefe5;color:#17654e;padding:4px 9px;border-radius:20px}.assistant-prompts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.assistant-prompts button{background:#f0f6f2;color:#24533e;font-size:13px}.assistant-message{white-space:pre-wrap;overflow-wrap:anywhere;padding:14px 18px;border-radius:12px;background:#f1f6f3}.assistant-message.user{background:#e5eee9;border-inline-start:3px solid #17654e}.assistant-panel textarea{width:100%;min-height:100px;margin:8px 0}.assistant-panel #assistantStatus{display:block;font-size:14px;color:#62776e;margin-top:8px}#assistantMessages{max-height:420px;overflow:auto}#assistantSend{background:#17654e;color:white}

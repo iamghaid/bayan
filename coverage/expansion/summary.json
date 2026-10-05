@@ -1,0 +1,25 @@
+{
+  "dictionary_entries": 8818,
+  "unique_dictionary_ids": 8818,
+  "existing_motion_files": 1148,
+  "dictionary_entries_with_motion": 1148,
+  "missing_motion_entries": 7670,
+  "missing_with_video_metadata": 7670,
+  "selected": 500,
+  "selected_local_videos": 0,
+  "saved_khutbah_count": 5,
+  "selected_matching_spelled_occurrences": 20,
+  "selected_categories": {
+    "باب الدين": 491,
+    "العلوم": 4,
+    "مقايسس وازمنة": 2,
+    "التربية الاجتماعية": 1,
+    "اتجاهات ومواضع": 1,
+    "الاعداد الترتيبية الوصفية": 1
+  },
+  "runtime_dependencies": {
+    "cv2": false,
+    "mediapipe": false,
+    "qalsadi": false
+  }
+}
