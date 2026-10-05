@@ -1,0 +1,24 @@
+name: Runtime checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  runtime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Python runtime checks
+        run: python -m unittest discover -s tools -p 'test_*.py' -q
+      - name: Repository hygiene
+        run: python tools/repo_check.py
+      - name: Avatar retarget checks
+        run: node tools/retarget_test.js
+      - name: Browser script syntax
+        run: |
+          for script in workspace.js demo.js khutbah.js motion-review.js review-assistant.js unified-view.js signer.js man_dress.js; do node --check "$script"; done

@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="demo.css?v=32">
 <title>الخطبة كاملة بلغة الإشارة السعودية</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Readex+Pro:wght@400;600&display=swap" rel="stylesheet">
@@ -59,12 +60,30 @@ html[lang="en"] .developer-credit-ar{display:none}
 html[lang="en"] .developer-credit-en{display:inline}
 @media(prefers-reduced-motion:reduce){.developer-credit a{transition:none}.developer-credit a:hover{transform:none}}
 </style>
+<link rel="stylesheet" href="interface.css?v=1">
 </head>
 <body>
 <div class="wrap">
   <h1>الخطبة كاملة بلغة الإشارة السعودية</h1>
+  <p><a href="motion-review.html">مراجعة الحركات الجديدة على الأفتار</a></p>
   <p class="lede">أفاتار يؤدي إشارات مكتبة لغة الإشارة السعودية لكل كلمة في الخطبة، وتُهجّأ الأسماء بحروف الإشارة. اضغط أي كلمة لتبدأ منها.</p>
-  <div class="warn">نسخة تجريبية: الترجمة آلية (Gemini + قاموس الإشارة) والحركة مستخرجة آليًا من فيديوهات المترجمين — ما زالت تحتاج مراجعة مترجم إشارة معتمد قبل عرضها على الصم. الكلمات المسطّرة بالأحمر لم تُعتمد بعد.</div>
+  <div class="warn">بيان يحوّل الصوت إلى نص، ثم يعرض الحركات المتاحة. راجع النص واختر الكلمات لبدء العرض.</div>
+  <details class="panel input-panel" open>
+    <summary>جرّب مقطعًا من خطبتك</summary>
+    <p>ابدأ بتسجيل بالفصحى من 30 إلى 60 ثانية. عند الضغط على «تفريغ الصوت» يُرسل التسجيل إلى مزوّد التفريغ المهيّأ. يمكنك إدخال النص يدويًا أيضًا.</p>
+    <label for="audioInput">ملف الصوت (حتى 4 ميغابايت)</label>
+    <input id="audioInput" type="file" accept=".mp3,.wav,.m4a,.webm,.ogg,.flac">
+    <div class="controls"><button id="record">تسجيل من الميكروفون</button><button id="stopRecord" disabled>إيقاف التسجيل</button><span id="recordStatus" role="status"></span></div>
+    <audio id="audioPreview" controls aria-label="معاينة التسجيل"></audio>
+    <button id="transcribe">تفريغ الصوت</button>
+    <label><input id="autoPrepare" type="checkbox" checked> إعداد معاينة الإشارات تلقائيًا بعد التفريغ؛ راجع النص والمعنى</label>
+    <label for="transcript">راجع النص قبل إعداد الإشارات. ضع الآيات بين ﴿ ﴾ لعرضها نصًا فقط.</label>
+    <textarea id="transcript" maxlength="4000" placeholder="الصق النص العربي هنا، أو فرّغ التسجيل أولًا."></textarea>
+    <label><input id="previewUnreviewed" type="checkbox"> عرض المطابقات الإضافية ذات الحركة المتوفرة</label>
+    <button class="primary" id="prepare">إعداد الإشارات للمعاينة</button>
+    <p id="demoStatus" role="status" aria-live="polite">الوضع الافتراضي يشغّل المطابقات المراجعة محليًا؛ فعّل الخيار أعلاه لتجربة المطابقات غير المراجعة.</p>
+    <details><summary>المطابقات والمصادر وحالات المراجعة</summary><ul id="demoSources"></ul></details>
+  </details>
   <div class="grid">
     <section class="panel">
       <div class="controls">
@@ -88,11 +107,12 @@ html[lang="en"] .developer-credit-en{display:inline}
 <script src="lib/three.min.js"></script>
 <script src="lib/GLTFLoader.js"></script>
 <script src="lib/three-vrm.min.js"></script>
-<script src="man_dress.js?v=31"></script>
+<script src="man_dress.js?v=32"></script>
 <script src="handfix.js?v=31"></script>
 <script src="signfix.js?v=31"></script>
-<script src="signer.js?v=31"></script>
-<script src="khutbah.js?v=31"></script>
+<script src="signer.js?v=40"></script>
+<script src="khutbah.js?v=34"></script>
+<script src="demo.js?v=41"></script>
 <footer><div class="developer-credit" aria-label="Developer credits"><span class="developer-credit-ar">حسابات المطوّرة</span><span class="developer-credit-en">Developer profiles</span><nav aria-label="Developer profiles"><a class="developer-github" href="https://github.com/iamghaid" target="_blank" rel="noopener noreferrer" aria-label="GitHub — Gheid Abdulkarim" title="GitHub — @iamghaid"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round" d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-2.1c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.73 1.16 1.73 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.5-.28-5.13-1.25-5.13-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.8 10.8 0 0 1 5.62 0c2.15-1.46 3.1-1.15 3.1-1.15.62 1.55.23 2.7.12 2.98.72.79 1.15 1.79 1.15 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.03.76 2.08v3.1c0 .3.2.65.78.54A11.25 11.25 0 0 0 12 .75Z"/></svg></a><a class="developer-linkedin" href="https://www.linkedin.com/in/gheid-abdulkarim-6567872ab" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn — Gheid Abdulkarim" title="LinkedIn — Gheid Abdulkarim"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round" d="M5.37 24H.39V7.98h4.98V24ZM2.88 5.8A2.9 2.9 0 1 1 2.9 0a2.9 2.9 0 0 1-.02 5.8ZM24 24h-4.97v-7.8c0-1.86-.04-4.25-2.59-4.25-2.6 0-3 2.02-3 4.12V24H8.47V7.98h4.77v2.19h.07c.66-1.25 2.28-2.57 4.7-2.57 5.03 0 5.96 3.31 5.96 7.62V24Z"/></svg></a></nav></div></footer>
-</body>
+<script src="unified-view.js?v=1"></script></body>
 </html>

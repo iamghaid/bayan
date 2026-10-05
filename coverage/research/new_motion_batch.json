@@ -1,0 +1,3999 @@
+[
+  {
+    "id": 12115,
+    "ar": "آلية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4071",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 13
+  },
+  {
+    "id": 11311,
+    "ar": "هادئ",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7115",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 4
+  },
+  {
+    "id": 9500,
+    "ar": "وهم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6202",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 3
+  },
+  {
+    "id": 6,
+    "ar": "ال",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5237",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 2
+  },
+  {
+    "id": 6171,
+    "ar": "غيرة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7478",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 2
+  },
+  {
+    "id": 10804,
+    "ar": "حجاب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10671",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 2
+  },
+  {
+    "id": 12082,
+    "ar": "داخل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/71772",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 2
+  },
+  {
+    "id": 814,
+    "ar": "جهنم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10673",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 1
+  },
+  {
+    "id": 1450,
+    "ar": "بدعة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/46046",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 1
+  },
+  {
+    "id": 3926,
+    "ar": "حزم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10669",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 1
+  },
+  {
+    "id": 3973,
+    "ar": "ركن",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6533",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 1
+  },
+  {
+    "id": 4236,
+    "ar": "رقيب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6532",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 1
+  },
+  {
+    "id": 8383,
+    "ar": "أمي",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/3542",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 1
+  },
+  {
+    "id": 10485,
+    "ar": "قائم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11036",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 1
+  },
+  {
+    "id": 10603,
+    "ar": "إحكام",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/42689",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 1
+  },
+  {
+    "id": 11139,
+    "ar": "ذات",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14992",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 1
+  },
+  {
+    "id": 713,
+    "ar": "قرن المنازل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7013",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 719,
+    "ar": "كظم الغيظ",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/38372",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 720,
+    "ar": "الكلم الطيب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36566",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 749,
+    "ar": "منكر ونكير",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11314",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 755,
+    "ar": "هاروت وماروت",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11323",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 765,
+    "ar": "يأجوج ومأجوج",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14944",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 768,
+    "ar": "يلملم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7065",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 774,
+    "ar": "يوم النحر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7070",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 779,
+    "ar": "تجويد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/136",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 793,
+    "ar": "تفريج الكربات",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72486",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 798,
+    "ar": "تكريم الانسان",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36651",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 808,
+    "ar": "جائز",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75250",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 812,
+    "ar": "جفاء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72419",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 817,
+    "ar": "حسن الخلق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36662",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 818,
+    "ar": "حسن الظن",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36660",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 819,
+    "ar": "حسن العشرة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36659",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 820,
+    "ar": "حسن المعاملة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36682",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 821,
+    "ar": "حفظ الايمان",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36658",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 822,
+    "ar": "حفظ الفرج",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36655",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 823,
+    "ar": "حفظ اللسان",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36657",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 824,
+    "ar": "حق الجار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72514",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 850,
+    "ar": "ستر العورة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8710",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 856,
+    "ar": "سوء الخلق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36669",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 858,
+    "ar": "سوء الظن",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36656",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 859,
+    "ar": "سوء المعاملة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36654",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 862,
+    "ar": "شارب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8714",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 869,
+    "ar": "شهادة الزور",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36653",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 884,
+    "ar": "صغر الهمة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36661",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 888,
+    "ar": "صومعة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6190",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 889,
+    "ar": "طلاقة الوجه",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36673",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 891,
+    "ar": "طول الأمل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36663",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 903,
+    "ar": "علو الهمة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72532",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 924,
+    "ar": "قصر الصلاة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6681",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 925,
+    "ar": "قضاء الحاجة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8731",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 927,
+    "ar": "قوة الإرادة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/38381",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 931,
+    "ar": "كتمان السر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/38380",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 942,
+    "ar": "مباح",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75284",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 945,
+    "ar": "مجاهدة النفس",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/38375",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 971,
+    "ar": "نصيب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6720",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 973,
+    "ar": "نقض العهد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72428",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 974,
+    "ar": "هجر القران",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72462",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 991,
+    "ar": "اختلاط",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11097",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 996,
+    "ar": "إسبال",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4111",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1004,
+    "ar": "أصنام",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11442",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1005,
+    "ar": "إطلاق البصر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72411",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1006,
+    "ar": "اعتبار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8828",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1008,
+    "ar": "اعتصام",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/43622",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1012,
+    "ar": "إغماء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/1442",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1015,
+    "ar": "افتراء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/71771",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1016,
+    "ar": "إفراط",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11475",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1017,
+    "ar": "إفشاء السلام",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/16763",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1018,
+    "ar": "اكل الحرام",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/71881",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1019,
+    "ar": "اكل الطيبات",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/16768",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1041,
+    "ar": "الإسلام / إسلام",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/43613",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1047,
+    "ar": "اعوجاج",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11462",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1069,
+    "ar": "البغض",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/181752",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1137,
+    "ar": "الجود",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/16737",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1157,
+    "ar": "الحنان",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/181673",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1158,
+    "ar": "الحياء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/181092",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1218,
+    "ar": "الشرف",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75919",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1233,
+    "ar": "الصوم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6945",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1252,
+    "ar": "العزة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/181663",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1276,
+    "ar": "الفرح",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/181125",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1306,
+    "ar": "الكيد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36586",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1328,
+    "ar": "المكر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36580",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1376,
+    "ar": "بذاءة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36595",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1389,
+    "ar": "توحيد الربوبية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10485",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1390,
+    "ar": "توحيد الألوهية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10483",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1396,
+    "ar": "الحجر الاسود",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/781",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1400,
+    "ar": "أسباب النزول",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14775",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1442,
+    "ar": "المعوذتين",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14871",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1461,
+    "ar": "رمي الجمرات",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6411",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1462,
+    "ar": "رؤية الهلال",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8709",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1463,
+    "ar": "زكاة الفطر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6420",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1472,
+    "ar": "شفاعة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/1416",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1478,
+    "ar": "صلاة الاستسقاء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5721",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1483,
+    "ar": "صلاة المسافر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6941",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1489,
+    "ar": "عقيدة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/47795",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1493,
+    "ar": "فسق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/116",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1499,
+    "ar": "قمار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7027",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1500,
+    "ar": "قيام الليل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1506,
+    "ar": "مضمضة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7313",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1519,
+    "ar": "وضوء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6733",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1533,
+    "ar": "احتطاب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4085",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1545,
+    "ar": "ارتكاز",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/16745",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1553,
+    "ar": "إستواء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/43337",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1568,
+    "ar": "إفراز",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/182",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1625,
+    "ar": "انقراض",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/3614",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1629,
+    "ar": "آنية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/614",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1641,
+    "ar": "بخار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6228",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1645,
+    "ar": "برد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8585",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1669,
+    "ar": "بئر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5252",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1699,
+    "ar": "تردد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/46072",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1701,
+    "ar": "ترشيد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/3629",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1704,
+    "ar": "تسجيل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7276",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1721,
+    "ar": "تعميم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4990",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1736,
+    "ar": "تقويم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5875",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1747,
+    "ar": "تمريض",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5900",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1749,
+    "ar": "تموية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11093",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1755,
+    "ar": "فم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8726",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1785,
+    "ar": "قنفذ",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7030",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1797,
+    "ar": "كسوف",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/17",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1798,
+    "ar": "كف",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/67724",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1812,
+    "ar": "لهب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11060",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1815,
+    "ar": "لين",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36584",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1819,
+    "ar": "ماعز",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7473",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1821,
+    "ar": "مائع",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/2767",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1860,
+    "ar": "مخاض",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6694",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1871,
+    "ar": "مرحاض",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/780",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1896,
+    "ar": "مشيمة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8995",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1939,
+    "ar": "توأم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7300",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1953,
+    "ar": "ثني",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10054",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 1971,
+    "ar": "جنين",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6239",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2009,
+    "ar": "حمص",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75976",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2025,
+    "ar": "خل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6489",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2034,
+    "ar": "دخان",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6343",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2054,
+    "ar": "ذيل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6510",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2062,
+    "ar": "رباط",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6649",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2069,
+    "ar": "رطوبة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6524",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2072,
+    "ar": "رفق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6528",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2076,
+    "ar": "رماد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6534",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2082,
+    "ar": "ريش",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6416",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2093,
+    "ar": "زمرد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7394",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2105,
+    "ar": "سبيكة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6359",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2144,
+    "ar": "مولود",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7149",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2145,
+    "ar": "ميت",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5298",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2155,
+    "ar": "نحاس",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6708",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2156,
+    "ar": "نخاع",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6710",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2158,
+    "ar": "نخلة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/76047",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2167,
+    "ar": "نعاس",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7090",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2168,
+    "ar": "نفاذ",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7369",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2170,
+    "ar": "نفخ",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7371",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2175,
+    "ar": "نوم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5192",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2183,
+    "ar": "هواء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7763",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2191,
+    "ar": "وزن",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4083",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2194,
+    "ar": "وقاية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36603",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2205,
+    "ar": "يقين",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10354",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2221,
+    "ar": "سماع",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/31659",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2232,
+    "ar": "شرب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/1413",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2234,
+    "ar": "شرط",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75258",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2244,
+    "ar": "شق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5709",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2245,
+    "ar": "شلل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/958",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2246,
+    "ar": "شم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/959",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2265,
+    "ar": "صوت",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6170",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2266,
+    "ar": "صوف",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/80",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2281,
+    "ar": "طحلب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11506",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2286,
+    "ar": "طلق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11510",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2297,
+    "ar": "عجلة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/31664",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2301,
+    "ar": "عسل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7435",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2314,
+    "ar": "غرس",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6899",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2325,
+    "ar": "غنم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7390",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 2328,
+    "ar": "فأر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7481",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3796,
+    "ar": "استشهاد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/611",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3800,
+    "ar": "استنجاد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11407",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3802,
+    "ar": "إسراء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/43336",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3817,
+    "ar": "إعفاء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11457",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3863,
+    "ar": "تبليغ",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36610",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3865,
+    "ar": "تحلية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8612",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3866,
+    "ar": "تخريب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/234",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3869,
+    "ar": "ترجمة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/649",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3870,
+    "ar": "ترميم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/3640",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3871,
+    "ar": "تزوير",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/3648",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3883,
+    "ar": "تقصير",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5872",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3889,
+    "ar": "تلقين",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14824",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3895,
+    "ar": "تهليل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36641",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3896,
+    "ar": "تواضع",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10481",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3909,
+    "ar": "جذام",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6626",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3911,
+    "ar": "جزية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6769",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3918,
+    "ar": "جواز",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8689",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3944,
+    "ar": "خلاء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10695",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3962,
+    "ar": "ديوان",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6354",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3968,
+    "ar": "ردة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6520",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3977,
+    "ar": "رئاسة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14755",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3979,
+    "ar": "ريح",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5199",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3982,
+    "ar": "زهد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/31641",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3995,
+    "ar": "سياسة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/1181",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3996,
+    "ar": "سيرة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/1588",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 3999,
+    "ar": "شح",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/31657",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4010,
+    "ar": "صابون",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10076",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4013,
+    "ar": "صاع",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5233",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4016,
+    "ar": "صلح",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6943",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4025,
+    "ar": "طعم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6433",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4038,
+    "ar": "عصبية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6989",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4040,
+    "ar": "عطف",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/16538",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4041,
+    "ar": "عقب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6993",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4047,
+    "ar": "عيال",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6888",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4052,
+    "ar": "فارس",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7482",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4054,
+    "ar": "فاسق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/23",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4056,
+    "ar": "فتنة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/63",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4061,
+    "ar": "فرقة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7483",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4068,
+    "ar": "قاضي",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7459",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4071,
+    "ar": "قبض",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7751",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4072,
+    "ar": "قبيلة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7462",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4073,
+    "ar": "قتال",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7463",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4074,
+    "ar": "قرابة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5043",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4075,
+    "ar": "قصاص",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7016",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4082,
+    "ar": "كرب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36564",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4084,
+    "ar": "لسان",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7050",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4088,
+    "ar": "ماشية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7472",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4111,
+    "ar": "مرتبة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7180",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4113,
+    "ar": "مرحلة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7319",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4115,
+    "ar": "مزدلفة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7247",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4119,
+    "ar": "مصاهرة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/9000",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4160,
+    "ar": "منى",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6965",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4166,
+    "ar": "مواساة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36576",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4178,
+    "ar": "نحر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6709",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4180,
+    "ar": "ندرة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6712",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4183,
+    "ar": "نسل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6718",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4187,
+    "ar": "نية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6880",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4189,
+    "ar": "هدنة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/64783",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4199,
+    "ar": "وداع",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7124",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4205,
+    "ar": "ياقوت",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7054",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4209,
+    "ar": "يهود",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11343",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4225,
+    "ar": "تبوك",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75962",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4243,
+    "ar": "لواء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11365",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4293,
+    "ar": "الرس",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75851",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4306,
+    "ar": "الطائف",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75924",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4373,
+    "ar": "الوجه",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/181764",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4393,
+    "ar": "تثليث",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/46057",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4400,
+    "ar": "تيماء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75965",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4424,
+    "ar": "دومة الجندل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75984",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4425,
+    "ar": "رابغ",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6357",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4539,
+    "ar": "نجران",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/76045",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4598,
+    "ar": "جورب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/3235",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4607,
+    "ar": "خيار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/783",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4624,
+    "ar": "عقال",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11549",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4631,
+    "ar": "عنب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/64594",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4648,
+    "ar": "كراث",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/67718",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4649,
+    "ar": "كرسي",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11053",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4675,
+    "ar": "نقاب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7378",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4753,
+    "ar": "إيجار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6930",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4775,
+    "ar": "سلالم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/1178",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 4795,
+    "ar": "كحل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8253",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5039,
+    "ar": "تاخر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7259",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5058,
+    "ar": "مستحيل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11078",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5064,
+    "ar": "انتقال",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6684",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5070,
+    "ar": "إجبار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5686",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5072,
+    "ar": "إجراء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5689",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5090,
+    "ar": "استلقاء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11406",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5095,
+    "ar": "إسراف",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11415",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5110,
+    "ar": "إقامة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/1564",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5113,
+    "ar": "الحق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/176898",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5116,
+    "ar": "إلهام",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/1184",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5143,
+    "ar": "حسد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6243",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5159,
+    "ar": "ظلم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/15007",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5163,
+    "ar": "عاقر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6475",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5170,
+    "ar": "عرفان",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11010",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5186,
+    "ar": "غباء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6892",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5187,
+    "ar": "غدر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/31672",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5188,
+    "ar": "غرور",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/31677",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5203,
+    "ar": "قبيح",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/16554",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5250,
+    "ar": "مسامحة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72429",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5252,
+    "ar": "مساواة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36578",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5266,
+    "ar": "ملل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/76097",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5268,
+    "ar": "ممتنع",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11311",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5282,
+    "ar": "هزل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7759",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5289,
+    "ar": "اتحاد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5421",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5291,
+    "ar": "مثلث",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10452",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5297,
+    "ar": "اعادة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8798",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5340,
+    "ar": "حضانة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6246",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5364,
+    "ar": "قسمة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8246",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5381,
+    "ar": "مراجعة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6701",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5422,
+    "ar": "تعويض",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6569",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5430,
+    "ar": "سقط",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4995",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5446,
+    "ar": "كسر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/67715",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5447,
+    "ar": "كفاءة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5896",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5485,
+    "ar": "بنج",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6284",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5498,
+    "ar": "جرح",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6627",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5513,
+    "ar": "حمل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8700",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5521,
+    "ar": "دواء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6352",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5538,
+    "ar": "شحم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72496",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5562,
+    "ar": "غدة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6895",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5580,
+    "ar": "كبد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/16",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5601,
+    "ar": "وجة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/1185",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5665,
+    "ar": "مباراة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8254",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5670,
+    "ar": "مزمار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7269",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5694,
+    "ar": "رقص",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6530",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5773,
+    "ar": "الأعلى",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/176555",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5809,
+    "ar": "تجارة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8606",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5824,
+    "ar": "رأس المال",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6646",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5936,
+    "ar": "خنزير",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6493",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5944,
+    "ar": "رمل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6410",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5946,
+    "ar": "زرافة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6672",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5964,
+    "ar": "قبر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5300",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5965,
+    "ar": "قرد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75992",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5971,
+    "ar": "كلب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8735",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5984,
+    "ar": "نحلة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14909",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 5990,
+    "ar": "نهر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7109",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 6015,
+    "ar": "وبر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/21",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 6030,
+    "ar": "نجم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11317",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 6097,
+    "ar": "الاجهاض",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5695",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 6101,
+    "ar": "بطالة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6278",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 6127,
+    "ar": "جد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6620",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 6141,
+    "ar": "شذوذ",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/1412",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 6143,
+    "ar": "طلاق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/1164",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 6148,
+    "ar": "عقم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6996",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 6150,
+    "ar": "عم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/64592",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 6155,
+    "ar": "لقب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10445",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 6161,
+    "ar": "مهر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7082",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 6165,
+    "ar": "نشوز",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6719",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 6167,
+    "ar": "نكاح الشغار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5706",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 6169,
+    "ar": "نمص",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6197",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 6201,
+    "ar": "مقيد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5895",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8262,
+    "ar": "إثبات",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5677",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8280,
+    "ar": "إختطاف",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11092",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8305,
+    "ar": "إستثناء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4113",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8317,
+    "ar": "إستيعاب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4733",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8319,
+    "ar": "أسرة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4737",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8336,
+    "ar": "اعتذار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11446",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8338,
+    "ar": "إعراب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/177",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8340,
+    "ar": "إغماض",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11470",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8361,
+    "ar": "الجمرات",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75900",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8366,
+    "ar": "الشام",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75918",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8404,
+    "ar": "إنشاء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/43627",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8438,
+    "ar": "براءة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/16730",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8469,
+    "ar": "تاريخ",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6302",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8479,
+    "ar": "تبغ",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6303",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8480,
+    "ar": "تجسس",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/107",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8490,
+    "ar": "تحليل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8615",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8491,
+    "ar": "تخصيص",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7265",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8499,
+    "ar": "ترتيل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/648",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8508,
+    "ar": "تزكية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/3646",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8511,
+    "ar": "تسمية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14819",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8512,
+    "ar": "تسول",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/16731",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8522,
+    "ar": "تعزية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4983",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8529,
+    "ar": "تفاؤل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6578",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8533,
+    "ar": "تقاطع",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/46076",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8541,
+    "ar": "تمر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5899",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8546,
+    "ar": "تنوين",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14951",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8574,
+    "ar": "جراح",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6623",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8594,
+    "ar": "جودة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8690",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8645,
+    "ar": "حمية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6312",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8652,
+    "ar": "حيلة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11367",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8728,
+    "ar": "راكب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6647",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8738,
+    "ar": "رثاء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6653",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8755,
+    "ar": "رفض",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6527",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8770,
+    "ar": "رياء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/47743",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8797,
+    "ar": "سباق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7402",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8839,
+    "ar": "شجاعة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/31652",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8850,
+    "ar": "شفة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/1417",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8860,
+    "ar": "شهامة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/31651",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8864,
+    "ar": "شؤم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10320",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8866,
+    "ar": "شيب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/588",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8891,
+    "ar": "ضب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/64572",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8958,
+    "ar": "علة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/71816",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8973,
+    "ar": "غائب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6890",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8974,
+    "ar": "غبن",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7004",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8978,
+    "ar": "غدير",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7006",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8979,
+    "ar": "غراب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6896",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8984,
+    "ar": "غرق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6901",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8989,
+    "ar": "غزل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6910",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8990,
+    "ar": "غش",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6914",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 8994,
+    "ar": "غناء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7389",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9030,
+    "ar": "فضة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72501",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9053,
+    "ar": "قبول",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7752",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9056,
+    "ar": "قرار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8239",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9062,
+    "ar": "قسوة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72449",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9079,
+    "ar": "قلم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11044",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9081,
+    "ar": "قناعة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36570",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9085,
+    "ar": "قهقهة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9091,
+    "ar": "كاتب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7040",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9095,
+    "ar": "كافل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7042",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9100,
+    "ar": "كتمان",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7249",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9104,
+    "ar": "كرامة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36752",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9105,
+    "ar": "كرة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/67716",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9140,
+    "ar": "لحم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/20",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9141,
+    "ar": "لحن",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14862",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9142,
+    "ar": "لحية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8974",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9145,
+    "ar": "لص",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7047",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9148,
+    "ar": "لعبة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10442",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9152,
+    "ar": "لغة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7175",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9252,
+    "ar": "مرآة - مراية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/844",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9256,
+    "ar": "مرارة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6700",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9340,
+    "ar": "مكافأة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7350",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9369,
+    "ar": "منقول",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7075",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9370,
+    "ar": "منكب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7076",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9431,
+    "ar": "نقمة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36593",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9449,
+    "ar": "هجر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36591",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9489,
+    "ar": "وزارة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7128",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9493,
+    "ar": "وطن",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7772",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9508,
+    "ar": "يقظة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36602",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9525,
+    "ar": "سفير",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/2762",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9531,
+    "ar": "ضابط",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11498",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9626,
+    "ar": "إتمام",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5673",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9630,
+    "ar": "إخفاء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11105",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9636,
+    "ar": "إستيفاء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4734",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9637,
+    "ar": "اظهار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14879",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9639,
+    "ar": "إقتباس",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14952",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9645,
+    "ar": "إلحاق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/785",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9668,
+    "ar": "تتابع",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/774",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9670,
+    "ar": "تحريف",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/71781",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9686,
+    "ar": "تنزيل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10476",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9714,
+    "ar": "عزلة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7433",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9752,
+    "ar": "مسمى",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14890",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9778,
+    "ar": "هجاء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6839",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9783,
+    "ar": "وثيقة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7121",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9817,
+    "ar": "برنامج",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6231",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9848,
+    "ar": "نسخ",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6717",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9931,
+    "ar": "إبهام",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5418",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9933,
+    "ar": "إتقان",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5428",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9937,
+    "ar": "إرث",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/618",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9944,
+    "ar": "إعلام",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8835",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9954,
+    "ar": "إناء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/3545",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9965,
+    "ar": "بطانة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7411",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9974,
+    "ar": "تخليل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6606",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9987,
+    "ar": "تعليق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72487",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 9990,
+    "ar": "تناسب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14820",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10004,
+    "ar": "حرير",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6779",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10009,
+    "ar": "حلم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/16771",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10036,
+    "ar": "سكة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4996",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10055,
+    "ar": "طلاء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/47772",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10056,
+    "ar": "طمس",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11355",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10071,
+    "ar": "فرع",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/47812",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10141,
+    "ar": "نسب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/1148",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10143,
+    "ar": "نقش",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7381",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10163,
+    "ar": "البحرين",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75888",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10177,
+    "ar": "العراق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75925",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10278,
+    "ar": "عمان",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/76091",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10281,
+    "ar": "فلسطين",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/76093",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10291,
+    "ar": "مصر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75878",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10300,
+    "ar": "قنطار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7029",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10324,
+    "ar": "أجرة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6923",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10327,
+    "ar": "احتمال",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11085",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10335,
+    "ar": "أس",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5231",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10377,
+    "ar": "تحديد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/137",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10381,
+    "ar": "تخمين",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/237",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10388,
+    "ar": "تصحيح",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4327",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10392,
+    "ar": "تغير",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6560",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10421,
+    "ar": "حسم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6244",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10450,
+    "ar": "سعر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4992",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10468,
+    "ar": "طول",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/47776",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10520,
+    "ar": "محاذاة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10460",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10551,
+    "ar": "مفقود",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7336",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10557,
+    "ar": "مقلوب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/71853",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10565,
+    "ar": "منقلة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7074",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10577,
+    "ar": "نظير",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14753",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10593,
+    "ar": "اتخاذ",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5422",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10599,
+    "ar": "احتياج",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11086",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10600,
+    "ar": "إحتياط",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8322",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10628,
+    "ar": "إسناد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4739",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10631,
+    "ar": "إصغاء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11439",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10634,
+    "ar": "أضحية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4057",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10643,
+    "ar": "اقتصاد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/43621",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10644,
+    "ar": "إقراض",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/249",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10645,
+    "ar": "إكتساب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/252",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10647,
+    "ar": "إلتفات",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/768",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10669,
+    "ar": "بتر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6928",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10677,
+    "ar": "بريد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8587",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10693,
+    "ar": "بلع - إبتلاع",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5261",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10702,
+    "ar": "تابعي",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/71780",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10717,
+    "ar": "تحسين",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/46067",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10723,
+    "ar": "تخفيف",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7266",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10727,
+    "ar": "تدخين",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/239",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10735,
+    "ar": "تسبيح",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36620",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10744,
+    "ar": "تعارف",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36619",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10746,
+    "ar": "تعجيل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6483",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10747,
+    "ar": "تعقيب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4987",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10750,
+    "ar": "تقليد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10398",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10754,
+    "ar": "تكبير",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36643",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10755,
+    "ar": "تكريم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72491",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10775,
+    "ar": "توقف",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/3626",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10780,
+    "ar": "ثقة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/71786",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10809,
+    "ar": "حرب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72418",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10837,
+    "ar": "خبرة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6784",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10862,
+    "ar": "شيطان",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5714",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10873,
+    "ar": "صرف",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14966",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10876,
+    "ar": "صمت",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/358",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10883,
+    "ar": "ضرر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/184",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10884,
+    "ar": "ضرورة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75261",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10887,
+    "ar": "ضمان",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6307",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10889,
+    "ar": "ضيافة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6319",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10893,
+    "ar": "طرب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11507",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10896,
+    "ar": "طمأنينة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/15006",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10903,
+    "ar": "عاتق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11515",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10912,
+    "ar": "عجوز",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7419",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10913,
+    "ar": "عداوة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7420",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10915,
+    "ar": "عرج",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7423",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10921,
+    "ar": "عض",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/64578",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10924,
+    "ar": "عطر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7440",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10933,
+    "ar": "عنق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11459",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10937,
+    "ar": "عيد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/47805",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10945,
+    "ar": "غصة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6916",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10947,
+    "ar": "غفلة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6503",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10973,
+    "ar": "قتل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/170",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10978,
+    "ar": "قسط",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72433",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10993,
+    "ar": "كتف",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7067",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 10998,
+    "ar": "كسل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36699",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11009,
+    "ar": "كي",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/64546",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11015,
+    "ar": "لفظ",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36750",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11053,
+    "ar": "محرم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7204",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11077,
+    "ar": "مزاح",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7361",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11099,
+    "ar": "مصارحة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/16766",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11100,
+    "ar": "مصافحة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8999",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11111,
+    "ar": "معاملة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72452",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11135,
+    "ar": "دور",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10788",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11140,
+    "ar": "ذبح",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14983",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11151,
+    "ar": "رسغ",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8707",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11167,
+    "ar": "زعيم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6674",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11172,
+    "ar": "ساعد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7401",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11179,
+    "ar": "سحر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11353",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11183,
+    "ar": "سرقة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7894",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11189,
+    "ar": "سماد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/1584",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11192,
+    "ar": "سواك",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/1180",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11222,
+    "ar": "مقطوع",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/71852",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11267,
+    "ar": "نشرة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14913",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11268,
+    "ar": "نصيحة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36587",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11270,
+    "ar": "نفاس",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6749",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11278,
+    "ar": "نميمة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7106",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11285,
+    "ar": "هرولة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14756",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11296,
+    "ar": "وسط",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7130",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11297,
+    "ar": "وسيلة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/64785",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11298,
+    "ar": "وشاح",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11419",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11305,
+    "ar": "وليمة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7052",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11313,
+    "ar": "أخبار - خبر",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/71776",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11319,
+    "ar": "إرسال",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4104",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11340,
+    "ar": "إفراغ",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/11474",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11356,
+    "ar": "يختار - خيار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8797",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11405,
+    "ar": "عشق",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/47790",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11408,
+    "ar": "فضولي",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/47807",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11410,
+    "ar": "قبلة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5289",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11418,
+    "ar": "مجنون",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8982",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11430,
+    "ar": "نصاب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4029",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11455,
+    "ar": "تعديل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4330",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11655,
+    "ar": "انتساب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/3549",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11814,
+    "ar": "استقبال",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/4712",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11858,
+    "ar": "الإيمان بالكتب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10357",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11860,
+    "ar": "الإيمان بالـملائكة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10359",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11862,
+    "ar": "الباطن",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/176707",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11879,
+    "ar": "القيّوم",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/176884",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11946,
+    "ar": "النصير",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/176920",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11985,
+    "ar": "بعث",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/10382",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 11988,
+    "ar": "فجور",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/16549",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12000,
+    "ar": "نساء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6716",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12003,
+    "ar": "ابتكار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5260",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12026,
+    "ar": "عفو",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/72432",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12094,
+    "ar": "ضلع",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6237",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12103,
+    "ar": "إبداع",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/8781",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12165,
+    "ar": "المجيب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/176918",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12172,
+    "ar": "بكاء",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7255",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12209,
+    "ar": "سحب",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7406",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12211,
+    "ar": "سداد",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/14765",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12227,
+    "ar": "عبوس",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/31667",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12233,
+    "ar": "عُرف",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7427",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12264,
+    "ar": "لفت",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/76095",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12340,
+    "ar": "طموح",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/31668",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12353,
+    "ar": "إيثار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/36617",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12465,
+    "ar": "اختيار",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/75227",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12475,
+    "ar": "تابع",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6300",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12489,
+    "ar": "حائط",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/6240",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12490,
+    "ar": "حل",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/782",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12491,
+    "ar": "حيز",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/46427",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12518,
+    "ar": "اتزان",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/5425",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12528,
+    "ar": "تهنئة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7298",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12540,
+    "ar": "فروسية",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7484",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  },
+  {
+    "id": 12582,
+    "ar": "مقايضة",
+    "meaning_source": "https://terminologyenc.com/ar/browse/term/7343",
+    "review_status": "not_reviewed",
+    "khutbah_exact_occurrences": 0
+  }
+]

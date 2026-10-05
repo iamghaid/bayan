@@ -1,0 +1,14 @@
+{
+  "checked_at_utc": "2026-10-03T21:44:20.428520+00:00",
+  "indexed_pages": 28,
+  "source_entries": 5132,
+  "unique_normalized_titles": 5015,
+  "states": {
+    "label_with_motion": 247,
+    "new_term": 4076,
+    "label_without_motion": 628,
+    "ambiguous_label": 181
+  },
+  "new_approved_motions": 0,
+  "note": "Titles and links only. Label candidates are unreviewed; no runtime mappings changed."
+}

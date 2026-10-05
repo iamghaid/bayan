@@ -1,16 +1,35 @@
 # Videos from the sign library: never uploaded anywhere
 sshi_motion/src/
+sshi_motion/staging/
 review_video/
 *.mp4
 # Secrets
 tools/.gemini_key*
 *.key
 .env
+.env.*
+!.env.example
+output/
+.pytest_cache/
+coverage/expansion/tmp*/
+coverage/expansion/missing_all.json
+coverage/expansion/missing_all.csv
+coverage/research/context_review_queue.json
 # Logs, caches, local-only files
 *.log
 _*.txt
 translations/_*
 __pycache__/
 .vercel/
+output/vercel-package/
+output/audio-cloud-test/
+coverage/research/*.pdf
+coverage/research/*.html
+coverage/research/*_text.txt
+coverage/research/*.png
+.localdeps/
+coverage/research/morphology_cache/
 tools/_testhelpers.js
+coverage/research/signer_previous.js
+coverage/research/make_previous.py
 review_cases/

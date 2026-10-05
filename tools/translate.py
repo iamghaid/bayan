@@ -185,8 +185,15 @@ def translate_segment(s, si, plan):
 
 def finalize(plan):
     """بعد Gemini: نملأ اسم الإشارة/حروف التهجئة، ونطبّق قائمة المنع مهما كان القرار"""
+    holds_file = TOOLS / 'translation_holds.json'
+    holds = json.loads(holds_file.read_text(encoding='utf8')) if holds_file.exists() else {}
     for p in plan:
         t = norm(p['text'])
+        if t in holds and p['action'] != 'quran':
+            p.update(action='pending', conf='review', reason='reported-translation-issue', review_note=holds[t])
+            for key in ['id', 'sign', 'letters', 'preview_only']:
+                p.pop(key, None)
+            continue
         if p.get('how') == 'blocked-pair':                              # نعيد فحص المنع بعد أي تعديل على blocked.json
             p.update(action='sign', how=p.pop('how0', 'gemini')); p.pop('letters', None)
         if t in APPROVED and p['action'] != 'quran':                   # القرارات المعتمدة يدويًا تغلب أي قرار آلي
@@ -236,6 +243,7 @@ def report(name, sents, plan):
             if p['action'] == 'sign': parts.append(f'[{p["sign"]}]' + ('?' if p['conf'] == 'review' else ''))
             elif p['action'] == 'spell': parts.append('~' + '-'.join(p['base']) + '~' + ('?' if p.get('conf') == 'review' else ''))
             elif p['action'] == 'quran': parts.append('«آية: نص فقط»')
+            elif p['action'] == 'pending': parts.append('«' + p['text'] + ': تحتاج مراجعة»')
         L += [f'{si + 1}. {s}', '   ← ' + ' '.join(parts), '']
     ch = [p for p in plan if 'before' in p]
     if ch:

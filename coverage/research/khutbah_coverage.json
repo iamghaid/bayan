@@ -1,0 +1,82 @@
+{
+  "evaluation": "5 saved khutbahs reconstructed from their original plan text, including dropped words",
+  "quran_policy": "Quran words excluded and counted separately, kept as text",
+  "warning": "Lexical coverage only; preview and staged candidates are not verified sign translations. Not an unseen-khutbah evaluation.",
+  "active_motion_files": 1148,
+  "staged_motion_files": 799,
+  "khutbahs": [
+    {
+      "khutbah_id": "103010",
+      "spoken_words": 944,
+      "unresolved_words": 280,
+      "active_preview_words": 401,
+      "locally_mapped_words": 53,
+      "ambiguous_words": 196,
+      "staged_candidate_words": 66,
+      "quran_words_excluded": 94,
+      "missing_motion_candidate_words": 1,
+      "active_preview_percent": 42.48,
+      "active_plus_staged_candidate_percent": 49.47,
+      "locally_mapped_percent": 5.61
+    },
+    {
+      "khutbah_id": "124660",
+      "spoken_words": 1456,
+      "staged_candidate_words": 120,
+      "unresolved_words": 426,
+      "active_preview_words": 655,
+      "locally_mapped_words": 70,
+      "ambiguous_words": 254,
+      "quran_words_excluded": 91,
+      "missing_motion_candidate_words": 1,
+      "active_preview_percent": 44.99,
+      "active_plus_staged_candidate_percent": 53.23,
+      "locally_mapped_percent": 4.81
+    },
+    {
+      "khutbah_id": "126507",
+      "spoken_words": 1165,
+      "staged_candidate_words": 99,
+      "unresolved_words": 370,
+      "active_preview_words": 552,
+      "locally_mapped_words": 53,
+      "ambiguous_words": 144,
+      "quran_words_excluded": 76,
+      "active_preview_percent": 47.38,
+      "active_plus_staged_candidate_percent": 55.88,
+      "locally_mapped_percent": 4.55
+    },
+    {
+      "khutbah_id": "167534",
+      "spoken_words": 1767,
+      "unresolved_words": 632,
+      "active_preview_words": 710,
+      "locally_mapped_words": 86,
+      "ambiguous_words": 278,
+      "staged_candidate_words": 147,
+      "quran_words_excluded": 444,
+      "active_preview_percent": 40.18,
+      "active_plus_staged_candidate_percent": 48.5,
+      "locally_mapped_percent": 4.87
+    },
+    {
+      "khutbah_id": "183793",
+      "spoken_words": 1541,
+      "unresolved_words": 431,
+      "active_preview_words": 750,
+      "locally_mapped_words": 56,
+      "staged_candidate_words": 116,
+      "ambiguous_words": 244,
+      "quran_words_excluded": 78,
+      "active_preview_percent": 48.67,
+      "active_plus_staged_candidate_percent": 56.2,
+      "locally_mapped_percent": 3.63
+    }
+  ],
+  "weighted_total": {
+    "spoken_words": 6873,
+    "active_preview_percent": 44.64,
+    "active_plus_staged_candidate_percent": 52.61,
+    "locally_mapped_percent": 4.63
+  }
+}
