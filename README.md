@@ -4,13 +4,17 @@
 
 **من الصوت العربي إلى عرض الإشارات السعودية، في مساحة واحدة للمشاهدة والمراجعة.**
 
-[English](#english) · [العربية](#العربية) · [Architecture](docs/ARCHITECTURE.md) · [File guide](docs/FILE_GUIDE.md)
+[English](#english) · [العربية](#العربية) · [Architecture](docs/ARCHITECTURE.md) · [File guide](docs/FILE_GUIDE.md) · [Development](docs/DEVELOPMENT.md)
 
 ## English
 
 Bayan is a hackathon prototype combining Arabic audio transcription, dictionary-based motion retrieval, and a Saudi-dressed 3D avatar. Its unified workspace preserves the selected motion and draft notes while switching between sermon playback and individual motion review.
 
-**Workspace:** [khutbah-sign.vercel.app](https://khutbah-sign.vercel.app/), using the project's configured Vercel sign-in settings.
+**Demo:** [Open the sermon workspace](https://khutbah-sign.vercel.app/khutbah.html). The hosted project is **`khutbah-sign`** in the **`gheid`** team; its server settings provide Gemini access.
+
+### Reviewing the project
+
+Start with the demo: open a saved sermon, prepare an Arabic text, then switch to motion review and search for **السكينة** (ID **1208**). To inspect the implementation, read [the architecture](docs/ARCHITECTURE.md), follow [the file guide](docs/FILE_GUIDE.md), and run the validation commands below. The player and API code are separate from generated motion data and research reports.
 
 ### Features
 
@@ -69,8 +73,9 @@ Development inventory on **5 October 2026**:
 | --- | ---: | --- |
 | Dictionary entries | 8,818 | Source records, not distinct ready animations |
 | Active motions | 1,148 | Main playback library |
-| Staged motion files | 998 | Additional development review files |
-| Unique active + staged IDs | 2,145 | One ID overlaps both sets |
+| Staged motion files | 1,018 | Additional development review files |
+| Unique active + staged IDs | 2,165 | One ID overlaps both sets |
+| Latest expansion | 20 | 15 added to hosted review; 5 held for contact inspection |
 | Saved sermons | 5 | Arabic texts and prepared plans |
 
 Staged assets are excluded from Git. A fresh clone can run the active library; populate staging through extraction/audit for local review. Source footage and captured frames remain local. These counts describe data retrieval and extraction, not a completed model training run or measured translation accuracy.
@@ -89,6 +94,8 @@ Tests cover matching, planning, review metadata, API boundaries, provider-respon
 
 ### Repository map
 
+The root keeps browser entry points together so local and hosted URLs match. Development scripts live in `tools/`; vendored rendering libraries live in `lib/`. See [development](docs/DEVELOPMENT.md) for the release procedure that verifies the Vercel project before publishing.
+
 | Path | Responsibility |
 | --- | --- |
 | `index.html`, `workspace.js`, `unified-view.js` | Unified tabs and retained view state |
@@ -98,6 +105,7 @@ Tests cover matching, planning, review metadata, API boundaries, provider-respon
 | `signer.js`, `handfix.js`, `signfix.js` | Retargeting, tracking cleanup, per-motion fixes |
 | `man_dress.js`, `avatar/`, `lib/` | Saudi presentation, model and rendering libraries |
 | `api/` | Vercel HTTP entry points |
+| `deployment.json`, `tools/deploy_release.py` | Selected hosting project and release target verification |
 | `tools/` | Local servers, extraction, audits and tests |
 | `sshi_motion/m/`, `translations/` | Active motions and saved sermon plans |
 | `docs/` | Architecture and development guidance |
@@ -138,7 +146,11 @@ python tools/demo_server.py
 
 ### البيانات والتنظيم
 
-القاموس يحتوي **8,818 مدخلًا**، والتشغيل **1,148 حركة**، وبيئة المراجعة التطويرية **998 ملفًا**، بإجمالي **2,145 معرّفًا مختلفًا**. هذه أعداد بيانات وليست نتيجة تدريب نموذج أو نسبة دقة للترجمة.
+القاموس يحتوي **8,818 مدخلًا**، والتشغيل **1,148 حركة**، وبيئة المراجعة التطويرية **1,018 ملفًا**، بإجمالي **2,165 معرّفًا مختلفًا**. آخر دفعة تضم 20 حركة: أُضيفت 15 للمراجعة على الموقع، وبقيت 5 لفحص التلامس. هذه أعداد بيانات وليست نتيجة تدريب نموذج أو نسبة دقة للترجمة.
+
+### مسار سريع للجنة
+
+افتح [صفحة الخطبة](https://khutbah-sign.vercel.app/khutbah.html)، وجرب خطبة محفوظة، ثم انتقل للمراجعة وابحث عن **السكينة — 1208**. لفهم الكود، اقرأ مخطط النظام ودليل الملفات وشغّل الاختبارات. مشروع النشر هو **khutbah-sign**؛ يراجع أمر النشر معرّف المشروع قبل رفع الملفات، لتبقى إعدادات Gemini مرتبطة بالموقع نفسه.
 
 يمكن للجنة البدء من مخطط النظام ثم [دليل الملفات](docs/FILE_GUIDE.md) والاختبارات. تفاصيل الخدمات في [دليل التطوير](docs/DEVELOPMENT.md).
 

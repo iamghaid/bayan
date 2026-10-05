@@ -10,7 +10,7 @@
 | Translation | `translate.py`, `llm_gemini.py`, `apply_translation_holds.py`, `compare_llm.py` | Saved plans and matching holds |
 | Audits | `audit.py`, `audit_lib.py`, `coverage.py`, `summary.py`, `expansion_audit.py`, `khutbah_coverage.py`, `staging_audit.py` | Coverage and integrity reports |
 | Motion regressions | `handfix_test.js`, `hf_chiral.js`, `hf_diag.js`, `hf_dups.js`, `hf_variants.json`, `retarget_test.js` | Tracking and retargeting checks |
-| Releases | `prep_deploy.py`, `prepare_interface_release.py` | Explicit runtime bundles |
+| Releases | `prep_deploy.py`, `prepare_interface_release.py`, `deploy_release.py` | Runtime bundles, held-motion filtering and hosting project verification |
 | Tests | `test_*.py` | Unit/API regressions |
 
 Historical diagnostic scripts remain because they reproduce motion investigations. Keep source media/frame checks local. The website does not require extraction dependencies at runtime.

@@ -11,7 +11,7 @@ const RenderBase=THREE.WebGLRenderer;
 THREE.WebGLRenderer=class extends RenderBase {constructor(options){super({...options,preserveDrawingBuffer:true});}};
 const baseline = new URLSearchParams(location.search).has('baseline');
 const script = document.createElement('script');
-script.src = baseline ? '../coverage/research/signer_previous.js' : '../signer.js?v=joint-review-2';
+script.src = baseline ? '../coverage/research/signer_previous.js' : '../signer.js?v=joint-review-3';
 script.onload = async () => {
   const out = document.getElementById('result');
   try {

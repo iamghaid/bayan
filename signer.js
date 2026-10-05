@@ -104,69 +104,111 @@ const Signer = (() => {
   // shader supports four influences; merge duplicates before selecting them.
   function twistWeights(indices, weights, lowerIndex, segments, progress) {
     const influences = new Map();
-    const add = (index, weight) => { if (weight > 1e-8) influences.set(index,(influences.get(index)||0)+weight); };
-    const t = Math.max(0,Math.min(1,progress)), scaled = t*segments.length;
-    const from = Math.min(segments.length-1,Math.floor(scaled)), fraction = scaled-from;
-    const chain = [lowerIndex,...segments];
-    for (let i=0;i<4;i++) {
-      if (indices[i]===lowerIndex) { add(chain[from],weights[i]*(1-fraction));add(chain[from+1],weights[i]*fraction); }
-      else add(indices[i],weights[i]);
+    const add = (index, weight) => {
+      if (weight > 1e-8) influences.set(index, (influences.get(index) || 0) + weight);
+    };
+    const t = Math.max(0, Math.min(1, progress));
+    const scaled = t * segments.length;
+    const from = Math.min(segments.length - 1, Math.floor(scaled));
+    const fraction = scaled - from;
+    const chain = [lowerIndex, ...segments];
+    for (let i = 0; i < 4; i++) {
+      if (indices[i] === lowerIndex) {
+        add(chain[from], weights[i] * (1 - fraction));
+        add(chain[from + 1], weights[i] * fraction);
+      } else {
+        add(indices[i], weights[i]);
+      }
     }
     const chosen = [...influences].sort((a,b)=>b[1]-a[1]).slice(0,4);
     const total = chosen.reduce((sum,item)=>sum+item[1],0);
-    while(chosen.length<4) chosen.push([0,0]);
-    return {indices:chosen.map(item=>item[0]),weights:chosen.map(item=>total?item[1]/total:0)};
+    while (chosen.length < 4) chosen.push([0, 0]);
+    return {
+      indices: chosen.map(item => item[0]),
+      weights: chosen.map(item => total ? item[1] / total : 0)
+    };
   }
   function buildForearmTwists(root) {
-    for(const side of ['Left','Right']) delete FOREARM_TWISTS[side];
-    const meshes=[];root.traverse(object=>{if(object.isSkinnedMesh && object.geometry.attributes.skinIndex)meshes.push(object);});
-    for(const side of ['Left','Right']) {
-      const lower=bone(side+'LowerArm'), hand=bone(side+'Hand');
-      if(!lower||!hand||hand.parent!==lower||!meshes.some(mesh=>mesh.skeleton.bones.includes(lower)))continue;
-      const segments=[];
-      for(let i=0;i<3;i++) {const segment=new THREE.Bone();segment.name='bayan_forearm_'+side.toLowerCase()+'_'+i;lower.add(segment);segments.push(segment);}
+    for (const side of ['Left', 'Right']) delete FOREARM_TWISTS[side];
+    const meshes = [];
+    root.traverse(object => {
+      if (object.isSkinnedMesh && object.geometry.attributes.skinIndex) meshes.push(object);
+    });
+    for (const side of ['Left', 'Right']) {
+      const lower = bone(side + 'LowerArm');
+      const hand = bone(side + 'Hand');
+      if (!lower || !hand || hand.parent !== lower ||
+          !meshes.some(mesh => mesh.skeleton.bones.includes(lower))) continue;
+      const segments = [];
+      for (let i = 0; i < 3; i++) {
+        const segment = new THREE.Bone();
+        segment.name = 'bayan_forearm_' + side.toLowerCase() + '_' + i;
+        lower.add(segment);
+        segments.push(segment);
+      }
       // All roll pivots lie on the same shaft. Their bind transforms match the
       // lower arm, so inserting them does not move the neutral mesh or wrist.
-      lower.remove(hand);segments[2].add(hand);FOREARM_TWISTS[side]=segments;
+      lower.remove(hand);
+      segments[2].add(hand);
+      FOREARM_TWISTS[side] = segments;
     }
     root.updateMatrixWorld(true);
-    const skeletons=new Map();
-    for(const mesh of meshes) {
-      const original=mesh.skeleton;
-      let entry=skeletons.get(original);
-      if(!entry) {
-        const bones=original.bones.slice(), inverses=original.boneInverses.map(matrix=>matrix.clone()), sides=[];
-        for(const side of ['Left','Right']) {
-          const segments=FOREARM_TWISTS[side], lowerIndex=original.bones.indexOf(bone(side+'LowerArm'));
-          if(!segments||lowerIndex<0)continue;
-          const indices=[];
-          for(const segment of segments) {indices.push(bones.length);bones.push(segment);inverses.push(original.boneInverses[lowerIndex].clone());}
-          const rest=REST_W[side+'LowerArm'];
-          sides.push({lowerIndex,indices,inverse:original.boneInverses[lowerIndex],
-            axis:rest.dir.clone().applyQuaternion(rest.q.clone().invert()).normalize(),length:ARM_RIG[side].lower});
+    const skeletons = new Map();
+    for (const mesh of meshes) {
+      const original = mesh.skeleton;
+      let entry = skeletons.get(original);
+      if (!entry) {
+        const bones = original.bones.slice();
+        const inverses = original.boneInverses.map(matrix => matrix.clone());
+        const sides = [];
+        for (const side of ['Left', 'Right']) {
+          const segments = FOREARM_TWISTS[side];
+          const lowerIndex = original.bones.indexOf(bone(side + 'LowerArm'));
+          if (!segments || lowerIndex < 0) continue;
+          const indices = [];
+          for (const segment of segments) {
+            indices.push(bones.length);
+            bones.push(segment);
+            inverses.push(original.boneInverses[lowerIndex].clone());
+          }
+          const rest = REST_W[side + 'LowerArm'];
+          sides.push({
+            lowerIndex, indices, inverse: original.boneInverses[lowerIndex],
+            axis: rest.dir.clone().applyQuaternion(rest.q.clone().invert()).normalize(),
+            length: ARM_RIG[side].lower
+          });
         }
-        entry={skeleton:new THREE.Skeleton(bones,inverses),sides};skeletons.set(original,entry);
+        entry = { skeleton: new THREE.Skeleton(bones, inverses), sides };
+        skeletons.set(original, entry);
       }
-      if(!entry.sides.length)continue;
-      const geometry=mesh.geometry.clone(), position=geometry.attributes.position;
-      const skinIndex=geometry.attributes.skinIndex, skinWeight=geometry.attributes.skinWeight;
-      const indices=new Uint16Array(position.count*4), weights=new Float32Array(position.count*4);
-      const vertex=new THREE.Vector3();
-      for(let i=0;i<position.count;i++) {
-        let blend={indices:[skinIndex.getX(i),skinIndex.getY(i),skinIndex.getZ(i),skinIndex.getW(i)],
-          weights:[skinWeight.getX(i),skinWeight.getY(i),skinWeight.getZ(i),skinWeight.getW(i)]};
-        for(const side of entry.sides) {
-          if(!blend.indices.some((index,k)=>index===side.lowerIndex && blend.weights[k]>0))continue;
-          vertex.fromBufferAttribute(position,i).applyMatrix4(mesh.bindMatrix).applyMatrix4(side.inverse);
-          let t=Math.max(0,Math.min(1,(vertex.dot(side.axis)/side.length-0.06)/0.88));
-          t=t*t*(3-2*t);
-          blend=twistWeights(blend.indices,blend.weights,side.lowerIndex,side.indices,t);
+      if (!entry.sides.length) continue;
+      const geometry = mesh.geometry.clone();
+      const position = geometry.attributes.position;
+      const skinIndex = geometry.attributes.skinIndex;
+      const skinWeight = geometry.attributes.skinWeight;
+      const indices = new Uint16Array(position.count * 4);
+      const weights = new Float32Array(position.count * 4);
+      const vertex = new THREE.Vector3();
+      for (let i = 0; i < position.count; i++) {
+        let blend = {
+          indices: [skinIndex.getX(i), skinIndex.getY(i), skinIndex.getZ(i), skinIndex.getW(i)],
+          weights: [skinWeight.getX(i), skinWeight.getY(i), skinWeight.getZ(i), skinWeight.getW(i)]
+        };
+        for (const side of entry.sides) {
+          if (!blend.indices.some((index, k) => index === side.lowerIndex && blend.weights[k] > 0)) continue;
+          vertex.fromBufferAttribute(position, i).applyMatrix4(mesh.bindMatrix).applyMatrix4(side.inverse);
+          // Leave the elbow end unrolled; ease into full roll near the wrist.
+          let t = Math.max(0, Math.min(1, (vertex.dot(side.axis) / side.length - 0.06) / 0.88));
+          t = t * t * (3 - 2 * t);
+          blend = twistWeights(blend.indices, blend.weights, side.lowerIndex, side.indices, t);
         }
-        indices.set(blend.indices,i*4);weights.set(blend.weights,i*4);
+        indices.set(blend.indices, i * 4);
+        weights.set(blend.weights, i * 4);
       }
-      geometry.setAttribute('skinIndex',new THREE.Uint16BufferAttribute(indices,4));
-      geometry.setAttribute('skinWeight',new THREE.Float32BufferAttribute(weights,4));
-      mesh.geometry=geometry;mesh.bind(entry.skeleton,mesh.bindMatrix.clone());
+      geometry.setAttribute('skinIndex', new THREE.Uint16BufferAttribute(indices, 4));
+      geometry.setAttribute('skinWeight', new THREE.Float32BufferAttribute(weights, 4));
+      mesh.geometry = geometry;
+      mesh.bind(entry.skeleton, mesh.bindMatrix.clone());
     }
   }
   const ARM_RIG = {};
