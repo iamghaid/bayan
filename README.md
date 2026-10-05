@@ -67,15 +67,15 @@ Audio uploads are limited to **4 MiB**; recording stops after **60 seconds**. Tr
 
 ### Dataset snapshot
 
-Development inventory on **5 October 2026**:
+Development inventory on **6 October 2026**:
 
 | Inventory | Count | Meaning |
 | --- | ---: | --- |
 | Dictionary entries | 8,818 | Source records, not distinct ready animations |
 | Active motions | 1,148 | Main playback library |
-| Staged motion files | 1,038 | Additional development review files |
-| Unique active + staged IDs | 2,185 | One ID overlaps both sets |
-| Latest expansion | 20 | 11 added to hosted review; 9 held for context inspection |
+| Staged motion files | 1,118 | Additional development review files |
+| Unique active + staged IDs | 2,265 | One ID overlaps both sets |
+| Latest expansion | 80 | 45 added to hosted review; 35 held for tracking/contact presentation checks |
 | Saved sermons | 5 | Arabic texts and prepared plans |
 
 Staged assets are excluded from Git. A fresh clone can run the active library; populate staging through extraction/audit for local review. Source footage and captured frames remain local. These counts describe data retrieval and extraction, not a completed model training run or measured translation accuracy.
@@ -146,7 +146,7 @@ python tools/demo_server.py
 
 ### البيانات والتنظيم
 
-القاموس يحتوي **8,818 مدخلًا**، والتشغيل **1,148 حركة**، وبيئة المراجعة التطويرية **1,038 ملفًا**، بإجمالي **2,185 معرّفًا مختلفًا**. آخر دفعة تضم 20 حركة: أُضيفت 11 للمراجعة على الموقع، وبقيت 9 لفحص معنى الكلمة في سياقها. هذه أعداد بيانات وليست نتيجة تدريب نموذج أو نسبة دقة للترجمة.
+القاموس يحتوي **8,818 مدخلًا**، والتشغيل **1,148 حركة**، وبيئة المراجعة التطويرية **1,118 ملفًا**، بإجمالي **2,265 معرّفًا مختلفًا**. آخر دفعة تضم 80 حركة: أُضيفت 45 للمراجعة على الموقع، وبقيت 35 لفحص التتبع وتلامس اليدين ووضوح المفاصل. هذه أعداد بيانات وليست نتيجة تدريب نموذج أو نسبة دقة للترجمة.
 
 ### مسار سريع للجنة
 

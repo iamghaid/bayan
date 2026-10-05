@@ -1,0 +1,482 @@
+[
+  {
+    "id": 1189,
+    "ar": "الرهن",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1194,
+    "ar": "الساحر",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1196,
+    "ar": "السحر",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1204,
+    "ar": "السفاهة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1209,
+    "ar": "السلبية",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1216,
+    "ar": "الشدة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1217,
+    "ar": "الشراء",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1222,
+    "ar": "الشفاعة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1224,
+    "ar": "الشماتة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1229,
+    "ar": "الصدق",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1230,
+    "ar": "الصديق",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1231,
+    "ar": "الصفح",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1232,
+    "ar": "الصمت",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1234,
+    "ar": "الصيام",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1239,
+    "ar": "الطغيان",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1241,
+    "ar": "الطمع",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1242,
+    "ar": "الطموح",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1244,
+    "ar": "الطيش",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1247,
+    "ar": "العبوس",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1250,
+    "ar": "العجلة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1253,
+    "ar": "العزلة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1255,
+    "ar": "العسر",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1256,
+    "ar": "العطف",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1257,
+    "ar": "العفاف",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1258,
+    "ar": "العقل",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1262,
+    "ar": "العلن",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1263,
+    "ar": "العناد",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1264,
+    "ar": "العنف",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1266,
+    "ar": "الغرور",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1271,
+    "ar": "الغيبة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1272,
+    "ar": "الغيرة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1274,
+    "ar": "الفتنة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1282,
+    "ar": "الفطنة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1283,
+    "ar": "الفقر",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1286,
+    "ar": "القدوة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1288,
+    "ar": "القسوة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1289,
+    "ar": "القصة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1290,
+    "ar": "القلق",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1292,
+    "ar": "القناعة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1293,
+    "ar": "القنوت",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1294,
+    "ar": "القوة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1299,
+    "ar": "الكراهية",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1300,
+    "ar": "الكرب",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1302,
+    "ar": "الكسل",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1304,
+    "ar": "الكنز",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1308,
+    "ar": "اللهو",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1310,
+    "ar": "الماضي",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1313,
+    "ar": "المجاملة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1318,
+    "ar": "المحكمة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1319,
+    "ar": "المداراة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1320,
+    "ar": "المدح",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1321,
+    "ar": "المرض",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1322,
+    "ar": "المروءة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1324,
+    "ar": "المساواة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1325,
+    "ar": "المسؤولية",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1329,
+    "ar": "المنضبط",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1330,
+    "ar": "المواساة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1332,
+    "ar": "الميت",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1335,
+    "ar": "النخبة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1338,
+    "ar": "النصح",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1339,
+    "ar": "النصيحة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1341,
+    "ar": "النعاس",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1344,
+    "ar": "النقمة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1345,
+    "ar": "النميمة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1347,
+    "ar": "النوم",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1348,
+    "ar": "الهبة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1349,
+    "ar": "الهجر",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1350,
+    "ar": "الهجرة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1354,
+    "ar": "الوسوسة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1355,
+    "ar": "الوضوء",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1357,
+    "ar": "الوعظ",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1359,
+    "ar": "الوقار",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1360,
+    "ar": "الوقاية",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1361,
+    "ar": "الوقت",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1362,
+    "ar": "الولاء",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1363,
+    "ar": "الوهم",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1364,
+    "ar": "اليقظة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1370,
+    "ar": "انتقام",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1372,
+    "ar": "إهدار المال",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  },
+  {
+    "id": 1379,
+    "ar": "بشاشة",
+    "category": "باب الدين",
+    "source": "https://sshi.sa"
+  }
+]

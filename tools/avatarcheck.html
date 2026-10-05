@@ -85,6 +85,11 @@ script.onload = async () => {
     }
     out.textContent=JSON.stringify({baseline,signs:results.length,jump_frames:results.reduce((n,r)=>n+r.jump_frames,0),finite:results.every(r=>r.finite),results},null,2);
     out.dataset.complete='true';
+    if(new URLSearchParams(location.search).has('gallery')) {
+      // Export avatar sheets without the live canvas or long diagnostic text.
+      document.getElementById('cv').style.display='none';
+      out.style.display='none';
+    }
   } catch(error) {out.textContent=error.stack;out.dataset.complete='error';}
 };
 document.head.append(script);
