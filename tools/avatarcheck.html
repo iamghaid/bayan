@@ -11,7 +11,7 @@ const RenderBase=THREE.WebGLRenderer;
 THREE.WebGLRenderer=class extends RenderBase {constructor(options){super({...options,preserveDrawingBuffer:true});}};
 const baseline = new URLSearchParams(location.search).has('baseline');
 const script = document.createElement('script');
-script.src = baseline ? '../coverage/research/signer_previous.js' : '../signer.js?v=solid-body-1';
+script.src = baseline ? '../coverage/research/signer_previous.js' : '../signer.js?v=joint-chain-1';
 script.onload = async () => {
   const out = document.getElementById('result');
   try {
@@ -24,7 +24,7 @@ script.onload = async () => {
     for (const item of needed.slice(0,80)) {
       const d=await Signer.load(item.id,base);
       await new Promise(resolve=>Signer.playList([{motion:item.id}],tag=>{if(Signer._dbg())resolve();},base));
-      let prev={}, maxStep=0, jumpFrames=0, maxBodyOverlap=0, finite=true;
+      let prev={}, prevArm={}, maxArmStep=0, maxElbowStep=0, maxStep=0, jumpFrames=0, maxBodyOverlap=0, maxHingeError=0, minFlex=180, maxFlex=0, maxWristTwist=0, maxWristBend=0, maxForearmRoll=0, maxShoulder=0, maxLengthError=0, finite=true;
       const sheetMode=new URLSearchParams(location.search).has('sheet');
       let sheet,ctx,sample=0;
       if(sheetMode){sheet=document.createElement('canvas');sheet.width=1200;sheet.height=900;sheet.style.cssText='width:1200px;height:900px;max-width:100%';document.body.prepend(sheet);ctx=sheet.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,1200,900);}
@@ -33,6 +33,16 @@ script.onload = async () => {
       for(let i=0;i<ticks;i++) {
         Signer._tick();
         maxBodyOverlap=Math.max(maxBodyOverlap,Signer.bodyOverlap||0);
+        for (const joint of Object.values(Signer.jointDiagnostics||{})) {
+          finite=finite&&Object.values(joint).every(Number.isFinite);
+          maxHingeError=Math.max(maxHingeError,joint.elbow_hinge_error_deg);
+          minFlex=Math.min(minFlex,joint.elbow_flex_deg);maxFlex=Math.max(maxFlex,joint.elbow_flex_deg);
+          maxWristTwist=Math.max(maxWristTwist,Math.abs(joint.wrist_twist_deg));
+          maxWristBend=Math.max(maxWristBend,joint.wrist_bend_deg);
+          maxForearmRoll=Math.max(maxForearmRoll,Math.abs(joint.forearm_roll_deg));
+          maxShoulder=Math.max(maxShoulder,joint.shoulder_elevation_deg);
+          maxLengthError=Math.max(maxLengthError,joint.upper_length_error_mm,joint.lower_length_error_mm);
+        }
         if(sheetMode && sample<8 && i>=Math.round(sample*(ticks-1)/7)){
           const x=(sample%4)*300,y=Math.floor(sample/4)*450;
           ctx.drawImage(document.getElementById('cv'),x,y,300,420);
@@ -40,13 +50,26 @@ script.onload = async () => {
         }
         for(const side of ['Left','Right']) {
           const b=Signer._bone(side+'Hand'), q=b.getWorldQuaternion(new THREE.Quaternion());
+          const shoulder=Signer._bone(side+'UpperArm').getWorldPosition(new THREE.Vector3());
+          const elbow=Signer._bone(side+'LowerArm').getWorldPosition(new THREE.Vector3());
+          const wrist=b.getWorldPosition(new THREE.Vector3());
+          const upper=elbow.clone().sub(shoulder).normalize(), lower=wrist.clone().sub(elbow).normalize();
+          const flex=upper.angleTo(lower);
+          if(prevArm[side]) {
+            maxArmStep=Math.max(maxArmStep,upper.angleTo(prevArm[side].upper)*180/Math.PI);
+            maxElbowStep=Math.max(maxElbowStep,Math.abs(flex-prevArm[side].flex)*180/Math.PI);
+          }
+          prevArm[side]={upper,flex};
           finite=finite&&q.toArray().every(Number.isFinite);
           if(prev[side]) {const angle=q.angleTo(prev[side])*180/Math.PI;maxStep=Math.max(maxStep,angle);if(angle>25)jumpFrames++;}
           prev[side]=q.clone();
         }
       }
       Signer.stop();
-      results.push({id:item.id,max_step_deg:Math.round(maxStep*100)/100,jump_frames:jumpFrames,body_overlap_mm:Math.round(maxBodyOverlap*1000),finite});
+      results.push({id:item.id,max_step_deg:Math.round(maxStep*100)/100,jump_frames:jumpFrames,body_overlap_mm:Math.round(maxBodyOverlap*1000),
+        upper_step_deg:maxArmStep,elbow_step_deg:maxElbowStep,hinge_error_deg:maxHingeError,elbow_flex_deg:[minFlex,maxFlex],wrist_twist_deg:maxWristTwist,
+        wrist_bend_deg:maxWristBend,forearm_roll_deg:maxForearmRoll,shoulder_elevation_deg:maxShoulder,
+        bone_length_error_mm:maxLengthError,finite});
       out.textContent=`${results.length}/80`; await new Promise(resolve=>setTimeout(resolve,0));
     }
     out.textContent=JSON.stringify({baseline,signs:results.length,jump_frames:results.reduce((n,r)=>n+r.jump_frames,0),finite:results.every(r=>r.finite),results},null,2);
