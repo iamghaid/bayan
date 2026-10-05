@@ -1,0 +1,212 @@
+[
+  {
+    "id": 11881,
+    "ar": "الله",
+    "candidate_occurrences": 287,
+    "matched_words": {
+      "الله": 286,
+      "فالله": 1
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 11565,
+    "ar": "لا",
+    "candidate_occurrences": 59,
+    "matched_words": {
+      "لا": 59
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 11539,
+    "ar": "الامام",
+    "candidate_occurrences": 20,
+    "matched_words": {
+      "الإمام": 14,
+      "والإمام": 6
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 12143,
+    "ar": "رجل",
+    "candidate_occurrences": 13,
+    "matched_words": {
+      "رجل": 9,
+      "الرجل": 4
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 12411,
+    "ar": "الأول",
+    "candidate_occurrences": 11,
+    "matched_words": {
+      "فأول": 1,
+      "أول": 8,
+      "وأول": 1,
+      "الأول": 1
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 12443,
+    "ar": "ذكر",
+    "candidate_occurrences": 6,
+    "matched_words": {
+      "ذكر": 6
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 12381,
+    "ar": "فرض",
+    "candidate_occurrences": 5,
+    "matched_words": {
+      "فرض": 5
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 12017,
+    "ar": "جميع",
+    "candidate_occurrences": 4,
+    "matched_words": {
+      "جميع": 4
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 12175,
+    "ar": "تحت",
+    "candidate_occurrences": 4,
+    "matched_words": {
+      "تحت": 4
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 8391,
+    "ar": "أنتِ",
+    "candidate_occurrences": 3,
+    "matched_words": {
+      "وأنت": 3
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 12119,
+    "ar": "باب",
+    "candidate_occurrences": 3,
+    "matched_words": {
+      "الباب": 3
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 12241,
+    "ar": "عزيز",
+    "candidate_occurrences": 3,
+    "matched_words": {
+      "العزيز": 2,
+      "عزيز": 1
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 12282,
+    "ar": "معصية",
+    "candidate_occurrences": 3,
+    "matched_words": {
+      "معصية": 3
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 35,
+    "ar": "ؤ",
+    "candidate_occurrences": 2,
+    "matched_words": {
+      "و": 2
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 1544,
+    "ar": "أذى",
+    "candidate_occurrences": 2,
+    "matched_words": {
+      "أذى": 2
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 5871,
+    "ar": "بني",
+    "candidate_occurrences": 2,
+    "matched_words": {
+      "بني": 1,
+      "وبنى": 1
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 8674,
+    "ar": "خطأ",
+    "candidate_occurrences": 2,
+    "matched_words": {
+      "الخطأ": 1,
+      "خطأ": 1
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 9569,
+    "ar": "ثانية",
+    "candidate_occurrences": 2,
+    "matched_words": {
+      "وثانية": 1,
+      "الثانية": 1
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 9683,
+    "ar": "تقدم",
+    "candidate_occurrences": 2,
+    "matched_words": {
+      "تقدم": 2
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  },
+  {
+    "id": 10974,
+    "ar": "قدر",
+    "candidate_occurrences": 2,
+    "matched_words": {
+      "قدر": 2
+    },
+    "source": "https://sshi.sa",
+    "matching_status": "candidate_requires_context_review"
+  }
+]

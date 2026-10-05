@@ -8,7 +8,7 @@
 | Extraction | `sshi_extract.py`, `expand_batch.py`, `needed_signs.py` | Landmarks and staging candidates |
 | Research | `research_sources.py`, `build_morphology_candidates.py`, `build_context_review.py` | Meaning links and review queues |
 | Translation | `translate.py`, `llm_gemini.py`, `apply_translation_holds.py`, `compare_llm.py` | Saved plans and matching holds |
-| Audits | `audit.py`, `audit_lib.py`, `coverage.py`, `summary.py`, `expansion_audit.py`, `khutbah_coverage.py`, `staging_audit.py` | Coverage and integrity reports |
+| Audits | `audit.py`, `audit_lib.py`, `coverage.py`, `summary.py`, `expansion_audit.py`, `khutbah_coverage.py`, `sermon_frequency.py`, `staging_audit.py` | Coverage and integrity reports |
 | Motion regressions | `handfix_test.js`, `hf_chiral.js`, `hf_diag.js`, `hf_dups.js`, `hf_variants.json`, `retarget_test.js` | Tracking and retargeting checks |
 | Releases | `prep_deploy.py`, `prepare_interface_release.py`, `deploy_release.py` | Runtime bundles, held-motion filtering and hosting project verification |
 | Tests | `test_*.py` | Unit/API regressions |

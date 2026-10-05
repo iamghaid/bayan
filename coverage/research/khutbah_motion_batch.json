@@ -1,1400 +1,7 @@
 [
   {
-    "id": 1514,
-    "ar": "نبي",
-    "candidate_word_occurrences": 2,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
     "id": 737,
     "ar": "‏‏مسجد النمرة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 853,
-    "ar": "سليم - سليمة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 854,
-    "ar": "سني",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 857,
-    "ar": "سوء الشك",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 860,
-    "ar": "سوء النية",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 861,
-    "ar": "سوط",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 864,
-    "ar": "شتائم",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 865,
-    "ar": "شجرة الزقوم",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 866,
-    "ar": "شرح",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 867,
-    "ar": "شروط",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 868,
-    "ar": "شروق الشمس",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 870,
-    "ar": "شيعي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 871,
-    "ar": "شيوعي - اشتراكي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 872,
-    "ar": "صالح الأعمال",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 875,
-    "ar": "صحيح أبي داود",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 876,
-    "ar": "صحيح البخاري",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 877,
-    "ar": "صحيح الترمذي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 878,
-    "ar": "صحيح النسائي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 882,
-    "ar": "صديق السوء",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 883,
-    "ar": "صعب",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 885,
-    "ar": "صفوة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 886,
-    "ar": "صنيعة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 887,
-    "ar": "صوفي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 894,
-    "ar": "عادات وتقاليد",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 896,
-    "ar": "عدم التباطؤ",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 898,
-    "ar": "عظام",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 899,
-    "ar": "عقد النكاح",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 902,
-    "ar": "علماني",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 905,
-    "ar": "عيد الاضحي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 906,
-    "ar": "عيد الفطر",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 908,
-    "ar": "غسل الوجه",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 910,
-    "ar": "غسل الكفين اليدين",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 911,
-    "ar": "غلام",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 912,
-    "ar": "غير جائز",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 917,
-    "ar": "فاعل خير",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 918,
-    "ar": "فقدان الذاكرة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 921,
-    "ar": "قتل العمد",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 922,
-    "ar": "قتل الصيد",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 923,
-    "ar": "قرض",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 926,
-    "ar": "قطيعة الرحم",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 928,
-    "ar": "قوة العزيمة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 929,
-    "ar": "قول الزيف",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 932,
-    "ar": "كتمان الشهادة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 934,
-    "ar": "كفيل",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 936,
-    "ar": "كنيسة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 939,
-    "ar": "لبس القفازين للنساء",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 940,
-    "ar": "لبس المخيط للرجال",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 941,
-    "ar": "مأموم",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 943,
-    "ar": "مبطلات الصيام",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 946,
-    "ar": "مجوسي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 947,
-    "ar": "محاسبة النفس",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 948,
-    "ar": "محرم المرأة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 949,
-    "ar": "مخلوق",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 950,
-    "ar": "مرة واحدة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 951,
-    "ar": "مس الفرج",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 952,
-    "ar": "مس ذكره",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 953,
-    "ar": "مس فرجها",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 957,
-    "ar": "مسيحي - نصراني",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 958,
-    "ar": "مشيئة الله",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 959,
-    "ar": "مصاب",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 960,
-    "ar": "مصلحة شخصية",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 961,
-    "ar": "مظلوم",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 962,
-    "ar": "معاني القران",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 965,
-    "ar": "مكروه",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 966,
-    "ar": "ملحد",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 967,
-    "ar": "موالاة الكفار",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 968,
-    "ar": "ميثاق",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 969,
-    "ar": "أرث ميراث",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 970,
-    "ar": "نادم",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 975,
-    "ar": "هندوسي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 977,
-    "ar": "واعظ",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 980,
-    "ar": "يارب",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 982,
-    "ar": "يهودي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 984,
-    "ar": "إبراء الذمة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 988,
-    "ar": "اتهام بالكفر",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 990,
-    "ar": "اختبار",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 992,
-    "ar": "أذكار",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 993,
-    "ar": "إزالة الشعر",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 994,
-    "ar": "إزالة الغموض",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 995,
-    "ar": "إزالة النجاسة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 997,
-    "ar": "استعمال الطيب",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1000,
-    "ar": "استلام",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1001,
-    "ar": "إسماعيلي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1002,
-    "ar": "أشعة الشمس",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1003,
-    "ar": "إشهار الاسلام",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1009,
-    "ar": "اعتناق الإسلام",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1011,
-    "ar": "إعراض",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1013,
-    "ar": "إغواء",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1014,
-    "ar": "اغوجاج",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1022,
-    "ar": "الاجتهاد",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1023,
-    "ar": "الاحتكار",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1024,
-    "ar": "الاحتيال",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1025,
-    "ar": "الأحلام",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1026,
-    "ar": "الأديان",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1028,
-    "ar": "الإرشاد",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1029,
-    "ar": "الإرهاب - إرهاب",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1030,
-    "ar": "الاسبال",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1031,
-    "ar": "الاستجمار",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1033,
-    "ar": "الاستغلال",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1035,
-    "ar": "الاستنجاء",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1038,
-    "ar": "الاستهزاء",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1039,
-    "ar": "الإسراف",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1042,
-    "ar": "الأسوة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1043,
-    "ar": "الإصرار",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1044,
-    "ar": "الاعتدال",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1045,
-    "ar": "إعراض",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1046,
-    "ar": "الأعشاب الطبية",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1048,
-    "ar": "الافتراء",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1049,
-    "ar": "الإفك",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1050,
-    "ar": "الاقتداء",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1051,
-    "ar": "الألفة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1054,
-    "ar": "إمعة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1055,
-    "ar": "الأمن من المكر",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1056,
-    "ar": "الإنابة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1057,
-    "ar": "الانتحار",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1058,
-    "ar": "الانحلال الأخلاقي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1060,
-    "ar": "الإيثار",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1061,
-    "ar": "الإيجابية",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1063,
-    "ar": "البخل",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1064,
-    "ar": "البديل",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1065,
-    "ar": "البذاءة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1066,
-    "ar": "البراء",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1067,
-    "ar": "البصيرة والفراسة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1068,
-    "ar": "البطر",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1071,
-    "ar": "البكاء",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1072,
-    "ar": "البلادة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1073,
-    "ar": "البلوغ",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1074,
-    "ar": "البهتان",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1075,
-    "ar": "التالي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1076,
-    "ar": "التأمل",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1077,
-    "ar": "التأني",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1078,
-    "ar": "التبذير",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1079,
-    "ar": "التبرج",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1080,
-    "ar": "التبصر",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1083,
-    "ar": "التحدي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1084,
-    "ar": "التحرش الجنسي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1085,
-    "ar": "التحريض",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1086,
-    "ar": "التحصين",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1087,
-    "ar": "التخاذل",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1088,
-    "ar": "التخلف عن الجهاد",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1090,
-    "ar": "التخنث",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1091,
-    "ar": "التدبر",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1093,
-    "ar": "التردد",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1094,
-    "ar": "التسمية - البسملة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1096,
-    "ar": "التشاؤم",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1097,
-    "ar": "التشويش",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1098,
-    "ar": "التطفيف",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1099,
-    "ar": "التعارف",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1100,
-    "ar": "التفاؤل",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1101,
-    "ar": "التفرق",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1104,
-    "ar": "التقاعس",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1105,
-    "ar": "التقتير",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1106,
-    "ar": "التكلف",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1107,
-    "ar": "التمديد",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1108,
-    "ar": "التمييز",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1109,
-    "ar": "التناجش",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1110,
-    "ar": "التنازع",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1111,
-    "ar": "التناصح",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1112,
-    "ar": "التناصر",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1113,
-    "ar": "التنفير",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1115,
-    "ar": "التهنئة / تهنئة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1116,
-    "ar": "التواصي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1117,
-    "ar": "التواضع",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1120,
-    "ar": "التوسط",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1121,
-    "ar": "التوسل",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1122,
-    "ar": "التوضيح",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1123,
-    "ar": "التيسير",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1124,
-    "ar": "التيمم",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1125,
-    "ar": "التيمن",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1126,
-    "ar": "الثابت",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1129,
-    "ar": "الثناء",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1130,
-    "ar": "الجحود",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1131,
-    "ar": "الجحيم",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1132,
-    "ar": "الجشع",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1133,
-    "ar": "الجماع",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1134,
-    "ar": "الجن",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1135,
-    "ar": "الجهر",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1136,
-    "ar": "الجهل",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1138,
-    "ar": "الجوع",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1140,
-    "ar": "الحج",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1142,
-    "ar": "الحجارة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1143,
-    "ar": "الحديث النبوي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1144,
-    "ar": "الحرب",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1145,
-    "ar": "الحرية",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1147,
-    "ar": "الحسد",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1149,
-    "ar": "الحشر",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1150,
-    "ar": "الحشمة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1151,
-    "ar": "الحطمة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1152,
-    "ar": "الحفي",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1153,
-    "ar": "الحقد",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1154,
-    "ar": "الحكاية",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1155,
-    "ar": "الحكمة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1156,
-    "ar": "الحلف",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1159,
-    "ar": "الخبث",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1160,
-    "ar": "الخجل",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1161,
-    "ar": "الخداع",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1162,
-    "ar": "الخشوع",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1164,
-    "ar": "الخمار",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1166,
-    "ar": "الخيلاء",
     "candidate_word_occurrences": 0,
     "source": "https://sshi.sa",
     "review_status": "not_reviewed"
@@ -1421,64 +28,8 @@
     "review_status": "not_reviewed"
   },
   {
-    "id": 1173,
-    "ar": "الذكاء",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1174,
-    "ar": "الذل",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1175,
-    "ar": "الذنب",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1178,
-    "ar": "الرأفة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1179,
-    "ar": "الربا",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1182,
-    "ar": "الرخاء",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1183,
-    "ar": "الرشوة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
     "id": 1186,
     "ar": "الرفث",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1188,
-    "ar": "الرقية",
     "candidate_word_occurrences": 0,
     "source": "https://sshi.sa",
     "review_status": "not_reviewed"
@@ -1505,13 +56,6 @@
     "review_status": "not_reviewed"
   },
   {
-    "id": 1193,
-    "ar": "الزهد",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
     "id": 1194,
     "ar": "الساحر",
     "candidate_word_occurrences": 0,
@@ -1521,27 +65,6 @@
   {
     "id": 1196,
     "ar": "السحر",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1197,
-    "ar": "السخاء",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1198,
-    "ar": "السخرية",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1202,
-    "ar": "السرور",
     "candidate_word_occurrences": 0,
     "source": "https://sshi.sa",
     "review_status": "not_reviewed"
@@ -1568,43 +91,8 @@
     "review_status": "not_reviewed"
   },
   {
-    "id": 1208,
-    "ar": "السكينة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
     "id": 1209,
     "ar": "السلبية",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1211,
-    "ar": "السماحة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1213,
-    "ar": "السنة النبوية",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1214,
-    "ar": "الشجاعة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1215,
-    "ar": "الشح",
     "candidate_word_occurrences": 0,
     "source": "https://sshi.sa",
     "review_status": "not_reviewed"
@@ -1624,13 +112,6 @@
     "review_status": "not_reviewed"
   },
   {
-    "id": 1220,
-    "ar": "الشريعة الاسلامية",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
     "id": 1221,
     "ar": "الشعوذة",
     "candidate_word_occurrences": 0,
@@ -1645,22 +126,8 @@
     "review_status": "not_reviewed"
   },
   {
-    "id": 1223,
-    "ar": "شفقة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
     "id": 1224,
     "ar": "الشماتة",
-    "candidate_word_occurrences": 0,
-    "source": "https://sshi.sa",
-    "review_status": "not_reviewed"
-  },
-  {
-    "id": 1225,
-    "ar": "الشهامة",
     "candidate_word_occurrences": 0,
     "source": "https://sshi.sa",
     "review_status": "not_reviewed"
@@ -3495,6 +1962,1539 @@
   {
     "id": 3871,
     "ar": "تزوير",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3872,
+    "ar": "تشحيم",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3873,
+    "ar": "تشرف - يطل",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3874,
+    "ar": "تشوية",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3875,
+    "ar": "تصدي",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3876,
+    "ar": "تصدير",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3878,
+    "ar": "تعداد",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3879,
+    "ar": "تفتيش",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3880,
+    "ar": "تفحيط",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3881,
+    "ar": "تفقيس",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3882,
+    "ar": "تفكك",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3885,
+    "ar": "تكاثف",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3886,
+    "ar": "تكرير",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3887,
+    "ar": "تكسو",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3888,
+    "ar": "تكفل",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3889,
+    "ar": "تلقين",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3890,
+    "ar": "تمثل",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3891,
+    "ar": "تنقيب",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3892,
+    "ar": "تنكيس",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3893,
+    "ar": "تنمية",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3895,
+    "ar": "تهليل",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3896,
+    "ar": "تواضع",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3898,
+    "ar": "تؤرخ - نؤرخ",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3899,
+    "ar": "توسعة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3900,
+    "ar": "توصية",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3901,
+    "ar": "توطين",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3902,
+    "ar": "توقيع",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3903,
+    "ar": "تولية",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3904,
+    "ar": "ثأر",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3905,
+    "ar": "ثقافي",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3906,
+    "ar": "جاد - جدية",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3907,
+    "ar": "جاهلية",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3908,
+    "ar": "جثمان",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3909,
+    "ar": "جذام",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3910,
+    "ar": "جراحة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3911,
+    "ar": "جزية",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3913,
+    "ar": "جلب",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3914,
+    "ar": "جمارك",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3916,
+    "ar": "جهر",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3917,
+    "ar": "جهل",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3918,
+    "ar": "جواز",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3919,
+    "ar": "جيش",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3920,
+    "ar": "حاج",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3921,
+    "ar": "حاكم",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3922,
+    "ar": "حجابة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3923,
+    "ar": "حجاز",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3925,
+    "ar": "حرس وطني",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3927,
+    "ar": "حصن",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3928,
+    "ar": "حضري",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3931,
+    "ar": "حكومة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3932,
+    "ar": "حلال",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3933,
+    "ar": "حليف",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3936,
+    "ar": "حوزة-بحوزتة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3937,
+    "ar": "خاضع",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3938,
+    "ar": "خائب",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3939,
+    "ar": "خرافة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3941,
+    "ar": "خرطوم",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3944,
+    "ar": "خلاء",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3945,
+    "ar": "خلافة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3946,
+    "ar": "خليج",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3947,
+    "ar": "خنجر",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3948,
+    "ar": "خندق",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3950,
+    "ar": "داعية",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3951,
+    "ar": "دبابة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3952,
+    "ar": "دبغ",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3953,
+    "ar": "دراسي",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3954,
+    "ar": "درعية",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3957,
+    "ar": "دهاء",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3958,
+    "ar": "دهان",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3959,
+    "ar": "دهناء",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3960,
+    "ar": "ديانة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3961,
+    "ar": "ديزل",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3962,
+    "ar": "ديوان",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3964,
+    "ar": "ذهل",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3965,
+    "ar": "ربوع",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3966,
+    "ar": "رجاحة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3967,
+    "ar": "رحالة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3968,
+    "ar": "ردة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3970,
+    "ar": "رسمي",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3972,
+    "ar": "رفيق",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3974,
+    "ar": "رماة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3975,
+    "ar": "رماية",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3977,
+    "ar": "رئاسة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3978,
+    "ar": "رياض أطفال",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3979,
+    "ar": "ريح",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3980,
+    "ar": "زائر",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3981,
+    "ar": "زنجي",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3982,
+    "ar": "زهد",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3985,
+    "ar": "ساحر",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3986,
+    "ar": "سائب",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3987,
+    "ar": "سائح",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3988,
+    "ar": "سجل - دفتر",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3990,
+    "ar": "سطر",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3991,
+    "ar": "سكان",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3992,
+    "ar": "سلطان",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3993,
+    "ar": "سلكية",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3995,
+    "ar": "سياسة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3996,
+    "ar": "سيرة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3997,
+    "ar": "شامل",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3998,
+    "ar": "شتى",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 3999,
+    "ar": "شح",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4000,
+    "ar": "شحيح",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4002,
+    "ar": "شرد",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4006,
+    "ar": "مذهل",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4007,
+    "ar": "شفوق_2",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4008,
+    "ar": "شفوق_3",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4009,
+    "ar": "شورى - تشاور",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4010,
+    "ar": "صابون",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4011,
+    "ar": "صارم",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4012,
+    "ar": "صارية",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4013,
+    "ar": "صاع",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4014,
+    "ar": "صد",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4015,
+    "ar": "صدارة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4016,
+    "ar": "صلح",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4017,
+    "ar": "صليب",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4018,
+    "ar": "صمود",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4020,
+    "ar": "ضحى",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4021,
+    "ar": "ضد",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4022,
+    "ar": "ضر",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4023,
+    "ar": "ضم",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4024,
+    "ar": "ضيف",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4025,
+    "ar": "طعم",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4026,
+    "ar": "طعن",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4028,
+    "ar": "طوب",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4030,
+    "ar": "عاصمة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4033,
+    "ar": "عديم",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4035,
+    "ar": "عرب - عربي",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4036,
+    "ar": "عسكرية",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4037,
+    "ar": "عشيرة قبيلة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4038,
+    "ar": "عصبية",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4040,
+    "ar": "عطف",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4041,
+    "ar": "عقب",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4042,
+    "ar": "علف",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4043,
+    "ar": "عمالة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4044,
+    "ar": "عمران",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4045,
+    "ar": "عميل",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4047,
+    "ar": "عيال",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4048,
+    "ar": "غادر",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4049,
+    "ar": "غار",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4050,
+    "ar": "غزوة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4051,
+    "ar": "فاخر",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4052,
+    "ar": "فارس",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4054,
+    "ar": "فاسق",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4056,
+    "ar": "فتنة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4057,
+    "ar": "فرار",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4058,
+    "ar": "فرس",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4061,
+    "ar": "فرقة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4062,
+    "ar": "فسح",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4063,
+    "ar": "فشل",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4064,
+    "ar": "فصاحة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4065,
+    "ar": "فكرة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4066,
+    "ar": "فندق",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4067,
+    "ar": "قاحل",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4068,
+    "ar": "قاضي",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4069,
+    "ar": "قافلة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4071,
+    "ar": "قبض",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4072,
+    "ar": "قبيلة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4073,
+    "ar": "قتال",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4074,
+    "ar": "قرابة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4075,
+    "ar": "قصاص",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4076,
+    "ar": "قصيم",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4077,
+    "ar": "قلعة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4080,
+    "ar": "كادر طبي",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4081,
+    "ar": "كتاتيب",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4082,
+    "ar": "كرب",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4083,
+    "ar": "كيمياء",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4084,
+    "ar": "لسان",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4085,
+    "ar": "لهجة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4086,
+    "ar": "لؤلؤ",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4088,
+    "ar": "ماشية",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4089,
+    "ar": "مبارزة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4090,
+    "ar": "مبايعة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4092,
+    "ar": "متمسك",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4093,
+    "ar": "متناحر",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4094,
+    "ar": "مجانا",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4096,
+    "ar": "مجرم",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4097,
+    "ar": "محاربة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4098,
+    "ar": "محاصرة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4099,
+    "ar": "محاماة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4100,
+    "ar": "محصن",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4101,
+    "ar": "محفل",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4102,
+    "ar": "محلاة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4105,
+    "ar": "مد",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4106,
+    "ar": "مدار جدي",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4107,
+    "ar": "مدرك",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4109,
+    "ar": "مرافق",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4111,
+    "ar": "مرتبة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4112,
+    "ar": "مرتد",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4113,
+    "ar": "مرحلة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4114,
+    "ar": "مرضعة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4115,
+    "ar": "مزدلفة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4116,
+    "ar": "مسودة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4117,
+    "ar": "مسؤول او ولاية",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4119,
+    "ar": "مصاهرة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4121,
+    "ar": "مصلح",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4123,
+    "ar": "مصير",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4124,
+    "ar": "مضخة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4125,
+    "ar": "مضيق",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4126,
+    "ar": "مطبعة - طباعة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4127,
+    "ar": "مطلع",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4128,
+    "ar": "مظاهر",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4131,
+    "ar": "معاناة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4132,
+    "ar": "معتدي",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4133,
+    "ar": "معتقد",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4134,
+    "ar": "معجزة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4137,
+    "ar": "معرض",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4138,
+    "ar": "معماري",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4140,
+    "ar": "مقصد",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4141,
+    "ar": "مقوم مقومات",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4143,
+    "ar": "مكانة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4144,
+    "ar": "مكث",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4145,
+    "ar": "مكسرات",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4146,
+    "ar": "ملاحة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4147,
+    "ar": "ملحوظ",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4148,
+    "ar": "ملذة - ملذات",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4149,
+    "ar": "مماطلة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4150,
+    "ar": "مناوبة",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4152,
+    "ar": "منبسط",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4153,
+    "ar": "منجنيق",
+    "candidate_word_occurrences": 0,
+    "source": "https://sshi.sa",
+    "review_status": "not_reviewed"
+  },
+  {
+    "id": 4154,
+    "ar": "منحدر",
     "candidate_word_occurrences": 0,
     "source": "https://sshi.sa",
     "review_status": "not_reviewed"
