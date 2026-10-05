@@ -31,7 +31,7 @@ python tools/deploy_release.py --output output/release
 
 Use a new empty output directory for each build. Run the deployment wrapper from the repository root; it rejects bundles linked to another project. Do not deploy from a root checkout whose `.vercel/project.json` points elsewhere. Output bundles are ignored by Git. Preserve the project's configured deployment access settings.
 
-The review bundle includes valid motion files and excludes candidates with a `hold_` technical preflight status. Audit records are bound to motion hashes so changing a motion invalidates its earlier preflight. `coverage/expansion/batch_08_review.json` records the latest sampled checks.
+The review bundle includes valid motion files and excludes candidates with a `hold_` technical preflight status. Audit records are bound to motion hashes so changing a motion invalidates its earlier preflight. `coverage/expansion/batch_09_review.json` records the latest sampled checks.
 
 **بالعربية:** النشر دائمًا على `khutbah-sign` ضمن `gheid`. أنشئ مجلد نشر جديدًا، واربطه بالمشروع نفسه، ثم شغّل `deploy_release.py`؛ يتوقف الأمر إذا كان الربط بمشروع آخر. تبقى متغيرات Gemini في إعدادات المشروع الحالي.
 
