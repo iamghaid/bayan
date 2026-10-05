@@ -13,8 +13,8 @@ function dressMan(root, bone) {
     const m = o.material, n = m.name;
     if (/body|low-poly|eye(?!brow)|teeth/i.test(n)) { m.transparent = false; m.depthWrite = true; m.alphaTest = 0; }
     if (/eyebrow|eyelash|short0|hair/i.test(n)) { m.transparent = false; m.alphaTest = 0.5; }
-    if (/body/i.test(n)) { m.color.setRGB(0.86, 0.7, 0.58); m.roughness = 0.7; }   // بشرة حنطية طبيعية (مع ألوان sRGB)        // بشرة حنطية
-    if (/Thobe/.test(n)) { m.roughness = 0.85; m.color.setRGB(0.9, 0.9, 0.88); }
+    if (/body/i.test(n)) { m.color.setRGB(0.72, 0.51, 0.37); m.roughness = 0.82; m.metalness = 0; }
+    if (/Thobe/i.test(n)) { m.roughness = 0.96; m.color.set(0xf0eee7); m.metalness = 0; }
     m.needsUpdate = true;
   });
   // ياقة الثوب وفتحة الصدر بأزرار (مثبتة على الصدر فتتحرك معه)
@@ -63,6 +63,9 @@ function shemaghTexture() {
   for (const x of [32, 96]) for (const y of [32, 96]) { g.fillRect(x - 3, y - 3, 6, 6); }                  // تقاطعات فاتحة
   g.fillStyle = '#b3202a';
   for (const x of [0, 64, 128]) for (const y of [0, 64, 128]) { g.beginPath(); g.moveTo(x, y - 7); g.lineTo(x + 7, y); g.lineTo(x, y + 7); g.lineTo(x - 7, y); g.fill(); }
+  // Fine woven threads soften the flat printed grid, without external textures.
+  g.lineWidth=1;
+  for(let i=0;i<128;i+=4){g.strokeStyle='rgba(110,55,45,.09)';g.beginPath();g.moveTo(i+.5,0);g.lineTo(i+.5,128);g.stroke();g.strokeStyle='rgba(255,255,255,.22)';g.beginPath();g.moveTo(0,i+.5);g.lineTo(128,i+.5);g.stroke();}
   const t = new THREE.CanvasTexture(c);
   t.wrapS = t.wrapT = THREE.RepeatWrapping; t.encoding = THREE.sRGBEncoding; t.anisotropy = 4;
   return t;
@@ -122,7 +125,8 @@ function addShemagh(root, bone) {
     for (let j = 1; j <= NH; j++) {
       const f = j / NH, y = top.y - len * f;
       rh = Math.max(rh, r0 + (extent(az, y) + 0.014 - r0) * S[i]);      // لا يدخل في الأذن أو الخد أو الرقبة أو الكتف
-      const r = rh + 0.012 * f * f * S[i];                                 // اتساع خفيف في الأسفل كالقماش المنسدل
+      const fold = 0.0035 * Math.sin(az * 10) * Math.sin(Math.PI * f) * S[i];
+      const r = rh + 0.006 * f * f * S[i] + fold; // Small fabric folds; keep the face and signing space clear.
       pts.push(new THREE.Vector3(C.x, y, C.z).addScaledVector(d, r));
     }
     // ثنية الحافة: صف أخير للداخل قليلًا فيبدو للقماش سُمك عند الأطراف
@@ -163,14 +167,14 @@ function addShemagh(root, bone) {
   g.setAttribute('skinIndex', new THREE.Uint16BufferAttribute(sIdx, 4));
   g.setAttribute('skinWeight', new THREE.Float32BufferAttribute(sW, 4));
   g.setIndex(idx); g.computeVertexNormals();
-  const mat = new THREE.MeshStandardMaterial({ map: shemaghTexture(), roughness: 0.92, side: THREE.DoubleSide });
+  const mat = new THREE.MeshStandardMaterial({ map: shemaghTexture(), roughness: 0.98, metalness:0, side: THREE.DoubleSide });
   const sh = new THREE.SkinnedMesh(g, mat); sh.name = 'Shemagh'; sh.frustumCulled = false;
   body.parent.add(sh); sh.position.copy(body.position); sh.quaternion.copy(body.quaternion); sh.scale.copy(body.scale);
   sh.updateMatrixWorld(true); sh.bind(body.skeleton, body.bindMatrix);
   if (hair) hair.visible = false;                                          // الشعر كله تحت الشماغ
 
   // العقال: حلقتان سوداوان على قمة الرأس، مائلتان قليلًا (أعلى من الأمام)
-  const agalMat = new THREE.MeshStandardMaterial({ color: 0x151515, roughness: 0.55 });
+  const agalMat = new THREE.MeshStandardMaterial({ color: 0x171a18, roughness: 0.93 });
   for (const [e0, rr] of [[31, 0.0056], [38, 0.0056]]) {
     const ring = [];
     for (let k = 0; k < 48; k++) { const az = k / 48 * 2 * Math.PI, el = (e0 + 6 * Math.cos(az)) * D, d = dirOf(el, az);

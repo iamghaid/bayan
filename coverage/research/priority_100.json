@@ -1,0 +1,1703 @@
+[
+  {
+    "source_id": "16760",
+    "title": "اللهُ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/16760",
+    "normalized_title": "الله",
+    "candidate_sign_ids": [
+      "377",
+      "11554",
+      "11881",
+      "12164",
+      "12330"
+    ],
+    "candidate_motion_ids": [
+      "377"
+    ],
+    "state": "ambiguous_label",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 323,
+    "priority_score": 32300
+  },
+  {
+    "source_id": "176418",
+    "title": "الله",
+    "source_url": "https://terminologyenc.com/ar/browse/term/176418",
+    "normalized_title": "الله",
+    "candidate_sign_ids": [
+      "377",
+      "11554",
+      "11881",
+      "12164",
+      "12330"
+    ],
+    "candidate_motion_ids": [
+      "377"
+    ],
+    "state": "ambiguous_label",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 323,
+    "priority_score": 32300
+  },
+  {
+    "source_id": "5067",
+    "title": "مَنٌّ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/5067",
+    "normalized_title": "من",
+    "candidate_sign_ids": [
+      "9355"
+    ],
+    "candidate_motion_ids": [
+      "9355"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 219,
+    "priority_score": 21930
+  },
+  {
+    "source_id": "612",
+    "title": "يَوْمٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/612",
+    "normalized_title": "يوم",
+    "candidate_sign_ids": [
+      "10320"
+    ],
+    "candidate_motion_ids": [
+      "10320"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 29,
+    "priority_score": 2930
+  },
+  {
+    "source_id": "72475",
+    "title": "يوم الجمعة",
+    "source_url": "https://terminologyenc.com/ar/browse/term/72475",
+    "normalized_title": "يوم الجمعه",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 18,
+    "priority_score": 1805
+  },
+  {
+    "source_id": "10149",
+    "title": "رَسُولٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/10149",
+    "normalized_title": "رسول",
+    "candidate_sign_ids": [
+      "8748"
+    ],
+    "candidate_motion_ids": [
+      "8748"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 17,
+    "priority_score": 1730
+  },
+  {
+    "source_id": "72502",
+    "title": "فَقْدٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/72502",
+    "normalized_title": "فقد",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 15,
+    "priority_score": 1505
+  },
+  {
+    "source_id": "10777",
+    "title": "خير",
+    "source_url": "https://terminologyenc.com/ar/browse/term/10777",
+    "normalized_title": "خير",
+    "candidate_sign_ids": [
+      "3949"
+    ],
+    "candidate_motion_ids": [
+      "3949"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 14,
+    "priority_score": 1430
+  },
+  {
+    "source_id": "5239",
+    "title": "آلَةٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/5239",
+    "normalized_title": "اله",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 14,
+    "priority_score": 1405
+  },
+  {
+    "source_id": "4071",
+    "title": "أَلْيَةٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/4071",
+    "normalized_title": "اليه",
+    "candidate_sign_ids": [
+      "12115"
+    ],
+    "candidate_motion_ids": [],
+    "state": "label_without_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 13,
+    "priority_score": 1320
+  },
+  {
+    "source_id": "8852",
+    "title": "أَلْيَة",
+    "source_url": "https://terminologyenc.com/ar/browse/term/8852",
+    "normalized_title": "اليه",
+    "candidate_sign_ids": [
+      "12115"
+    ],
+    "candidate_motion_ids": [],
+    "state": "label_without_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 13,
+    "priority_score": 1320
+  },
+  {
+    "source_id": "5720",
+    "title": "صَلاةٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/5720",
+    "normalized_title": "صلاه",
+    "candidate_sign_ids": [
+      "8882"
+    ],
+    "candidate_motion_ids": [
+      "8882"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 11,
+    "priority_score": 1130
+  },
+  {
+    "source_id": "176537",
+    "title": "المُؤْمِن",
+    "source_url": "https://terminologyenc.com/ar/browse/term/176537",
+    "normalized_title": "المومن",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 11,
+    "priority_score": 1105
+  },
+  {
+    "source_id": "10674",
+    "title": "الجنة",
+    "source_url": "https://terminologyenc.com/ar/browse/term/10674",
+    "normalized_title": "الجنه",
+    "candidate_sign_ids": [
+      "238"
+    ],
+    "candidate_motion_ids": [
+      "238"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 10,
+    "priority_score": 1030
+  },
+  {
+    "source_id": "14962",
+    "title": "شَيْءٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/14962",
+    "normalized_title": "شيء",
+    "candidate_sign_ids": [
+      "10459"
+    ],
+    "candidate_motion_ids": [
+      "10459"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 10,
+    "priority_score": 1030
+  },
+  {
+    "source_id": "10796",
+    "title": "رحمة",
+    "source_url": "https://terminologyenc.com/ar/browse/term/10796",
+    "normalized_title": "رحمه",
+    "candidate_sign_ids": [
+      "11149"
+    ],
+    "candidate_motion_ids": [
+      "11149"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 9,
+    "priority_score": 930
+  },
+  {
+    "source_id": "36606",
+    "title": "بِرٌّ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/36606",
+    "normalized_title": "بر",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 9,
+    "priority_score": 905
+  },
+  {
+    "source_id": "5149",
+    "title": "بُرٌّ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/5149",
+    "normalized_title": "بر",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 9,
+    "priority_score": 905
+  },
+  {
+    "source_id": "766",
+    "title": "بَـرٌّ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/766",
+    "normalized_title": "بر",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 9,
+    "priority_score": 905
+  },
+  {
+    "source_id": "181714",
+    "title": "الصَّبر",
+    "source_url": "https://terminologyenc.com/ar/browse/term/181714",
+    "normalized_title": "الصبر",
+    "candidate_sign_ids": [
+      "1227",
+      "5153"
+    ],
+    "candidate_motion_ids": [
+      "1227",
+      "5153"
+    ],
+    "state": "ambiguous_label",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 9,
+    "priority_score": 900
+  },
+  {
+    "source_id": "6654",
+    "title": "رَجُلٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/6654",
+    "normalized_title": "رجل",
+    "candidate_sign_ids": [
+      "2064",
+      "11148",
+      "11596",
+      "12143",
+      "12618"
+    ],
+    "candidate_motion_ids": [
+      "2064",
+      "11148"
+    ],
+    "state": "ambiguous_label",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 9,
+    "priority_score": 900
+  },
+  {
+    "source_id": "4078",
+    "title": "أَهْلٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/4078",
+    "normalized_title": "اهل",
+    "candidate_sign_ids": [
+      "3842"
+    ],
+    "candidate_motion_ids": [
+      "3842"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 8,
+    "priority_score": 830
+  },
+  {
+    "source_id": "47728",
+    "title": "حَقٌّ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/47728",
+    "normalized_title": "حق",
+    "candidate_sign_ids": [
+      "10823"
+    ],
+    "candidate_motion_ids": [
+      "10823"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 8,
+    "priority_score": 830
+  },
+  {
+    "source_id": "7616",
+    "title": "هَمٌّ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/7616",
+    "normalized_title": "هم",
+    "candidate_sign_ids": [
+      "9463"
+    ],
+    "candidate_motion_ids": [
+      "9463"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 8,
+    "priority_score": 830
+  },
+  {
+    "source_id": "3622",
+    "title": "بِرُّ الوالِدَيْنِ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/3622",
+    "normalized_title": "بر الوالدين",
+    "candidate_sign_ids": [
+      "1377"
+    ],
+    "candidate_motion_ids": [
+      "1377"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 7,
+    "priority_score": 730
+  },
+  {
+    "source_id": "72529",
+    "title": "عَبْدٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/72529",
+    "normalized_title": "عبد",
+    "candidate_sign_ids": [
+      "12225"
+    ],
+    "candidate_motion_ids": [
+      "12225"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 7,
+    "priority_score": 730
+  },
+  {
+    "source_id": "43613",
+    "title": "الإسلام",
+    "source_url": "https://terminologyenc.com/ar/browse/term/43613",
+    "normalized_title": "الاسلام",
+    "candidate_sign_ids": [
+      "1041"
+    ],
+    "candidate_motion_ids": [],
+    "state": "label_without_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 7,
+    "priority_score": 720
+  },
+  {
+    "source_id": "53650",
+    "title": "القرآن",
+    "source_url": "https://terminologyenc.com/ar/browse/term/53650",
+    "normalized_title": "القران",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 7,
+    "priority_score": 705
+  },
+  {
+    "source_id": "177127",
+    "title": "الكَرِيْم",
+    "source_url": "https://terminologyenc.com/ar/browse/term/177127",
+    "normalized_title": "الكريم",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 7,
+    "priority_score": 705
+  },
+  {
+    "source_id": "71790",
+    "title": "حَدِيث",
+    "source_url": "https://terminologyenc.com/ar/browse/term/71790",
+    "normalized_title": "حديث",
+    "candidate_sign_ids": [
+      "5352",
+      "9757",
+      "11587"
+    ],
+    "candidate_motion_ids": [
+      "5352"
+    ],
+    "state": "ambiguous_label",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 7,
+    "priority_score": 700
+  },
+  {
+    "source_id": "1174",
+    "title": "ذِكْرٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/1174",
+    "normalized_title": "ذكر",
+    "candidate_sign_ids": [
+      "2052",
+      "12205",
+      "12443"
+    ],
+    "candidate_motion_ids": [
+      "2052"
+    ],
+    "state": "ambiguous_label",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 7,
+    "priority_score": 700
+  },
+  {
+    "source_id": "2901",
+    "title": "ذَكَرٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/2901",
+    "normalized_title": "ذكر",
+    "candidate_sign_ids": [
+      "2052",
+      "12205",
+      "12443"
+    ],
+    "candidate_motion_ids": [
+      "2052"
+    ],
+    "state": "ambiguous_label",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 7,
+    "priority_score": 700
+  },
+  {
+    "source_id": "181660",
+    "title": "العلم",
+    "source_url": "https://terminologyenc.com/ar/browse/term/181660",
+    "normalized_title": "العلم",
+    "candidate_sign_ids": [
+      "1261"
+    ],
+    "candidate_motion_ids": [
+      "1261"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 6,
+    "priority_score": 630
+  },
+  {
+    "source_id": "7453",
+    "title": "العِلْمٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/7453",
+    "normalized_title": "العلم",
+    "candidate_sign_ids": [
+      "1261"
+    ],
+    "candidate_motion_ids": [
+      "1261"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 6,
+    "priority_score": 630
+  },
+  {
+    "source_id": "14838",
+    "title": "سُورةٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/14838",
+    "normalized_title": "سوره",
+    "candidate_sign_ids": [
+      "1381"
+    ],
+    "candidate_motion_ids": [
+      "1381"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 6,
+    "priority_score": 630
+  },
+  {
+    "source_id": "176637",
+    "title": "العَظِيْم",
+    "source_url": "https://terminologyenc.com/ar/browse/term/176637",
+    "normalized_title": "العظيم",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 6,
+    "priority_score": 605
+  },
+  {
+    "source_id": "176703",
+    "title": "البَرّ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/176703",
+    "normalized_title": "البر",
+    "candidate_sign_ids": [
+      "11863"
+    ],
+    "candidate_motion_ids": [
+      "11863"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 5,
+    "priority_score": 530
+  },
+  {
+    "source_id": "3635",
+    "title": "تَرْكٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/3635",
+    "normalized_title": "ترك",
+    "candidate_sign_ids": [
+      "9978"
+    ],
+    "candidate_motion_ids": [
+      "9978"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 5,
+    "priority_score": 530
+  },
+  {
+    "source_id": "46071",
+    "title": "ترك",
+    "source_url": "https://terminologyenc.com/ar/browse/term/46071",
+    "normalized_title": "ترك",
+    "candidate_sign_ids": [
+      "9978"
+    ],
+    "candidate_motion_ids": [
+      "9978"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 5,
+    "priority_score": 530
+  },
+  {
+    "source_id": "10399",
+    "title": "تقوى",
+    "source_url": "https://terminologyenc.com/ar/browse/term/10399",
+    "normalized_title": "تقوي",
+    "candidate_sign_ids": [
+      "8535"
+    ],
+    "candidate_motion_ids": [
+      "8535"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 5,
+    "priority_score": 530
+  },
+  {
+    "source_id": "181131",
+    "title": "الحياة",
+    "source_url": "https://terminologyenc.com/ar/browse/term/181131",
+    "normalized_title": "الحياه",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 5,
+    "priority_score": 505
+  },
+  {
+    "source_id": "176419",
+    "title": "الرَّحِيْم",
+    "source_url": "https://terminologyenc.com/ar/browse/term/176419",
+    "normalized_title": "الرحيم",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 5,
+    "priority_score": 505
+  },
+  {
+    "source_id": "15001",
+    "title": "طاعَةٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/15001",
+    "normalized_title": "طاعه",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 5,
+    "priority_score": 505
+  },
+  {
+    "source_id": "11042",
+    "title": "قرب",
+    "source_url": "https://terminologyenc.com/ar/browse/term/11042",
+    "normalized_title": "قرب",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 5,
+    "priority_score": 505
+  },
+  {
+    "source_id": "10344",
+    "title": "أمر",
+    "source_url": "https://terminologyenc.com/ar/browse/term/10344",
+    "normalized_title": "امر",
+    "candidate_sign_ids": [
+      "1367",
+      "9792",
+      "12352"
+    ],
+    "candidate_motion_ids": [
+      "1367"
+    ],
+    "state": "ambiguous_label",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 5,
+    "priority_score": 500
+  },
+  {
+    "source_id": "6680",
+    "title": "فَرْضٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/6680",
+    "normalized_title": "فرض",
+    "candidate_sign_ids": [
+      "914",
+      "12251",
+      "12381"
+    ],
+    "candidate_motion_ids": [
+      "914"
+    ],
+    "state": "ambiguous_label",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 5,
+    "priority_score": 500
+  },
+  {
+    "source_id": "31685",
+    "title": "فَضْلٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/31685",
+    "normalized_title": "فضل",
+    "candidate_sign_ids": [
+      "10958"
+    ],
+    "candidate_motion_ids": [
+      "10958"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 4,
+    "priority_score": 430
+  },
+  {
+    "source_id": "7115",
+    "title": "هادي",
+    "source_url": "https://terminologyenc.com/ar/browse/term/7115",
+    "normalized_title": "هادي",
+    "candidate_sign_ids": [
+      "11311"
+    ],
+    "candidate_motion_ids": [],
+    "state": "label_without_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 4,
+    "priority_score": 420
+  },
+  {
+    "source_id": "11357",
+    "title": "أحمد",
+    "source_url": "https://terminologyenc.com/ar/browse/term/11357",
+    "normalized_title": "احمد",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 4,
+    "priority_score": 405
+  },
+  {
+    "source_id": "75240",
+    "title": "أَهْلُ العِلْمِ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/75240",
+    "normalized_title": "اهل العلم",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 4,
+    "priority_score": 405
+  },
+  {
+    "source_id": "7126",
+    "title": "وِرْدٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/7126",
+    "normalized_title": "ورد",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 4,
+    "priority_score": 405
+  },
+  {
+    "source_id": "6241",
+    "title": "حَجْرٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/6241",
+    "normalized_title": "حجر",
+    "candidate_sign_ids": [
+      "12137",
+      "12613"
+    ],
+    "candidate_motion_ids": [],
+    "state": "ambiguous_label",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 4,
+    "priority_score": 400
+  },
+  {
+    "source_id": "46045",
+    "title": "الإيمان",
+    "source_url": "https://terminologyenc.com/ar/browse/term/46045",
+    "normalized_title": "الايمان",
+    "candidate_sign_ids": [
+      "1062"
+    ],
+    "candidate_motion_ids": [
+      "1062"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 330
+  },
+  {
+    "source_id": "176536",
+    "title": "السَّلَام",
+    "source_url": "https://terminologyenc.com/ar/browse/term/176536",
+    "normalized_title": "السلام",
+    "candidate_sign_ids": [
+      "11872"
+    ],
+    "candidate_motion_ids": [
+      "11872"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 330
+  },
+  {
+    "source_id": "3630",
+    "title": "السَلامٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/3630",
+    "normalized_title": "السلام",
+    "candidate_sign_ids": [
+      "11872"
+    ],
+    "candidate_motion_ids": [
+      "11872"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 330
+  },
+  {
+    "source_id": "36615",
+    "title": "أَيْمانٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/36615",
+    "normalized_title": "ايمان",
+    "candidate_sign_ids": [
+      "3846"
+    ],
+    "candidate_motion_ids": [
+      "3846"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 330
+  },
+  {
+    "source_id": "14978",
+    "title": "خَوْفٍ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/14978",
+    "normalized_title": "خوف",
+    "candidate_sign_ids": [
+      "10850"
+    ],
+    "candidate_motion_ids": [
+      "10850"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 330
+  },
+  {
+    "source_id": "16774",
+    "title": "خَوْفٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/16774",
+    "normalized_title": "خوف",
+    "candidate_sign_ids": [
+      "10850"
+    ],
+    "candidate_motion_ids": [
+      "10850"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 330
+  },
+  {
+    "source_id": "31680",
+    "title": "عَملٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/31680",
+    "normalized_title": "عمل",
+    "candidate_sign_ids": [
+      "2308"
+    ],
+    "candidate_motion_ids": [
+      "2308"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 330
+  },
+  {
+    "source_id": "64589",
+    "title": "عَمَلٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/64589",
+    "normalized_title": "عمل",
+    "candidate_sign_ids": [
+      "2308"
+    ],
+    "candidate_motion_ids": [
+      "2308"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 330
+  },
+  {
+    "source_id": "7003",
+    "title": "عَيْنٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/7003",
+    "normalized_title": "عين",
+    "candidate_sign_ids": [
+      "2310"
+    ],
+    "candidate_motion_ids": [
+      "2310"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 330
+  },
+  {
+    "source_id": "36592",
+    "title": "نَفْسٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/36592",
+    "normalized_title": "نفس",
+    "candidate_sign_ids": [
+      "11271"
+    ],
+    "candidate_motion_ids": [
+      "11271"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 330
+  },
+  {
+    "source_id": "6202",
+    "title": "وَهْمٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/6202",
+    "normalized_title": "وهم",
+    "candidate_sign_ids": [
+      "9500"
+    ],
+    "candidate_motion_ids": [],
+    "state": "label_without_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 320
+  },
+  {
+    "source_id": "75881",
+    "title": "أُحُد",
+    "source_url": "https://terminologyenc.com/ar/browse/term/75881",
+    "normalized_title": "احد",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 305
+  },
+  {
+    "source_id": "16770",
+    "title": "الإِحْسان",
+    "source_url": "https://terminologyenc.com/ar/browse/term/16770",
+    "normalized_title": "الاحسان",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 305
+  },
+  {
+    "source_id": "181667",
+    "title": "الإحسان",
+    "source_url": "https://terminologyenc.com/ar/browse/term/181667",
+    "normalized_title": "الاحسان",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 305
+  },
+  {
+    "source_id": "176563",
+    "title": "الآخِر",
+    "source_url": "https://terminologyenc.com/ar/browse/term/176563",
+    "normalized_title": "الاخر",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 305
+  },
+  {
+    "source_id": "176609",
+    "title": "الحَكِيْم",
+    "source_url": "https://terminologyenc.com/ar/browse/term/176609",
+    "normalized_title": "الحكيم",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 305
+  },
+  {
+    "source_id": "176635",
+    "title": "الغَفُوْر",
+    "source_url": "https://terminologyenc.com/ar/browse/term/176635",
+    "normalized_title": "الغفور",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 305
+  },
+  {
+    "source_id": "181127",
+    "title": "الكلام",
+    "source_url": "https://terminologyenc.com/ar/browse/term/181127",
+    "normalized_title": "الكلام",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 305
+  },
+  {
+    "source_id": "176420",
+    "title": "المَلِك",
+    "source_url": "https://terminologyenc.com/ar/browse/term/176420",
+    "normalized_title": "الملك",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 305
+  },
+  {
+    "source_id": "14763",
+    "title": "سَبِيلٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/14763",
+    "normalized_title": "سبيل",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 305
+  },
+  {
+    "source_id": "71806",
+    "title": "سُنَنٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/71806",
+    "normalized_title": "سنن",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 305
+  },
+  {
+    "source_id": "71821",
+    "title": "مُتَّفَقٌ عَلَيْهِ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/71821",
+    "normalized_title": "متفق عليه",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 305
+  },
+  {
+    "source_id": "10811",
+    "title": "سنة",
+    "source_url": "https://terminologyenc.com/ar/browse/term/10811",
+    "normalized_title": "سنه",
+    "candidate_sign_ids": [
+      "9577",
+      "11190",
+      "12501"
+    ],
+    "candidate_motion_ids": [
+      "9577",
+      "11190"
+    ],
+    "state": "ambiguous_label",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 300
+  },
+  {
+    "source_id": "1585",
+    "title": "سَنَةٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/1585",
+    "normalized_title": "سنه",
+    "candidate_sign_ids": [
+      "9577",
+      "11190",
+      "12501"
+    ],
+    "candidate_motion_ids": [
+      "9577",
+      "11190"
+    ],
+    "state": "ambiguous_label",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 300
+  },
+  {
+    "source_id": "71807",
+    "title": "سُّنَّةُ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/71807",
+    "normalized_title": "سنه",
+    "candidate_sign_ids": [
+      "9577",
+      "11190",
+      "12501"
+    ],
+    "candidate_motion_ids": [
+      "9577",
+      "11190"
+    ],
+    "state": "ambiguous_label",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 300
+  },
+  {
+    "source_id": "14897",
+    "title": "مَعْصِيَةٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/14897",
+    "normalized_title": "معصيه",
+    "candidate_sign_ids": [
+      "1507",
+      "12282"
+    ],
+    "candidate_motion_ids": [
+      "1507"
+    ],
+    "state": "ambiguous_label",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 300
+  },
+  {
+    "source_id": "7329",
+    "title": "معصيةٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/7329",
+    "normalized_title": "معصيه",
+    "candidate_sign_ids": [
+      "1507",
+      "12282"
+    ],
+    "candidate_motion_ids": [
+      "1507"
+    ],
+    "state": "ambiguous_label",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 3,
+    "priority_score": 300
+  },
+  {
+    "source_id": "181675",
+    "title": "الرضا",
+    "source_url": "https://terminologyenc.com/ar/browse/term/181675",
+    "normalized_title": "الرضا",
+    "candidate_sign_ids": [
+      "1184"
+    ],
+    "candidate_motion_ids": [
+      "1184"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 230
+  },
+  {
+    "source_id": "5070",
+    "title": "الزَكاة",
+    "source_url": "https://terminologyenc.com/ar/browse/term/5070",
+    "normalized_title": "الزكاه",
+    "candidate_sign_ids": [
+      "1424"
+    ],
+    "candidate_motion_ids": [
+      "1424"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 230
+  },
+  {
+    "source_id": "7263",
+    "title": "تَحِيَّةٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/7263",
+    "normalized_title": "تحيه",
+    "candidate_sign_ids": [
+      "10721"
+    ],
+    "candidate_motion_ids": [
+      "10721"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 230
+  },
+  {
+    "source_id": "36652",
+    "title": "تَرْكُ الصَّلاةِ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/36652",
+    "normalized_title": "ترك الصلاه",
+    "candidate_sign_ids": [
+      "785"
+    ],
+    "candidate_motion_ids": [
+      "785"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 230
+  },
+  {
+    "source_id": "6773",
+    "title": "جُلُوسٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/6773",
+    "normalized_title": "جلوس",
+    "candidate_sign_ids": [
+      "8585"
+    ],
+    "candidate_motion_ids": [
+      "8585"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 230
+  },
+  {
+    "source_id": "545",
+    "title": "صَلاةُ الجَماعَةِ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/545",
+    "normalized_title": "صلاه الجماعه",
+    "candidate_sign_ids": [
+      "1480"
+    ],
+    "candidate_motion_ids": [
+      "1480"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 230
+  },
+  {
+    "source_id": "15008",
+    "title": "عبادة",
+    "source_url": "https://terminologyenc.com/ar/browse/term/15008",
+    "normalized_title": "عباده",
+    "candidate_sign_ids": [
+      "10907"
+    ],
+    "candidate_motion_ids": [
+      "10907"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 230
+  },
+  {
+    "source_id": "64580",
+    "title": "عَطاءٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/64580",
+    "normalized_title": "عطاء",
+    "candidate_sign_ids": [
+      "10922"
+    ],
+    "candidate_motion_ids": [
+      "10922"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 230
+  },
+  {
+    "source_id": "176",
+    "title": "غُرُوبٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/176",
+    "normalized_title": "غروب",
+    "candidate_sign_ids": [
+      "8985"
+    ],
+    "candidate_motion_ids": [
+      "8985"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 230
+  },
+  {
+    "source_id": "50187",
+    "title": "فَقِيرٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/50187",
+    "normalized_title": "فقير",
+    "candidate_sign_ids": [
+      "5199"
+    ],
+    "candidate_motion_ids": [
+      "5199"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 230
+  },
+  {
+    "source_id": "36759",
+    "title": "قَولٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/36759",
+    "normalized_title": "قول",
+    "candidate_sign_ids": [
+      "4078"
+    ],
+    "candidate_motion_ids": [
+      "4078"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 230
+  },
+  {
+    "source_id": "8250",
+    "title": "قَوْلٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/8250",
+    "normalized_title": "قول",
+    "candidate_sign_ids": [
+      "4078"
+    ],
+    "candidate_motion_ids": [
+      "4078"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 230
+  },
+  {
+    "source_id": "7349",
+    "title": "كُفْرٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/7349",
+    "normalized_title": "كفر",
+    "candidate_sign_ids": [
+      "1502"
+    ],
+    "candidate_motion_ids": [
+      "1502"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 230
+  },
+  {
+    "source_id": "11061",
+    "title": "لَوْ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/11061",
+    "normalized_title": "لو",
+    "candidate_sign_ids": [
+      "9163"
+    ],
+    "candidate_motion_ids": [
+      "9163"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 230
+  },
+  {
+    "source_id": "7359",
+    "title": "مَرَضٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/7359",
+    "normalized_title": "مرض",
+    "candidate_sign_ids": [
+      "1872"
+    ],
+    "candidate_motion_ids": [
+      "1872"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 230
+  },
+  {
+    "source_id": "64784",
+    "title": "وعد",
+    "source_url": "https://terminologyenc.com/ar/browse/term/64784",
+    "normalized_title": "وعد",
+    "candidate_sign_ids": [
+      "9495"
+    ],
+    "candidate_motion_ids": [
+      "9495"
+    ],
+    "state": "label_with_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 230
+  },
+  {
+    "source_id": "5237",
+    "title": "آلٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/5237",
+    "normalized_title": "ال",
+    "candidate_sign_ids": [
+      "6"
+    ],
+    "candidate_motion_ids": [],
+    "state": "label_without_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 220
+  },
+  {
+    "source_id": "10671",
+    "title": "حجاب",
+    "source_url": "https://terminologyenc.com/ar/browse/term/10671",
+    "normalized_title": "حجاب",
+    "candidate_sign_ids": [
+      "10804"
+    ],
+    "candidate_motion_ids": [],
+    "state": "label_without_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 220
+  },
+  {
+    "source_id": "71772",
+    "title": "داخل",
+    "source_url": "https://terminologyenc.com/ar/browse/term/71772",
+    "normalized_title": "داخل",
+    "candidate_sign_ids": [
+      "12082"
+    ],
+    "candidate_motion_ids": [],
+    "state": "label_without_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 220
+  },
+  {
+    "source_id": "7478",
+    "title": "غَيْرَةٌ",
+    "source_url": "https://terminologyenc.com/ar/browse/term/7478",
+    "normalized_title": "غيره",
+    "candidate_sign_ids": [
+      "6171"
+    ],
+    "candidate_motion_ids": [],
+    "state": "label_without_motion",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 220
+  },
+  {
+    "source_id": "176947",
+    "title": "الحَكَم",
+    "source_url": "https://terminologyenc.com/ar/browse/term/176947",
+    "normalized_title": "الحكم",
+    "candidate_sign_ids": [],
+    "candidate_motion_ids": [],
+    "state": "new_term",
+    "review": "pending",
+    "permission": "not_verified",
+    "playable_approved": false,
+    "khutbah_exact_occurrences": 2,
+    "priority_score": 205
+  }
+]

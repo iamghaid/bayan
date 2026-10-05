@@ -1,0 +1,488 @@
+{
+  "baseline": true,
+  "signs": 80,
+  "jump_frames": 380,
+  "finite": true,
+  "results": [
+    {
+      "id": 2,
+      "max_step_deg": 52.76,
+      "jump_frames": 7,
+      "finite": true
+    },
+    {
+      "id": 377,
+      "max_step_deg": 57.18,
+      "jump_frames": 2,
+      "finite": true
+    },
+    {
+      "id": 36,
+      "max_step_deg": 46.75,
+      "jump_frames": 5,
+      "finite": true
+    },
+    {
+      "id": 31,
+      "max_step_deg": 42.51,
+      "jump_frames": 9,
+      "finite": true
+    },
+    {
+      "id": 4078,
+      "max_step_deg": 52.68,
+      "jump_frames": 1,
+      "finite": true
+    },
+    {
+      "id": 29,
+      "max_step_deg": 95.71,
+      "jump_frames": 3,
+      "finite": true
+    },
+    {
+      "id": 8,
+      "max_step_deg": 50.72,
+      "jump_frames": 4,
+      "finite": true
+    },
+    {
+      "id": 16,
+      "max_step_deg": 94.03,
+      "jump_frames": 5,
+      "finite": true
+    },
+    {
+      "id": 9,
+      "max_step_deg": 111.22,
+      "jump_frames": 4,
+      "finite": true
+    },
+    {
+      "id": 14,
+      "max_step_deg": 52.54,
+      "jump_frames": 6,
+      "finite": true
+    },
+    {
+      "id": 7,
+      "max_step_deg": 48.85,
+      "jump_frames": 3,
+      "finite": true
+    },
+    {
+      "id": 34,
+      "max_step_deg": 44.72,
+      "jump_frames": 3,
+      "finite": true
+    },
+    {
+      "id": 32,
+      "max_step_deg": 49.2,
+      "jump_frames": 6,
+      "finite": true
+    },
+    {
+      "id": 24,
+      "max_step_deg": 103.87,
+      "jump_frames": 6,
+      "finite": true
+    },
+    {
+      "id": 677,
+      "max_step_deg": 45.74,
+      "jump_frames": 3,
+      "finite": true
+    },
+    {
+      "id": 12,
+      "max_step_deg": 48.06,
+      "jump_frames": 4,
+      "finite": true
+    },
+    {
+      "id": 1398,
+      "max_step_deg": 50.31,
+      "jump_frames": 8,
+      "finite": true
+    },
+    {
+      "id": 27,
+      "max_step_deg": 69.77,
+      "jump_frames": 7,
+      "finite": true
+    },
+    {
+      "id": 28,
+      "max_step_deg": 72.65,
+      "jump_frames": 6,
+      "finite": true
+    },
+    {
+      "id": 938,
+      "max_step_deg": 17.53,
+      "jump_frames": 0,
+      "finite": true
+    },
+    {
+      "id": 8882,
+      "max_step_deg": 53.53,
+      "jump_frames": 11,
+      "finite": true
+    },
+    {
+      "id": 18,
+      "max_step_deg": 66.38,
+      "jump_frames": 5,
+      "finite": true
+    },
+    {
+      "id": 12225,
+      "max_step_deg": 96.54,
+      "jump_frames": 31,
+      "finite": true
+    },
+    {
+      "id": 9387,
+      "max_step_deg": 39.71,
+      "jump_frames": 3,
+      "finite": true
+    },
+    {
+      "id": 8535,
+      "max_step_deg": 31.87,
+      "jump_frames": 4,
+      "finite": true
+    },
+    {
+      "id": 1367,
+      "max_step_deg": 26.6,
+      "jump_frames": 1,
+      "finite": true
+    },
+    {
+      "id": 9560,
+      "max_step_deg": 86.8,
+      "jump_frames": 5,
+      "finite": true
+    },
+    {
+      "id": 13,
+      "max_step_deg": 47.79,
+      "jump_frames": 5,
+      "finite": true
+    },
+    {
+      "id": 8748,
+      "max_step_deg": 16.47,
+      "jump_frames": 0,
+      "finite": true
+    },
+    {
+      "id": 10320,
+      "max_step_deg": 45.88,
+      "jump_frames": 4,
+      "finite": true
+    },
+    {
+      "id": 10,
+      "max_step_deg": 56.56,
+      "jump_frames": 6,
+      "finite": true
+    },
+    {
+      "id": 19,
+      "max_step_deg": 94.17,
+      "jump_frames": 4,
+      "finite": true
+    },
+    {
+      "id": 9282,
+      "max_step_deg": 45.55,
+      "jump_frames": 6,
+      "finite": true
+    },
+    {
+      "id": 8960,
+      "max_step_deg": 17.85,
+      "jump_frames": 0,
+      "finite": true
+    },
+    {
+      "id": 419,
+      "max_step_deg": 27.03,
+      "jump_frames": 1,
+      "finite": true
+    },
+    {
+      "id": 11,
+      "max_step_deg": 46.36,
+      "jump_frames": 4,
+      "finite": true
+    },
+    {
+      "id": 26,
+      "max_step_deg": 75.51,
+      "jump_frames": 6,
+      "finite": true
+    },
+    {
+      "id": 935,
+      "max_step_deg": 13.46,
+      "jump_frames": 0,
+      "finite": true
+    },
+    {
+      "id": 8452,
+      "max_step_deg": 41.63,
+      "jump_frames": 2,
+      "finite": true
+    },
+    {
+      "id": 3949,
+      "max_step_deg": 50.29,
+      "jump_frames": 5,
+      "finite": true
+    },
+    {
+      "id": 5352,
+      "max_step_deg": 97.56,
+      "jump_frames": 9,
+      "finite": true
+    },
+    {
+      "id": 2308,
+      "max_step_deg": 41.77,
+      "jump_frames": 7,
+      "finite": true
+    },
+    {
+      "id": 8355,
+      "max_step_deg": 33.32,
+      "jump_frames": 2,
+      "finite": true
+    },
+    {
+      "id": 12244,
+      "max_step_deg": 45.38,
+      "jump_frames": 18,
+      "finite": true
+    },
+    {
+      "id": 9484,
+      "max_step_deg": 46.74,
+      "jump_frames": 2,
+      "finite": true
+    },
+    {
+      "id": 10601,
+      "max_step_deg": 47.54,
+      "jump_frames": 9,
+      "finite": true
+    },
+    {
+      "id": 1793,
+      "max_step_deg": 54.77,
+      "jump_frames": 5,
+      "finite": true
+    },
+    {
+      "id": 9576,
+      "max_step_deg": 53.32,
+      "jump_frames": 4,
+      "finite": true
+    },
+    {
+      "id": 22,
+      "max_step_deg": 50.5,
+      "jump_frames": 5,
+      "finite": true
+    },
+    {
+      "id": 3915,
+      "max_step_deg": 62.84,
+      "jump_frames": 6,
+      "finite": true
+    },
+    {
+      "id": 537,
+      "max_step_deg": 31.24,
+      "jump_frames": 2,
+      "finite": true
+    },
+    {
+      "id": 11148,
+      "max_step_deg": 42.09,
+      "jump_frames": 3,
+      "finite": true
+    },
+    {
+      "id": 6164,
+      "max_step_deg": 47.22,
+      "jump_frames": 6,
+      "finite": true
+    },
+    {
+      "id": 1366,
+      "max_step_deg": 61.9,
+      "jump_frames": 6,
+      "finite": true
+    },
+    {
+      "id": 317,
+      "max_step_deg": 30.56,
+      "jump_frames": 3,
+      "finite": true
+    },
+    {
+      "id": 475,
+      "max_step_deg": 24.11,
+      "jump_frames": 0,
+      "finite": true
+    },
+    {
+      "id": 11271,
+      "max_step_deg": 34.7,
+      "jump_frames": 3,
+      "finite": true
+    },
+    {
+      "id": 8464,
+      "max_step_deg": 26.55,
+      "jump_frames": 1,
+      "finite": true
+    },
+    {
+      "id": 1181,
+      "max_step_deg": 40.8,
+      "jump_frames": 3,
+      "finite": true
+    },
+    {
+      "id": 17,
+      "max_step_deg": 100.24,
+      "jump_frames": 5,
+      "finite": true
+    },
+    {
+      "id": 1227,
+      "max_step_deg": 20.12,
+      "jump_frames": 0,
+      "finite": true
+    },
+    {
+      "id": 3842,
+      "max_step_deg": 82.28,
+      "jump_frames": 17,
+      "finite": true
+    },
+    {
+      "id": 20,
+      "max_step_deg": 71.86,
+      "jump_frames": 7,
+      "finite": true
+    },
+    {
+      "id": 1,
+      "max_step_deg": 47.36,
+      "jump_frames": 5,
+      "finite": true
+    },
+    {
+      "id": 9032,
+      "max_step_deg": 41.22,
+      "jump_frames": 2,
+      "finite": true
+    },
+    {
+      "id": 9311,
+      "max_step_deg": 44.81,
+      "jump_frames": 6,
+      "finite": true
+    },
+    {
+      "id": 6107,
+      "max_step_deg": 22.75,
+      "jump_frames": 0,
+      "finite": true
+    },
+    {
+      "id": 9978,
+      "max_step_deg": 35.81,
+      "jump_frames": 3,
+      "finite": true
+    },
+    {
+      "id": 10823,
+      "max_step_deg": 77.02,
+      "jump_frames": 4,
+      "finite": true
+    },
+    {
+      "id": 25,
+      "max_step_deg": 41.37,
+      "jump_frames": 4,
+      "finite": true
+    },
+    {
+      "id": 8466,
+      "max_step_deg": 70.78,
+      "jump_frames": 7,
+      "finite": true
+    },
+    {
+      "id": 238,
+      "max_step_deg": 40.23,
+      "jump_frames": 4,
+      "finite": true
+    },
+    {
+      "id": 153,
+      "max_step_deg": 35.56,
+      "jump_frames": 3,
+      "finite": true
+    },
+    {
+      "id": 10369,
+      "max_step_deg": 38.21,
+      "jump_frames": 5,
+      "finite": true
+    },
+    {
+      "id": 11198,
+      "max_step_deg": 54.56,
+      "jump_frames": 3,
+      "finite": true
+    },
+    {
+      "id": 12555,
+      "max_step_deg": 39.84,
+      "jump_frames": 2,
+      "finite": true
+    },
+    {
+      "id": 6103,
+      "max_step_deg": 49.6,
+      "jump_frames": 3,
+      "finite": true
+    },
+    {
+      "id": 9000,
+      "max_step_deg": 62.55,
+      "jump_frames": 4,
+      "finite": true
+    },
+    {
+      "id": 5153,
+      "max_step_deg": 56.79,
+      "jump_frames": 4,
+      "finite": true
+    },
+    {
+      "id": 6065,
+      "max_step_deg": 63.63,
+      "jump_frames": 3,
+      "finite": true
+    }
+  ]
+}

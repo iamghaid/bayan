@@ -21,6 +21,10 @@ const Signer = (() => {
       ['Proximal', 'Intermediate', 'Distal'].forEach((sg, k) => GE[s + f + sg] = `${g}_0${k + 1}_${x}`);
   }
   let boneMap = null;   // للنماذج العادية (GLB): اسم ← عظمة
+  let reviewSafety = false;
+  let safetyCorrections = 0;
+  let poseDiagnostics = null;
+  let rotationDt = 1 / 60;
   const bone = n => vrm && (boneMap ? boneMap[GE[n]] : vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName[n]));
   const wpos = b => b.getWorldPosition(new THREE.Vector3());
   const parentWorld = n => bone(n).parent.getWorldQuaternion(new THREE.Quaternion());
@@ -30,14 +34,20 @@ const Signer = (() => {
     renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(33, 1, 0.1, 20);
-    camera.position.set(0, 1.5, 2.25); camera.lookAt(0, 1.45, 0);
+    camera.position.set(0, 1.45, 2.7); camera.lookAt(0, 1.3, 0);
     renderer.outputEncoding = THREE.sRGBEncoding;               // ألوان صحيحة للنسيج (بدونها تبدو البشرة برتقالية داكنة)
     renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 0.9;
-    scene.add(new THREE.HemisphereLight(0xffffff, 0x9c968c, 0.45));   // إضاءة محيطة طبيعية
-    const key = new THREE.DirectionalLight(0xfff4e8, 1.5); key.position.set(0.6, 1.4, 2.0); scene.add(key);     // رئيسية دافئة من الأمام
-    const fill = new THREE.DirectionalLight(0xe8f0ff, 0.3); fill.position.set(-1.2, 0.8, 1.2); scene.add(fill);  // تعبئة من الجانب
+    scene.add(new THREE.HemisphereLight(0xf4f7ff, 0x8c9489, 0.62));
+    const key = new THREE.DirectionalLight(0xfff5eb, 1.15); key.position.set(1.2, 2.3, 2.0); scene.add(key);
+    const fill = new THREE.DirectionalLight(0xe8f0ff, 0.48); fill.position.set(-1.2, 1.6, 1.8); scene.add(fill);
     const rim = new THREE.DirectionalLight(0xffffff, 0.35); rim.position.set(0, 1.6, -2); scene.add(rim);        // حافة خلفية تفصل الجسم عن الخلفية
-    const resize = () => { const w = canvas.clientWidth, h = canvas.clientHeight; if (!w || !h) return; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); };
+    const resize = () => {
+      const w = canvas.clientWidth, h = canvas.clientHeight; if (!w || !h) return;
+      renderer.setSize(w, h, false); camera.aspect = w / h;
+      // Reserve 1.6 m horizontally; narrow screens must not crop the signing space.
+      camera.position.z = Math.max(2.7, 1.6 / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.aspect));
+      camera.lookAt(0, 1.3, 0); camera.updateProjectionMatrix();
+    };
     new ResizeObserver(resize).observe(canvas); resize();
     requestAnimationFrame(loop);
     modelUrl = modelUrl || 'avatar/man.glb';
@@ -120,11 +130,60 @@ const Signer = (() => {
   }
   function aimHand(name, p, a, parentW) {
     const r = REST_W[name]; if (!r) return null;
+    // A collapsed palm basis has no reliable rotation. Keep the last pose.
+    if (p.lengthSq() < 1e-10 || a.lengthSq() < 1e-10 || new THREE.Vector3().crossVectors(p, a).lengthSq() < 1e-12) return null;
     const m = basis(p, a).multiply(basis(r.dir, r.across).transpose());
     const world = new THREE.Quaternion().setFromRotationMatrix(m).multiply(r.q);
     return { world, local: parentW.clone().invert().multiply(world) };
   }
-  const set = (name, res, amt) => { if (res) bone(name).quaternion.slerp(res.local, amt); };
+  function set(name, res, amt) {
+    const b = bone(name); if (!b || !res) return;
+    // Parents are smoothed too: convert against their ACTUAL pose, not the
+    // unsmoothed target used to calculate res.local. Otherwise wrist rotation
+    // inherits the arm's lag and fingers inherit the wrist's lag a second time.
+    const local = b.parent.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(res.world);
+    b.quaternion.slerp(local, amt).normalize();
+    b.updateMatrixWorld(true);
+  }
+  function setHand(name, target, previousWorld, amt) {
+    const b = bone(name); if (!b || !target) return;
+    // Interpolate the wrist in world space so moving the elbow cannot add
+    // an extra rotation. Bound a tracking flip instead of snapping 180°.
+    const angle = previousWorld.angleTo(target.world);
+    const step = THREE.MathUtils.degToRad(540) * rotationDt;
+    const fraction = Math.min(amt, angle > 1e-8 ? step / angle : 1);
+    const world = previousWorld.clone().slerp(target.world, fraction);
+    b.quaternion.copy(b.parent.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(world)).normalize();
+    b.updateMatrixWorld(true);
+  }
+  function constrainWrist(side) {
+    const hand = bone(side + 'Hand'), lower = bone(side + 'LowerArm');
+    const rest = REST_W[side + 'LowerArm'];
+    if (!hand || !lower || !rest || !BIND || !BIND[side + 'Hand']) return;
+    // Pronation belongs to the forearm, not to an axial twist in the wrist.
+    // Rolling around the forearm's own longitudinal axis preserves wrist
+    // position and the intended world-space palm orientation.
+    const axis = rest.dir.clone().applyQuaternion(rest.q.clone().invert()).normalize();
+    const desired = hand.getWorldQuaternion(new THREE.Quaternion());
+    const delta = hand.quaternion.clone().multiply(BIND[side + 'Hand'].clone().invert()).normalize();
+    const projection = new THREE.Vector3(delta.x, delta.y, delta.z).dot(axis);
+    const twist = new THREE.Quaternion(axis.x * projection, axis.y * projection, axis.z * projection, delta.w);
+    if (twist.lengthSq() > 1e-10) {
+      twist.normalize();
+      lower.quaternion.multiply(twist).normalize(); lower.updateMatrixWorld(true);
+      hand.quaternion.copy(lower.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(desired));
+    }
+    // Reject extreme wrist bending while retaining the original palm target
+    // whenever it is inside this conservative demo envelope.
+    const bend = hand.quaternion.clone().multiply(BIND[side + 'Hand'].clone().invert()).normalize();
+    const angle = 2 * Math.acos(Math.min(1, Math.abs(bend.w)));
+    const maximum = THREE.MathUtils.degToRad(75);
+    if (angle > maximum) {
+      bend.identity().slerp(hand.quaternion.clone().multiply(BIND[side + 'Hand'].clone().invert()).normalize(), maximum / angle);
+      hand.quaternion.copy(bend.multiply(BIND[side + 'Hand'])).normalize();
+    }
+    hand.updateMatrixWorld(true);
+  }
 
   // فك الصيغة المضغوطة: [w(27), p(4), l(63)|0, r(63)|0, mouth] أعداد ×1000
   function decode(d) {
@@ -212,6 +271,8 @@ const Signer = (() => {
   function applyFrame(f, asp, amt, d) {
     const W = i => { const q = f.w[WI[i]]; return V(q[0], -q[1], -q[2]); };
     const armW = {};
+    const previousHands = {};
+    for (const s of ['Left', 'Right']) previousHands[s] = bone(s + 'Hand').getWorldQuaternion(new THREE.Quaternion());
     // إصلاحات موضعية لهذه الإشارة عند هذا الإطار (signfix.js) — لا شيء لغيرها
     const fx = (window.SignFix && d && d._x != null) ? SignFix.at(d, d._x) : null;
     const fxOf = (s, key) => fx ? fx[s].filter(e => e[key]) : [];
@@ -226,7 +287,7 @@ const Signer = (() => {
       const ua = aim(s + 'UpperArm', E.clone().sub(W(sh)), parentWorld(s + 'UpperArm')); if (!ua) continue;
       const la = aim(s + 'LowerArm', R.clone().sub(E), ua.world);
       set(s + 'UpperArm', ua, amt); set(s + 'LowerArm', la, amt);
-      armW[s] = la ? la.world : ua.world;
+      armW[s] = bone(s + 'LowerArm').getWorldQuaternion(new THREE.Quaternion());
     }
     for (const s in f.hands) {
       if (!armW[s]) continue;
@@ -246,7 +307,8 @@ const Signer = (() => {
       const H = rotM ? (i => H0(i).sub(H0(0)).applyMatrix4(rotM)) : H0;
       const hr = aimHand(s + 'Hand', dirV, accV, armW[s] || parentWorld(s + 'Hand'));
       if (!hr) continue;
-      set(s + 'Hand', hr, amt);
+      setHand(s + 'Hand', hr, previousHands[s], amt);
+      const actualHandW = bone(s + 'Hand').getWorldQuaternion(new THREE.Quaternion());
       // عمودي على الكف باتجاه الراحة: الضرب الاتجاهي يعطي الراحة لليد اليمنى وظهر الكف لليسرى (صورة مرآة)
       const palmN = new THREE.Vector3().crossVectors(dirV, accV).normalize();
       if (s === 'Left') palmN.negate();
@@ -265,19 +327,27 @@ const Signer = (() => {
         return { dirs, w: sh.w };
       };
       for (const fg in FING) {
-        const ix = FING[fg], st = {}, ov = ovOf(fg); let pW = hr.world, prev = null;
+        const ix = FING[fg], st = {}, ov = ovOf(fg); let pW = actualHandW.clone(), prev = null;
         SEG.forEach((sg, k) => {
           const n = s + fg + sg;
           // المفصل الطرفي بلا عظمة بعده في النموذج: ينثني مع الأوسط بنسبة ثلاثة أرباع (كما في اليد الحقيقية)
           const nxt = k === 0 ? H(ix[2]).sub(H(ix[1])) : null;
           const res = REST_W[n] ? aim(n, fingerDir(H(ix[k + 1]).sub(H(ix[k])), pW, n, k, fg, palmN, st, nxt, ov), pW)
             : (prev && { local: (BIND && BIND[n]) ? BIND[n].clone().slerp(prev, 0.75) : prev, world: pW });
-          if (!res) return; set(n, res, amt); pW = res.world; prev = res.local;
+          if (!res) return; set(n, res, amt);
+          pW = bone(n).getWorldQuaternion(new THREE.Quaternion()); prev = bone(n).quaternion.clone();
         });
       }
     }
     // يد بلا بيانات أو ذراع في وضع الراحة: نرخي الأصابع بهدوء
     for (const s of ['Left', 'Right']) if (!f.hands[s] || !armW[s]) FINGERS.forEach(n => rot(s + n, [0, 0, 0], amt * 0.3));
+    // The untracked/rest path also inherits arm rotation. Bound it before
+    // contact solving, so intentional fingertip/face contacts use this pose.
+    for (const s of ['Left', 'Right']) {
+      const world = bone(s + 'Hand').getWorldQuaternion(new THREE.Quaternion());
+      setHand(s + 'Hand', {world}, previousHands[s], 1);
+      constrainWrist(s);
+    }
     // الرأس: التفات وإيماء خفيفان فقط من الأنف ومنتصف الأذنين (الميلان الجانبي غير موثوق فنتجاهله)
     const ears = W(7).add(W(8)).multiplyScalar(0.5), fwd = W(0).sub(ears);
     const cl = (v, m) => Math.max(-m, Math.min(m, v));
@@ -402,13 +472,51 @@ const Signer = (() => {
     const E3 = wpos(lb); turnBone(lb, wpos(hb).sub(E3), T2.clone().sub(E3));
     hb.quaternion.copy(lb.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(handW)); hb.updateMatrixWorld(true);
   }
-  function separate(s, base, w) {
+  function separate(s, base, w, tolerance = 5e-4) {
     for (let it = 0; it < 3; it++) {
       const A = handBalls(s), B = handBalls(base); let best = 0, dir = null;
       for (const a of A) for (const b of B) { const v = a.p.clone().sub(b.p), o = a.r + b.r - v.length(); if (o > best) { best = o; dir = v.normalize(); } }
-      if (!dir || best < 5e-4) return;
+      if (!dir || best < tolerance) return;
+      // Coincident centres have no normal; choose the anatomical outward direction.
+      if (dir.lengthSq() < 1e-10) dir = V(s === 'Right' ? -1 : 1, 0, 0);
       armIK(s, dir.multiplyScalar(best * w));
     }
+  }
+  // Final-pose checks are opt-in for staged review, with intentional contacts preserved.
+  function guardReviewHands(fx) {
+    vrm.scene.updateMatrixWorld(true);
+    const explicitContact = fx && ['Left', 'Right'].some(s => fx[s].some(e => e.hands));
+    if (!explicitContact) separate('Right', 'Left', 0.7, 0.012);
+    for (const side of ['Left', 'Right']) {
+      const shoulder = bone(side + 'UpperArm'), hand = bone(side + 'Hand');
+      if (!shoulder || !hand) continue;
+      const plane = wpos(shoulder).z + 0.035;
+      const points = handBalls(side);
+      const back = Math.min(wpos(hand).z, ...points.map(ball => ball.p.z - ball.r));
+      if (back < plane) {
+        armIK(side, V(0, 0, Math.min(0.06, plane - back)));
+        safetyCorrections++;
+      }
+    }
+    vrm.scene.updateMatrixWorld(true);
+  }
+  // Conservative proxies, not a mesh collision test or linguistic approval.
+  function inspectPose(fx) {
+    vrm.scene.updateMatrixWorld(true);
+    const hands = ['Left', 'Right'].map(side => ({side, balls: handBalls(side)}));
+    let overlap = 0;
+    for (const a of hands[0].balls) for (const b of hands[1].balls)
+      overlap = Math.max(overlap, a.r + b.r - a.p.distanceTo(b.p));
+    const intentionalContact = !!(fx && ['Left', 'Right'].some(s => fx[s].some(e => e.hands)));
+    const behind = [], outside = [];
+    for (const {side, balls} of hands) {
+      const plane = wpos(bone(side + 'UpperArm')).z + 0.035;
+      if (balls.some(b => b.p.z - b.r < plane - 0.005)) behind.push(side);
+      if (balls.some(b => { const p = b.p.clone().project(camera); return Math.abs(p.x) > 0.96 || Math.abs(p.y) > 0.96 || p.z < -1 || p.z > 1; })) outside.push(side);
+    }
+    return {motion: cur && cur.it && cur.it.motion, seconds: cur ? cur.t : 0,
+      behind, outside, overlap_mm: Math.round(overlap * 1000), intentional_contact: intentionalContact,
+      overlap_warning: !intentionalContact && overlap > 0.012};
   }
   // لا تدخل أي نقطة من اليد في سطح الرأس/الوجه (تُفحص فقط لليد التي لها تلامس مع الوجه)
   function faceSafety(s) {
@@ -505,6 +613,7 @@ const Signer = (() => {
   }
   function frame(dt) {
     if (!vrm) return;
+    rotationDt = Math.max(1 / 240, Math.min(0.1, dt));
     if (cur && !paused) {
       cur.t += dt * speed * (cur.rate || 1);
       if (cur.pause) { toRest(0.06); if (cur.t >= cur.pause) next(cur.base); }
@@ -519,10 +628,20 @@ const Signer = (() => {
     } else if (!cur) toRest(0.06);
     breathe(dt);
     vrm.update(dt);
+    // Inspect/correct the pose actually rendered, after breathing and VRM updates.
+    if (reviewSafety && cur && cur.d) {
+      const fx = window.SignFix && cur.d._x != null ? SignFix.at(cur.d, cur.d._x) : null;
+      if (!paused) guardReviewHands(fx);
+      poseDiagnostics = inspectPose(fx);
+    } else poseDiagnostics = null;
     renderer.render(scene, camera);
   }
   return {
     init, playList, stop, load,
+    set reviewSafety(v) { reviewSafety = !!v; safetyCorrections = 0; },
+    get reviewSafety() { return reviewSafety; },
+    get safetyCorrections() { return safetyCorrections; },
+    get poseDiagnostics() { return poseDiagnostics; },
     set speed(v) { speed = v; }, get speed() { return speed; },
     set paused(v) { paused = !!v; }, get paused() { return paused; },
     get ready() { return !!vrm; }, _bone: bone, _anch: () => ANCH, _hp: handPoint, _aw: anchorW, _dbg: () => cur && { t: cur.t, id: cur.it && cur.it.motion, n: cur.d && cur.d.frames.length },

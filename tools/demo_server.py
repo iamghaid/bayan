@@ -1,0 +1,302 @@
+"""Local audio/text demo. Run: python tools/demo_server.py"""
+import base64
+import json
+import os
+import re
+import socket
+import urllib.error
+import urllib.request
+from functools import partial
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+try:
+    from tools.review_assistant import ReviewAssistantHandler
+except ModuleNotFoundError:
+    from review_assistant import ReviewAssistantHandler
+
+ROOT = Path(__file__).resolve().parent.parent
+MAX_AUDIO = 4 * 1024 * 1024
+MIMES = {'audio/mpeg', 'audio/mp3', 'audio/wav', 'audio/x-wav', 'audio/webm', 'audio/ogg', 'audio/mp4', 'audio/flac'}
+WORDS = json.loads((ROOT / 'coverage/sshi_words_v2.json').read_text(encoding='utf-8'))
+BY_ID = {str(w['id']): w for w in WORDS}
+TERM_FILE = ROOT / 'coverage/research/terminology_candidates.json'
+MORPH_FILE = ROOT / 'coverage/research/morphology_candidates.json'
+MORPH_INDEX = json.loads(MORPH_FILE.read_text(encoding='utf-8'))['words'] if MORPH_FILE.exists() else {}
+
+
+def norm(text):
+    return re.sub('[أإآٱ]', 'ا', re.sub(r'[\u064b-\u065f\u0670ـ]', '', text)).replace('ى', 'ي').replace('ة', 'ه').replace('ؤ', 'و').replace('ئ', 'ي')
+
+
+TERM_INDEX = {}
+if TERM_FILE.exists():
+    for term in json.loads(TERM_FILE.read_text(encoding='utf-8')):
+        TERM_INDEX.setdefault(' '.join(norm(term['title']).split()), []).append(
+            {'title': term['title'], 'url': term['source_url'], 'review': 'pending'})
+
+
+def term_references(text):
+    """Meaning references only; title agreement never approves a sign."""
+    tokens = re.findall(r'[ء-ي\u064b-\u065f\u0670ـ]+|[^\sء-ي\u064b-\u065f\u0670ـ]', text)
+    found, seen = [], set()
+    for start in range(len(tokens)):
+        for size in range(min(12, len(tokens) - start), 0, -1):
+            key = ' '.join(norm(t) for t in tokens[start:start + size])
+            if key in TERM_INDEX:
+                for reference in TERM_INDEX[key]:
+                    if reference['url'] not in seen:
+                        found.append({**reference, 'text': ' '.join(tokens[start:start + size])})
+                        seen.add(reference['url'])
+                break
+    return found
+
+
+INDEX = {}
+DIRECT_INDEX = {}
+MOTIONS = {p.stem for p in (ROOT / 'sshi_motion/m').glob('*.json')}
+for word in WORDS:
+    for direct in [word['ar']] + re.split(r'[,،;؛/\n]+', word.get('syn') or ''):
+        direct_key = ' '.join(norm(direct).split()).strip()
+        if direct_key and direct_key != 'null':
+            direct_ids = DIRECT_INDEX.setdefault(direct_key, [])
+            if str(word['id']) not in direct_ids:
+                direct_ids.append(str(word['id']))
+    # Synonyms separated explicitly in the source; do not split phrases into words.
+    names = re.split(r'\s*[-/()،,؛;:]\s*', word['ar'])
+    names.append(word['ar'])
+    synonyms = re.split(r'[,،;؛/:\n]+', word.get('syn') or '')
+    names += synonyms
+    # Single-word source entries sometimes list inflections separated by spaces.
+    # Keep these as proposed aliases, never as reviewed semantic equivalence.
+    if len(word['ar'].split()) == 1:
+        names += (word.get('syn') or '').split()
+    # Article-free aliases extend recall while retaining all competing sign IDs.
+    for name in names[:]:
+        parts = name.split()
+        if parts:
+            names.append(' '.join(p[2:] if norm(p).startswith('ال') and len(p) > 4 else p for p in parts))
+    for name in names:
+        key = ' '.join(norm(name).split()).strip()
+        if key and key != 'null':
+            ids = INDEX.setdefault(key, [])
+            if str(word['id']) not in ids:
+                ids.append(str(word['id']))
+# Direct source matches take precedence over derived aliases.
+INDEX.update(DIRECT_INDEX)
+MAX_PHRASE = min(12, max(len(key.split()) for key in INDEX))
+
+
+def lookup(text):
+    key = norm(text)
+    if key in INDEX:
+        return INDEX[key], 'dictionary'
+    # Only propose clitic variants; they remain unreviewed, never drop negation.
+    if ' ' not in key and key not in {'لا', 'لم', 'لن', 'ليس', 'ولا', 'فلا'}:
+        variants = []
+        if key[:1] in {'و', 'ف'} and len(key) > 3:
+            variants.append(key[1:])
+        for value in [key] + variants[:]:
+            if value.startswith('لل') and len(value) > 4:
+                variants.append('ال' + value[2:])
+            if value[:1] in {'ب', 'ك', 'ل'} and len(value) > 4:
+                variants.append(value[1:])
+            if value.startswith('ال') and len(value) > 4:
+                variants.append(value[2:])
+        # Two clitic layers: وبالصلاة -> الصلاة -> صلاة; no root guessing.
+        for value in variants[:]:
+            if value.startswith('ال') and len(value) > 4:
+                variants.append(value[2:])
+            if value[:1] in {'ب', 'ك', 'ل'} and len(value) > 4:
+                variants.append(value[1:])
+        hits = list(dict.fromkeys(ident for variant in variants for ident in INDEX.get(variant, [])))
+        if hits:
+            return hits, 'clitic-candidate'
+        morphology = MORPH_INDEX.get(text)
+        if morphology:
+            return morphology['candidate_ids'], 'morphology-candidate' if morphology['analyses'] == 1 else 'morphology-ambiguous'
+    return [], 'unknown'
+
+
+def suggestions(text):
+    """Suffix variants are review suggestions only; never automatically played."""
+    key = norm(text)
+    if ' ' in key or key in {'لا', 'لم', 'لن', 'ليس', 'ولا', 'فلا'}:
+        return []
+    stems = []
+    for suffix in ('كما', 'هما', 'كم', 'كن', 'هم', 'هن', 'نا', 'ها', 'ه', 'ي', 'ات', 'ون', 'ين', 'ان'):
+        if key.endswith(suffix) and len(key) - len(suffix) >= 3:
+            stem = key[:-len(suffix)]
+            stems += [stem, stem + 'ه']
+    return list(dict.fromkeys(ident for stem in stems for ident in lookup(stem)[0]))[:20]
+
+
+def make_plan(text, preview_unreviewed=False):
+    if not isinstance(text, str) or not text.strip() or len(text) > 4000:
+        raise ValueError('أدخل نصًا من 1 إلى 4000 حرف.')
+    if not re.search(r'[ء-ي]', text):
+        raise ValueError('لم نجد نصًا عربيًا قابلًا للمعالجة.')
+    approved = json.loads((ROOT / 'tools/approved.json').read_text(encoding='utf-8'))
+    sentences = [s.strip() for s in re.split(r'(?<=[.!؟])|\n+', text) if s.strip()]
+    plan = []
+    for si, sentence in enumerate(sentences):
+        tokens = re.findall(r'﴿[^﴾]*﴾|\[غير واضح\]|[ء-ي\u064b-\u065f\u0670ـ]+|[A-Za-z]+|\d+(?:[./:-]\d+)*|[,،;؛:]', sentence)
+        position = 0
+        while position < len(tokens):
+            token = tokens[position]
+            position += 1
+            if token in {',', '،', ';', '؛', ':'}:
+                continue
+            if not token.startswith(('﴿', '[')):
+                for length in range(min(MAX_PHRASE, len(tokens) - position + 1), 1, -1):
+                    phrase_tokens = tokens[position - 1:position - 1 + length]
+                    if any(t in {',', '،', ';', '؛', ':'} or t.startswith(('﴿', '[')) for t in phrase_tokens):
+                        continue
+                    phrase = ' '.join(phrase_tokens)
+                    if norm(phrase) in INDEX:
+                        token = phrase
+                        position += length - 1
+                        break
+            item = {'s': si, 'text': token, 'action': 'pending', 'conf': 'review', 'sources': []}
+            if token.startswith('﴿'):
+                item['action'] = 'quran'
+                item['text'] = token[1:-1]
+            else:
+                key = norm(token)
+                chosen = str(approved[key]) if key in approved else None
+                candidates, how = lookup(token)
+                if not candidates and not chosen:
+                    candidates = suggestions(token)
+                    if candidates:
+                        how = 'suffix-suggestion'
+                candidates = [chosen] if chosen else candidates
+                item['how'] = 'approved' if chosen else how
+                for ident in candidates:
+                    if ident not in BY_ID:
+                        continue
+                    w = BY_ID[ident]
+                    motion = ident in MOTIONS
+                    item['sources'].append({'id': ident, 'sign': w['ar'], 'source': 'https://sshi.sa', 'motion': motion, 'locally_reviewed': chosen == ident})
+                if chosen and chosen in BY_ID and (ROOT / f'sshi_motion/m/{chosen}.json').is_file():
+                    item.update(action='sign', id=int(chosen), sign=BY_ID[chosen]['ar'], conf='high')
+                elif preview_unreviewed and how not in {'suffix-suggestion', 'morphology-ambiguous'} and len(candidates) == 1 and candidates[0] in MOTIONS:
+                    ident = candidates[0]
+                    item.update(action='sign', id=int(ident), sign=BY_ID[ident]['ar'], conf='review', preview_only=True)
+                item['reason'] = 'ambiguous' if len(candidates) > 1 else 'unreviewed' if candidates else 'unknown'
+                if how.startswith('morphology-'):
+                    item['morphology'] = MORPH_INDEX[token]
+                    if how == 'morphology-ambiguous':
+                        item['reason'] = 'ambiguous'
+            plan.append(item)
+    if not plan:
+        raise ValueError('لم نجد نصًا عربيًا قابلًا للمعالجة.')
+    references = term_references(text)
+    for item in plan:
+        item['meaning_sources'] = term_references(item['text']) if item['action'] != 'quran' else []
+    holds_file = ROOT / 'tools/translation_holds.json'
+    holds = json.loads(holds_file.read_text(encoding='utf-8')) if holds_file.exists() else {}
+    for item in plan:
+        if item['action'] != 'quran' and norm(item['text']) in holds:
+            item.update(action='pending', conf='review', reason='reported-translation-issue',
+                        review_note=holds[norm(item['text'])])
+            item.pop('id', None)
+            item.pop('preview_only', None)
+    return {'sentences': sentences, 'plan': plan, 'meaning_references': references, 'coverage': {'meaning_entries': sum(len(v) for v in TERM_INDEX.values()), 'entries': len(WORDS), 'aliases': len(INDEX), 'motions': len(MOTIONS), 'playable': sum(p['action'] == 'sign' for p in plan), 'pending': sum(p['action'] == 'pending' for p in plan)}, 'note': 'معاينة تجريبية: الأحمر غير مراجع. المطابقات الملتبسة والحركات المفقودة تبقى نصًا. سجل المراجعة المحلي لا يثبت اعتماد الجملة أو أداء الأفتار.'}
+
+
+def transcribe(data, mime):
+    key = os.environ.get('GEMINI_API_KEY', '')
+    model = os.environ.get('BAYAN_AUDIO_MODEL', '')
+    if not key or not re.fullmatch(r'[a-zA-Z0-9._-]+', model):
+        raise ValueError('التفريغ غير مهيأ: اضبط GEMINI_API_KEY وBAYAN_AUDIO_MODEL في الخادم المحلي.')
+    prompt = 'فرغ الكلام العربي المسموع حرفيًا فقط، دون تلخيص أو إضافة أو إكمال آيات أو تصحيح المعنى. ضع [غير واضح] للجزء غير المسموع. إذا لا يوجد كلام أعد نصًا فارغًا. أعد JSON بمفتاح text.'
+    body = {'contents': [{'parts': [{'text': prompt}, {'inline_data': {'mime_type': mime, 'data': base64.b64encode(data).decode()}}]}], 'generationConfig': {'temperature': 0, 'responseMimeType': 'application/json'}}
+    req = urllib.request.Request(f'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent', data=json.dumps(body).encode(), headers={'Content-Type': 'application/json', 'x-goog-api-key': key})
+    try:
+        with urllib.request.urlopen(req, timeout=55) as response:
+            result = json.load(response)
+        raw = ''.join(p.get('text', '') for p in result['candidates'][0]['content']['parts'] if not p.get('thought'))
+        text = json.loads(raw)['text']
+        if not isinstance(text, str) or len(text) > 4000:
+            raise ValueError()
+        return {'text': text, 'model': model}
+    except urllib.error.HTTPError as exc:
+        raise ValueError(f'تعذر التفريغ من المزوّد (HTTP {exc.code}). حاول لاحقًا.') from None
+    except (KeyError, IndexError, ValueError, OSError):
+        raise ValueError('تعذر الحصول على تفريغ صالح. حاول لاحقًا أو أدخل النص يدويًا.') from None
+
+
+class Handler(SimpleHTTPRequestHandler):
+    def allowed_origin(self, origin):
+        return origin in {'http://localhost:8020', 'http://127.0.0.1:8020'}
+
+    def log_message(self, *args):
+        pass
+
+    def send_json(self, code, data):
+        body = json.dumps(data, ensure_ascii=False).encode('utf-8')
+        self.send_response(code)
+        self.send_header('Content-Type', 'application/json; charset=utf-8')
+        self.send_header('Cache-Control', 'no-store')
+        self.send_header('Content-Length', str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def do_GET(self):
+        # Serve only demo/player assets; do not expose tools, source videos or secrets.
+        path = self.path.split('?')[0]
+        if path == '/api/catalog':
+            catalog = ROOT / 'coverage/expansion/staging_qa.json'
+            if not catalog.exists():
+                return self.send_json(404, {'error': 'شغّل تدقيق staging لإعداد سجل المراجعة.'})
+            return self.send_json(200, json.loads(catalog.read_text(encoding='utf-8')))
+        allowed = {'/', '/index.html', '/workspace.js', '/khutbah.html', '/khutbah.js', '/demo.js', '/demo.css', '/interface.css', '/unified-view.js', '/motion-review.html', '/motion-review.js', '/review-assistant.js', '/handfix.js', '/signfix.js', '/signer.js', '/man_dress.js'}
+        valid = path in allowed or bool(re.fullmatch(r'/lib/(three\.min\.js|GLTFLoader\.js|three-vrm\.min\.js)|/avatar/man\.glb|/sshi_motion/index\.json|/sshi_motion/(m|staging)/\d+\.json|/translations/\d+_gemini\.json', path))
+        if not valid:
+            return self.send_json(404, {'error': 'غير موجود'})
+        return super().do_GET()
+
+    def do_HEAD(self):
+        self.send_error(405)
+
+    def do_POST(self):
+        if self.path == '/api/review_assistant':
+            return ReviewAssistantHandler.do_POST(self)
+        if self.path not in {'/api/plan', '/api/transcribe'}:
+            return self.send_json(404, {'error': 'غير موجود'})
+        origin = self.headers.get('Origin')
+        if origin and not self.allowed_origin(origin):
+            return self.send_json(403, {'error': 'مصدر الطلب غير مسموح'})
+        try:
+            size = int(self.headers.get('Content-Length', '0'))
+            limit = 20000 if self.path == '/api/plan' else MAX_AUDIO
+            if not 0 < size <= limit:
+                return self.send_json(413, {'error': 'ملف فارغ أو أكبر من الحد المسموح.'})
+            mime = self.headers.get('Content-Type', '').split(';')[0]
+            if self.path == '/api/transcribe' and mime not in MIMES:
+                return self.send_json(415, {'error': 'صيغة الصوت غير مدعومة.'})
+            data = self.rfile.read(size)
+            if self.path == '/api/plan':
+                payload = json.loads(data)
+                result = make_plan(payload.get('text'), payload.get('preview_unreviewed') is True)
+            else:
+                result = transcribe(data, mime)
+            self.send_json(200, result)
+        except (ValueError, TypeError, AttributeError) as exc:
+            self.send_json(400, {'error': str(exc) if isinstance(exc, ValueError) and not isinstance(exc, json.JSONDecodeError) else 'طلب غير صالح.'})
+
+
+class DemoServer(ThreadingHTTPServer):
+    allow_reuse_address = False
+
+    def server_bind(self):
+        if hasattr(socket, 'SO_EXCLUSIVEADDRUSE'):
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+        super().server_bind()
+
+
+if __name__ == '__main__':
+    server = DemoServer(('127.0.0.1', 8020), partial(Handler, directory=str(ROOT)))
+    print('Bayan demo: http://127.0.0.1:8020/khutbah.html', flush=True)
+    print('GEMINI_API_KEY: ' + ('configured' if os.environ.get('GEMINI_API_KEY') else 'MISSING'), flush=True)
+    print('BAYAN_AUDIO_MODEL: ' + ('configured' if os.environ.get('BAYAN_AUDIO_MODEL') else 'MISSING'), flush=True)
+    server.serve_forever()
