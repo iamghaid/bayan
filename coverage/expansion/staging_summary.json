@@ -1,14 +1,14 @@
 {
-  "processed": 1179,
-  "staged": 1178,
-  "schema_valid": 1178,
-  "source_references_present": 1178,
+  "processed": 1219,
+  "staged": 1218,
+  "schema_valid": 1218,
+  "source_references_present": 1218,
   "extraction_statuses": {
     "download_failed": 1,
-    "staged_needs_visual_and_linguistic_review": 1178
+    "staged_needs_visual_and_linguistic_review": 1218
   },
   "active_library": 1148,
   "active_staged_overlap": 1,
-  "staged_only": 1177,
-  "unique_motion_files": 2325
+  "staged_only": 1217,
+  "unique_motion_files": 2365
 }
