@@ -1,0 +1,1602 @@
+[
+  {
+    "id": 1416,
+    "ar": "الجمرة الصغرى",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "80d8176fa6e752fe925159c0f33be89a39d625dfd30b33680d678c54d9a68e37",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1416,
+      "max_step_deg": 11.42,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 5.915633162262351,
+      "elbow_step_deg": 6.00000378799472,
+      "hinge_error_deg": 1.0731768324341125e-05,
+      "elbow_flex_deg": [
+        9.83165734068953,
+        91.10844696498971
+      ],
+      "wrist_twist_deg": 2.28151327259291e-14,
+      "physical_wrist_angle_deg": 62.1876631259988,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.98885825699227,
+      "forearm_roll_deg": 66.00433235282668,
+      "shoulder_elevation_deg": 30.169173263648663,
+      "bone_length_error_mm": 2.3119272829497106e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 33,
+      "tracked_ratio": 0.879,
+      "left_ratio": 0.879,
+      "right_ratio": 0.879,
+      "seconds": 2.64
+    }
+  },
+  {
+    "id": 1417,
+    "ar": "الجمرة الكبرى",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "44aa29532ca1f2f3e354eee674cfd70fb94f0df03ad3da2051b0854d199deb35",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1417,
+      "max_step_deg": 16.31,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000497225774,
+      "elbow_step_deg": 6.000007282089239,
+      "hinge_error_deg": 1.2720940824698908e-05,
+      "elbow_flex_deg": [
+        9.08528074727273,
+        92.10722143163943
+      ],
+      "wrist_twist_deg": 2.1445410174728865e-14,
+      "physical_wrist_angle_deg": 62.17802703402931,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.99797901536667,
+      "forearm_roll_deg": 84.99999992686976,
+      "shoulder_elevation_deg": 43.86842798142223,
+      "bone_length_error_mm": 2.316617347952743e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 32,
+      "tracked_ratio": 0.906,
+      "left_ratio": 0.906,
+      "right_ratio": 0.844,
+      "seconds": 2.56
+    }
+  },
+  {
+    "id": 1418,
+    "ar": "الجمرة الوسطى",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "3dd7200539e938b1c8c2d7e64b8306acb9b4b0ab86bb471f84f1b740eeefb731",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1418,
+      "max_step_deg": 16.32,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000861193461,
+      "elbow_step_deg": 6.000006029495911,
+      "hinge_error_deg": 1.5649929441225564e-05,
+      "elbow_flex_deg": [
+        8.254587643744749,
+        87.45191128380505
+      ],
+      "wrist_twist_deg": 1.7950866499550302e-14,
+      "physical_wrist_angle_deg": 62.18606319082144,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.99154284897256,
+      "forearm_roll_deg": 84.99999992306422,
+      "shoulder_elevation_deg": 38.1712442230186,
+      "bone_length_error_mm": 2.3648994318392624e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 35,
+      "tracked_ratio": 0.886,
+      "left_ratio": 0.886,
+      "right_ratio": 0.8,
+      "seconds": 2.8
+    }
+  },
+  {
+    "id": 1419,
+    "ar": "الجمع بين الصلاتين",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "33673b737dbd79b05cf60c49a9c13441afc0830b98cc9f1b89d5aea0a8054297",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1419,
+      "max_step_deg": 9,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 5.98496686878074,
+      "elbow_step_deg": 6.000005272706302,
+      "hinge_error_deg": 1.2074182697257354e-05,
+      "elbow_flex_deg": [
+        8.270634683270174,
+        101.94751451966432
+      ],
+      "wrist_twist_deg": 1.6588990295827964e-14,
+      "physical_wrist_angle_deg": 61.87536089410811,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.4651901471634,
+      "forearm_roll_deg": 69.43805401358432,
+      "shoulder_elevation_deg": 64.48574925848015,
+      "bone_length_error_mm": 2.3214313082942084e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 36,
+      "tracked_ratio": 0.889,
+      "left_ratio": 0.889,
+      "right_ratio": 0.806,
+      "seconds": 2.88
+    }
+  },
+  {
+    "id": 1420,
+    "ar": "الحجامة",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "a5e80aed689802b2031b76cdd497a7ce1e763bdfe2853a7e0ff3e48e80a60a55",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1420,
+      "max_step_deg": 12.87,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000001361309459,
+      "elbow_step_deg": 6.000006760169108,
+      "hinge_error_deg": 1.289169934879393e-05,
+      "elbow_flex_deg": [
+        7.77737237662317,
+        92.21746220366066
+      ],
+      "wrist_twist_deg": 1.9088771448234876e-14,
+      "physical_wrist_angle_deg": 60.029142322797824,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 63.024094922924746,
+      "forearm_roll_deg": 84.9999999294923,
+      "shoulder_elevation_deg": 71.89838577543638,
+      "bone_length_error_mm": 2.3312151986587537e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 41,
+      "tracked_ratio": 0.829,
+      "left_ratio": 0.0,
+      "right_ratio": 0.829,
+      "seconds": 3.28
+    }
+  },
+  {
+    "id": 1421,
+    "ar": "الخلوة",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "c4762d461527a398e8622304338a8fec884cb41f592c705cfa5dfd0e55d61a28",
+    "technical_status": "hold_contact_review",
+    "notes": "Close hand or wrist contact needs detailed presentation review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1421,
+      "max_step_deg": 11.6,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000001124318097,
+      "elbow_step_deg": 6.000009744731344,
+      "hinge_error_deg": 1.493493918113918e-05,
+      "elbow_flex_deg": [
+        7.7865184927603535,
+        85.99999604166194
+      ],
+      "wrist_twist_deg": 1.80132363908391e-14,
+      "physical_wrist_angle_deg": 56.470825250118814,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 59.97491755114361,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 55.29672646736812,
+      "bone_length_error_mm": 2.849265645643584e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 27,
+      "tracked_ratio": 0.815,
+      "left_ratio": 0.815,
+      "right_ratio": 0.741,
+      "seconds": 2.16
+    }
+  },
+  {
+    "id": 1423,
+    "ar": "الرياء",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "f2f06cdaaf4894a7601502eb4918ff17d6fb1d94eb0172f5944131309b9dadf9",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1423,
+      "max_step_deg": 9.97,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000190255307,
+      "elbow_step_deg": 6.000007733977142,
+      "hinge_error_deg": 1.4235251457258534e-05,
+      "elbow_flex_deg": [
+        7.777373328039622,
+        91.78280801711767
+      ],
+      "wrist_twist_deg": 1.718032446426192e-14,
+      "physical_wrist_angle_deg": 35.15083088223405,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 34.137699942655594,
+      "forearm_roll_deg": 84.99999992967852,
+      "shoulder_elevation_deg": 48.98643895014854,
+      "bone_length_error_mm": 2.3619359690307817e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 29,
+      "tracked_ratio": 0.793,
+      "left_ratio": 0.0,
+      "right_ratio": 0.793,
+      "seconds": 2.32
+    }
+  },
+  {
+    "id": 1426,
+    "ar": "السعي بين الصفاء و المروة",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "691f74bbb83af7cba0466e9e81f621d970f881832237e366e30ec0a6e920e7c8",
+    "technical_status": "hold_contact_review",
+    "notes": "Close hand or wrist contact needs detailed presentation review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1426,
+      "max_step_deg": 11.21,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000294705844934,
+      "elbow_step_deg": 6.000010073848729,
+      "hinge_error_deg": 1.4337297576862813e-05,
+      "elbow_flex_deg": [
+        7.80846561175016,
+        118.5583856216542
+      ],
+      "wrist_twist_deg": 1.6170011867223896e-14,
+      "physical_wrist_angle_deg": 53.46435532651905,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 51.5940223465276,
+      "forearm_roll_deg": 84.99999992949229,
+      "shoulder_elevation_deg": 97.05046290703164,
+      "bone_length_error_mm": 2.4942233112223988e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 27,
+      "tracked_ratio": 0.889,
+      "left_ratio": 0.0,
+      "right_ratio": 0.889,
+      "seconds": 2.16
+    }
+  },
+  {
+    "id": 1427,
+    "ar": "الشرك بالله",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "ff8ffa599638359d664e2c8cd7d00a5bae1c95416ba0306abdcf72518b7dacee",
+    "technical_status": "hold_contact_review",
+    "notes": "Close hand or wrist contact needs detailed presentation review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1427,
+      "max_step_deg": 9.78,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000001703399199,
+      "elbow_step_deg": 6.000005586129267,
+      "hinge_error_deg": 1.6154155476968805e-05,
+      "elbow_flex_deg": [
+        7.40606038573414,
+        93.43734315663919
+      ],
+      "wrist_twist_deg": 1.8074805922555144e-14,
+      "physical_wrist_angle_deg": 62.18807398291731,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.99257756720428,
+      "forearm_roll_deg": 84.99999993979698,
+      "shoulder_elevation_deg": 74.4867074620924,
+      "bone_length_error_mm": 2.8575790678164736e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 42,
+      "tracked_ratio": 0.857,
+      "left_ratio": 0.857,
+      "right_ratio": 0.643,
+      "seconds": 3.36
+    }
+  },
+  {
+    "id": 1428,
+    "ar": "الصفاء و المروة",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "b024bda1ad3af8a41d550210d154959e19c9fbf59ff8495ae097cd4070946d13",
+    "technical_status": "hold_contact_review",
+    "notes": "Close hand or wrist contact needs detailed presentation review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1428,
+      "max_step_deg": 12.02,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000941417328,
+      "elbow_step_deg": 6.000010251073365,
+      "hinge_error_deg": 1.4738418260860163e-05,
+      "elbow_flex_deg": [
+        8.116075940259954,
+        87.91925014305677
+      ],
+      "wrist_twist_deg": 2.2121252267242753e-14,
+      "physical_wrist_angle_deg": 63.09912601115147,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 60.799547577588044,
+      "forearm_roll_deg": 84.9999999258909,
+      "shoulder_elevation_deg": 105.60991294815939,
+      "bone_length_error_mm": 3.5279217880379576e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 35,
+      "tracked_ratio": 0.829,
+      "left_ratio": 0.829,
+      "right_ratio": 0.771,
+      "seconds": 2.8
+    }
+  },
+  {
+    "id": 1429,
+    "ar": "الصنم",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "c480e1b234a2da63fca6fd339f0549f42cfb67f5b7104d73a64008007430bde4",
+    "technical_status": "hold_contact_review",
+    "notes": "Close hand or wrist contact needs detailed presentation review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1429,
+      "max_step_deg": 12.81,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000208399431,
+      "elbow_step_deg": 6.000006370894475,
+      "hinge_error_deg": 1.2134403433412636e-05,
+      "elbow_flex_deg": [
+        8.737133239344073,
+        96.16067401699819
+      ],
+      "wrist_twist_deg": 2.067016242010142e-14,
+      "physical_wrist_angle_deg": 60.56813940407066,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 62.889362226562525,
+      "forearm_roll_deg": 67.904658250563,
+      "shoulder_elevation_deg": 77.77432420179646,
+      "bone_length_error_mm": 2.3749394451044736e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 38,
+      "tracked_ratio": 0.921,
+      "left_ratio": 0.895,
+      "right_ratio": 0.921,
+      "seconds": 3.04
+    }
+  },
+  {
+    "id": 1430,
+    "ar": "العربون",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "6ecb71f248765dbfc77a85fe13e3d82386def40f1e4cc90e5462b5930664d64b",
+    "technical_status": "hold_contact_review",
+    "notes": "Close hand or wrist contact needs detailed presentation review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1430,
+      "max_step_deg": 9.1,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000768270923,
+      "elbow_step_deg": 6.000007950128255,
+      "hinge_error_deg": 1.1000103948581645e-05,
+      "elbow_flex_deg": [
+        7.777721499188546,
+        89.37244108855279
+      ],
+      "wrist_twist_deg": 1.7548023440488473e-14,
+      "physical_wrist_angle_deg": 62.18375486235377,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.99847603079147,
+      "forearm_roll_deg": 84.9999999348051,
+      "shoulder_elevation_deg": 59.87050329615514,
+      "bone_length_error_mm": 2.90202361585834e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 32,
+      "tracked_ratio": 0.812,
+      "left_ratio": 0.5,
+      "right_ratio": 0.75,
+      "seconds": 2.56
+    }
+  },
+  {
+    "id": 1431,
+    "ar": "العزاء",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "a4c8efd3ce1786ff6034c498ec1ef9a6317eb0745c2e056ae994bb3f303b637f",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1431,
+      "max_step_deg": 9,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 5.982452764002524,
+      "elbow_step_deg": 6.0000073922340675,
+      "hinge_error_deg": 6.830189170012755e-06,
+      "elbow_flex_deg": [
+        7.777372376624485,
+        88.68217333315346
+      ],
+      "wrist_twist_deg": 1.5627372794050735e-14,
+      "physical_wrist_angle_deg": 61.60287729726253,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.11819186122027,
+      "forearm_roll_deg": 84.99999992948736,
+      "shoulder_elevation_deg": 40.55666525771653,
+      "bone_length_error_mm": 2.3450816788450624e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 37,
+      "tracked_ratio": 0.892,
+      "left_ratio": 0.0,
+      "right_ratio": 0.892,
+      "seconds": 2.96
+    }
+  },
+  {
+    "id": 1432,
+    "ar": "العقيقة",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "031f0c6c058bf26bbb1487b33b3db1d865d3b4d2efa02a772300330874d48263",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1432,
+      "max_step_deg": 13.99,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000650328284,
+      "elbow_step_deg": 6.000009036687266,
+      "hinge_error_deg": 1.5080649355333767e-05,
+      "elbow_flex_deg": [
+        7.807264044111425,
+        118.59797956871498
+      ],
+      "wrist_twist_deg": 1.9383479686385327e-14,
+      "physical_wrist_angle_deg": 54.501331050734144,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 50.17304689354434,
+      "forearm_roll_deg": 84.99999992955537,
+      "shoulder_elevation_deg": 108.95952261861527,
+      "bone_length_error_mm": 2.9382639543662492e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 49,
+      "tracked_ratio": 0.918,
+      "left_ratio": 0.673,
+      "right_ratio": 0.857,
+      "seconds": 3.92
+    }
+  },
+  {
+    "id": 1433,
+    "ar": "الفاتحة",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "1a163b45af9aea18d756d19e505f094554a55f4f7995fe63d579f8d39a16cf4b",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1433,
+      "max_step_deg": 9,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000001276048122,
+      "elbow_step_deg": 6.0000105165953,
+      "hinge_error_deg": 8.537736462515945e-06,
+      "elbow_flex_deg": [
+        7.777373560602924,
+        98.27098700840816
+      ],
+      "wrist_twist_deg": 1.6837828196205103e-14,
+      "physical_wrist_angle_deg": 49.121700523494276,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 46.29461193624783,
+      "forearm_roll_deg": 84.9999999294923,
+      "shoulder_elevation_deg": 65.53199353784109,
+      "bone_length_error_mm": 2.3720650166314527e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 39,
+      "tracked_ratio": 0.872,
+      "left_ratio": 0.0,
+      "right_ratio": 0.872,
+      "seconds": 3.12
+    }
+  },
+  {
+    "id": 1434,
+    "ar": "الفطرة ولد على الفطرة",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "901da845f092136c566898bc95000557bbfe4a7d15b04e85f92f09cc051a9bc5",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1434,
+      "max_step_deg": 9,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 5.999999250137513,
+      "elbow_step_deg": 6.000006223523083,
+      "hinge_error_deg": 1.3499346641909611e-05,
+      "elbow_flex_deg": [
+        7.783548270264116,
+        91.43879952523776
+      ],
+      "wrist_twist_deg": 1.9247521158548706e-14,
+      "physical_wrist_angle_deg": 61.441541355493875,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.13969748256865,
+      "forearm_roll_deg": 84.99999992949225,
+      "shoulder_elevation_deg": 122.17171306185664,
+      "bone_length_error_mm": 2.461602710557287e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 54,
+      "tracked_ratio": 0.926,
+      "left_ratio": 0.296,
+      "right_ratio": 0.926,
+      "seconds": 4.32
+    }
+  },
+  {
+    "id": 1436,
+    "ar": "القصر في الصلاة",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "48b2d54823e0dde5a09187657efbdc5f34a52ba26641a941ae483e76a1511dfb",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1436,
+      "max_step_deg": 8.99,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 5.983986460861766,
+      "elbow_step_deg": 6.000003903556452,
+      "hinge_error_deg": 1.6154155476968805e-05,
+      "elbow_flex_deg": [
+        7.40606038573414,
+        95.20337945665355
+      ],
+      "wrist_twist_deg": 1.63002728244699e-14,
+      "physical_wrist_angle_deg": 43.31977604270677,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 43.8320451178567,
+      "forearm_roll_deg": 84.99999993979698,
+      "shoulder_elevation_deg": 74.17523691507206,
+      "bone_length_error_mm": 2.3252933689654753e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 30,
+      "tracked_ratio": 0.9,
+      "left_ratio": 0.0,
+      "right_ratio": 0.9,
+      "seconds": 2.4
+    }
+  },
+  {
+    "id": 1437,
+    "ar": "الكعبة",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "a0ffa55383b0d07092d3da16c2f668bc7c24c5269e82d5c61a759cc1bb616ef5",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1437,
+      "max_step_deg": 16.19,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000619456706,
+      "elbow_step_deg": 6.0000073906074745,
+      "hinge_error_deg": 1.0731768324341125e-05,
+      "elbow_flex_deg": [
+        7.788137354244806,
+        93.60360769137637
+      ],
+      "wrist_twist_deg": 1.6093156104236982e-14,
+      "physical_wrist_angle_deg": 51.50974847513519,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 55.38563928463213,
+      "forearm_roll_deg": 84.999999928193,
+      "shoulder_elevation_deg": 79.14751188850427,
+      "bone_length_error_mm": 2.390598580204184e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 41,
+      "tracked_ratio": 0.854,
+      "left_ratio": 0.561,
+      "right_ratio": 0.854,
+      "seconds": 3.28
+    }
+  },
+  {
+    "id": 1438,
+    "ar": "اللقطة",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "9e2ca6bf0e5eb06b2c9806771cc366e3ab00761cbb67232c4f6a91ed887f0c9f",
+    "technical_status": "hold_contact_review",
+    "notes": "Close hand or wrist contact needs detailed presentation review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1438,
+      "max_step_deg": 12.46,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.00000121089531,
+      "elbow_step_deg": 6.000007137372163,
+      "hinge_error_deg": 1.5177012312529227e-05,
+      "elbow_flex_deg": [
+        7.972472322582868,
+        95.31470581016441
+      ],
+      "wrist_twist_deg": 2.1864640910661413e-14,
+      "physical_wrist_angle_deg": 49.961199427193826,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 46.969496351078114,
+      "forearm_roll_deg": 84.99999992581877,
+      "shoulder_elevation_deg": 47.031482061617595,
+      "bone_length_error_mm": 3.609361826084623e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 31,
+      "tracked_ratio": 0.806,
+      "left_ratio": 0.484,
+      "right_ratio": 0.806,
+      "seconds": 2.48
+    }
+  },
+  {
+    "id": 1439,
+    "ar": "لقيط",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "861cb831b1da3aa5af9792235a65d0788958ac3e31030a9c2592cb9a08a96be4",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1439,
+      "max_step_deg": 8.99,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 5.988081020570647,
+      "elbow_step_deg": 6.000006265574974,
+      "hinge_error_deg": 1.3819533748532954e-05,
+      "elbow_flex_deg": [
+        7.777374910751242,
+        91.65844964206906
+      ],
+      "wrist_twist_deg": 2.5286684421159126e-14,
+      "physical_wrist_angle_deg": 62.18604212734887,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.95341658845409,
+      "forearm_roll_deg": 84.99999993027282,
+      "shoulder_elevation_deg": 75.32738216334468,
+      "bone_length_error_mm": 2.3252933412098997e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 28,
+      "tracked_ratio": 0.857,
+      "left_ratio": 0.0,
+      "right_ratio": 0.857,
+      "seconds": 2.24
+    }
+  },
+  {
+    "id": 1440,
+    "ar": "الله اكبر",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "dbc7301d9b0a345547baef06c3d860e7f9e30327c98e1702691de0445a127954",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1440,
+      "max_step_deg": 11.81,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000881549977,
+      "elbow_step_deg": 6.000008329377939,
+      "hinge_error_deg": 1.4787793334711022e-05,
+      "elbow_flex_deg": [
+        7.791737576567298,
+        90.93263908900119
+      ],
+      "wrist_twist_deg": 1.4577220364888165e-14,
+      "physical_wrist_angle_deg": 62.185480191006256,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.98717730731796,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 98.5685147810714,
+      "bone_length_error_mm": 2.43525116738752e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 24,
+      "tracked_ratio": 0.75,
+      "left_ratio": 0.25,
+      "right_ratio": 0.708,
+      "seconds": 1.92
+    }
+  },
+  {
+    "id": 1441,
+    "ar": "المسح على الخفين",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "339544c2235b1ca4c939e7670c642872979c390c3e9e9c610a3d401f51995992",
+    "technical_status": "hold_contact_review",
+    "notes": "Close hand or wrist contact needs detailed presentation review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1441,
+      "max_step_deg": 9.49,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 5.992090628679461,
+      "elbow_step_deg": 6.000008647495963,
+      "hinge_error_deg": 1.5926940848252804e-05,
+      "elbow_flex_deg": [
+        8.159718811014805,
+        85.4374933061708
+      ],
+      "wrist_twist_deg": 2.017456286497497e-14,
+      "physical_wrist_angle_deg": 62.71891689270914,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.98897142330284,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 58.97375187937791,
+      "bone_length_error_mm": 3.415104071757824e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 34,
+      "tracked_ratio": 0.824,
+      "left_ratio": 0.794,
+      "right_ratio": 0.824,
+      "seconds": 2.72
+    }
+  },
+  {
+    "id": 1443,
+    "ar": "النية",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "4190c9bdbaff99c275a968bdba5777aeac8dd928d15d9ec56719af5e4020bb4b",
+    "technical_status": "hold_contact_review",
+    "notes": "Close hand or wrist contact needs detailed presentation review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1443,
+      "max_step_deg": 9.04,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000002836971941,
+      "elbow_step_deg": 6.00000921086554,
+      "hinge_error_deg": 8.809603701298814e-05,
+      "elbow_flex_deg": [
+        2.0000009045829534,
+        96.64930508973787
+      ],
+      "wrist_twist_deg": 1.7261223986017457e-14,
+      "physical_wrist_angle_deg": 63.45194258097857,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 60.98775093576544,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 56.26308001083918,
+      "bone_length_error_mm": 3.2073502853613434e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 26,
+      "tracked_ratio": 0.769,
+      "left_ratio": 0.269,
+      "right_ratio": 0.769,
+      "seconds": 2.08
+    }
+  },
+  {
+    "id": 1444,
+    "ar": "الهندوس",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "609d2f6a62d6fb08a1f5a2fa3ccfd53675a54fbbde4f05d1685f60a856fa4847",
+    "technical_status": "hold_batch_selection",
+    "notes": "Retained locally outside this sermon-focused review batch.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1444,
+      "max_step_deg": 11.18,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 5.999999125074228,
+      "elbow_step_deg": 6.000009438569026,
+      "hinge_error_deg": 1.2431131930566656e-05,
+      "elbow_flex_deg": [
+        7.777422970228122,
+        88.72646486038175
+      ],
+      "wrist_twist_deg": 1.843516555308916e-14,
+      "physical_wrist_angle_deg": 57.79709480939234,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 59.80067032426783,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 107.27356225256729,
+      "bone_length_error_mm": 2.3671842597217108e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 38,
+      "tracked_ratio": 0.868,
+      "left_ratio": 0.421,
+      "right_ratio": 0.842,
+      "seconds": 3.04
+    }
+  },
+  {
+    "id": 1445,
+    "ar": "الوثنيون",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "5f15a43687cbc59660396086a271dc48988bbb4e0ab885a247ae58b69813bd97",
+    "technical_status": "hold_batch_selection",
+    "notes": "Retained locally outside this sermon-focused review batch.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1445,
+      "max_step_deg": 11.04,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000234569211,
+      "elbow_step_deg": 6.0000068908509245,
+      "hinge_error_deg": 1.6154155476968805e-05,
+      "elbow_flex_deg": [
+        7.40606038573414,
+        89.27723259279733
+      ],
+      "wrist_twist_deg": 1.7041433378568072e-14,
+      "physical_wrist_angle_deg": 62.187356352169374,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.99366862637262,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 74.54408458936943,
+      "bone_length_error_mm": 2.483035177469617e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 56,
+      "tracked_ratio": 0.821,
+      "left_ratio": 0.268,
+      "right_ratio": 0.786,
+      "seconds": 4.48
+    }
+  },
+  {
+    "id": 1446,
+    "ar": "الوقوف",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "0d3972a14b0f21cc7a63a443de7790f6184596d5de3585697d3783bfd2984f3d",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1446,
+      "max_step_deg": 11,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000542725928,
+      "elbow_step_deg": 6.000009448204115,
+      "hinge_error_deg": 1.6018213462801612e-05,
+      "elbow_flex_deg": [
+        7.785248068203252,
+        106.80757763596122
+      ],
+      "wrist_twist_deg": 1.7632801850419064e-14,
+      "physical_wrist_angle_deg": 62.18801937036299,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.97793670048787,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 87.87727256351819,
+      "bone_length_error_mm": 2.3382953129313933e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 41,
+      "tracked_ratio": 0.878,
+      "left_ratio": 0.317,
+      "right_ratio": 0.878,
+      "seconds": 3.28
+    }
+  },
+  {
+    "id": 1447,
+    "ar": "الإمساك",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "4c991906be30f282f82e8ff0997ae2d54b6cf9d7e862fa66bdd8edcf45d63cd9",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1447,
+      "max_step_deg": 16.46,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000298820826,
+      "elbow_step_deg": 6.000007437085448,
+      "hinge_error_deg": 1.3499346641909611e-05,
+      "elbow_flex_deg": [
+        7.822330572014026,
+        88.34071012738379
+      ],
+      "wrist_twist_deg": 1.8409463922580874e-14,
+      "physical_wrist_angle_deg": 62.186733624196435,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.99996279344337,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 44.06247896207754,
+      "bone_length_error_mm": 2.405076920952709e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 35,
+      "tracked_ratio": 0.857,
+      "left_ratio": 0.514,
+      "right_ratio": 0.857,
+      "seconds": 2.8
+    }
+  },
+  {
+    "id": 1448,
+    "ar": "أية الكرسي",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "6344a18e8e6e2b7f1ff467c5b9482ee6403cc67410ec330d03c3c94a7a20caa4",
+    "technical_status": "hold_context_review",
+    "notes": "Context or verse handling needs specialist review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1448,
+      "max_step_deg": 11.38,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 5.999999658228219,
+      "elbow_step_deg": 6.000010709725336,
+      "hinge_error_deg": 1.4286365630539095e-05,
+      "elbow_flex_deg": [
+        7.936793034324041,
+        93.98274409420452
+      ],
+      "wrist_twist_deg": 1.6372832528555482e-14,
+      "physical_wrist_angle_deg": 59.937166039764556,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 62.985204455962304,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 61.53281950285371,
+      "bone_length_error_mm": 2.5796545732870158e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 37,
+      "tracked_ratio": 0.838,
+      "left_ratio": 0.838,
+      "right_ratio": 0.784,
+      "seconds": 2.96
+    }
+  },
+  {
+    "id": 1451,
+    "ar": "البسملة",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "a362c621bdd2dc2f0f32eb52dd952cc52d5d098098625805ba8ebc63f6512cee",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1451,
+      "max_step_deg": 9.84,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 5.789868212669537,
+      "elbow_step_deg": 6.000006233111046,
+      "hinge_error_deg": 1.3713635377634418e-05,
+      "elbow_flex_deg": [
+        7.780463995226368,
+        93.01627111225419
+      ],
+      "wrist_twist_deg": 1.6448572942182008e-14,
+      "physical_wrist_angle_deg": 62.18805713989235,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.99945976460293,
+      "forearm_roll_deg": 84.99999992949147,
+      "shoulder_elevation_deg": 75.77394690128969,
+      "bone_length_error_mm": 2.3249348557463634e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 36,
+      "tracked_ratio": 0.917,
+      "left_ratio": 0.0,
+      "right_ratio": 0.917,
+      "seconds": 2.88
+    }
+  },
+  {
+    "id": 1452,
+    "ar": "بول",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "a0b605ed7a133e1720072af87fad89040e61a3c07b83b675721f0cbe112e8ac4",
+    "technical_status": "hold_batch_selection",
+    "notes": "Retained locally outside this sermon-focused review batch.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1452,
+      "max_step_deg": 9,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 4.0251787403463055,
+      "elbow_step_deg": 6.000008136359719,
+      "hinge_error_deg": 1.1066171232981577e-05,
+      "elbow_flex_deg": [
+        7.777373327353705,
+        98.71577523236415
+      ],
+      "wrist_twist_deg": 1.6195941641305358e-14,
+      "physical_wrist_angle_deg": 57.46747506434016,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 55.38208318084842,
+      "forearm_roll_deg": 84.99999992934676,
+      "shoulder_elevation_deg": 53.028796525639095,
+      "bone_length_error_mm": 2.3252931635742158e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 25,
+      "tracked_ratio": 0.8,
+      "left_ratio": 0.0,
+      "right_ratio": 0.8,
+      "seconds": 2.0
+    }
+  },
+  {
+    "id": 1453,
+    "ar": "تخليل الاصابع",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "3bb13230980e49525dde9a917be774083bb23e867c7c115a9b69d01fa4b67553",
+    "technical_status": "hold_contact_review",
+    "notes": "Close hand or wrist contact needs detailed presentation review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1453,
+      "max_step_deg": 11.54,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000293848372162,
+      "elbow_step_deg": 6.000008370545259,
+      "hinge_error_deg": 3.5459882717420894e-05,
+      "elbow_flex_deg": [
+        2.000003731012611,
+        85.97800973323886
+      ],
+      "wrist_twist_deg": 1.40548531354537e-14,
+      "physical_wrist_angle_deg": 62.03628705746517,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.68605688976092,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 48.36717849885422,
+      "bone_length_error_mm": 2.556080269666694e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 32,
+      "tracked_ratio": 0.812,
+      "left_ratio": 0.781,
+      "right_ratio": 0.812,
+      "seconds": 2.56
+    }
+  },
+  {
+    "id": 1454,
+    "ar": "تيمم",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "0273302f5082567fd86e1553c87d80b4b6cc60a9937090c7162055565a5003e4",
+    "technical_status": "hold_contact_review",
+    "notes": "Close hand or wrist contact needs detailed presentation review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1454,
+      "max_step_deg": 11.66,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 5.999998571810737,
+      "elbow_step_deg": 6.000011782083805,
+      "hinge_error_deg": 1.3872179782028085e-05,
+      "elbow_flex_deg": [
+        9.694133548455326,
+        111.3769424066974
+      ],
+      "wrist_twist_deg": 1.681889625531031e-14,
+      "physical_wrist_angle_deg": 58.64301007401014,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 61.71773936513583,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 60.154976679831556,
+      "bone_length_error_mm": 3.848120982974379e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 24,
+      "tracked_ratio": 0.875,
+      "left_ratio": 0.875,
+      "right_ratio": 0.792,
+      "seconds": 1.92
+    }
+  },
+  {
+    "id": 1455,
+    "ar": "جزء",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "7f2427d9027b17fab796eb95d55e3883a9bbc1d81af801c9368bfeda6ff636d8",
+    "technical_status": "hold_context_review",
+    "notes": "Context or verse handling needs specialist review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1455,
+      "max_step_deg": 15.04,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000367978714,
+      "elbow_step_deg": 6.000004027556388,
+      "hinge_error_deg": 1.225395709315776e-05,
+      "elbow_flex_deg": [
+        7.446603450149677,
+        88.589735186027
+      ],
+      "wrist_twist_deg": 1.6990038857276702e-14,
+      "physical_wrist_angle_deg": 50.32412010377573,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 45.935780478009406,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 42.60122005727122,
+      "bone_length_error_mm": 2.338146254388107e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 40,
+      "tracked_ratio": 0.875,
+      "left_ratio": 0.825,
+      "right_ratio": 0.85,
+      "seconds": 3.2
+    }
+  },
+  {
+    "id": 1456,
+    "ar": "حلق العانة",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "69a20568068aa525f490fbbe72d8e9db63442ec38c8ba086df7430ff3405425d",
+    "technical_status": "hold_contact_review",
+    "notes": "Close hand or wrist contact needs detailed presentation review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1456,
+      "max_step_deg": 13.73,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000778568244,
+      "elbow_step_deg": 6.000010528341032,
+      "hinge_error_deg": 1.5415284529485704e-05,
+      "elbow_flex_deg": [
+        7.843600178506778,
+        129.72446000456324
+      ],
+      "wrist_twist_deg": 1.8099945881799985e-14,
+      "physical_wrist_angle_deg": 52.710533129562776,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 51.19565173733339,
+      "forearm_roll_deg": 84.99999992974092,
+      "shoulder_elevation_deg": 117.84940495671152,
+      "bone_length_error_mm": 3.5018142829912335e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 41,
+      "tracked_ratio": 0.902,
+      "left_ratio": 0.902,
+      "right_ratio": 0.61,
+      "seconds": 3.28
+    }
+  },
+  {
+    "id": 1457,
+    "ar": "حزب",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "75dca2aba49c686510092cb64b42e5741536bccd8e3e60d9cc8fec1adedaa66e",
+    "technical_status": "hold_context_review",
+    "notes": "Context or verse handling needs specialist review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1457,
+      "max_step_deg": 9,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.00000201827761,
+      "elbow_step_deg": 6.000006802806887,
+      "hinge_error_deg": 6.26346409016607e-05,
+      "elbow_flex_deg": [
+        1.9999961343141728,
+        71.64153501078347
+      ],
+      "wrist_twist_deg": 1.5036635604021595e-14,
+      "physical_wrist_angle_deg": 60.58116872173708,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 62.90443575810376,
+      "forearm_roll_deg": 84.99999992756995,
+      "shoulder_elevation_deg": 71.33814089696543,
+      "bone_length_error_mm": 2.697296680453931e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 29,
+      "tracked_ratio": 0.793,
+      "left_ratio": 0.759,
+      "right_ratio": 0.793,
+      "seconds": 2.32
+    }
+  },
+  {
+    "id": 1458,
+    "ar": "ختم القرآن",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "1cd7b386d07f32d24aab72adbb4b4a8055f9f9e44d59237eb8f15579d0d0b8a0",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1458,
+      "max_step_deg": 13.83,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 5.9999999769296055,
+      "elbow_step_deg": 6.0000087123213985,
+      "hinge_error_deg": 2.0913097891518843e-05,
+      "elbow_flex_deg": [
+        5.087856511712605,
+        95.23282512044241
+      ],
+      "wrist_twist_deg": 1.8291560234666707e-14,
+      "physical_wrist_angle_deg": 62.188168981645084,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.99999627751028,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 76.19219178123126,
+      "bone_length_error_mm": 2.8301384402684704e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 55,
+      "tracked_ratio": 0.891,
+      "left_ratio": 0.709,
+      "right_ratio": 0.873,
+      "seconds": 4.4
+    }
+  },
+  {
+    "id": 1459,
+    "ar": "دعاء الاستفتاح",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "b6aa8ec5260bb5944dbf82e61daa9e7229fd1104104500730ae95d9e889a404b",
+    "technical_status": "hold_tracking_review",
+    "notes": "Tracking quality needs another extraction review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1459,
+      "max_step_deg": 9,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000385699954,
+      "elbow_step_deg": 6.000008363704394,
+      "hinge_error_deg": 1.5128907556614795e-05,
+      "elbow_flex_deg": [
+        8.288439174435604,
+        94.15836507766289
+      ],
+      "wrist_twist_deg": 1.4311574849451297e-14,
+      "physical_wrist_angle_deg": 59.90118271639855,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 57.85872051882264,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 60.4108488978111,
+      "bone_length_error_mm": 2.3929402126476873e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 25,
+      "tracked_ratio": 0.72,
+      "left_ratio": 0.68,
+      "right_ratio": 0.68,
+      "seconds": 2.0
+    }
+  },
+  {
+    "id": 1460,
+    "ar": "دعاء القنوت",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "a8b9cd82ab2a3161bec7728318b37f1d13ee34e1a592b2af44e5f572eafc513d",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1460,
+      "max_step_deg": 14.76,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000088211707,
+      "elbow_step_deg": 6.000008477264152,
+      "hinge_error_deg": 1.4983666681503355e-05,
+      "elbow_flex_deg": [
+        7.807079095275476,
+        102.85379617986368
+      ],
+      "wrist_twist_deg": 1.845315001226318e-14,
+      "physical_wrist_angle_deg": 62.187395422177644,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.99853687310397,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 57.41107670551617,
+      "bone_length_error_mm": 2.5696900829430547e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 71,
+      "tracked_ratio": 0.915,
+      "left_ratio": 0.465,
+      "right_ratio": 0.915,
+      "seconds": 5.68
+    }
+  },
+  {
+    "id": 1464,
+    "ar": "زكاة المال",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "18939b8510210d0daa8547a1c7da92f4b3334a7b9adda03faabf7e71ce671f4e",
+    "technical_status": "hold_contact_review",
+    "notes": "Close hand or wrist contact needs detailed presentation review.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1464,
+      "max_step_deg": 12.23,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000001388729383,
+      "elbow_step_deg": 6.000009542926403,
+      "hinge_error_deg": 7.603380419903672e-05,
+      "elbow_flex_deg": [
+        2.0000032414947975,
+        92.1270667537474
+      ],
+      "wrist_twist_deg": 1.779303354953071e-14,
+      "physical_wrist_angle_deg": 62.18836241524963,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 64.99461352895732,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 48.48821238457418,
+      "bone_length_error_mm": 3.4796576231510556e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 34,
+      "tracked_ratio": 0.824,
+      "left_ratio": 0.206,
+      "right_ratio": 0.794,
+      "seconds": 2.72
+    }
+  },
+  {
+    "id": 1465,
+    "ar": "سبحان ربي الاعلى",
+    "source": "https://sshi.sa",
+    "metadata_verified": true,
+    "motion_sha256": "4826140f55bfb5ed707847625d5f8defc1e328f8b87dc3d2805829f9f26d85f3",
+    "technical_status": "sampled_presentation_checks_passed",
+    "notes": "Four sampled avatar poses inspected; specialist interpretation remains pending.",
+    "linguistic_review": "pending",
+    "avatar_samples_reviewed": 4,
+    "render_checks": {
+      "id": 1465,
+      "max_step_deg": 10.8,
+      "jump_frames": 0,
+      "body_overlap_mm": 0,
+      "upper_step_deg": 6.000000318691535,
+      "elbow_step_deg": 6.000006623603914,
+      "hinge_error_deg": 9.88314448090898e-06,
+      "elbow_flex_deg": [
+        7.7785011341582,
+        98.73398149983332
+      ],
+      "wrist_twist_deg": 1.522191736523621e-14,
+      "physical_wrist_angle_deg": 58.72220545042614,
+      "bind_wrist_offset_deg": 5.298130613997762,
+      "wrist_bend_deg": 60.91505182341795,
+      "forearm_roll_deg": 84.99999999999999,
+      "shoulder_elevation_deg": 95.45292526759081,
+      "bone_length_error_mm": 2.3937494098014156e-05,
+      "finite": true
+    },
+    "tracking_checks": {
+      "schema_errors": [],
+      "frames": 53,
+      "tracked_ratio": 0.906,
+      "left_ratio": 0.283,
+      "right_ratio": 0.906,
+      "seconds": 4.24
+    }
+  }
+]

@@ -73,9 +73,9 @@ Development inventory on **6 October 2026**:
 | --- | ---: | --- |
 | Dictionary entries | 8,818 | Source records, not distinct ready animations |
 | Active motions | 1,148 | Main playback library |
-| Staged motion files | 1,138 | Additional development review files |
-| Unique active + staged IDs | 2,285 | One ID overlaps both sets |
-| Latest expansion | 20 | 11 added to hosted review; 9 held for tracking/contact/context checks |
+| Staged motion files | 1,178 | Additional development review files |
+| Unique active + staged IDs | 2,325 | One ID overlaps both sets |
+| Latest expansion | 40 candidates | 20 added to hosted review; 20 retained for further checks or later selection |
 | Saved sermons | 5 | Arabic texts and prepared plans |
 
 Staged assets are excluded from Git. A fresh clone can run the active library; populate staging through extraction/audit for local review. Source footage and captured frames remain local. These counts describe data retrieval and extraction, not a completed model training run or measured translation accuracy.
@@ -146,7 +146,7 @@ python tools/demo_server.py
 
 ### البيانات والتنظيم
 
-القاموس يحتوي **8,818 مدخلًا**، والتشغيل **1,148 حركة**، وبيئة المراجعة التطويرية **1,138 ملفًا**، بإجمالي **2,285 معرّفًا مختلفًا**. آخر دفعة تضم 20 حركة: أُضيفت 11 للمراجعة على الموقع، وبقيت 9 لفحص التتبع والتلامس ومعنى المدخل. هذه أعداد بيانات وليست نتيجة تدريب نموذج أو نسبة دقة للترجمة.
+القاموس يحتوي **8,818 مدخلًا**، والتشغيل **1,148 حركة**، وبيئة المراجعة التطويرية **1,178 ملفًا**، بإجمالي **2,325 معرّفًا مختلفًا**. آخر دفعة فُحص فيها 40 مرشحًا: أُضيفت 20 حركة للمراجعة على الموقع، وبقيت 20 لفحص إضافي أو دفعة لاحقة. هذه أعداد بيانات وليست نتيجة تدريب نموذج أو نسبة دقة للترجمة.
 
 ### مسار سريع للجنة
 
