@@ -19,3 +19,9 @@ Local review records use `bayan-motion-review-notes-v1`. Records contain ID, lab
 ## بالعربية
 
 المتصفح مسؤول عن العرض والمراجعة؛ الخادم مسؤول عن إعداد النص وتفريغ الصوت وطلب اقتراحات المساعد. الفصل يُبقي المفاتيح في الخادم، ويفصل اقتراحات الذكاء الاصطناعي عن قرار المراجع. البيانات تمر من البحث والاستخراج إلى التدقيق والمراجعة قبل نقلها إلى مكتبة التشغيل.
+
+## Solid torso constraint
+
+The render loop tests hand/finger spheres and six forearm samples against an ellipsoid sized from the pelvis and shoulders. It samples the sweep from the previously rendered pose, moves blocked paths toward the front surface through two-bone IK, and corrects an obstructed elbow pole. The final palm orientation is rate-limited in world space before a second clearance pass. This changes presentation only; source motion files are untouched.
+
+`Signer.bodyOverlap` reports remaining displacement needed to clear the torso envelope. `tools/avatarcheck.html` records its maximum in millimetres alongside wrist jumps. The envelope is a conservative approximation of the torso, not collision against every clothing triangle or a complete head/limb physics system.

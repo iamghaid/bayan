@@ -500,6 +500,79 @@ const Signer = (() => {
     }
     vrm.scene.updateMatrixWorld(true);
   }
+  // Swept hand spheres against a solid torso envelope. Check the path as well
+  // as the destination: two clear poses can otherwise interpolate through the chest.
+  const bodyHistory = { Left: null, Right: null };
+  let bodyOverlap = 0;
+  function torsoClearance(previous, current, radius, body) {
+    const rx = body.rx + radius, ry = body.ry + radius, rz = body.rz + radius;
+    // An invalid starting sample has no clear sweep path. Resolve its current
+    // position first instead of dividing the existing overlap by a tiny t.
+    if (previous) {
+      const x = (previous.x - body.x) / rx, y = (previous.y - body.y) / ry;
+      const z = (previous.z - body.z) / rz;
+      if (x*x + y*y + z*z < 1) previous = null;
+    }
+    let push = 0;
+    for (let k = 1; k <= 32; k++) {
+      const t = previous ? k / 32 : 1;
+      const p = previous ? previous.clone().lerp(current, t) : current;
+      const x = (p.x - body.x) / rx, y = (p.y - body.y) / ry;
+      const section = 1 - x * x - y * y;
+      if (section <= 0) continue;
+      const front = body.z + rz * Math.sqrt(section);
+      const back = body.z - rz * Math.sqrt(section);
+      if (p.z > back && p.z < front) push = Math.max(push, (front - p.z + 0.002) / t);
+    }
+    return push;
+  }
+  function armCollisionBalls(side) {
+    const points = handBalls(side);
+    const elbow = wpos(bone(side + 'LowerArm')), wrist = wpos(bone(side + 'Hand'));
+    // Include the forearm: a clear palm alone does not prevent the sleeve
+    // or wrist from cutting through the chest on its way to that position.
+    for (let i = 0; i < 6; i++) points.push({p: elbow.clone().lerp(wrist, i / 6), r: 0.025});
+    return points;
+  }
+  function guardSolidBody() {
+    const hips = bone('Hips'), left = bone('LeftUpperArm'), right = bone('RightUpperArm');
+    if (!hips || !left || !right) return;
+    vrm.scene.updateMatrixWorld(true);
+    const h = wpos(hips), l = wpos(left), r = wpos(right);
+    const top = (l.y + r.y) / 2 + 0.025, bottom = h.y - 0.08;
+    const body = { x: (l.x + r.x) / 2, y: (top + bottom) / 2,
+      z: (l.z + r.z) / 2, rx: l.distanceTo(r) * 0.48,
+      ry: (top - bottom) / 2, rz: 0.145 };
+    bodyOverlap = 0;
+    for (const side of ['Left', 'Right']) {
+      // IK preserves palm orientation and finger shape. Recheck the actual
+      // reachable result, since a requested displacement may exceed arm reach.
+      for (let pass = 0; pass < 16; pass++) {
+        const upper = bone(side + 'UpperArm'), lower = bone(side + 'LowerArm');
+        const elbow = wpos(lower), elbowPush = torsoClearance(null, elbow, 0.025, body);
+        if (elbowPush > 0.0005) {
+          const shoulder = wpos(upper), wrist = wpos(bone(side + 'Hand'));
+          const handWorld = bone(side + 'Hand').getWorldQuaternion(new THREE.Quaternion());
+          turnBone(upper, elbow.clone().sub(shoulder), elbow.clone().add(V(0, 0, elbowPush)).sub(shoulder));
+          bone(side + 'Hand').quaternion.copy(lower.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(handWorld));
+          bone(side + 'Hand').updateMatrixWorld(true);
+          armIK(side, wrist.sub(wpos(bone(side + 'Hand'))));
+        }
+        const balls = armCollisionBalls(side);
+        let push = 0;
+        for (let i = 0; i < balls.length; i++) {
+          const previous = bodyHistory[side] && bodyHistory[side][i];
+          push = Math.max(push, torsoClearance(previous, balls[i].p, balls[i].r, body));
+        }
+        if (push < 0.0005) break;
+        armIK(side, V(0, 0, Math.min(push, 0.12)));
+        safetyCorrections++;
+      }
+      const finalBalls = armCollisionBalls(side);
+      for (const ball of finalBalls) bodyOverlap = Math.max(bodyOverlap, torsoClearance(null, ball.p, ball.r, body));
+      bodyHistory[side] = finalBalls.map(ball => ball.p.clone());
+    }
+  }
   // Conservative proxies, not a mesh collision test or linguistic approval.
   function inspectPose(fx) {
     vrm.scene.updateMatrixWorld(true);
@@ -516,6 +589,7 @@ const Signer = (() => {
     }
     return {motion: cur && cur.it && cur.it.motion, seconds: cur ? cur.t : 0,
       behind, outside, overlap_mm: Math.round(overlap * 1000), intentional_contact: intentionalContact,
+      body_overlap_mm: Math.round(bodyOverlap * 1000),
       overlap_warning: !intentionalContact && overlap > 0.012};
   }
   // لا تدخل أي نقطة من اليد في سطح الرأس/الوجه (تُفحص فقط لليد التي لها تلامس مع الوجه)
@@ -613,6 +687,8 @@ const Signer = (() => {
   }
   function frame(dt) {
     if (!vrm) return;
+    const renderedHands = {};
+    for (const side of ['Left', 'Right']) renderedHands[side] = bone(side + 'Hand').getWorldQuaternion(new THREE.Quaternion());
     rotationDt = Math.max(1 / 240, Math.min(0.1, dt));
     if (cur && !paused) {
       cur.t += dt * speed * (cur.rate || 1);
@@ -634,6 +710,18 @@ const Signer = (() => {
       if (!paused) guardReviewHands(fx);
       poseDiagnostics = inspectPose(fx);
     } else poseDiagnostics = null;
+    guardSolidBody();
+    // A positional correction changes the forearm parent. Bound the final
+    // world-space palm rotation too, then clear any fingers moved by that turn.
+    for (const side of ['Left', 'Right']) {
+      const world = bone(side + 'Hand').getWorldQuaternion(new THREE.Quaternion());
+      setHand(side + 'Hand', {world}, renderedHands[side], 1);
+    }
+    guardSolidBody();
+    if (reviewSafety && cur && cur.d) {
+      const fx = window.SignFix && cur.d._x != null ? SignFix.at(cur.d, cur.d._x) : null;
+      poseDiagnostics = inspectPose(fx);
+    }
     renderer.render(scene, camera);
   }
   return {
@@ -641,6 +729,7 @@ const Signer = (() => {
     set reviewSafety(v) { reviewSafety = !!v; safetyCorrections = 0; },
     get reviewSafety() { return reviewSafety; },
     get safetyCorrections() { return safetyCorrections; },
+    get bodyOverlap() { return bodyOverlap; },
     get poseDiagnostics() { return poseDiagnostics; },
     set speed(v) { speed = v; }, get speed() { return speed; },
     set paused(v) { paused = !!v; }, get paused() { return paused; },

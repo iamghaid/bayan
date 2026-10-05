@@ -5,7 +5,7 @@ const source = fs.readFileSync(path.join(ROOT, 'signer.js'), 'utf8');
 const marker = '    init, playList, stop, load,';
 assert(source.includes(marker));
 const instrumented = source.replace(marker,
-  marker + '\n    testSet:set, testSetHand:setHand, testWrist:constrainWrist, testDt:dt=>{rotationDt=dt;}, testAimHand:aimHand, testRig:(map, rest, bind) => { boneMap=map; vrm={}; BIND=bind||null; Object.assign(REST_W,rest); },');
+  marker + '\n    testTorso:torsoClearance, testSet:set, testSetHand:setHand, testWrist:constrainWrist, testDt:dt=>{rotationDt=dt;}, testAimHand:aimHand, testRig:(map, rest, bind) => { boneMap=map; vrm={}; BIND=bind||null; Object.assign(REST_W,rest); },');
 const sandbox = {THREE, window:{}, console};
 vm.createContext(sandbox); vm.runInContext(instrumented + '\nthis.testSigner=Signer;', sandbox);
 const player = sandbox.testSigner;
@@ -48,4 +48,16 @@ assert(hand.quaternion.angleTo(q(0,0,0))<1e-7,'twist remained in wrist');
 parent.quaternion.identity();hand.quaternion.copy(q(2*Math.PI/3,0,0));scene.updateMatrixWorld(true);
 player.testWrist('Right');
 assert(Math.abs(hand.quaternion.angleTo(q(0,0,0))*180/Math.PI-75)<1e-6,'extreme wrist bend not limited');
-console.log('11 retarget regression checks passed');
+// Endpoints outside the chest still need a swept-path collision check.
+const body={x:0,y:1,z:0,rx:.25,ry:.4,rz:.15};
+const point=(x,y,z)=>new THREE.Vector3(x,y,z);
+assert(player.testTorso(null,point(0,1,0),.02,body)>.17);
+assert.strictEqual(player.testTorso(null,point(0,1,.25),.02,body),0);
+assert.strictEqual(player.testTorso(null,point(.4,1,0),.02,body),0);
+assert(player.testTorso(point(-.4,1,0),point(.4,1,0),.02,body)>0);
+assert.strictEqual(player.testTorso(point(-.4,1,.25),point(.4,1,.25),.02,body),0);
+assert.strictEqual(player.testTorso(null,point(0,1.8,0),.02,body),0);
+assert(player.testTorso(point(0,1,.3),point(0,1,-.3),.02,body)>0);
+assert(player.testTorso(point(0,1,0),point(0,1,0),.02,body)<.2);
+assert.strictEqual(player.testTorso(point(0,1,0),point(0,1,.3),.02,body),0);
+console.log('20 retarget regression checks passed');

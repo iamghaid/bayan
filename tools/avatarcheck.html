@@ -11,7 +11,7 @@ const RenderBase=THREE.WebGLRenderer;
 THREE.WebGLRenderer=class extends RenderBase {constructor(options){super({...options,preserveDrawingBuffer:true});}};
 const baseline = new URLSearchParams(location.search).has('baseline');
 const script = document.createElement('script');
-script.src = baseline ? '../coverage/research/signer_previous.js' : '../signer.js?v=40';
+script.src = baseline ? '../coverage/research/signer_previous.js' : '../signer.js?v=solid-body-1';
 script.onload = async () => {
   const out = document.getElementById('result');
   try {
@@ -24,7 +24,7 @@ script.onload = async () => {
     for (const item of needed.slice(0,80)) {
       const d=await Signer.load(item.id,base);
       await new Promise(resolve=>Signer.playList([{motion:item.id}],tag=>{if(Signer._dbg())resolve();},base));
-      let prev={}, maxStep=0, jumpFrames=0, finite=true;
+      let prev={}, maxStep=0, jumpFrames=0, maxBodyOverlap=0, finite=true;
       const sheetMode=new URLSearchParams(location.search).has('sheet');
       let sheet,ctx,sample=0;
       if(sheetMode){sheet=document.createElement('canvas');sheet.width=1200;sheet.height=900;sheet.style.cssText='width:1200px;height:900px;max-width:100%';document.body.prepend(sheet);ctx=sheet.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,1200,900);}
@@ -32,6 +32,7 @@ script.onload = async () => {
       const ticks=new URLSearchParams(location.search).has('frame')?Math.max(1,Math.ceil(stopFrame/d.fps*60)):Math.ceil(d.frames.length/d.fps*60)-1;
       for(let i=0;i<ticks;i++) {
         Signer._tick();
+        maxBodyOverlap=Math.max(maxBodyOverlap,Signer.bodyOverlap||0);
         if(sheetMode && sample<8 && i>=Math.round(sample*(ticks-1)/7)){
           const x=(sample%4)*300,y=Math.floor(sample/4)*450;
           ctx.drawImage(document.getElementById('cv'),x,y,300,420);
@@ -45,7 +46,7 @@ script.onload = async () => {
         }
       }
       Signer.stop();
-      results.push({id:item.id,max_step_deg:Math.round(maxStep*100)/100,jump_frames:jumpFrames,finite});
+      results.push({id:item.id,max_step_deg:Math.round(maxStep*100)/100,jump_frames:jumpFrames,body_overlap_mm:Math.round(maxBodyOverlap*1000),finite});
       out.textContent=`${results.length}/80`; await new Promise(resolve=>setTimeout(resolve,0));
     }
     out.textContent=JSON.stringify({baseline,signs:results.length,jump_frames:results.reduce((n,r)=>n+r.jump_frames,0),finite:results.every(r=>r.finite),results},null,2);
