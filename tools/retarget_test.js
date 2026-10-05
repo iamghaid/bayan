@@ -5,7 +5,7 @@ const source = fs.readFileSync(path.join(ROOT, 'signer.js'), 'utf8');
 const marker = '    init, playList, stop, load,';
 assert(source.includes(marker));
 const instrumented = source.replace(marker,
-  marker + '\n    testSolveArm:solveArm, testChain:(side,rig)=>{ARM_RIG[side]=rig;}, testGeometry:armGeometry, testLimits:ARM_LIMITS, testTorso:torsoClearance, testSet:set, testSetHand:setHand, testWrist:constrainWrist, testDt:dt=>{rotationDt=dt;}, testAimHand:aimHand, testRig:(map, rest, bind) => { boneMap=map; vrm={}; BIND=bind||null; Object.assign(REST_W,rest); },');
+  marker + '\n    testTwistWeights:twistWeights, testBuildTwists:buildForearmTwists, testTwistBones:()=>FOREARM_TWISTS, testSolveArm:solveArm, testChain:(side,rig)=>{ARM_RIG[side]=rig;}, testGeometry:armGeometry, testLimits:ARM_LIMITS, testTorso:torsoClearance, testSet:set, testSetHand:setHand, testWrist:constrainWrist, testDt:dt=>{rotationDt=dt;}, testAimHand:aimHand, testRig:(map, rest, bind) => { boneMap=map; vrm={}; BIND=bind||null; Object.assign(REST_W,rest); },');
 const sandbox = {THREE, window:{}, console};
 vm.createContext(sandbox); vm.runInContext(instrumented + '\nthis.testSigner=Signer;', sandbox);
 const player = sandbox.testSigner;
@@ -117,4 +117,50 @@ const halfTick=player.testGeometry(shoulder,point(.4,1.8,-.2),point(.5,1.8,-.1),
 const halfUpper=halfTick.elbow.clone().sub(shoulder).normalize(),halfLower=halfTick.wrist.clone().sub(halfTick.elbow).normalize();
 assert(halfUpper.angleTo(slowUpper)*180/Math.PI<=3+1e-6,'shoulder rate changed at 120 fps');
 assert(Math.abs(halfUpper.angleTo(halfLower)-slowUpper.angleTo(slowLower))*180/Math.PI<=3+1e-6,'elbow rate changed at 120 fps');
-console.log('50 retarget regression checks passed');
+// Coupled wrist bend must stay inside an ellipse, not its extreme corners.
+upperBone.quaternion.identity();lowerBone.quaternion.identity();wristBone.quaternion.copy(q(0,.8,.8));rigScene.updateMatrixWorld(true);
+player.testWrist('Right');
+let wristQ=wristBone.quaternion.clone(), wristAngle=2*Math.acos(wristQ.w), vector=new THREE.Vector3(wristQ.x,wristQ.y,wristQ.z).normalize().multiplyScalar(wristAngle);
+assert(Math.hypot(vector.z/(65*Math.PI/180),vector.y/(25*Math.PI/180))<=1+1e-6,'combined wrist bend escaped envelope');
+const unchanged=player.testTwistWeights([1,0,0,0],[1,0,0,0],1,[3,4,5],0);
+assert.strictEqual(unchanged.indices[0],1,'elbow vertex was assigned roll');
+const middle=player.testTwistWeights([1,0,0,0],[1,0,0,0],1,[3,4,5],.5);
+assert(middle.indices.includes(3)&&middle.indices.includes(4),'middle shaft has no graded roll');
+const tipWeights=player.testTwistWeights([1,0,0,0],[1,0,0,0],1,[3,4,5],1);
+assert.strictEqual(tipWeights.indices[0],5,'wrist does not receive full roll');
+const blended=player.testTwistWeights([0,1,2,7],[.2,.4,.3,.1],1,[3,4,5],.5);
+assert.strictEqual(blended.indices.length,4);
+assert(Math.abs(blended.weights.reduce((a,b)=>a+b,0)-1)<1e-8,'skin weights are not normalized');
+assert(blended.weights.every(x=>x>=0),'negative skin influence');
+// Add the roll rig to a real SkinnedMesh and verify neutral vertices, joint
+// attachment and volume around the middle of a rotating forearm.
+upperBone.quaternion.identity();lowerBone.quaternion.identity();wristBone.quaternion.identity();rigScene.updateMatrixWorld(true);
+const geometry=new THREE.BufferGeometry();
+geometry.setAttribute('position',new THREE.Float32BufferAttribute([-.5,1.52,0,-.635,1.52,0,-.77,1.52,0,-.75,1.52,0],3));
+geometry.setAttribute('skinIndex',new THREE.Uint16BufferAttribute([1,0,0,0,1,0,0,0,1,0,0,0,1,2,0,0],4));
+geometry.setAttribute('skinWeight',new THREE.Float32BufferAttribute([1,0,0,0,1,0,0,0,1,0,0,0,.5,.5,0,0],4));
+const skin=new THREE.SkinnedMesh(geometry,new THREE.MeshBasicMaterial());rigScene.add(skin);
+skin.bind(new THREE.Skeleton([upperBone,lowerBone,wristBone]),new THREE.Matrix4());
+function skinVertex(index) {
+ const position=new THREE.Vector3().fromBufferAttribute(skin.geometry.attributes.position,index).applyMatrix4(skin.bindMatrix);
+ const out=new THREE.Vector3(),ids=skin.geometry.attributes.skinIndex,wts=skin.geometry.attributes.skinWeight;
+ for(let k=0;k<4;k++) {
+  const id=[ids.getX(index),ids.getY(index),ids.getZ(index),ids.getW(index)][k],weight=[wts.getX(index),wts.getY(index),wts.getZ(index),wts.getW(index)][k];
+  out.addScaledVector(position.clone().applyMatrix4(skin.skeleton.boneInverses[id]).applyMatrix4(skin.skeleton.bones[id].matrixWorld),weight);
+ }
+ return out.applyMatrix4(skin.bindMatrixInverse);
+}
+const neutral=[0,1,2,3].map(skinVertex),oldWrist=wristBone.getWorldPosition(new THREE.Vector3());
+player.testBuildTwists(rigScene);rigScene.updateMatrixWorld(true);
+for(let i=0;i<4;i++) assert(skinVertex(i).distanceTo(neutral[i])<1e-7,'neutral mesh moved after adding twist rig');
+assert(wristBone.getWorldPosition(new THREE.Vector3()).distanceTo(oldWrist)<1e-8,'wrist joint moved after reparenting');
+const twists=player.testTwistBones().Right;
+assert.strictEqual(twists.length,3);
+assert.strictEqual(wristBone.parent,twists[2]);
+twists.forEach((b,i)=>b.quaternion.setFromAxisAngle(new THREE.Vector3(-1,0,0),(i+1)*20*Math.PI/180));rigScene.updateMatrixWorld(true);
+assert(lowerBone.quaternion.angleTo(new THREE.Quaternion())<1e-8,'roll twisted the elbow hinge');
+assert(skinVertex(0).distanceTo(neutral[0])<1e-7,'pronation moved elbow surface');
+const middleVertex=skinVertex(1),radius=Math.hypot(middleVertex.y-1.5,middleVertex.z);
+assert(radius>.0195,'roll collapsed the mid-forearm surface');
+assert(wristBone.getWorldPosition(new THREE.Vector3()).distanceTo(oldWrist)<1e-8,'roll displaced wrist joint');
+console.log('66 retarget regression checks passed');

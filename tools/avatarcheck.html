@@ -11,7 +11,7 @@ const RenderBase=THREE.WebGLRenderer;
 THREE.WebGLRenderer=class extends RenderBase {constructor(options){super({...options,preserveDrawingBuffer:true});}};
 const baseline = new URLSearchParams(location.search).has('baseline');
 const script = document.createElement('script');
-script.src = baseline ? '../coverage/research/signer_previous.js' : '../signer.js?v=joint-chain-1';
+script.src = baseline ? '../coverage/research/signer_previous.js' : '../signer.js?v=joint-review-2';
 script.onload = async () => {
   const out = document.getElementById('result');
   try {
@@ -24,7 +24,7 @@ script.onload = async () => {
     for (const item of needed.slice(0,80)) {
       const d=await Signer.load(item.id,base);
       await new Promise(resolve=>Signer.playList([{motion:item.id}],tag=>{if(Signer._dbg())resolve();},base));
-      let prev={}, prevArm={}, maxArmStep=0, maxElbowStep=0, maxStep=0, jumpFrames=0, maxBodyOverlap=0, maxHingeError=0, minFlex=180, maxFlex=0, maxWristTwist=0, maxWristBend=0, maxForearmRoll=0, maxShoulder=0, maxLengthError=0, finite=true;
+      let prev={}, prevArm={}, maxArmStep=0, maxElbowStep=0, maxStep=0, jumpFrames=0, maxBodyOverlap=0, maxHingeError=0, minFlex=180, maxFlex=0, maxWristTwist=0, maxWristBend=0, maxForearmRoll=0, maxShoulder=0, maxLengthError=0, maxPhysicalWrist=0, bindOffset=0, finite=true;
       const sheetMode=new URLSearchParams(location.search).has('sheet');
       let sheet,ctx,sample=0;
       if(sheetMode){sheet=document.createElement('canvas');sheet.width=1200;sheet.height=900;sheet.style.cssText='width:1200px;height:900px;max-width:100%';document.body.prepend(sheet);ctx=sheet.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,1200,900);}
@@ -39,6 +39,8 @@ script.onload = async () => {
           minFlex=Math.min(minFlex,joint.elbow_flex_deg);maxFlex=Math.max(maxFlex,joint.elbow_flex_deg);
           maxWristTwist=Math.max(maxWristTwist,Math.abs(joint.wrist_twist_deg));
           maxWristBend=Math.max(maxWristBend,joint.wrist_bend_deg);
+          maxPhysicalWrist=Math.max(maxPhysicalWrist,joint.physical_wrist_angle_deg);
+          bindOffset=joint.bind_wrist_offset_deg;
           maxForearmRoll=Math.max(maxForearmRoll,Math.abs(joint.forearm_roll_deg));
           maxShoulder=Math.max(maxShoulder,joint.shoulder_elevation_deg);
           maxLengthError=Math.max(maxLengthError,joint.upper_length_error_mm,joint.lower_length_error_mm);
@@ -46,6 +48,13 @@ script.onload = async () => {
         if(sheetMode && sample<8 && i>=Math.round(sample*(ticks-1)/7)){
           const x=(sample%4)*300,y=Math.floor(sample/4)*450;
           ctx.drawImage(document.getElementById('cv'),x,y,300,420);
+          if(new URLSearchParams(location.search).has('bones')) {
+            for(const points of Object.values(Signer._jointProjection())) {
+              const p=points.map(q=>[x+(q[0]+1)*150,y+(1-q[1])*210]);
+              ctx.strokeStyle='#d27b00';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(...p[0]);ctx.lineTo(...p[1]);ctx.lineTo(...p[2]);ctx.lineTo(...p[3]);ctx.stroke();
+              p.forEach((q,i)=>{ctx.fillStyle=['#d00000','#008800','#0055ff','#990099'][i];ctx.beginPath();ctx.arc(...q,3,0,Math.PI*2);ctx.fill();});
+            }
+          }
           ctx.fillStyle='#111';ctx.font='16px sans-serif';ctx.fillText('ID '+item.id+' | '+(i/60).toFixed(2)+'s',x+10,y+440);sample++;
         }
         for(const side of ['Left','Right']) {
@@ -68,7 +77,7 @@ script.onload = async () => {
       Signer.stop();
       results.push({id:item.id,max_step_deg:Math.round(maxStep*100)/100,jump_frames:jumpFrames,body_overlap_mm:Math.round(maxBodyOverlap*1000),
         upper_step_deg:maxArmStep,elbow_step_deg:maxElbowStep,hinge_error_deg:maxHingeError,elbow_flex_deg:[minFlex,maxFlex],wrist_twist_deg:maxWristTwist,
-        wrist_bend_deg:maxWristBend,forearm_roll_deg:maxForearmRoll,shoulder_elevation_deg:maxShoulder,
+        physical_wrist_angle_deg:maxPhysicalWrist,bind_wrist_offset_deg:bindOffset,wrist_bend_deg:maxWristBend,forearm_roll_deg:maxForearmRoll,shoulder_elevation_deg:maxShoulder,
         bone_length_error_mm:maxLengthError,finite});
       out.textContent=`${results.length}/80`; await new Promise(resolve=>setTimeout(resolve,0));
     }
