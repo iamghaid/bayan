@@ -112,6 +112,14 @@ python tools/demo_server.py
 - الحركة 419 «النبي» والحركة 589 تحتاجان إصلاحًا. قد تظهر تداخلات بين اليدين في حركات أخرى.
 - الخطب الخمس المحفوظة لا تتحدث تلقائيًا بالإشارات الجديدة؛ تحتاج مزامنة (`python tools/team_bank.py --apply`).
 
+### خطة التطوير
+
+**تعابير الوجه هي الخطوة القادمة.** في لغة الإشارة، الوجه جزء من القواعد وليس زينة: رفع الحاجبين يحوّل الجملة إلى سؤال، وهز الرأس ينفيها، وشكل الفم يغيّر معنى بعض الإشارات. اليوم يستخرج بيان من الفيديو درجة انفتاح الفم فقط. الخطة:
+
+1. استخراج ملامح الوجه كاملة من نفس فيديوهات sshi.sa: الحاجبان، العينان، شكل الفم، وميل الرأس وحركته.
+2. نقلها إلى وجه الأفتار حتى يؤدي التعبير مع حركة اليدين في نفس اللحظة.
+3. إضافة الوجه كجانب خامس في مراجعة الفريق، يُقارَن بفيديو المصدر قبل الاعتماد.
+
 ---
 
 ## English
@@ -142,6 +150,14 @@ Friday sermons reach most people only as sound; Deaf worshippers need an interpr
 | Team review | `motion-review.*`, `tools/team_bank.py`, `api/bank.py`, `api/decision.py` (Neon Postgres over HTTPS) |
 
 Details: [Architecture](docs/ARCHITECTURE.md) · [File guide](docs/FILE_GUIDE.md) · [Development](docs/DEVELOPMENT.md) · [Motion fixes](docs/MOTION_FIXES.md).
+
+### Roadmap
+
+**Facial expressions are next.** In sign language the face is grammar, not decoration: raised eyebrows turn a sentence into a question, a head shake negates it, and mouth shapes change the meaning of some signs. Today Bayan extracts only how open the mouth is. The plan:
+
+1. Extract the full face from the same sshi.sa videos: eyebrows, eyes, mouth shape, and head tilt and movement.
+2. Drive the avatar's face with it, in sync with the hands.
+3. Add the face as a fifth pass in team review, compared with the source video before approval.
 
 ### Run locally
 
