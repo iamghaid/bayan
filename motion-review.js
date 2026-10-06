@@ -25,7 +25,7 @@
   const disclaimer=document.createElement('p');disclaimer.textContent='افحص الجوانب الأربعة وسجّل توقيت أي ملاحظة قبل اختيار القرار.';passPanel.append(disclaimer);
   $('notes').closest('section').before(passPanel);
   let catalog = [], filtered = [], current, notes = {}, bank = null;
-  const listNames = {trusted:'معتمد', review:'قيد المراجعة', redesign:'يحتاج مراجعة (إعادة تصميم)'};
+  const listNames = {trusted:'معتمد', review:'قيد المراجعة', redesign:'تحتاج إعادة تصميم'};
   const localLists = {accepted:'trusted', rejected:'redesign'};
   // Sermon motions stay trusted and playing until a reviewer decides otherwise; new ones start under review.
   function listOf(item) {
@@ -52,10 +52,37 @@
     const view = $('view').value;
     return view === 'all' || listOf(item) === view;
   }
+  const fmt = n => n.toLocaleString('en');
+  const pct = (n, total) => total ? `${Math.round(n / total * 1000) / 10}%` : '0%';
+  function decided(item) {
+    if (bank) return Boolean(bank[item.id]);
+    const entry = notes[item.id];
+    return entry?.motion_sha256 === item.motion_sha256 && Boolean(localLists[entry.decision] || entry.decision === 'rework');
+  }
+  // Number board: how many motions sit in each bank, and how many a reviewer has actually decided.
   function countViews() {
     const counts = {all: catalog.length, trusted: 0, review: 0, redesign: 0};
-    for (const item of catalog) counts[listOf(item)]++;
+    let fromSermons = 0, acceptedByReviewer = 0, decisions = 0;
+    for (const item of catalog) {
+      const list = listOf(item);
+      counts[list]++;
+      if (decided(item)) { decisions++; if (list === 'trusted') acceptedByReviewer++; }
+      else if (list === 'trusted') fromSermons++;
+    }
+    $('totalCount').textContent = fmt(counts.all);
+    for (const card of document.querySelectorAll('.card')) {
+      const view = card.dataset.view;
+      card.querySelector('.card-num').textContent = fmt(counts[view]);
+      card.querySelector('.card-pct').textContent = view === 'all' ? '' : `${pct(counts[view], counts.all)} من المكتبة`;
+      card.setAttribute('aria-pressed', String($('view').value === view));
+    }
+    document.querySelector('.card[data-view=trusted] .card-sub').textContent = `${fmt(fromSermons)} من الخطب · ${fmt(acceptedByReviewer)} اعتمدتِها`;
+    document.querySelector('.card[data-view=all] .card-sub').textContent = `قرارات مسجّلة: ${fmt(decisions)} من ${fmt(counts.all)}`;
+    for (const segment of $('bar').children) segment.style.width = pct(counts[segment.dataset.list], counts.all);
     for (const option of $('view').options) option.textContent = option.textContent.replace(/ \(\d+\)$/, '') + ` (${counts[option.value]})`;
+    $('boardScope').textContent = bank
+      ? 'القرارات من سجل الخادم المحلي (tools/motion_bank.json).'
+      : 'القرارات المحفوظة في هذا المتصفح فقط. القرارات النهائية تُسجَّل من الخادم المحلي.';
   }
   async function sendDecision(decision) {
     if (!bank || !current) return;
@@ -71,7 +98,7 @@
     } catch (error) {
       $('noteStatus').textContent = `حُفظ القرار في المتصفح فقط: ${error.message}`;
     } finally {
-      countViews(); if (current === item) { showDecision(); showBank(); }
+      countViews(); filter(); if (current === item) { showDecision(); showBank(); }
     }
   }
   try { notes = JSON.parse(localStorage.getItem(noteKey) || '{}'); } catch { notes = {}; }
@@ -95,6 +122,9 @@
   function select() {
     Signer.stop(); Signer.paused = false; $('pause').textContent = 'إيقاف مؤقت';
     current = filtered.find(item => String(item.id) === $('pick').value);
+    for (const row of $('list').children) row.setAttribute?.('aria-selected', String(current != null && row.dataset.id === String(current.id)));
+    $('list').querySelector('[aria-selected=true]')?.scrollIntoView({block: 'nearest'});
+    $('position').textContent = current ? `الحركة ${fmt(filtered.indexOf(current) + 1)} من ${fmt(filtered.length)}` : `0 من ${fmt(filtered.length)}`;
     $('reference').pause(); $('reference').removeAttribute('src'); $('reference').load();
     $('notes').value = current ? notes[current.id]?.note || '' : '';
     for(const [key] of passes)$('pass-'+key).value=current ? notes[current.id]?.passes?.[key] || 'pending' : 'pending';
@@ -102,7 +132,11 @@
     showDecision(); showBank();
     $('play').disabled = $('pause').disabled = !current || !Signer.ready || current.schema_errors.length > 0;
     if (!current) return status('لا توجد نتائج مطابقة.');
-    status(`${current.ar} (#${current.id}) — جاهزة للمعاينة`);
+    const stagedOffline = current.source === 'staging' && !bank;
+    if (stagedOffline) $('play').disabled = $('pause').disabled = true;
+    status(stagedOffline
+      ? `${current.ar} (#${current.id}) — حركة جديدة: ملفها على جهازك فقط، افتحي الصفحة من الخادم المحلي لتشغيلها.`
+      : `${current.ar} (#${current.id}) — جاهزة للمعاينة`);
     const metrics = [current.source === 'active' ? `مستخدمة في الخطب: ${current.uses} مرة` : 'حركة جديدة (staging)', current.fidelity != null ? `مطابقة الأفتار لبيانات الفيديو: ${current.fidelity}%${current.signfix ? ' (مصححة يدويًا)' : ''}` : 'مطابقة الأفتار: لم تُقس', `إطارات: ${current.frames}`, `مدة الحركة: ${current.seconds} ثانية`, `تتبع إحدى اليدين: ${Math.round(current.tracked_ratio * 100)}%`, `بنية الملف: ${current.schema_errors.length ? 'تحتاج فحصًا' : 'سليمة'}`];
     for (const metric of metrics) { const span = document.createElement('span'); span.textContent = metric; $('metrics').append(span); }
     if ($('showReference').checked) $('reference').src = `/reference/${current.id}.mp4`;
@@ -112,16 +146,57 @@
   function filter() {
     const query = $('search').value.trim();
     filtered = catalog.filter(item => (/^\d+$/.test(query) ? String(item.id)===query : item.ar.includes(query)) && inView(item));
-    // Under review: weakest match with the source video first, so the worst are compared first.
-    if ($('view').value === 'review') {
-      const rank = item => item.signfix || item.fidelity == null ? 101 : item.fidelity;   // signfix motions differ from MediaPipe on purpose
-      filtered.sort((a, b) => rank(a) - rank(b) || b.uses - a.uses);
-    }
+    // signfix motions differ from MediaPipe on purpose, and new motions have no measurement yet.
+    const weak = item => item.signfix || item.fidelity == null ? 101 : item.fidelity;
+    const strong = item => item.signfix || item.fidelity == null ? -1 : item.fidelity;
+    const orders = {
+      weak: (a, b) => weak(a) - weak(b) || b.uses - a.uses,
+      strong: (a, b) => strong(b) - strong(a) || b.uses - a.uses,
+      used: (a, b) => b.uses - a.uses || a.id - b.id,
+      alpha: (a, b) => a.ar.localeCompare(b.ar, 'ar') || a.id - b.id,
+      id: (a, b) => a.id - b.id
+    };
+    filtered.sort(orders[$('sort').value] || orders.weak);
+    const keep = current && filtered.includes(current) ? String(current.id) : null;
     $('pick').replaceChildren();
-    for (const item of filtered) { const option = document.createElement('option'); option.value = item.id; option.textContent = `${item.ar} — ${item.id}`; $('pick').append(option); }
+    const rows = document.createDocumentFragment();
+    filtered.forEach((item, index) => {
+      const option = document.createElement('option'); option.value = item.id; option.textContent = `${item.ar} — ${item.id}`; $('pick').append(option);
+      rows.append(listRow(item, index));
+    });
+    $('list').replaceChildren(rows);
+    if (!filtered.length) { const empty = document.createElement('p'); empty.className = 'empty'; empty.textContent = 'لا توجد حركات مطابقة.'; $('list').append(empty); }
+    if (keep) $('pick').value = keep;
+    $('listTitle').textContent = `${document.querySelector(`.card[data-view=${$('view').value}] .card-name`).textContent} · ${fmt(filtered.length)} حركة`;
     select();
   }
-  $('search').oninput = filter; $('view').onchange = filter; $('pick').onchange = select;
+  function listRow(item, index) {
+    const list = listOf(item);
+    const row = document.createElement('button');
+    row.type = 'button'; row.className = 'row'; row.dataset.id = item.id; row.setAttribute('role', 'option');
+    const cell = (cls, text) => { const span = document.createElement('span'); span.className = cls; if (text != null) span.textContent = text; return span; };
+    const name = cell('name', item.ar || '—'); const id = document.createElement('small'); id.textContent = '#' + item.id; name.append(id);
+    const chip = cell('chip', listNames[list]); chip.dataset.list = list;
+    const fid = cell('fid');
+    if (item.fidelity != null) {
+      const track = document.createElement('i'), fill = document.createElement('b');
+      fill.style.width = Math.max(0, Math.min(100, item.fidelity)) + '%'; track.append(fill);
+      fid.append(track, `${Math.round(item.fidelity)}%`);
+      if (item.fidelity < 60 && !item.signfix) fid.dataset.low = '';
+      if (item.signfix) { const em = document.createElement('em'); em.textContent = 'مصححة يدويًا'; fid.append(em); }
+    } else { const em = document.createElement('em'); em.textContent = 'لم تُقس'; fid.append(em); }
+    row.append(cell('rank', fmt(index + 1)), name, chip, fid, cell('uses', item.uses ? `${fmt(item.uses)} مرة` : '—'));
+    row.onclick = () => { $('pick').value = item.id; select(); };
+    return row;
+  }
+  function setView(view) {
+    $('view').value = view;
+    $('sort').value = view === 'review' || view === 'redesign' ? 'weak' : 'used';
+    countViews(); filter();
+  }
+  for (const card of document.querySelectorAll('.card')) card.onclick = () => setView(card.dataset.view);
+  $('search').oninput = filter; $('view').onchange = () => setView($('view').value); $('pick').onchange = select; $('sort').onchange = filter;
+  $('list').onkeydown = event => { if (event.key === 'ArrowDown' || event.key === 'ArrowUp') { event.preventDefault(); move(event.key === 'ArrowDown' ? 1 : -1); } };
   function move(delta) { if (!current) return; const target = filtered[filtered.indexOf(current) + delta]; if (target) { $('pick').value = target.id; select(); } }
   $('next').onclick = () => move(1); $('previous').onclick = () => move(-1);
   $('showReference').onchange = () => { $('reference').hidden = !$('showReference').checked; select(); };
@@ -141,7 +216,7 @@
     const updated={...notes,[current.id]:next};
     try{localStorage.setItem(noteKey,JSON.stringify(updated));notes=updated;showDecision();$('noteStatus').textContent=decision?'حُفظ القرار والملاحظة محليًا.':'حُفظت الملاحظة محليًا.';}
     catch{$('noteStatus').textContent='تعذر الحفظ؛ لم يُسجل القرار. صدّر الملاحظات قبل المغادرة.';return;}
-    if(decision){countViews();sendDecision(decision);}
+    if(decision){countViews();if(!bank)filter();sendDecision(decision);}
   }
   $('save').onclick=()=>saveReview();
   $('acceptMotion').onclick=()=>{
@@ -166,8 +241,9 @@
         $('bankNote').textContent = 'الخادم المحلي: الاعتماد ينقل الحركة إلى «معتمد» وترجمة الخطب، والرفض يضعها في «يحتاج مراجعة» مع اقتراح المساعد. انشر الموقع ليظهر التحديث للجميع.';
       }
     } catch {}
+    countViews(); filter();   // numbers and list first, so they show even while the avatar loads
     await Signer.init($('cv'), 'avatar/man.glb?v=7');
     Signer.reviewSafety = $('safePose').checked;
-    countViews(); filter();
+    select();
   } catch (error) { status(error.message); }
 })();
