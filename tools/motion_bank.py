@@ -1,6 +1,6 @@
 """Local sign banks: reviewer decisions sort every motion into three lists.
 
-- trusted (موثوق ومعتمد): accepted. Staged motions are copied into the playback library,
+- trusted (معتمد): accepted. Staged motions are copied into the playback library,
   the dictionary label is added to tools/approved.json, and matching words in the saved
   sermons switch to the sign.
 - review (قيد المراجعة): no decision yet, or returned for another comparison with the video.

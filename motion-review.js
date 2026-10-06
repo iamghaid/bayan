@@ -25,7 +25,7 @@
   const disclaimer=document.createElement('p');disclaimer.textContent='افحص الجوانب الأربعة وسجّل توقيت أي ملاحظة قبل اختيار القرار.';passPanel.append(disclaimer);
   $('notes').closest('section').before(passPanel);
   let catalog = [], filtered = [], current, notes = {}, bank = null;
-  const listNames = {trusted:'موثوق ومعتمد', review:'قيد المراجعة', redesign:'يحتاج مراجعة (إعادة تصميم)'};
+  const listNames = {trusted:'معتمد', review:'قيد المراجعة', redesign:'يحتاج مراجعة (إعادة تصميم)'};
   const localLists = {accepted:'trusted', rejected:'redesign'};
   // Sermon motions stay trusted and playing until a reviewer decides otherwise; new ones start under review.
   function listOf(item) {
@@ -61,13 +61,13 @@
     if (!bank || !current) return;
     const item = current;
     for (const id of ['acceptMotion','rejectMotion','reworkMotion']) $(id).disabled = true;
-    $('noteStatus').textContent = decision === 'accepted' ? 'جارٍ نقلها إلى «موثوق ومعتمد» وترجمة الخطب…' : 'جارٍ حفظ القرار وطلب اقتراح المساعد للتصحيح…';
+    $('noteStatus').textContent = decision === 'accepted' ? 'جارٍ نقلها إلى «معتمد» وترجمة الخطب…' : 'جارٍ حفظ القرار وطلب اقتراح المساعد للتصحيح…';
     try {
       const response = await fetch('/api/decision', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:item.id, decision, note:$('notes').value, motion_sha256:item.motion_sha256, passes:Object.fromEntries(passes.map(([key])=>[key,$('pass-'+key).value]))})});
       const result = await response.json();
       if (!response.ok) throw Error(result.error || 'تعذر تحديث بنك الإشارات.');
       bank[item.id] = result;
-      $('noteStatus').textContent = result.list === 'trusted' ? `أضيفت «${result.ar}» إلى «موثوق ومعتمد» (${result.result.sermon_items} موضعًا جديدًا في الخطب).` : `أضيفت «${result.ar}» إلى «${listNames[result.list]}».`;
+      $('noteStatus').textContent = result.list === 'trusted' ? `أضيفت «${result.ar}» إلى «معتمد» (${result.result.sermon_items} موضعًا جديدًا في الخطب).` : `أضيفت «${result.ar}» إلى «${listNames[result.list]}».`;
     } catch (error) {
       $('noteStatus').textContent = `حُفظ القرار في المتصفح فقط: ${error.message}`;
     } finally {
@@ -76,7 +76,7 @@
   }
   try { notes = JSON.parse(localStorage.getItem(noteKey) || '{}'); } catch { notes = {}; }
   const status = message => { $('status').textContent = message; };
-  const decisionLabels={pending:'قيد المراجعة',accepted:'موثوق ومعتمد',rejected:'يحتاج مراجعة (إعادة تصميم)',rework:'قيد المراجعة (أُعيدت للمقارنة)'};
+  const decisionLabels={pending:'قيد المراجعة',accepted:'معتمد',rejected:'يحتاج مراجعة (إعادة تصميم)',rework:'قيد المراجعة (أُعيدت للمقارنة)'};
   function showDecision(){
     const entry=current && notes[current.id];
     const stale=entry?.motion_sha256 && entry.motion_sha256!==current.motion_sha256;
@@ -163,7 +163,7 @@
       const bankResponse = await fetch('/api/bank');
       if (bankResponse.ok) {
         bank = (await bankResponse.json()).records;
-        $('bankNote').textContent = 'الخادم المحلي: الاعتماد ينقل الحركة إلى «موثوق ومعتمد» وترجمة الخطب، والرفض يضعها في «يحتاج مراجعة» مع اقتراح المساعد. انشر الموقع ليظهر التحديث للجميع.';
+        $('bankNote').textContent = 'الخادم المحلي: الاعتماد ينقل الحركة إلى «معتمد» وترجمة الخطب، والرفض يضعها في «يحتاج مراجعة» مع اقتراح المساعد. انشر الموقع ليظهر التحديث للجميع.';
       }
     } catch {}
     await Signer.init($('cv'), 'avatar/man.glb?v=7');
