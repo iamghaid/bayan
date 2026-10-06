@@ -159,6 +159,44 @@ def staged_ids():
     return {row['id'] for row in motion_catalog.build(ROOT) if row.get('source') == 'staging' and not row.get('schema_errors')}
 
 
+def sermon_index():
+    """How each word was rendered in the five saved sermons: {word: {'action', 'id'|'letters'|..., 'uses'}}.
+    The most common rendering wins; signs count only if their motion is in the library."""
+    counts = {}
+    for plan_file in sorted((ROOT / 'translations').glob('*_gemini.json')):
+        try:
+            items = json.loads(plan_file.read_text(encoding='utf-8')).get('plan', [])
+        except (OSError, ValueError):
+            continue
+        for item in items:
+            action, text = item.get('action'), item.get('text') or ''
+            if action == 'sign' and str(item.get('id')) in MOTIONS:
+                outcome = ('sign', int(item['id']))
+            elif action == 'drop':
+                outcome = ('drop',)
+            elif action == 'spell' and item.get('letters') and all(str(x) in MOTIONS for x in item['letters']):
+                outcome = ('spell', tuple(item['letters']), item.get('base') or '')
+            else:
+                continue
+            key = ' '.join(norm(text).split())
+            if key:
+                counts.setdefault(key, {}).setdefault(outcome, 0)
+                counts[key][outcome] += 1
+    index = {}
+    for key, outcomes in counts.items():
+        outcome, uses = max(outcomes.items(), key=lambda pair: pair[1])
+        if outcome[0] == 'sign':
+            index[key] = {'action': 'sign', 'id': outcome[1], 'sign': BY_ID.get(str(outcome[1]), {}).get('ar', ''), 'uses': uses}
+        elif outcome[0] == 'drop':
+            index[key] = {'action': 'drop', 'uses': uses}
+        else:
+            index[key] = {'action': 'spell', 'letters': list(outcome[1]), 'base': outcome[2], 'uses': uses}
+    return index
+
+
+SERMON_WORDS = sermon_index()
+
+
 def team_approved():
     """New motions the review team accepted on the hosted site: {id: (row, record)}.
     Empty when no team database is connected or it cannot be reached (planning never fails on it)."""
@@ -233,6 +271,14 @@ def make_plan(text, preview_unreviewed=False):
             plan.append(item)
     if not plan:
         raise ValueError('لم نجد نصًا عربيًا قابلًا للمعالجة.')
+    # Words the saved sermons already render (sign, drop or fingerspelling) are rendered the same way here.
+    for item in plan:
+        if item['action'] != 'pending' or item.get('how') == 'approved':
+            continue
+        known = SERMON_WORDS.get(' '.join(norm(item['text']).split()))
+        if known:
+            item.update({k: v for k, v in known.items() if k != 'uses'}, conf='sermon', how='sermon', sermon_uses=known['uses'])
+            item.pop('preview_only', None)
     references = term_references(text)
     for item in plan:
         item['meaning_sources'] = term_references(item['text']) if item['action'] != 'quran' else []
