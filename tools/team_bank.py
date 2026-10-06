@@ -224,7 +224,10 @@ class TeamHandler:
             size = int(self.headers.get('Content-Length', '0'))
             if not 0 < size <= 20000:
                 return self.send_json(413, {'error': 'الطلب أكبر من الحد المسموح.'})
-            self.send_json(200, decide(json.loads(self.rfile.read(size))))
+            payload = json.loads(self.rfile.read(size))
+            if isinstance(payload, dict) and payload.get('check') is True:   # login: password is right
+                return self.send_json(200, {'ok': True})
+            self.send_json(200, decide(payload))
         except (ValueError, UnicodeDecodeError) as error:
             message = 'طلب غير صالح.' if isinstance(error, (json.JSONDecodeError, UnicodeDecodeError)) else str(error)
             self.send_json(400, {'error': message})
