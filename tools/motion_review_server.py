@@ -81,7 +81,7 @@ class Handler(SimpleHTTPRequestHandler):
                     pass
             return
         allowed = {'/motion-review.html', '/motion-review.js', '/review-assistant.js', '/unified-view.js', '/interface.css', '/fonts.css', '/man_dress.js', '/handfix.js', '/signfix.js', '/signer.js'}
-        valid = path in allowed or bool(re.fullmatch(r'/lib/(three\.min\.js|GLTFLoader\.js|three-vrm\.min\.js)|/avatar/man\.glb|/fonts/thmanyah[a-z]+-(Regular|Medium|Bold)\.woff2|/sshi_motion/(m|staging)/\d+\.json', path))
+        valid = path in allowed or bool(re.fullmatch(r'/lib/(three\.min\.js|GLTFLoader\.js|three-vrm\.min\.js)|/avatar/man\.glb|/fonts/thmanyah[a-z]+-(Regular|Medium|Bold)\.woff2|/brand/(logo|icon-64|icon-180|favicon-32)\.png|/sshi_motion/(m|staging)/\d+\.json', path))
         if not valid:
             return self.send_error(404)
         return super().do_GET()

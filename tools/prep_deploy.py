@@ -11,6 +11,7 @@ files = ['index.html',
          'khutbah.html', 'khutbah.js', 'demo.js', 'demo.css', 'interface.css', 'fonts.css', 'unified-view.js', 'workspace.js', 'handfix.js', 'signfix.js', 'signer.js', 'man_dress.js',
          'lib/three.min.js', 'lib/GLTFLoader.js', 'lib/three-vrm.min.js', 'avatar/man.glb', 'sshi_motion/index.json']
 files += [p.relative_to(S).as_posix() for p in (S / 'fonts').glob('*.woff2')]
+files += [p.relative_to(S).as_posix() for p in (S / 'brand').glob('*.png')]
 files += [p.relative_to(S).as_posix() for p in (S / 'translations').glob('*_gemini.json')]
 files += [p.relative_to(S).as_posix() for p in (S / 'translations').glob('*_gemini.txt')]
 files += [p.relative_to(S).as_posix() for p in (S / 'sshi_motion' / 'm').glob('*.json')]

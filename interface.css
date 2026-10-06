@@ -18,7 +18,7 @@ small,.lede{color:#62776e}
 .comparison{gap:24px}.comparison>div{min-width:0}.comparison canvas{height:480px;background:#e8efeb}
 #poseStatus{color:#62776e;font-size:13px}
 .review-header{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:24px}
-.brand-mark{display:inline-flex;align-items:center;gap:10px;color:#17654e;font-size:15px;font-weight:700}.brand-mark:before{content:'ب';display:grid;place-items:center;width:38px;height:38px;background:#17654e;color:white;border-radius:12px;font-size:24px}
+.brand-mark{display:inline-flex;align-items:center;gap:10px;color:#17654e;font-size:15px;font-weight:700}.brand-mark img{height:44px;width:auto;display:block}.brand-mark span{padding-inline-start:12px;border-inline-start:1px solid #dce7e1}
 .review-header p{margin:0;color:#62776e}.review-header a{background:white;border:1px solid #dce7e1;padding:9px 16px;border-radius:10px;text-decoration:none;white-space:nowrap}
 .review-passes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.review-passes h2,.review-passes>p{grid-column:1/-1;margin:0}.review-passes label{padding:16px;background:#f7faf8;border:1px solid #e2ebe5;border-radius:12px}.review-passes select{display:block;width:100%;margin:10px 0}.review-passes br{display:none}
 .decision-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:20px 0;padding:16px;background:#f7faf8;border-radius:14px}
