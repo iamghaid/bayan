@@ -128,12 +128,18 @@
     $('reference').pause(); $('reference').removeAttribute('src'); $('reference').load(); $('referenceStatus').textContent = '';
     $('notes').value = current ? notes[current.id]?.note || '' : '';
     for(const [key] of passes)$('pass-'+key).value=current ? notes[current.id]?.passes?.[key] || 'pending' : 'pending';
-    $('metrics').replaceChildren();
+    $('metrics').replaceChildren(); $('playNote').hidden = true;
     showDecision(); showBank();
     $('play').disabled = $('pause').disabled = !current || !Signer.ready || current.schema_errors.length > 0;
     if (!current) return status('لا توجد نتائج مطابقة.');
     const stagedOffline = current.source === 'staging' && !bank;
     if (stagedOffline) $('play').disabled = $('pause').disabled = true;
+    $('playNote').hidden = !stagedOffline;
+    if (stagedOffline) {
+      $('playNote').textContent = 'التشغيل غير متاح لهذه الحركة على الموقع: هي حركة جديدة وملفها على جهازك فقط. شغّليها من الخادم المحلي، أو جرّبي حركة من «معتمد». فيديو المصدر متاح.';
+      const go = document.createElement('button'); go.type = 'button'; go.textContent = 'اعرضي «معتمد»'; go.onclick = () => setView('trusted');
+      $('playNote').append(go);
+    }
     status(stagedOffline
       ? `${current.ar} (#${current.id}) — حركة جديدة: ملفها على جهازك فقط، افتحي الصفحة من الخادم المحلي لتشغيلها.`
       : `${current.ar} (#${current.id}) — جاهزة للمعاينة`);
