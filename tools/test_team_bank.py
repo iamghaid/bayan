@@ -60,7 +60,7 @@ class TeamBankTests(unittest.TestCase):
     def decide(self, **extra):
         payload = {'id': 6, 'decision': 'accepted', 'reviewer': 'غيد', 'motion_sha256': 'abc', 'passes': CHECKED}
         payload.update(extra)
-        return team_bank.decide(payload, suggest=lambda *args: ('اقتراح', None))
+        return team_bank.decide(payload)
 
     def test_accept_is_shared_with_reviewer_and_history(self):
         record = self.decide()
@@ -68,11 +68,10 @@ class TeamBankTests(unittest.TestCase):
         self.assertEqual(team_bank.records()['6']['reviewer'], 'غيد')
         self.assertEqual(json.loads(self.redis.list[0])['decision'], 'accepted')
 
-    def test_reject_moves_to_redesign_with_suggestion(self):
+    def test_reject_moves_to_redesign(self):
         self.decide()
         record = self.decide(decision='rejected', reviewer='سارة', passes={})
         self.assertEqual(record['list'], 'redesign')
-        self.assertEqual(record['suggestion'], 'اقتراح')
         self.assertEqual([h['reviewer'] for h in record['history']], ['غيد', 'سارة'])
 
     def test_rules(self):
@@ -104,8 +103,7 @@ class NeonTests(unittest.TestCase):
 
     def test_shared_decision_round_trip(self):
         self.assertTrue(team_bank.configured())
-        team_bank.decide({'id': 6, 'decision': 'accepted', 'reviewer': 'غيد', 'motion_sha256': 'abc', 'passes': CHECKED},
-                         suggest=lambda *args: (None, None))
+        team_bank.decide({'id': 6, 'decision': 'accepted', 'reviewer': 'غيد', 'motion_sha256': 'abc', 'passes': CHECKED})
         self.assertEqual(team_bank.records()['6']['list'], 'trusted')
         self.assertEqual(json.loads(self.neon.history[0])['reviewer'], 'غيد')
         self.assertEqual(sum(q.startswith('CREATE TABLE') for q in self.neon.queries), 2)  # created once

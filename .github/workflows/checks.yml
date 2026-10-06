@@ -21,4 +21,4 @@ jobs:
         run: node tools/retarget_test.js
       - name: Browser script syntax
         run: |
-          for script in workspace.js demo.js khutbah.js motion-review.js review-assistant.js unified-view.js signer.js man_dress.js; do node --check "$script"; done
+          for script in workspace.js demo.js khutbah.js motion-review.js unified-view.js signer.js man_dress.js; do node --check "$script"; done

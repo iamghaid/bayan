@@ -4,7 +4,7 @@
   the dictionary label is added to tools/approved.json, and matching words in the saved
   sermons switch to the sign.
 - review (قيد المراجعة): no decision yet, or returned for another comparison with the video.
-- redesign (يحتاج مراجعة): rejected; must be rebuilt. Stored with an AI correction suggestion.
+- redesign (يحتاج مراجعة): rejected; must be rebuilt.
 Every change is recorded in tools/motion_bank.json so a later decision can undo it.
 Runs only on the owner's loopback servers; the hosted site is read-only.
 """
@@ -16,10 +16,9 @@ import threading
 from datetime import datetime, timezone
 from pathlib import Path
 try:
-    from tools import motion_catalog, review_assistant
+    from tools import motion_catalog
 except ModuleNotFoundError:
     import motion_catalog
-    import review_assistant
 
 ROOT = Path(__file__).resolve().parents[1]
 LOCAL_HOSTS = {'127.0.0.1:8020', 'localhost:8020', '127.0.0.1:8021', 'localhost:8021'}
@@ -160,18 +159,7 @@ def demote(identifier, undo):
         (p['library'] / f'{identifier}.json').unlink(missing_ok=True)
 
 
-def ai_suggestion(identifier, decision, note, passes):
-    issues = [name for name, value in (passes or {}).items() if value == 'issue']
-    question = (f"قرار المراجع: {'رفض' if decision == 'rejected' else 'إعادة للمراجعة'}. "
-                f"الجوانب التي فيها عيب: {'، '.join(issues) or 'غير محددة'}. ملاحظة المراجع: {note or 'لا توجد'}. "
-                'اقترح خطوات محددة لتصحيح هذه الحركة قبل مراجعتها مرة أخرى.')[:2000]
-    try:
-        return review_assistant.suggest({'motion_id': identifier, 'question': question})['answer'], None
-    except ValueError as error:
-        return None, str(error)
-
-
-def decide(payload, suggest=ai_suggestion):
+def decide(payload):
     if not isinstance(payload, dict):
         raise ValueError('طلب غير صالح.')
     identifier, decision = payload.get('id'), payload.get('decision')
@@ -200,16 +188,7 @@ def decide(payload, suggest=ai_suggestion):
             record['undo'], record['result'] = promote(identifier, row)
         bank[str(identifier)] = record
         write_json(paths()['bank'], bank)
-    if decision == 'accepted':
-        return summary(record)
-    # The decision is already saved; a slow or failed provider call never loses it.
-    answer, error = suggest(identifier, decision, note, passes)
-    record['suggestion'], record['suggestion_error'] = answer, error
-    with LOCK:
-        bank = read_json(paths()['bank'], {})
-        if bank.get(str(identifier), {}).get('at') == record['at']:
-            bank[str(identifier)] = record
-            write_json(paths()['bank'], bank)
+    return summary(record)
     return summary(record)
 
 

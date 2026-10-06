@@ -2,7 +2,7 @@
  * Three banks: trusted (accepted, plus the sermon motions by default), review (new motions not yet
  * compared with the source video, or returned for another comparison) and redesign (rejected; must be rebuilt). Decisions are kept in this
  * browser; on the owner's local server they also go to tools/motion_bank.py, which moves
- * accepted motions into the sermon translations and asks the AI assistant how to fix the rest.
+ * accepted motions into the sermon translations.
  */
 (async () => {
   const $ = id => document.getElementById(id);
@@ -62,9 +62,6 @@
       : record.list === 'trusted'
       ? `رُبطت بالكلمات: ${result?.words?.join('، ') || 'لا كلمات جديدة'} · مواضع في الخطب: ${result?.sermon_items ?? 0}${result?.conflicts?.length ? ` · كلمات مربوطة سابقًا بإشارة أخرى (لم تتغير): ${result.conflicts.join('، ')}` : ''}`
       : `ملاحظة المراجع: ${record.note || 'لا توجد'}`;
-    $('bankSuggestion').textContent = record.list !== 'trusted'
-      ? (record.suggestion ? 'اقتراح المساعد للتصحيح (لا يشاهد الفيديو؛ تحقّق قبل التطبيق):\n' + record.suggestion : `لم يصل اقتراح المساعد: ${record.suggestion_error || 'جارٍ الطلب…'}`)
-      : '';
   }
   function inView(item) {
     const view = $('view').value;
@@ -111,7 +108,7 @@
     const reviewer = login.name, key = login.key;
     if (team && !login.ok) { askLogin(); return; }
     for (const id of ['acceptMotion','rejectMotion','reworkMotion']) $(id).disabled = true;
-    $('noteStatus').textContent = team ? 'جارٍ حفظ القرار للفريق…' : decision === 'accepted' ? 'جارٍ نقلها إلى «معتمد» وترجمة الخطب…' : 'جارٍ حفظ القرار وطلب اقتراح المساعد للتصحيح…';
+    $('noteStatus').textContent = team ? 'جارٍ حفظ القرار للفريق…' : decision === 'accepted' ? 'جارٍ نقلها إلى «معتمد» وترجمة الخطب…' : 'جارٍ حفظ القرار…';
     try {
       const headers = {'Content-Type':'application/json'};
       if (team) headers['X-Review-Key'] = key;
@@ -294,7 +291,7 @@
         bank = state.records; bankMode = state.mode || 'local';
         $('bankNote').textContent = bankMode === 'team'
           ? 'قرارات الفريق: يراها كل من يفتح الصفحة فورًا. تدخل الحركات المعتمدة ترجمة الخطب بعد المزامنة من جهاز صاحبة المشروع.'
-          : 'الخادم المحلي: الاعتماد ينقل الحركة إلى «معتمد» وترجمة الخطب، والرفض يضعها في «يحتاج مراجعة» مع اقتراح المساعد. انشر الموقع ليظهر التحديث للجميع.';
+          : 'الخادم المحلي: الاعتماد ينقل الحركة إلى «معتمد» وترجمة الخطب، والرفض يضعها في «يحتاج مراجعة». انشر الموقع ليظهر التحديث للجميع.';
       }
     } catch {}
     $('teamBox').hidden = bankMode !== 'team';

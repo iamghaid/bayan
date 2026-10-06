@@ -14,12 +14,12 @@ from pathlib import Path
 try:
     from tools import motion_catalog, team_bank
     from tools.motion_bank import BankHandler, label_keys
-    from tools.review_assistant import ReviewAssistantHandler, provider_error
+    from tools.gemini_errors import provider_error
 except ModuleNotFoundError:
     import motion_catalog
     import team_bank
     from motion_bank import BankHandler, label_keys
-    from review_assistant import ReviewAssistantHandler, provider_error
+    from gemini_errors import provider_error
 
 ROOT = Path(__file__).resolve().parent.parent
 MAX_AUDIO = 4 * 1024 * 1024
@@ -392,7 +392,7 @@ class Handler(SimpleHTTPRequestHandler):
             return BankHandler.bank_get(self)
         if path == '/api/catalog':
             return self.send_json(200, motion_catalog.build(ROOT))
-        allowed = {'/', '/index.html', '/workspace.js', '/khutbah.html', '/khutbah.js', '/demo.js', '/demo.css', '/interface.css', '/fonts.css', '/unified-view.js', '/motion-review.html', '/motion-review.js', '/review-assistant.js', '/handfix.js', '/signfix.js', '/signer.js', '/man_dress.js'}
+        allowed = {'/', '/index.html', '/workspace.js', '/khutbah.html', '/khutbah.js', '/demo.js', '/demo.css', '/interface.css', '/fonts.css', '/unified-view.js', '/motion-review.html', '/motion-review.js', '/handfix.js', '/signfix.js', '/signer.js', '/man_dress.js'}
         valid = path in allowed or bool(re.fullmatch(r'/lib/(three\.min\.js|GLTFLoader\.js|three-vrm\.min\.js)|/avatar/man\.glb|/fonts/thmanyah[a-z]+-(Regular|Medium|Bold)\.woff2|/brand/(logo|icon-64|icon-180|favicon-32)\.png|/sshi_motion/index\.json|/sshi_motion/(m|staging)/\d+\.json|/translations/\d+_gemini\.json', path))
         if not valid:
             return self.send_json(404, {'error': 'غير موجود'})
@@ -402,8 +402,6 @@ class Handler(SimpleHTTPRequestHandler):
         self.send_error(405)
 
     def do_POST(self):
-        if self.path == '/api/review_assistant':
-            return ReviewAssistantHandler.do_POST(self)
         if self.path == '/api/decision':
             return BankHandler.bank_post(self)
         if self.path not in {'/api/plan', '/api/transcribe'}:

@@ -37,7 +37,6 @@
 | 👥 **مراجعة الفريق** | كل المراجعين يرون نفس الأرقام والقوائم. الاعتماد أو الرفض يُحفظ للجميع باسم المراجع، والحركة التالية تفتح تلقائيًا. |
 | ⚡ **الاعتماد يدخل الترجمة فورًا** | أي إشارة جديدة يعتمدها الفريق تُستخدم مباشرة في الترجمة الصوتية والنصية، بدون نشر. |
 | 🎥 **مقارنة بالمصدر** | فيديو الإشارة الأصلي من sshi.sa بجانب أداء الأفتار، مع نسبة مطابقة الأفتار لبيانات الفيديو لكل حركة. |
-| 🤖 **مساعد مراجعة** | اقتراحات تصحيح مبنية على بيانات الحركة؛ لا يشاهد الفيديو ولا يغيّر أي قرار. |
 
 <p align="center">
   <img src="docs/images/sermon-player.jpg" alt="مشغّل الخطبة" width="48%">
@@ -100,7 +99,7 @@ python tools/demo_server.py
 
 | المتغير | الغرض |
 | --- | --- |
-| `GEMINI_API_KEY` | التفريغ الصوتي ومساعد المراجعة (إلزامي لهما) |
+| `GEMINI_API_KEY` | التفريغ الصوتي (إلزامي له) |
 | `REVIEW_PASSWORD` | كلمة سر المراجعين لتسجيل القرارات |
 | `DATABASE_URL` | قاعدة Neon لقرارات الفريق؛ يضيفها Vercel عند ربط Neon (يقبل البادئة مثل `bayan_DATABASE_URL`) |
 
@@ -141,7 +140,6 @@ Friday sermons reach most people only as sound; Deaf worshippers need an interpr
 - **Team review:** every reviewer sees the same banks and counts. Approvals and rejections are stored for everyone with the reviewer's name, and the next motion opens automatically.
 - **Approval goes live:** a new sign accepted by the team is used immediately by voice and text translation, without a deploy.
 - **Source comparison:** the original sshi.sa video next to the avatar, plus a per-motion avatar-vs-landmark match score.
-- **Review assistant:** correction suggestions grounded in motion metadata; it does not see the video and never changes a decision.
 
 ### How it works
 
@@ -150,7 +148,7 @@ Friday sermons reach most people only as sound; Deaf worshippers need an interpr
 | Landmark extraction (local, MediaPipe) | `tools/sshi_extract.py`, `tools/expand_batch.py` → `sshi_motion/m/`, `sshi_motion/staging/` |
 | Retargeting and rendering (Three.js) | `signer.js`, `handfix.js`, `signfix.js`, `man_dress.js`, `avatar/man.glb` |
 | Word → sign planning | `tools/demo_server.py` (`/api/plan`): approved links → sermon renderings → team-accepted signs → fingerspelling |
-| Transcription and assistant | `api/transcribe.py`, `tools/review_assistant.py` (Gemini, server-side key) |
+| Transcription | `api/transcribe.py`, `tools/gemini_errors.py` (Gemini, server-side key) |
 | Team review | `motion-review.*`, `tools/team_bank.py`, `api/bank.py`, `api/decision.py` (Neon Postgres over HTTPS) |
 
 Details: [Architecture](docs/ARCHITECTURE.md) · [File guide](docs/FILE_GUIDE.md) · [Development](docs/DEVELOPMENT.md) · [Motion fixes](docs/MOTION_FIXES.md).
@@ -194,7 +192,7 @@ All signs come from the **[Saudi Sign Language Library (sshi.sa)](https://sshi.s
 
 - Source videos and frames stay on the owner's computer (`.gitignore`, `tools/repo_check.py`). Only derived landmark JSON is published.
 - API keys and the reviewers' password live in server environment variables only.
-- Transcription sends audio to the provider only when requested; the assistant receives the question and motion metadata, never footage.
+- Transcription sends audio to the provider only when requested.
 
 ### Credits
 

@@ -45,7 +45,7 @@ class MotionBankTests(unittest.TestCase):
 
     def decide(self, decision, **extra):
         payload = {'id': 50, 'decision': decision, 'motion_sha256': self.sha, 'passes': CHECKED, 'note': 'الرسغ ملتوٍ', **extra}
-        return bank.decide(payload, suggest=lambda *args: ('افحص الرسغ', None))
+        return bank.decide(payload)
 
     def test_accept_moves_motion_into_bank_and_sermons(self):
         result = self.decide('accepted')
@@ -68,7 +68,6 @@ class MotionBankTests(unittest.TestCase):
         self.decide('accepted')
         result = self.decide('rejected')
         self.assertEqual(result['list'], 'redesign')
-        self.assertEqual(result['suggestion'], 'افحص الرسغ')
         self.assertEqual(result['history'], ['accepted', 'rejected'])
         for path, data in self.originals.items():
             self.assertEqual(path.read_bytes(), data, path)
@@ -91,10 +90,9 @@ class MotionBankTests(unittest.TestCase):
             self.decide('accepted')
         self.assertFalse((self.root / 'tools/motion_bank.json').exists())
 
-    def test_suggestion_failure_keeps_decision(self):
-        result = bank.decide({'id': 50, 'decision': 'rework', 'motion_sha256': self.sha, 'passes': {}},
-                             suggest=lambda *args: (None, 'المفتاح غير مضبوط'))
-        self.assertEqual(result['suggestion_error'], 'المفتاح غير مضبوط')
+    def test_rework_is_saved_without_provider(self):
+        result = bank.decide({'id': 50, 'decision': 'rework', 'motion_sha256': self.sha, 'passes': {}})
+        self.assertNotIn('suggestion', result)
         self.assertEqual(bank.state()['records']['50']['list'], 'review')
 
     def test_label_keys(self):
