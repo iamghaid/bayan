@@ -3,7 +3,7 @@
 | Group | Files | Purpose |
 | --- | --- | --- |
 | Runtime | `demo_server.py`, `review_assistant.py` | Text/audio endpoints and grounded suggestions |
-| Review | `motion_review_server.py`, `review_server.py`, `review.html` | Local motion and translation review |
+| Review | `motion_review_server.py`, `review_server.py`, `review.html`, `motion_bank.py` | Local motion and translation review; sign bank and rework queue |
 | Visual checks | `avatarcheck.html`, `avatarcheck_server.py`, `case_ref.py`, `case_zoom.py`, `case_lookup.py`, `make_ref_video.py` | Actual GLB and local reference diagnostics |
 | Extraction | `sshi_extract.py`, `expand_batch.py`, `needed_signs.py` | Landmarks and staging candidates |
 | Research | `research_sources.py`, `build_morphology_candidates.py`, `build_context_review.py` | Meaning links and review queues |

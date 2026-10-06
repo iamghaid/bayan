@@ -15,6 +15,7 @@
 | `sshi_motion/m/`, `translations/` | Active motion data and saved plans |
 | `coverage/` | Dictionary, research inventories and audit results |
 | `tools/approved.json`, `blocked.json`, `translation_holds.json` | Matching decisions and holds |
+| `tools/motion_bank.py`, `tools/motion_bank.json` | Sign bank: accepted motions into playback and sermons, rework queue with AI suggestions |
 | `docs/` | Architecture, development, motion fixes, avatar signing review spec |
 | `.github/workflows/checks.yml` | CI checks on every push and pull request |
 | `.env.example` | Names of the server environment variables (not loaded automatically) |

@@ -5,8 +5,10 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 try:
+    from tools.motion_bank import BankHandler
     from tools.review_assistant import ReviewAssistantHandler
 except ModuleNotFoundError:
+    from motion_bank import BankHandler
     from review_assistant import ReviewAssistantHandler
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -17,6 +19,8 @@ class Handler(SimpleHTTPRequestHandler):
     def do_POST(self):
         if self.path == '/api/review_assistant':
             return ReviewAssistantHandler.do_POST(self)
+        if self.path == '/api/decision':
+            return BankHandler.bank_post(self)
         self.send_error(404)
 
     def log_message(self, *args):
@@ -24,6 +28,8 @@ class Handler(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         path = self.path.split('?')[0]
+        if path == '/api/bank':
+            return BankHandler.bank_get(self)
         if path == '/api/catalog':
             data = CATALOG.read_bytes()
             self.send_response(200)

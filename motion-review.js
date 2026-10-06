@@ -1,6 +1,7 @@
-/* Motion review controller: four-pass checks and hash-bound local decisions.
- * JSON exports preserve reviewer history; decisions do not promote library entries.
- * AI suggestions live in review-assistant.js and never write these records.
+/* Motion review controller: four-pass checks and hash-bound decisions.
+ * Decisions are always kept in this browser. On the owner's local server they also go to
+ * the sign bank (tools/motion_bank.py): accepted -> playback library and sermon translations,
+ * rejected/rework -> rework queue with an AI correction suggestion.
  */
 (async () => {
   const $ = id => document.getElementById(id);
@@ -22,7 +23,49 @@
   }
   const disclaimer=document.createElement('p');disclaimer.textContent='افحص الجوانب الأربعة وسجّل توقيت أي ملاحظة قبل اختيار القرار.';passPanel.append(disclaimer);
   $('notes').closest('section').before(passPanel);
-  let catalog = [], filtered = [], current, notes = {};
+  let catalog = [], filtered = [], current, notes = {}, bank = null;
+  const listNames = {bank:'في بنك الإشارات', queue:'في قائمة إعادة المراجعة'};
+  function showBank() {
+    const record = current && bank?.[current.id];
+    $('bankBox').hidden = !record;
+    if (!record) return;
+    $('bankBox').dataset.list = record.list;
+    $('bankTitle').textContent = `${listNames[record.list]} · ${new Date(record.at).toLocaleString('ar')}`;
+    const result = record.result;
+    $('bankResult').textContent = record.list === 'bank'
+      ? `رُبطت بالكلمات: ${result?.words?.join('، ') || 'لا كلمات جديدة'} · مواضع في الخطب: ${result?.sermon_items ?? 0}${result?.conflicts?.length ? ` · كلمات مربوطة سابقًا بإشارة أخرى (لم تتغير): ${result.conflicts.join('، ')}` : ''}`
+      : `ملاحظة المراجع: ${record.note || 'لا توجد'}`;
+    $('bankSuggestion').textContent = record.list === 'queue'
+      ? (record.suggestion ? 'اقتراح المساعد للتصحيح (لا يشاهد الفيديو؛ تحقّق قبل التطبيق):\n' + record.suggestion : `لم يصل اقتراح المساعد: ${record.suggestion_error || 'جارٍ الطلب…'}`)
+      : '';
+  }
+  function inView(item) {
+    const list = bank?.[item.id]?.list;
+    const view = $('view').value;
+    return view === 'all' || (view === 'pending' ? !list : list === view);
+  }
+  function countViews() {
+    const counts = {all: catalog.length, pending: 0, bank: 0, queue: 0};
+    for (const item of catalog) counts[bank?.[item.id]?.list || 'pending']++;
+    for (const option of $('view').options) option.textContent = option.textContent.replace(/ \(\d+\)$/, '') + ` (${counts[option.value]})`;
+  }
+  async function sendDecision(decision) {
+    if (!bank || !current) return;
+    const item = current;
+    for (const id of ['acceptMotion','rejectMotion','reworkMotion']) $(id).disabled = true;
+    $('noteStatus').textContent = decision === 'accepted' ? 'جارٍ نقل الحركة إلى بنك الإشارات وترجمة الخطب…' : 'جارٍ إضافتها لقائمة إعادة المراجعة وطلب اقتراح المساعد…';
+    try {
+      const response = await fetch('/api/decision', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:item.id, decision, note:$('notes').value, motion_sha256:item.motion_sha256, passes:Object.fromEntries(passes.map(([key])=>[key,$('pass-'+key).value]))})});
+      const result = await response.json();
+      if (!response.ok) throw Error(result.error || 'تعذر تحديث بنك الإشارات.');
+      bank[item.id] = result;
+      $('noteStatus').textContent = result.list === 'bank' ? `أضيفت «${result.ar}» إلى بنك الإشارات (${result.result.sermon_items} موضعًا في الخطب).` : `أضيفت «${result.ar}» إلى قائمة إعادة المراجعة.`;
+    } catch (error) {
+      $('noteStatus').textContent = `حُفظ القرار في المتصفح فقط: ${error.message}`;
+    } finally {
+      countViews(); if (current === item) { showDecision(); showBank(); }
+    }
+  }
   try { notes = JSON.parse(localStorage.getItem(noteKey) || '{}'); } catch { notes = {}; }
   const status = message => { $('status').textContent = message; };
   const decisionLabels={pending:'بانتظار القرار',accepted:'اعتماد المراجع',rejected:'مرفوضة',rework:'إعادة للمراجعة'};
@@ -48,7 +91,7 @@
     $('notes').value = current ? notes[current.id]?.note || '' : '';
     for(const [key] of passes)$('pass-'+key).value=current ? notes[current.id]?.passes?.[key] || 'pending' : 'pending';
     $('metrics').replaceChildren();
-    showDecision();
+    showDecision(); showBank();
     $('play').disabled = $('pause').disabled = !current || !Signer.ready || current.schema_errors.length > 0;
     if (!current) return status('لا توجد نتائج مطابقة.');
     status(`${current.ar} (#${current.id}) — جاهزة للمعاينة`);
@@ -60,12 +103,12 @@
   }
   function filter() {
     const query = $('search').value.trim();
-    filtered = catalog.filter(item => /^\d+$/.test(query) ? String(item.id)===query : item.ar.includes(query));
+    filtered = catalog.filter(item => (/^\d+$/.test(query) ? String(item.id)===query : item.ar.includes(query)) && inView(item));
     $('pick').replaceChildren();
     for (const item of filtered) { const option = document.createElement('option'); option.value = item.id; option.textContent = `${item.ar} — ${item.id}`; $('pick').append(option); }
     select();
   }
-  $('search').oninput = filter; $('pick').onchange = select;
+  $('search').oninput = filter; $('view').onchange = filter; $('pick').onchange = select;
   function move(delta) { if (!current) return; const target = filtered[filtered.indexOf(current) + delta]; if (target) { $('pick').value = target.id; select(); } }
   $('next').onclick = () => move(1); $('previous').onclick = () => move(-1);
   $('showReference').onchange = () => { $('reference').hidden = !$('showReference').checked; select(); };
@@ -84,7 +127,8 @@
     if(decision){next.decision=decision;next.decision_at=next.updated_at;next.history=[...(old.history||[]),{decision,at:next.updated_at,motion_sha256:current.motion_sha256}];}
     const updated={...notes,[current.id]:next};
     try{localStorage.setItem(noteKey,JSON.stringify(updated));notes=updated;showDecision();$('noteStatus').textContent=decision?'حُفظ القرار والملاحظة محليًا.':'حُفظت الملاحظة محليًا.';}
-    catch{$('noteStatus').textContent='تعذر الحفظ؛ لم يُسجل القرار. صدّر الملاحظات قبل المغادرة.';}
+    catch{$('noteStatus').textContent='تعذر الحفظ؛ لم يُسجل القرار. صدّر الملاحظات قبل المغادرة.';return;}
+    if(decision)sendDecision(decision);
   }
   $('save').onclick=()=>saveReview();
   $('acceptMotion').onclick=()=>{
@@ -101,6 +145,14 @@
   try {
     let response = await fetch('/api/catalog'); if (!response.ok) response = await fetch('review-catalog.json'); if (!response.ok) throw Error('تعذر تحميل سجل المراجعة.');
     catalog = await response.json();
+    try {
+      const bankResponse = await fetch('/api/bank');
+      if (bankResponse.ok) {
+        bank = (await bankResponse.json()).records;
+        $('view').disabled = false; countViews();
+        $('bankNote').textContent = 'الخادم المحلي: الاعتماد ينقل الحركة إلى بنك الإشارات وترجمة الخطب، والرفض أو الإعادة يضعها في قائمة إعادة المراجعة مع اقتراح المساعد. انشر الموقع ليظهر التحديث للجميع.';
+      }
+    } catch {}
     await Signer.init($('cv'), 'avatar/man.glb?v=7');
     Signer.reviewSafety = $('safePose').checked;
     filter();

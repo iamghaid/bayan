@@ -4,14 +4,18 @@ import json
 import os
 import re
 import socket
+import sys
+import time
 import urllib.error
 import urllib.request
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 try:
+    from tools.motion_bank import BankHandler
     from tools.review_assistant import ReviewAssistantHandler, provider_error
 except ModuleNotFoundError:
+    from motion_bank import BankHandler
     from review_assistant import ReviewAssistantHandler, provider_error
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -204,6 +208,8 @@ def make_plan(text, preview_unreviewed=False):
 
 
 DEFAULT_AUDIO_MODEL = 'gemini-flash-latest'
+FALLBACK_AUDIO_MODEL = 'gemini-flash-lite-latest'
+RETRY_CODES = {429, 500, 502, 503, 504}
 
 
 def transcribe(data, mime):
@@ -215,16 +221,25 @@ def transcribe(data, mime):
         raise ValueError('قيمة BAYAN_AUDIO_MODEL غير صالحة. احذفها لاستخدام النموذج الافتراضي.')
     prompt = 'فرغ الكلام العربي المسموع حرفيًا فقط، دون تلخيص أو إضافة أو إكمال آيات أو تصحيح المعنى. ضع [غير واضح] للجزء غير المسموع. إذا لا يوجد كلام أعد نصًا فارغًا. أعد JSON بمفتاح text.'
     body = {'contents': [{'parts': [{'text': prompt}, {'inline_data': {'mime_type': mime, 'data': base64.b64encode(data).decode()}}]}], 'generationConfig': {'temperature': 0, 'responseMimeType': 'application/json'}}
-    req = urllib.request.Request(f'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent', data=json.dumps(body).encode(), headers={'Content-Type': 'application/json', 'x-goog-api-key': key})
-    try:
-        with urllib.request.urlopen(req, timeout=55) as response:
-            result = json.load(response)
-    except urllib.error.HTTPError as exc:
-        raise ValueError(provider_error(exc, 'BAYAN_AUDIO_MODEL', 'رفض المزوّد ملف الصوت أو الطلب. جرّب تسجيلًا أقصر أو ملف MP3/WAV.')) from None
-    except (TimeoutError, socket.timeout):
-        raise ValueError('انتهت مهلة التفريغ. جرّب مقطعًا أقصر.') from None
-    except (urllib.error.URLError, OSError):
-        raise ValueError('تعذر الاتصال بخدمة التفريغ من الخادم. تحقق من الشبكة ثم حاول مجددًا.') from None
+    # Overloaded providers answer 503/429; retry once on a lighter model within Vercel's 60 s limit.
+    models = list(dict.fromkeys([model, FALLBACK_AUDIO_MODEL]))
+    for attempt, current in enumerate(models):
+        req = urllib.request.Request(f'https://generativelanguage.googleapis.com/v1beta/models/{current}:generateContent', data=json.dumps(body).encode(), headers={'Content-Type': 'application/json', 'x-goog-api-key': key})
+        try:
+            with urllib.request.urlopen(req, timeout=30 if attempt == 0 else 24) as response:
+                result = json.load(response)
+            model = current
+            break
+        except urllib.error.HTTPError as exc:
+            if exc.code in RETRY_CODES and attempt + 1 < len(models):
+                print(f'transcribe: HTTP {exc.code} from {current}; retrying with {models[attempt + 1]}', file=sys.stderr, flush=True)
+                time.sleep(1)
+                continue
+            raise ValueError(provider_error(exc, 'BAYAN_AUDIO_MODEL', 'رفض المزوّد ملف الصوت أو الطلب. جرّب تسجيلًا أقصر أو ملف MP3/WAV.')) from None
+        except (TimeoutError, socket.timeout):
+            raise ValueError('انتهت مهلة التفريغ. جرّب مقطعًا أقصر.') from None
+        except (urllib.error.URLError, OSError):
+            raise ValueError('تعذر الاتصال بخدمة التفريغ من الخادم. تحقق من الشبكة ثم حاول مجددًا.') from None
     try:
         raw = ''.join(p.get('text', '') for p in result['candidates'][0]['content']['parts'] if not p.get('thought'))
         text = json.loads(raw)['text']
@@ -255,6 +270,8 @@ class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         # Serve only demo/player assets; do not expose tools, source videos or secrets.
         path = self.path.split('?')[0]
+        if path == '/api/bank':
+            return BankHandler.bank_get(self)
         if path == '/api/catalog':
             catalog = ROOT / 'coverage/expansion/staging_qa.json'
             if not catalog.exists():
@@ -272,6 +289,8 @@ class Handler(SimpleHTTPRequestHandler):
     def do_POST(self):
         if self.path == '/api/review_assistant':
             return ReviewAssistantHandler.do_POST(self)
+        if self.path == '/api/decision':
+            return BankHandler.bank_post(self)
         if self.path not in {'/api/plan', '/api/transcribe'}:
             return self.send_json(404, {'error': 'غير موجود'})
         origin = self.headers.get('Origin')

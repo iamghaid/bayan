@@ -77,11 +77,23 @@ class DemoTests(unittest.TestCase):
         for code, (message, expected) in cases.items():
             body = io.BytesIO(json.dumps({'error': {'message': message}}).encode())
             exc = urllib.error.HTTPError('https://example.invalid', code, 'x', {}, body)
-            with patch.dict('os.environ', {'GEMINI_API_KEY': 'test-only'}, clear=True), patch.object(demo.urllib.request, 'urlopen', side_effect=exc), patch('sys.stderr', io.StringIO()), self.assertRaises(ValueError) as error:
+            with patch.dict('os.environ', {'GEMINI_API_KEY': 'test-only'}, clear=True), patch.object(demo.urllib.request, 'urlopen', side_effect=exc), patch.object(demo.time, 'sleep'), patch('sys.stderr', io.StringIO()), self.assertRaises(ValueError) as error:
                 demo.transcribe(b'audio', 'audio/wav')
             self.assertIn(expected, str(error.exception))
             self.assertIn(f'HTTP {code}', str(error.exception))
             self.assertNotIn('AIza', str(error.exception))
+
+    def test_overloaded_model_falls_back_once(self):
+        busy = urllib.error.HTTPError('https://example.invalid', 503, 'x', {}, io.BytesIO(b'{}'))
+        ok = io.BytesIO(json.dumps({'candidates': [{'content': {'parts': [{'text': '{"text": "الحمد لله"}'}]}}]}).encode())
+        with patch.dict('os.environ', {'GEMINI_API_KEY': 'test-only'}, clear=True), patch.object(demo.urllib.request, 'urlopen', side_effect=[busy, ok]) as call, patch.object(demo.time, 'sleep'), patch('sys.stderr', io.StringIO()):
+            self.assertEqual(demo.transcribe(b'audio', 'audio/wav'), {'text': 'الحمد لله', 'model': demo.FALLBACK_AUDIO_MODEL})
+        self.assertEqual(call.call_count, 2)
+        busy_again = urllib.error.HTTPError('https://example.invalid', 503, 'x', {}, io.BytesIO(b'{}'))
+        with patch.dict('os.environ', {'GEMINI_API_KEY': 'test-only'}, clear=True), patch.object(demo.urllib.request, 'urlopen', side_effect=[busy, busy_again]), patch.object(demo.time, 'sleep'), patch('sys.stderr', io.StringIO()), self.assertRaises(ValueError) as error:
+            demo.transcribe(b'audio', 'audio/wav')
+        self.assertIn('HTTP 503', str(error.exception))
+        self.assertIn('ليست مشكلة في المفتاح', str(error.exception))
 
     def test_http_assets_and_security(self):
         server = ThreadingHTTPServer(('127.0.0.1', 0), partial(demo.Handler, directory=str(demo.ROOT)))

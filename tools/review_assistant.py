@@ -50,7 +50,7 @@ def provider_error(exc, model_variable, bad_request):
     elif exc.code == 429:
         reason = 'تجاوزت حد الاستخدام عند المزوّد. انتظر دقيقة ثم حاول مجددًا.'
     elif exc.code >= 500:
-        reason = 'خدمة Gemini غير متاحة مؤقتًا. حاول بعد قليل.'
+        reason = 'خوادم Gemini مشغولة أو متوقفة مؤقتًا (ليست مشكلة في المفتاح). حاول بعد دقيقة.'
     else:
         reason = 'تعذر الاتصال بخدمة Gemini.'
     return f'{reason} (HTTP {exc.code})'
