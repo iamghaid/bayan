@@ -2,7 +2,7 @@
 
 | Group | Files | Purpose |
 | --- | --- | --- |
-| Runtime | `demo_server.py`, `review_assistant.py` | Text/audio endpoints and grounded suggestions |
+| Runtime | `demo_server.py`, `gemini_errors.py` | Text/audio endpoints and provider error messages |
 | Review | `motion_review_server.py`, `review_server.py`, `review.html`, `motion_bank.py`, `team_bank.py`, `motion_catalog.py` | Local motion and translation review; local sign bank; shared team decisions (hosted); review catalog |
 | Visual checks | `avatarcheck.html`, `avatarcheck_server.py`, `case_ref.py`, `case_zoom.py`, `case_lookup.py`, `make_ref_video.py` | Actual GLB and local reference diagnostics |
 | Extraction | `sshi_extract.py`, `expand_batch.py`, `needed_signs.py` | Landmarks and staging candidates |

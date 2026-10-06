@@ -20,10 +20,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 try:
-    from tools import motion_catalog, review_assistant
+    from tools import motion_catalog
 except ModuleNotFoundError:
     import motion_catalog
-    import review_assistant
 
 KEY = 'bayan:decisions'
 HISTORY = 'bayan:history'
@@ -138,18 +137,7 @@ def password_ok(given):
     return bool(expected) and isinstance(given, str) and hmac.compare_digest(given.encode(), expected.encode())
 
 
-def _suggestion(identifier, decision, note, passes):
-    issues = [name for name, value in passes.items() if value == 'issue']
-    question = (f"قرار المراجع: {'رفض' if decision == 'rejected' else 'إعادة للمراجعة'}. "
-                f"الجوانب التي فيها عيب: {'، '.join(issues) or 'غير محددة'}. ملاحظة المراجع: {note or 'لا توجد'}. "
-                'اقترح خطوات محددة لتصحيح هذه الحركة قبل مراجعتها مرة أخرى.')[:2000]
-    try:
-        return review_assistant.suggest({'motion_id': identifier, 'question': question})['answer'], None
-    except ValueError as error:
-        return None, str(error)
-
-
-def decide(payload, root=None, suggest=_suggestion):
+def decide(payload, root=None):
     if not isinstance(payload, dict):
         raise ValueError('طلب غير صالح.')
     identifier, decision = payload.get('id'), payload.get('decision')
@@ -173,8 +161,6 @@ def decide(payload, root=None, suggest=_suggestion):
               'reviewer': reviewer, 'at': datetime.now(timezone.utc).isoformat(), 'team': True,
               'history': (previous.get('history') or [])[-20:] + [{'decision': decision, 'reviewer': reviewer, 'at': None}]}
     record['history'][-1]['at'] = record['at']
-    if decision != 'accepted':
-        record['suggestion'], record['suggestion_error'] = suggest(identifier, decision, note, passes)
     _save(identifier, record)
     return record
 
@@ -191,8 +177,7 @@ def apply_accepted():
         if local.get(key, {}).get('at') == record.get('at') or local.get(key, {}).get('team_at') == record.get('at'):
             continue
         result = motion_bank.decide({'id': record['id'], 'decision': record['decision'], 'note': record.get('note', ''),
-                                     'passes': record.get('passes', {}), 'motion_sha256': record.get('motion_sha256')},
-                                    suggest=lambda *args: (record.get('suggestion'), record.get('suggestion_error')))
+                                     'passes': record.get('passes', {}), 'motion_sha256': record.get('motion_sha256')})
         bank = motion_bank.read_json(motion_bank.paths()['bank'], {})
         bank[key]['team_at'], bank[key]['reviewer'] = record['at'], record.get('reviewer')
         motion_bank.write_json(motion_bank.paths()['bank'], bank)
