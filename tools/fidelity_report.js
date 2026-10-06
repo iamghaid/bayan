@@ -1,5 +1,5 @@
 // Avatar fidelity against the motion extracted from the source videos.
-// Plays every motion in sshi_motion/m on the real avatar (headless Chromium) and compares,
+// Plays every motion (the library in sshi_motion/m and the staged ones under review) on the real avatar (headless Chromium) and compares,
 // frame by frame, hand direction, palm direction, finger bending and arm direction with
 // the MediaPipe landmarks. It measures retargeting, not MediaPipe accuracy or sign correctness.
 //
@@ -13,8 +13,12 @@ const URL = process.env.BAYAN_FIDELITY_URL || 'http://127.0.0.1:8030/tools/fidel
 // A hand-frame "matches" when all of these hold (degrees).
 const LIMITS = { dir: 30, palm: 45, curl: 45 };
 
+const ACTIVE = new Set(JSON.parse(fs.readFileSync(path.join(ROOT, 'sshi_motion', 'index.json'), 'utf8')));
+const STAGED = fs.readdirSync(path.join(ROOT, 'sshi_motion', 'staging')).filter(f => /^\d+\.json$/.test(f)).map(f => Number(f.slice(0, -5)))
+  .filter(id => !ACTIVE.has(id)).sort((a, b) => a - b);
+const library = id => ACTIVE.has(id) ? 'active' : 'staging';
 function pick() {
-  const all = JSON.parse(fs.readFileSync(path.join(ROOT, 'sshi_motion', 'index.json'), 'utf8'));
+  const all = [...ACTIVE, ...STAGED];
   const arg = process.argv[2];
   if (arg && arg.includes(',')) return arg.split(',').map(Number);
   return arg ? all.slice(0, Number(arg)) : all;
@@ -56,20 +60,24 @@ function score(result) {
   const rows = [], all = { dir: [], palm: [], curl: [], upper: [], fore: [], bendAgree: 0, fingers: 0, handFrames: 0, matched: 0 };
   for (const [n, id] of ids.entries()) {
     let result;
-    try { result = await page.evaluate(id => window.measure(id), id); }
+    try { result = await page.evaluate(([id, base]) => window.measure(id, base), [id, `../sshi_motion/${library(id) === 'active' ? 'm' : 'staging'}/`]); }
     catch (error) { console.error(`motion ${id}: ${error.message}`); continue; }
     const m = score(result);
-    for (const key of ['dir', 'palm', 'curl', 'upper', 'fore']) all[key].push(...m[key]);
-    for (const key of ['bendAgree', 'fingers', 'handFrames', 'matched']) all[key] += m[key];
-    rows.push({ id, signfix: FIXED.has(id) ? 1 : 0, frames: result.frames, hand_frames: m.handFrames, dir: round(mean(m.dir)), palm: round(mean(m.palm)),
+    if (library(id) === 'active') {   // the headline numbers describe the playing library
+      for (const key of ['dir', 'palm', 'curl', 'upper', 'fore']) all[key].push(...m[key]);
+      for (const key of ['bendAgree', 'fingers', 'handFrames', 'matched']) all[key] += m[key];
+    }
+    rows.push({ id, library: library(id), signfix: FIXED.has(id) ? 1 : 0, frames: result.frames, hand_frames: m.handFrames, dir: round(mean(m.dir)), palm: round(mean(m.palm)),
       curl: round(mean(m.curl)), upper: round(mean(m.upper)), fore: round(mean(m.fore)),
       bend_agree: m.fingers ? round(100 * m.bendAgree / m.fingers) : null, match: m.handFrames ? round(100 * m.matched / m.handFrames) : null });
     if ((n + 1) % 50 === 0) console.log(`${n + 1}/${ids.length}`);
   }
   await browser.close();
-  const perMotion = rows.filter(r => r.match != null).map(r => r.match);
+  const active = rows.filter(r => r.library === 'active'), staged = rows.filter(r => r.library === 'staging');
+  const perMotion = active.filter(r => r.match != null).map(r => r.match);
+  const stagedMatch = staged.filter(r => r.match != null).map(r => r.match);
   const summary = {
-    generated: new Date().toISOString(), motions: rows.length, hand_frames: all.handFrames,
+    generated: new Date().toISOString(), motions: active.length, hand_frames: all.handFrames,
     what: 'Avatar vs MediaPipe landmarks extracted from the source videos (after handfix.js cleanup). Not sign correctness.',
     limits_deg: LIMITS,
     match_rate_pct: round(100 * all.matched / all.handFrames),
@@ -78,8 +86,10 @@ function score(result) {
     finger_bend_agreement_pct: round(100 * all.bendAgree / all.fingers),
     median_deg: { hand_direction: round(median(all.dir)), palm_direction: round(median(all.palm)), finger_curl_diff: round(median(all.curl)), upper_arm: round(median(all.upper)), forearm: round(median(all.fore)) },
     mean_deg: { hand_direction: round(mean(all.dir)), palm_direction: round(mean(all.palm)), finger_curl_diff: round(mean(all.curl)), upper_arm: round(mean(all.upper)), forearm: round(mean(all.fore)) },
-    signfix_motions: rows.filter(r => r.signfix).map(r => ({ id: r.id, match: r.match })),
-    worst: [...rows].filter(r => r.match != null && !r.signfix).sort((a, b) => a.match - b.match).slice(0, 25).map(r => ({ id: r.id, match: r.match })),
+    staging: { motions: staged.length, motion_match_mean_pct: round(mean(stagedMatch)), motion_match_median_pct: round(median(stagedMatch)), motions_at_least_80_pct: stagedMatch.filter(v => v >= 80).length },
+    motion_match_mean_pct: round(mean(perMotion)),
+    signfix_motions: active.filter(r => r.signfix).map(r => ({ id: r.id, match: r.match })),
+    worst: [...active].filter(r => r.match != null && !r.signfix).sort((a, b) => a.match - b.match).slice(0, 25).map(r => ({ id: r.id, match: r.match })),
   };
   fs.mkdirSync(OUT, { recursive: true });
   fs.writeFileSync(path.join(OUT, 'summary.json'), JSON.stringify(summary, null, 1));

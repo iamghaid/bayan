@@ -51,10 +51,10 @@
              fore: deg(h.clone().sub(e), at(side + 'Hand').sub(at(side + 'LowerArm'))) };
   }
 
-  window.measure = async id => {
+  window.measure = async (id, base = '../sshi_motion/m/') => {
     Signer.stop(); Signer._tick(30, 1 / 30);                 // settle at rest so motions are independent
-    const d = await Signer.load(id, '../sshi_motion/m/');
-    Signer.playList([{ motion: id }], null, '../sshi_motion/m/');
+    const d = await Signer.load(id, base);
+    Signer.playList([{ motion: id }], null, base);
     await new Promise(resolve => setTimeout(resolve, 0));
     const samples = [];
     for (let k = 0; k < 4000; k++) {
