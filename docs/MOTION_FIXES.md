@@ -42,6 +42,15 @@ node tools/handfix_test.js 80 tools/hf_variants.json   # jitter, flicker, jumps,
 node tools/hf_chiral.js 80 after                       # impossible backward-bending fingers
 ```
 
+Whole-library fidelity (avatar vs the landmarks extracted from the source videos), written to `coverage/fidelity/summary.json` and `motions.csv`:
+
+```powershell
+python -m http.server 8030 --bind 127.0.0.1   # separate window, project folder
+node tools/fidelity_report.js                 # all motions; or a count, or ids "377,184"
+```
+
+A hand-frame matches when hand direction is within 30°, palm direction within 45° and every finger's bend within 45° of the extracted landmarks. Motions listed in `signfix.js` are reported separately: they deliberately depart from MediaPipe where it was wrong. This measures retargeting only; it cannot detect MediaPipe errors or a wrong sign.
+
 Baseline over the 80 most-used motions (do not make these worse):
 
 | Metric | Now | Before cleanup |

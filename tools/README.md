@@ -10,6 +10,7 @@
 | Translation | `translate.py`, `llm_gemini.py`, `apply_translation_holds.py`, `compare_llm.py` | Saved plans and matching holds |
 | Audits | `audit.py`, `audit_lib.py`, `coverage.py`, `summary.py`, `expansion_audit.py`, `khutbah_coverage.py`, `staging_audit.py` | Coverage and integrity reports |
 | Motion regressions | `handfix_test.js`, `hf_chiral.js`, `hf_diag.js`, `hf_dups.js`, `hf_variants.json`, `retarget_test.js` | Tracking and retargeting checks |
+| Fidelity | `fidelity_report.js`, `fidelity.html` | Avatar vs landmarks extracted from the source videos, all motions → `coverage/fidelity/` |
 | Releases | `prep_deploy.py`, `prepare_interface_release.py` | Explicit runtime bundles |
 | Tests | `test_*.py` | Unit/API regressions |
 

@@ -1,0 +1,173 @@
+{
+ "generated": "2026-10-06T09:34:11.604Z",
+ "motions": 1148,
+ "hand_frames": 128427,
+ "what": "Avatar vs MediaPipe landmarks extracted from the source videos (after handfix.js cleanup). Not sign correctness.",
+ "limits_deg": {
+  "dir": 30,
+  "palm": 45,
+  "curl": 45
+ },
+ "match_rate_pct": 78.3,
+ "motion_match_median_pct": 80.6,
+ "motions_at_least_80_pct": 599,
+ "finger_bend_agreement_pct": 85.2,
+ "median_deg": {
+  "hand_direction": 2.6,
+  "palm_direction": 4,
+  "finger_curl_diff": 6,
+  "upper_arm": 1.3,
+  "forearm": 2.1
+ },
+ "mean_deg": {
+  "hand_direction": 14.5,
+  "palm_direction": 14.7,
+  "finger_curl_diff": 15.8,
+  "upper_arm": 3.8,
+  "forearm": 8.4
+ },
+ "signfix_motions": [
+  {
+   "id": 184,
+   "match": 93.5
+  },
+  {
+   "id": 419,
+   "match": 92.6
+  },
+  {
+   "id": 841,
+   "match": 50
+  },
+  {
+   "id": 855,
+   "match": 97.4
+  },
+  {
+   "id": 3844,
+   "match": 5.4
+  },
+  {
+   "id": 6212,
+   "match": 29.6
+  },
+  {
+   "id": 9038,
+   "match": 29.6
+  },
+  {
+   "id": 9465,
+   "match": 0.8
+  },
+  {
+   "id": 11149,
+   "match": 42.3
+  },
+  {
+   "id": 12225,
+   "match": 40
+  }
+ ],
+ "worst": [
+  {
+   "id": 3935,
+   "match": 14.8
+  },
+  {
+   "id": 2224,
+   "match": 22
+  },
+  {
+   "id": 8795,
+   "match": 22
+  },
+  {
+   "id": 12254,
+   "match": 26.3
+  },
+  {
+   "id": 3930,
+   "match": 28.8
+  },
+  {
+   "id": 3842,
+   "match": 29.8
+  },
+  {
+   "id": 3836,
+   "match": 32.1
+  },
+  {
+   "id": 17,
+   "match": 32.9
+  },
+  {
+   "id": 4001,
+   "match": 34
+  },
+  {
+   "id": 10995,
+   "match": 34.6
+  },
+  {
+   "id": 10298,
+   "match": 36.2
+  },
+  {
+   "id": 1424,
+   "match": 36.6
+  },
+  {
+   "id": 1849,
+   "match": 37
+  },
+  {
+   "id": 4053,
+   "match": 37
+  },
+  {
+   "id": 11280,
+   "match": 37.5
+  },
+  {
+   "id": 10936,
+   "match": 38.2
+  },
+  {
+   "id": 5202,
+   "match": 38.5
+  },
+  {
+   "id": 10749,
+   "match": 39
+  },
+  {
+   "id": 5109,
+   "match": 40
+  },
+  {
+   "id": 9708,
+   "match": 40.7
+  },
+  {
+   "id": 11353,
+   "match": 40.9
+  },
+  {
+   "id": 4129,
+   "match": 41.2
+  },
+  {
+   "id": 10926,
+   "match": 41.4
+  },
+  {
+   "id": 11050,
+   "match": 41.7
+  },
+  {
+   "id": 19,
+   "match": 41.8
+  }
+ ]
+}
