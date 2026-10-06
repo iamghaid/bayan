@@ -308,8 +308,8 @@ class Handler(SimpleHTTPRequestHandler):
             return BankHandler.bank_get(self)
         if path == '/api/catalog':
             return self.send_json(200, motion_catalog.build(ROOT))
-        allowed = {'/', '/index.html', '/workspace.js', '/khutbah.html', '/khutbah.js', '/demo.js', '/demo.css', '/interface.css', '/unified-view.js', '/motion-review.html', '/motion-review.js', '/review-assistant.js', '/handfix.js', '/signfix.js', '/signer.js', '/man_dress.js'}
-        valid = path in allowed or bool(re.fullmatch(r'/lib/(three\.min\.js|GLTFLoader\.js|three-vrm\.min\.js)|/avatar/man\.glb|/sshi_motion/index\.json|/sshi_motion/(m|staging)/\d+\.json|/translations/\d+_gemini\.json', path))
+        allowed = {'/', '/index.html', '/workspace.js', '/khutbah.html', '/khutbah.js', '/demo.js', '/demo.css', '/interface.css', '/fonts.css', '/unified-view.js', '/motion-review.html', '/motion-review.js', '/review-assistant.js', '/handfix.js', '/signfix.js', '/signer.js', '/man_dress.js'}
+        valid = path in allowed or bool(re.fullmatch(r'/lib/(three\.min\.js|GLTFLoader\.js|three-vrm\.min\.js)|/avatar/man\.glb|/fonts/thmanyah[a-z]+-(Regular|Medium|Bold)\.woff2|/sshi_motion/index\.json|/sshi_motion/(m|staging)/\d+\.json|/translations/\d+_gemini\.json', path))
         if not valid:
             return self.send_json(404, {'error': 'غير موجود'})
         return super().do_GET()

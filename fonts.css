@@ -1,0 +1,10 @@
+/* Thmanyah typeface (thmanyah Publishing and Distribution), used under the owner's licence.
+ * Woff2 only; do not add download links or the OTF files. Qur'an text keeps Amiri. */
+@font-face{font-family:"Thmanyah Sans";src:url("fonts/thmanyahsans-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Thmanyah Sans";src:url("fonts/thmanyahsans-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Thmanyah Sans";src:url("fonts/thmanyahsans-Bold.woff2") format("woff2");font-weight:600 700;font-display:swap}
+@font-face{font-family:"Thmanyah Serif Text";src:url("fonts/thmanyahseriftext-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Thmanyah Serif Text";src:url("fonts/thmanyahseriftext-Bold.woff2") format("woff2");font-weight:600 700;font-display:swap}
+:root{--font-ui:"Thmanyah Sans",Tahoma,sans-serif;--font-read:"Thmanyah Serif Text","Thmanyah Sans",serif}
+body{font-family:var(--font-ui)}
+button,input,select,textarea{font-family:inherit}
