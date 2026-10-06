@@ -18,7 +18,7 @@ async function run() {
   assert.equal(source[0].action,'pending');
   notes[1467].decision='rejected'; assert.equal((await library.apply(source))[0].action,'pending');
   notes[1467].decision='accepted'; notes[1467].motion_sha256='old'; assert.equal((await library.apply(source))[0].action,'pending');
-  notes[1467].motion_sha256='current'; notes[1467].passes.fidelity='issue'; assert.equal((await library.apply(source))[0].action,'pending');
-  console.log('Review promotion checks passed: exact label, hashes, passes, rejection, protected content.');
+  notes[1467].motion_sha256='current'; notes[1467].passes={}; assert.equal((await library.apply(source))[0].id,1467); assert.equal((await library.bank()).length,1);
+  console.log('Review promotion checks passed: exact label, hashes, one-click approval, rejection, protected content.');
 }
 run().catch(error=>{console.error(error);process.exitCode=1});

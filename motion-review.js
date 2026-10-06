@@ -20,7 +20,7 @@
     for(const [value,text] of [['pending','لم تُراجع'],['issue','يوجد عيب'],['checked','فُحص هذا الجانب']]){const option=document.createElement('option');option.value=value;option.textContent=text;select.append(option);}
     const small=document.createElement('small');small.textContent=hint;label.append(select,document.createElement('br'),small);passPanel.append(label);
   }
-  const disclaimer=document.createElement('p');disclaimer.textContent='افحص الجوانب الأربعة وسجّل توقيت أي ملاحظة قبل اختيار القرار.';passPanel.append(disclaimer);
+  const disclaimer=document.createElement('p');disclaimer.textContent='هذه القوائم تساعدك في الفحص. زر الاعتماد يسجّل قرارك النهائي ويضيف الحركة إلى بنك الخطب.';passPanel.append(disclaimer);
   $('notes').closest('section').before(passPanel);
   let catalog = [], filtered = [], current, notes = {};
   try { notes = JSON.parse(localStorage.getItem(noteKey) || '{}'); } catch { notes = {}; }
@@ -84,17 +84,16 @@
   function saveReview(decision){
     if(!current)return;
     const old=notes[current.id]||{};
-    const next={...old,id:current.id,ar:current.ar,note:$('notes').value,pose:Signer.poseDiagnostics,safety_enabled:Signer.reviewSafety,updated_at:new Date().toISOString(),motion_sha256:current.motion_sha256,approval:'not_approved',passes:Object.fromEntries(passes.map(([key])=>[key,$('pass-'+key).value]))};
+    const next={...old,id:current.id,ar:current.ar,note:$('notes').value,pose:Signer.poseDiagnostics,safety_enabled:Signer.reviewSafety,updated_at:new Date().toISOString(),motion_sha256:current.motion_sha256,approval:decision==='accepted'?'reviewer_approved':decision?'not_approved':old.approval||'not_approved',passes:Object.fromEntries(passes.map(([key])=>[key,$('pass-'+key).value]))};
     if(old.motion_sha256 && old.motion_sha256!==current.motion_sha256)next.decision='pending';
     if(decision){next.decision=decision;next.decision_at=next.updated_at;next.history=[...(old.history||[]),{decision,at:next.updated_at,motion_sha256:current.motion_sha256}];}
     const updated={...notes,[current.id]:next};
-    try{localStorage.setItem(noteKey,JSON.stringify(updated));notes=updated;showDecision();$('noteStatus').textContent=decision==='accepted'?'حُفظ الاعتماد؛ الحركة متاحة الآن لترجمة اسمها في الخطب بهذا المتصفح.':decision?'حُفظ القرار؛ سُحب اعتماد هذه الحركة من ترجمة الخطب.':'حُفظت الملاحظة محليًا.';}
+    try{localStorage.setItem(noteKey,JSON.stringify(updated));notes=updated;showDecision();renderBank();$('noteStatus').textContent=decision==='accepted'?`أُضيفت «${current.ar}» إلى بنك إشارات الخطب. يمكنك ترجمة اسمها الآن.`:decision?'حُفظ القرار؛ سُحب اعتماد هذه الحركة من بنك الخطب.':'حُفظت الملاحظة محليًا.';window.dispatchEvent(new CustomEvent('bayan-bank-changed'));}
     catch{$('noteStatus').textContent='تعذر الحفظ؛ لم يُسجل القرار. صدّر الملاحظات قبل المغادرة.';}
   }
   $('save').onclick=()=>saveReview();
   $('acceptMotion').onclick=()=>{
     if(!current || current.schema_errors.length)return;
-    if(passes.some(([key])=>$('pass-'+key).value!=='checked')){$('noteStatus').textContent='للاعتماد، أكمل المراجعات الأربع واختر «فُحص هذا الجانب» لكل منها بعد التحقق.';return;}
     saveReview('accepted');
   };
   $('rejectMotion').onclick=()=>saveReview('rejected');
@@ -105,9 +104,16 @@
   };
   try {
     let response = await fetch('/api/catalog'); if (!response.ok) response = await fetch('review-catalog.json'); if (!response.ok) throw Error('تعذر تحميل سجل المراجعة.');
-    catalog = await response.json();
+    catalog = (await response.json()).map(row=>({...row,schema_errors:row.schema_errors||[]}));
+    renderBank();
     await Signer.init($('cv'), 'avatar/man.glb?v=7');
     Signer.reviewSafety = $('safePose').checked;
     filter();
   } catch (error) { status(error.message); }
+  function renderBank() {
+    const rows=catalog.filter(row=>notes[row.id]?.decision==='accepted' && row.motion_sha256 && notes[row.id].motion_sha256===row.motion_sha256 && !row.schema_errors.length);
+    $('bankCount').textContent=`${rows.length} حركة معتمدة في بنك الخطب بهذا المتصفح`;
+    $('bankList').replaceChildren();
+    for(const row of rows){const button=document.createElement('button');button.type='button';button.textContent=`${row.ar} — ${row.id}`;button.onclick=()=>{$('search').value=String(row.id);filter();};$('bankList').append(button);}
+  }
 })();

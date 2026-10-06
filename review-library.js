@@ -19,7 +19,6 @@ window.BayanReviewLibrary = (() => {
     for (const row of await entries()) {
       const record = notes[row.id];
       if (record?.decision !== 'accepted' || !row.motion_sha256 || record.motion_sha256 !== row.motion_sha256 || row.schema_errors?.length || row.technical_preflight?.startsWith('hold_')) continue;
-      if (!['joints','clarity','fidelity','depth'].every(pass => record.passes?.[pass] === 'checked')) continue;
       const label = normalize(row.ar);
       // Conflicting accepted labels stay unresolved instead of guessing.
       approved.set(label, approved.has(label) ? null : row);
@@ -32,5 +31,12 @@ window.BayanReviewLibrary = (() => {
         reviewer_approved:true, preview_only:false, motion_base:'sshi_motion/staging/'};
     });
   }
-  return {key, apply};
+  async function bank() {
+    let notes;
+    try { notes = JSON.parse(localStorage.getItem(key) || '{}'); } catch (_) { return []; }
+    return (await entries()).filter(row => notes[row.id]?.decision === 'accepted'
+      && row.motion_sha256 && notes[row.id].motion_sha256 === row.motion_sha256
+      && !row.schema_errors?.length && !row.technical_preflight?.startsWith('hold_'));
+  }
+  return {key, apply, bank};
 })();

@@ -31,6 +31,7 @@
   }
 
   addEventListener('storage', async event => { if(event.key===BayanReviewLibrary.key) { Signer.stop(); plan=holdReportedItems(await BayanReviewLibrary.apply(originalPlan)); render(); } });
+  addEventListener('bayan-bank-changed', async () => { Signer.stop(); plan=holdReportedItems(await BayanReviewLibrary.apply(originalPlan)); render(); });
   function has(id) { return id != null && (!AVAIL.size || AVAIL.has(String(id))); }
 
   window.BayanLoadPlan = async data => {
