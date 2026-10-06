@@ -27,10 +27,32 @@ ROW = {'id': 6, 'ar': 'ال', 'motion_sha256': 'abc', 'schema_errors': []}
 CHECKED = {key: 'checked' for key in team_bank.PASSES}
 
 
+class FakeNeon:
+    """Just enough of the two tables for team_bank's statements."""
+    def __init__(self):
+        self.rows, self.history, self.queries = {}, [], []
+
+    def __call__(self, query, params=()):
+        self.queries.append(query)
+        if query.startswith('CREATE TABLE'):
+            return []
+        if query.startswith('SELECT id, record::text'):
+            return [[key, value] for key, value in self.rows.items()]
+        if query.startswith('INSERT INTO bayan_decisions'):
+            self.rows[params[0]] = params[1]
+            return []
+        if query.startswith('INSERT INTO bayan_history'):
+            self.history.append(params[0])
+            return []
+        raise AssertionError(query)
+
+
 class TeamBankTests(unittest.TestCase):
+    """Runs on the Redis path; NeonTests below repeats the core flow on Postgres."""
     def setUp(self):
         self.redis = FakeRedis()
-        for target in (patch.object(team_bank, '_command', self.redis),
+        env = {'KV_REST_API_URL': 'https://redis.example', 'KV_REST_API_TOKEN': 't'}
+        for target in (patch.dict(os.environ, env, clear=True), patch.object(team_bank, '_command', self.redis),
                        patch.object(team_bank.motion_catalog, 'row', return_value=ROW)):
             target.start()
             self.addCleanup(target.stop)
@@ -68,6 +90,31 @@ class TeamBankTests(unittest.TestCase):
             self.assertFalse(team_bank.password_ok('x'))
         with patch.dict(os.environ, {}, clear=True):
             self.assertFalse(team_bank.password_ok(''))
+
+
+class NeonTests(unittest.TestCase):
+    def setUp(self):
+        self.neon = FakeNeon()
+        team_bank._ready = False
+        env = {'DATABASE_URL': 'postgresql://u:p@ep-x.neon.tech/db?sslmode=require'}
+        for target in (patch.dict(os.environ, env, clear=True), patch.object(team_bank, '_sql', self.neon),
+                       patch.object(team_bank.motion_catalog, 'row', return_value=ROW)):
+            target.start()
+            self.addCleanup(target.stop)
+
+    def test_shared_decision_round_trip(self):
+        self.assertTrue(team_bank.configured())
+        team_bank.decide({'id': 6, 'decision': 'accepted', 'reviewer': 'غيد', 'motion_sha256': 'abc', 'passes': CHECKED},
+                         suggest=lambda *args: (None, None))
+        self.assertEqual(team_bank.records()['6']['list'], 'trusted')
+        self.assertEqual(json.loads(self.neon.history[0])['reviewer'], 'غيد')
+        self.assertEqual(sum(q.startswith('CREATE TABLE') for q in self.neon.queries), 2)  # created once
+
+    def test_not_connected(self):
+        with patch.dict(os.environ, {}, clear=True):
+            self.assertFalse(team_bank.configured())
+            with self.assertRaisesRegex(ValueError, 'غير موصولة'):
+                team_bank.records()
 
 
 if __name__ == '__main__':
