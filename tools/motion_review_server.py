@@ -5,14 +5,15 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 try:
+    from tools import motion_catalog
     from tools.motion_bank import BankHandler
     from tools.review_assistant import ReviewAssistantHandler
 except ModuleNotFoundError:
+    import motion_catalog
     from motion_bank import BankHandler
     from review_assistant import ReviewAssistantHandler
 
 ROOT = Path(__file__).resolve().parent.parent
-CATALOG = ROOT / 'coverage/expansion/staging_qa.json'
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -31,7 +32,7 @@ class Handler(SimpleHTTPRequestHandler):
         if path == '/api/bank':
             return BankHandler.bank_get(self)
         if path == '/api/catalog':
-            data = CATALOG.read_bytes()
+            data = json.dumps(motion_catalog.build(ROOT), ensure_ascii=False).encode('utf-8')
             self.send_response(200)
             self.send_header('Content-Type', 'application/json; charset=utf-8')
             self.send_header('Cache-Control', 'no-store')
@@ -41,7 +42,7 @@ class Handler(SimpleHTTPRequestHandler):
             return
         match = re.fullmatch(r'/reference/(\d+)\.mp4', path)
         if match:
-            ids = {str(item['id']) for item in json.loads(CATALOG.read_text(encoding='utf-8'))}
+            ids = {str(item['id']) for item in motion_catalog.build(ROOT)}
             if match[1] not in ids:
                 return self.send_error(404)
             file = ROOT / f'sshi_motion/src/{match[1]}.mp4'
@@ -80,7 +81,7 @@ class Handler(SimpleHTTPRequestHandler):
                     pass
             return
         allowed = {'/motion-review.html', '/motion-review.js', '/review-assistant.js', '/unified-view.js', '/interface.css', '/man_dress.js', '/handfix.js', '/signfix.js', '/signer.js'}
-        valid = path in allowed or bool(re.fullmatch(r'/lib/(three\.min\.js|GLTFLoader\.js|three-vrm\.min\.js)|/avatar/man\.glb|/sshi_motion/staging/\d+\.json', path))
+        valid = path in allowed or bool(re.fullmatch(r'/lib/(three\.min\.js|GLTFLoader\.js|three-vrm\.min\.js)|/avatar/man\.glb|/sshi_motion/(m|staging)/\d+\.json', path))
         if not valid:
             return self.send_error(404)
         return super().do_GET()

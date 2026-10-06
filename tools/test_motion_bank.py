@@ -19,7 +19,7 @@ class MotionBankTests(unittest.TestCase):
         for folder in ('tools', 'coverage/expansion', 'sshi_motion/m', 'sshi_motion/staging', 'translations'):
             (self.root / folder).mkdir(parents=True)
         self.addCleanup(shutil.rmtree, self.root)
-        motion = b'{"fps": 25, "fr": []}'
+        motion = b'{"fps": 25, "fr": [[[0], [0, 0, 0, 0], 0, 0, 0]]}'
         (self.root / 'sshi_motion/staging/50.json').write_bytes(motion)
         self.sha = hashlib.sha256(motion).hexdigest()
         catalog = [{'id': 50, 'ar': '‏صبر - تحمل', 'schema_errors': [], 'motion_sha256': self.sha},
@@ -49,7 +49,7 @@ class MotionBankTests(unittest.TestCase):
 
     def test_accept_moves_motion_into_bank_and_sermons(self):
         result = self.decide('accepted')
-        self.assertEqual(result['list'], 'bank')
+        self.assertEqual(result['list'], 'trusted')
         self.assertNotIn('undo', result)
         self.assertTrue((self.root / 'sshi_motion/m/50.json').exists())
         self.assertEqual(self.read('sshi_motion/index.json'), [1, 2, 50])
@@ -67,7 +67,7 @@ class MotionBankTests(unittest.TestCase):
     def test_reject_after_accept_restores_every_file(self):
         self.decide('accepted')
         result = self.decide('rejected')
-        self.assertEqual(result['list'], 'queue')
+        self.assertEqual(result['list'], 'redesign')
         self.assertEqual(result['suggestion'], 'افحص الرسغ')
         self.assertEqual(result['history'], ['accepted', 'rejected'])
         for path, data in self.originals.items():
@@ -95,7 +95,7 @@ class MotionBankTests(unittest.TestCase):
         result = bank.decide({'id': 50, 'decision': 'rework', 'motion_sha256': self.sha, 'passes': {}},
                              suggest=lambda *args: (None, 'المفتاح غير مضبوط'))
         self.assertEqual(result['suggestion_error'], 'المفتاح غير مضبوط')
-        self.assertEqual(bank.state()['records']['50']['list'], 'queue')
+        self.assertEqual(bank.state()['records']['50']['list'], 'review')
 
     def test_label_keys(self):
         self.assertEqual(bank.label_keys('‏صبر - تحمل'), ['صبر', 'تحمل'])

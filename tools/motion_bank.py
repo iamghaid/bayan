@@ -1,8 +1,10 @@
-"""Local sign bank: reviewer decisions move motions into playback or the rework queue.
+"""Local sign banks: reviewer decisions sort every motion into three lists.
 
-Accepted motions are copied from staging into the playback library, their dictionary
-label is added to tools/approved.json, and matching words in the saved sermons switch
-to the sign. Rejected or rework motions go to the rework queue with an AI suggestion.
+- trusted (موثوق ومعتمد): accepted. Staged motions are copied into the playback library,
+  the dictionary label is added to tools/approved.json, and matching words in the saved
+  sermons switch to the sign.
+- review (قيد المراجعة): no decision yet, or returned for another comparison with the video.
+- redesign (يحتاج مراجعة): rejected; must be rebuilt. Stored with an AI correction suggestion.
 Every change is recorded in tools/motion_bank.json so a later decision can undo it.
 Runs only on the owner's loopback servers; the hosted site is read-only.
 """
@@ -14,13 +16,15 @@ import threading
 from datetime import datetime, timezone
 from pathlib import Path
 try:
-    from tools import review_assistant
+    from tools import motion_catalog, review_assistant
 except ModuleNotFoundError:
+    import motion_catalog
     import review_assistant
 
 ROOT = Path(__file__).resolve().parents[1]
 LOCAL_HOSTS = {'127.0.0.1:8020', 'localhost:8020', '127.0.0.1:8021', 'localhost:8021'}
-DECISIONS = {'accepted', 'rejected', 'rework'}
+LISTS = {'accepted': 'trusted', 'rework': 'review', 'rejected': 'redesign'}
+DECISIONS = set(LISTS)
 PASSES = ('joints', 'clarity', 'fidelity', 'depth')
 LOCK = threading.Lock()
 
@@ -56,15 +60,12 @@ def write_json(path, data, indent=1):
 def paths():
     return {'bank': ROOT / 'tools/motion_bank.json', 'approved': ROOT / 'tools/approved.json',
             'blocked': ROOT / 'tools/blocked.json', 'holds': ROOT / 'tools/translation_holds.json',
-            'catalog': ROOT / 'coverage/expansion/staging_qa.json', 'index': ROOT / 'sshi_motion/index.json',
+            'index': ROOT / 'sshi_motion/index.json',
             'library': ROOT / 'sshi_motion/m', 'staging': ROOT / 'sshi_motion/staging', 'plans': ROOT / 'translations'}
 
 
 def catalog_row(identifier):
-    row = next((row for row in read_json(paths()['catalog'], []) if row.get('id') == identifier), None)
-    if row is None:
-        raise ValueError('الحركة غير موجودة في سجل المراجعة.')
-    return row
+    return motion_catalog.row(identifier, ROOT)
 
 
 def summary(record):
@@ -194,11 +195,9 @@ def decide(payload, suggest=ai_suggestion):
                   'passes': {key: str(passes.get(key, 'pending'))[:20] for key in PASSES}, 'motion_sha256': row.get('motion_sha256'),
                   'at': datetime.now(timezone.utc).isoformat(),
                   'history': (previous or {}).get('history', []) + [decision]}
+        record['list'] = LISTS[decision]
         if decision == 'accepted':
-            record['list'] = 'bank'
             record['undo'], record['result'] = promote(identifier, row)
-        else:
-            record['list'] = 'queue'
         bank[str(identifier)] = record
         write_json(paths()['bank'], bank)
     if decision == 'accepted':

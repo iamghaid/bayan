@@ -7,6 +7,10 @@ import urllib.error
 import urllib.request
 from http.server import BaseHTTPRequestHandler
 from pathlib import Path
+try:
+    from tools import motion_catalog
+except ModuleNotFoundError:
+    import motion_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
 MAX_REQUEST = 12000
@@ -60,16 +64,8 @@ def motion_context(identifier):
     """Resolve trusted local metadata instead of accepting client-provided facts."""
     if isinstance(identifier, bool) or not isinstance(identifier, int) or identifier <= 0:
         raise ValueError('اختر حركة صالحة أولًا.')
-    catalog_file = ROOT / 'review-catalog.json'
-    if not catalog_file.exists():
-        catalog_file = ROOT / 'coverage/expansion/staging_qa.json'
-    if not catalog_file.exists():
-        raise ValueError('سجل الحركات غير متوفر في الخادم.')
-    rows = json.loads(catalog_file.read_text(encoding='utf-8'))
-    row = next((row for row in rows if row.get('id') == identifier), None)
-    if row is None:
-        raise ValueError('الحركة غير موجودة في سجل المراجعة.')
-    keys = ('id', 'ar', 'frames', 'seconds', 'tracked_ratio', 'schema_errors', 'motion_sha256')
+    row = motion_catalog.row(identifier, ROOT)
+    keys = ('id', 'ar', 'source', 'frames', 'seconds', 'tracked_ratio', 'schema_errors', 'motion_sha256', 'fidelity', 'uses')
     return {**{key: row[key] for key in keys if key in row}, 'source_url': 'https://sshi.sa/', 'visual_inspection': False}
 
 
