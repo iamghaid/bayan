@@ -132,17 +132,7 @@
     showDecision(); showBank();
     $('play').disabled = $('pause').disabled = !current || !Signer.ready || current.schema_errors.length > 0;
     if (!current) return status('لا توجد نتائج مطابقة.');
-    const stagedOffline = current.source === 'staging' && !bank;
-    if (stagedOffline) $('play').disabled = $('pause').disabled = true;
-    $('playNote').hidden = !stagedOffline;
-    if (stagedOffline) {
-      $('playNote').textContent = 'التشغيل غير متاح لهذه الحركة على الموقع: هي حركة جديدة وملفها على جهازك فقط. شغّليها من الخادم المحلي، أو جرّبي حركة من «معتمد». فيديو المصدر متاح.';
-      const go = document.createElement('button'); go.type = 'button'; go.textContent = 'اعرضي «معتمد»'; go.onclick = () => setView('trusted');
-      $('playNote').append(go);
-    }
-    status(stagedOffline
-      ? `${current.ar} (#${current.id}) — حركة جديدة: ملفها على جهازك فقط، افتحي الصفحة من الخادم المحلي لتشغيلها.`
-      : `${current.ar} (#${current.id}) — جاهزة للمعاينة`);
+    status(`${current.ar} (#${current.id}) — ${current.source === 'staging' ? 'حركة جديدة قيد المراجعة، ' : ''}جاهزة للمعاينة`);
     const metrics = [current.source === 'active' ? `مستخدمة في الخطب: ${current.uses} مرة` : 'حركة جديدة (staging)', current.fidelity != null ? `مطابقة الأفتار لبيانات الفيديو: ${current.fidelity}%${current.signfix ? ' (مصححة يدويًا)' : ''}` : 'مطابقة الأفتار: لم تُقس', `إطارات: ${current.frames}`, `مدة الحركة: ${current.seconds} ثانية`, `تتبع إحدى اليدين: ${Math.round(current.tracked_ratio * 100)}%`, `بنية الملف: ${current.schema_errors.length ? 'تحتاج فحصًا' : 'سليمة'}`];
     for (const metric of metrics) { const span = document.createElement('span'); span.textContent = metric; $('metrics').append(span); }
     if ($('showReference').checked) showReference(current);
@@ -221,7 +211,14 @@
   $('play').onclick = () => {
     if (!current) return;
     Signer.paused = false; $('pause').textContent = 'إيقاف مؤقت';
-    Signer.playList([{motion:current.id}], (_tag, error) => { status(error ? 'تعذر تحميل الحركة.' : `تشغيل معاينة ${current.ar} (#${current.id})`); }, current.source === 'active' ? 'sshi_motion/m/' : 'sshi_motion/staging/');
+    const item = current;
+    Signer.playList([{motion:item.id}], (_tag, error) => {
+      status(error ? 'تعذر تحميل الحركة.' : `تشغيل معاينة ${item.ar} (#${item.id})`);
+      if (error && item.source === 'staging' && current === item) {
+        $('playNote').textContent = 'ملف هذه الحركة غير موجود على الموقع بعد. فيديو المصدر متاح للمقارنة.';
+        $('playNote').hidden = false;
+      }
+    }, item.source === 'active' ? 'sshi_motion/m/' : 'sshi_motion/staging/');
   };
   $('pause').onclick = () => { Signer.paused = !Signer.paused; $('pause').textContent = Signer.paused ? 'متابعة' : 'إيقاف مؤقت'; };
   $('speed').onchange = () => { Signer.speed = Number($('speed').value); };

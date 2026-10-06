@@ -16,7 +16,7 @@ def check():
         if not path.is_file():
             continue
         parts = Path(name).parts
-        if path.suffix.lower() in {'.mp4', '.key'} or parts[0] == 'output' or name.startswith(('sshi_motion/src/', 'review_cases/', 'review_video/', 'sshi_motion/staging/')):
+        if path.suffix.lower() in {'.mp4', '.key'} or parts[0] == 'output' or name.startswith(('sshi_motion/src/', 'review_cases/', 'review_video/')) or (name.startswith('sshi_motion/staging/') and path.suffix.lower() != '.json'):
             findings.append((name, 'local-only asset'))
         if path.suffix.lower() in {'.py','.js','.json','.md','.html','.txt','.yml','.yaml'}:
             data = path.read_bytes()
