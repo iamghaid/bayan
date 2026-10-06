@@ -79,7 +79,7 @@ Development inventory on **5 October 2026**:
 | Unique active + staged IDs | 2,145 | One ID overlaps both sets |
 | Saved sermons | 5 | Arabic texts and prepared plans |
 
-Staged assets are excluded from Git. A fresh clone can run the active library; populate staging through extraction/audit for local review. Source footage and captured frames remain local. These counts describe data retrieval and extraction, not a completed model training run or measured translation accuracy.
+Staged motion JSON (`sshi_motion/staging/*.json`, motions under review) is published so reviewers can play it on the hosted review page; it stays out of the sermons until accepted. Source footage and captured frames remain local. These counts describe data retrieval and extraction, not a completed model training run or measured translation accuracy.
 
 ### Validation
 
