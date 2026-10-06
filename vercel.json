@@ -2,7 +2,7 @@
   "functions": {
     "api/*.py": {
       "maxDuration": 60,
-      "includeFiles": "{tools/{demo_server,review_assistant,motion_bank,motion_catalog}.py,tools/{approved,translation_holds}.json,review-catalog.json,coverage/sshi_words_v2.json,coverage/research/*_candidates.json,coverage/expansion/staging_qa.json,coverage/fidelity/motions.csv,translations/*_gemini.json,sshi_motion/m/*.json}",
+      "includeFiles": "{tools/*.{py,json},review-catalog.json,coverage/{sshi_words_v2.json,research/*_candidates.json,expansion/staging_qa.json,fidelity/motions.csv},translations/*_gemini.json,sshi_motion/m/*.json}",
       "excludeFiles": "{sshi_motion/src/**,sshi_motion/staging/**,review_video/**,review_cases/**,tools/.gemini_key*,.env,avatar/**,lib/**}"
     }
   }
