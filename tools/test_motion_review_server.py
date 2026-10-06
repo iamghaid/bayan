@@ -24,10 +24,9 @@ class ReviewServerTests(unittest.TestCase):
         self.addCleanup(shutil.rmtree, root)
         (root / 'sshi_motion/src').mkdir(parents=True)
         (root / 'sshi_motion/src/1.mp4').write_bytes(b'x' * 64)
-        catalog = root / 'catalog.json'
-        catalog.write_text(json.dumps([{'id':1,'reference_present':True,'schema_errors':[]}, {'id':2,'reference_present':False,'schema_errors':['no_frames']}]), encoding='utf-8')
+        catalog = [{'id':1,'reference_present':True,'schema_errors':[]}, {'id':2,'reference_present':False,'schema_errors':['no_frames']}]
         self.root_patch = patch.object(review, 'ROOT', root)
-        self.catalog_patch = patch.object(review, 'CATALOG', catalog)
+        self.catalog_patch = patch.object(review.motion_catalog, 'build', return_value=catalog)
         self.root_patch.start()
         self.catalog_patch.start()
         self.addCleanup(self.root_patch.stop)
@@ -41,7 +40,7 @@ class ReviewServerTests(unittest.TestCase):
         try:
             with urllib.request.urlopen(base + '/api/catalog') as response:
                 items = json.load(response)
-            expected = json.loads(review.CATALOG.read_text(encoding='utf-8'))
+            expected = review.motion_catalog.build()
             self.assertEqual(items, expected)
             self.assertEqual(len(items), 2)
             self.assertEqual(len({item['id'] for item in items}), len(items))

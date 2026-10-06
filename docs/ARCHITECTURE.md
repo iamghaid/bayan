@@ -14,7 +14,7 @@ The assistant resolves metadata server-side. It does not treat caller-supplied m
 
 `handfix.js` cleans source landmarks; `signer.js` retargets them; `signfix.js` applies per-motion corrections. `man_dress.js` handles appearance.
 
-Local review records use `bayan-motion-review-notes-v1`. Records contain ID, label, note, four pass statuses, hash, decision, timestamp and decision history. Acceptance requires all four passes checked and a valid schema. A changed hash invalidates the displayed decision. Local records do not promote motions into the main library.
+Local review records use `bayan-motion-review-notes-v1`. Records contain ID, label, note, four pass statuses, hash, decision, timestamp and decision history. Acceptance requires all four passes checked and a valid schema. A changed hash invalidates the displayed decision. On the hosted site these browser records do not change the library. On the owner's loopback servers, `tools/motion_bank.py` also handles `GET /api/bank` and `POST /api/decision`: acceptance copies the staged motion (hash-checked) into `sshi_motion/m/`, adds it to `sshi_motion/index.json`, adds its label to `tools/approved.json` without overriding existing entries, and updates matching items in `translations/*_gemini.json` (never Qur'an, held or blocked words). Lists: `trusted` (accepted; sermon motions default here and keep playing), `review` (new motions undecided or returned; `/api/plan` fingerspells a word whose only new sign is under review), `redesign` (rejected, with an AI suggestion). `tools/motion_catalog.py` builds the review catalog from both the active library and staging, with fidelity and sermon usage. Each record keeps undo data, so a new decision reverses the previous one exactly.
 
 ## بالعربية
 
