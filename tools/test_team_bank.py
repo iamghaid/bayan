@@ -110,6 +110,10 @@ class NeonTests(unittest.TestCase):
         self.assertEqual(json.loads(self.neon.history[0])['reviewer'], 'غيد')
         self.assertEqual(sum(q.startswith('CREATE TABLE') for q in self.neon.queries), 2)  # created once
 
+    def test_prefixed_variable_from_vercel(self):
+        with patch.dict(os.environ, {'bayan_DATABASE_URL': 'postgresql://u:p@ep-y.neon.tech/db'}, clear=True):
+            self.assertEqual(team_bank._postgres_url(), 'postgresql://u:p@ep-y.neon.tech/db')
+
     def test_not_connected(self):
         with patch.dict(os.environ, {}, clear=True):
             self.assertFalse(team_bank.configured())

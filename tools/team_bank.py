@@ -36,10 +36,12 @@ UNREACHABLE = 'تعذر الوصول إلى قاعدة بيانات الفريق
 
 
 def _postgres_url():
-    for name in ('DATABASE_URL', 'POSTGRES_URL', 'DATABASE_URL_UNPOOLED', 'POSTGRES_URL_NON_POOLING'):
-        value = os.environ.get(name, '')
-        if value.startswith(('postgres://', 'postgresql://')):
-            return value
+    # Vercel's Neon integration may add a custom prefix (e.g. bayan_DATABASE_URL).
+    for suffix in ('DATABASE_URL', 'POSTGRES_URL', 'DATABASE_URL_UNPOOLED', 'POSTGRES_URL_NON_POOLING'):
+        for name in sorted(os.environ, key=len):
+            value = os.environ[name]
+            if (name == suffix or name.endswith('_' + suffix)) and value.startswith(('postgres://', 'postgresql://')):
+                return value
     return ''
 
 
