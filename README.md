@@ -177,7 +177,7 @@ Sermons and text planning need no keys. See [`.env.example`](.env.example) for t
 ### Tests
 
 ```powershell
-python -m unittest discover -s tools -p "test_*.py"   # 64 tests
+python -m unittest discover -s tools -p "test_*.py"   # 60 tests
 python tools/repo_check.py                            # no secrets or source media
 node tools/retarget_test.js                           # avatar retargeting
 ```
