@@ -1,6 +1,7 @@
 """Loopback-only viewer for staged avatars and local reference videos."""
 import json
 import re
+from urllib.parse import quote
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -25,7 +26,14 @@ class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         path = self.path.split('?')[0]
         if path == '/api/catalog':
-            data = CATALOG.read_bytes()
+            rows = json.loads(CATALOG.read_text(encoding='utf-8'))
+            word_file = ROOT/'coverage/sshi_words_v2.json'
+            words = {str(w['id']): w for w in json.loads(word_file.read_text(encoding='utf-8'))} if word_file.exists() else {}
+            for row in rows:
+                word = words.get(str(row['id']), {})
+                if word.get('video'):
+                    row['source_video_url'] = 'https://sshi.sa/api/file/' + quote(word['video'], safe='')
+            data = json.dumps(rows, ensure_ascii=False).encode('utf-8')
             self.send_response(200)
             self.send_header('Content-Type', 'application/json; charset=utf-8')
             self.send_header('Cache-Control', 'no-store')
@@ -73,7 +81,7 @@ class Handler(SimpleHTTPRequestHandler):
                 except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
                     pass
             return
-        allowed = {'/motion-review.html', '/motion-review.js', '/review-assistant.js', '/unified-view.js', '/interface.css', '/man_dress.js', '/handfix.js', '/signfix.js', '/signer.js'}
+        allowed = {'/motion-review.html', '/motion-review.js', '/review-assistant.js', '/unified-view.js', '/interface.css', '/theme.css', '/theme.js', '/review-library.js', '/man_dress.js', '/handfix.js', '/signfix.js', '/signer.js'}
         valid = path in allowed or bool(re.fullmatch(r'/lib/(three\.min\.js|GLTFLoader\.js|three-vrm\.min\.js)|/avatar/man\.glb|/sshi_motion/staging/\d+\.json', path))
         if not valid:
             return self.send_error(404)

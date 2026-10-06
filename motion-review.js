@@ -1,5 +1,5 @@
 /* Motion review controller: four-pass checks and hash-bound local decisions.
- * JSON exports preserve reviewer history; decisions do not promote library entries.
+ * JSON exports preserve reviewer history; accepted decisions enable exact-label playback within this browser.
  * AI suggestions live in review-assistant.js and never write these records.
  */
 (async () => {
@@ -50,11 +50,14 @@
     $('metrics').replaceChildren();
     showDecision();
     $('play').disabled = $('pause').disabled = !current || !Signer.ready || current.schema_errors.length > 0;
+    $('referenceStatus').textContent='';
+    $('sourceLink').hidden = !current?.source_video_url;
+    if(current?.source_video_url) $('sourceLink').href=current.source_video_url;
     if (!current) return status('لا توجد نتائج مطابقة.');
     status(`${current.ar} (#${current.id}) — جاهزة للمعاينة`);
     const metrics = [`إطارات: ${current.frames}`, `مدة الحركة: ${current.seconds} ثانية`, `تتبع إحدى اليدين: ${Math.round(current.tracked_ratio * 100)}%`, `بنية الملف: ${current.schema_errors.length ? 'تحتاج فحصًا' : 'سليمة'}`];
     for (const metric of metrics) { const span = document.createElement('span'); span.textContent = metric; $('metrics').append(span); }
-    if ($('showReference').checked) $('reference').src = `/reference/${current.id}.mp4`;
+    if ($('showReference').checked) $('reference').src = current.source_video_url || `/reference/${current.id}.mp4`;
     $('previous').disabled = filtered.indexOf(current) === 0;
     $('next').disabled = filtered.indexOf(current) === filtered.length - 1;
   }
@@ -68,6 +71,8 @@
   $('search').oninput = filter; $('pick').onchange = select;
   function move(delta) { if (!current) return; const target = filtered[filtered.indexOf(current) + delta]; if (target) { $('pick').value = target.id; select(); } }
   $('next').onclick = () => move(1); $('previous').onclick = () => move(-1);
+  $('reference').onerror = () => { $('referenceStatus').textContent='تعذر تحميل فيديو المرجع من المصدر؛ حاول مجددًا أو افتح رابط المصدر.'; };
+  $('reference').onloadedmetadata = () => { $('referenceStatus').textContent='فيديو المصدر جاهز.'; };
   $('showReference').onchange = () => { $('reference').hidden = !$('showReference').checked; select(); };
   $('play').onclick = () => {
     if (!current) return;
@@ -83,7 +88,7 @@
     if(old.motion_sha256 && old.motion_sha256!==current.motion_sha256)next.decision='pending';
     if(decision){next.decision=decision;next.decision_at=next.updated_at;next.history=[...(old.history||[]),{decision,at:next.updated_at,motion_sha256:current.motion_sha256}];}
     const updated={...notes,[current.id]:next};
-    try{localStorage.setItem(noteKey,JSON.stringify(updated));notes=updated;showDecision();$('noteStatus').textContent=decision?'حُفظ القرار والملاحظة محليًا.':'حُفظت الملاحظة محليًا.';}
+    try{localStorage.setItem(noteKey,JSON.stringify(updated));notes=updated;showDecision();$('noteStatus').textContent=decision==='accepted'?'حُفظ الاعتماد؛ الحركة متاحة الآن لترجمة اسمها في الخطب بهذا المتصفح.':decision?'حُفظ القرار؛ سُحب اعتماد هذه الحركة من ترجمة الخطب.':'حُفظت الملاحظة محليًا.';}
     catch{$('noteStatus').textContent='تعذر الحفظ؛ لم يُسجل القرار. صدّر الملاحظات قبل المغادرة.';}
   }
   $('save').onclick=()=>saveReview();

@@ -25,7 +25,9 @@ def prepare(output):
         shutil.copy2(ROOT / name, destination / name)
     catalog = release_catalog(json.loads((ROOT / 'coverage/expansion/staging_qa.json').read_text(encoding='utf-8')))
     keys = ('id', 'ar', 'frames', 'seconds', 'tracked_ratio', 'schema_errors', 'motion_sha256')
-    sanitized = [{key: row[key] for key in keys if key in row} for row in catalog]
+    words = {str(w['id']): w for w in json.loads((ROOT / 'coverage/sshi_words_v2.json').read_text(encoding='utf-8'))}
+    from urllib.parse import quote
+    sanitized = [{**{key: row[key] for key in keys if key in row}, 'source_video_url': 'https://sshi.sa/api/file/' + quote(words[str(row['id'])]['video'], safe='')} for row in catalog]
     (destination / 'review-catalog.json').write_text(json.dumps(sanitized, ensure_ascii=False), encoding='utf-8')
     for row in catalog:
         source = ROOT / 'sshi_motion/staging' / f"{row['id']}.json"

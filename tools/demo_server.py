@@ -6,6 +6,7 @@ import re
 import socket
 import urllib.error
 import urllib.request
+from urllib.parse import quote
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -248,8 +249,13 @@ class Handler(SimpleHTTPRequestHandler):
             catalog = ROOT / 'coverage/expansion/staging_qa.json'
             if not catalog.exists():
                 return self.send_json(404, {'error': 'شغّل تدقيق staging لإعداد سجل المراجعة.'})
-            return self.send_json(200, json.loads(catalog.read_text(encoding='utf-8')))
-        allowed = {'/', '/index.html', '/workspace.js', '/khutbah.html', '/khutbah.js', '/demo.js', '/demo.css', '/interface.css', '/unified-view.js', '/motion-review.html', '/motion-review.js', '/review-assistant.js', '/handfix.js', '/signfix.js', '/signer.js', '/man_dress.js'}
+            rows = json.loads(catalog.read_text(encoding='utf-8'))
+            for row in rows:
+                word = BY_ID.get(str(row['id']), {})
+                if word.get('video'):
+                    row['source_video_url'] = 'https://sshi.sa/api/file/' + quote(word['video'], safe='')
+            return self.send_json(200, rows)
+        allowed = {'/', '/index.html', '/workspace.js', '/khutbah.html', '/khutbah.js', '/demo.js', '/demo.css', '/interface.css', '/theme.css', '/theme.js', '/review-library.js', '/unified-view.js', '/motion-review.html', '/motion-review.js', '/review-assistant.js', '/handfix.js', '/signfix.js', '/signer.js', '/man_dress.js'}
         valid = path in allowed or bool(re.fullmatch(r'/lib/(three\.min\.js|GLTFLoader\.js|three-vrm\.min\.js)|/avatar/man\.glb|/sshi_motion/index\.json|/sshi_motion/(m|staging)/\d+\.json|/translations/\d+_gemini\.json', path))
         if not valid:
             return self.send_json(404, {'error': 'غير موجود'})

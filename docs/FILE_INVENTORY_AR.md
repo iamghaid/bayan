@@ -102,6 +102,7 @@
 | [motion-review.html](../motion-review.html) | صفحة معاينة الحركات وتسجيل قرارات المراجعة. |
 | [motion-review.js](../motion-review.js) | تحميل الحركات وأدوات التشغيل والملاحظات والاعتماد والرفض. |
 | [review-assistant.js](../review-assistant.js) | واجهة مساعد المراجعة وطلبات الاقتراحات إلى الخادم. |
+| [review-library.js](../review-library.js) | يربط اعتماد المراجع بترجمة الاسم المطابق داخل المتصفح مع التحقق من نسخة الحركة. |
 | [signer.js](../signer.js) | يحوّل بيانات الحركة إلى مفاصل الأفتار ويضبط التلامس وحدود الحركة. |
 | [signfix.js](../signfix.js) | تصحيحات مخصصة لحركات بعينها بحسب معرّف الإشارة. |
 | [sshi_motion/index.json](../sshi_motion/index.json) | إعدادات أو بيانات index. |
@@ -1294,6 +1295,7 @@
 | [tools/retarget_test.js](../tools/retarget_test.js) | اختبارات التحقق الخاصة بـ retarget test. |
 | [tools/review.html](../tools/review.html) | مورد أو أداة تطوير خاصة بـ review. |
 | [tools/review_assistant.py](../tools/review_assistant.py) | أداة تطوير: Grounded text-only review suggestions; no source media or automatic decisions. |
+| [tools/review_library_test.js](../tools/review_library_test.js) | اختبارات التحقق الخاصة بـ review library test. |
 | [tools/review_server.py](../tools/review_server.py) | أداة تطوير: صفحة مراجعة الترجمة لمترجم لغة الإشارة. |
 | [tools/reviewed.json](../tools/reviewed.json) | مورد أو أداة تطوير خاصة بـ reviewed. |
 | [tools/sermon_frequency.py](../tools/sermon_frequency.py) | أداة تطوير: Rank sermon vocabulary and missing source motions without approving ambiguous matches. |
