@@ -80,6 +80,10 @@ flowchart LR
 
 هذه أعداد بيانات، وليست نتيجة تدريب نموذج أو نسبة دقة للترجمة.
 
+### مصدر البيانات والإذن
+
+كل الإشارات مأخوذة من **[مكتبة لغة الإشارة السعودية (sshi.sa)](https://sshi.sa/)**: القاموس وفيديوهات الإشارات التي استُخرجت منها الحركات. **لدى الفريق إذن باستخدامها**: تواصلت معنا الرئيسة التنفيذية وأكدت أن البيانات متاحة للاستخدام العام. فيديوهات المصدر لا تُرفع إلى المستودع؛ يُنشر فقط ملف نقاط الحركة المستخرج منها، ويُعرض الفيديو الأصلي في صفحة المراجعة مباشرة من sshi.sa.
+
 ### التشغيل محليًا
 
 يحتاج **Python 3** فقط (مكتبة قياسية):
@@ -159,6 +163,10 @@ node tools/retarget_test.js                           # avatar retargeting
 
 The same checks run on every push ([checks.yml](.github/workflows/checks.yml)).
 
+### Data source and permission
+
+All signs come from the **[Saudi Sign Language Library (sshi.sa)](https://sshi.sa/)**: its dictionary and the sign videos the motions were extracted from. **The team has permission to use this data**: the library's CEO contacted us and confirmed the data is available for public use. Source videos are not uploaded to this repository; only the derived landmark JSON is published, and the review page plays the original video directly from sshi.sa.
+
 ### Data and privacy
 
 - Source videos and frames stay on the owner's computer (`.gitignore`, `tools/repo_check.py`). Only derived landmark JSON is published.
@@ -167,7 +175,7 @@ The same checks run on every push ([checks.yml](.github/workflows/checks.yml)).
 
 ### Credits
 
-- [Saudi Sign Language Library (sshi.sa)](https://sshi.sa/): dictionary and source videos.
+- [Saudi Sign Language Library (sshi.sa)](https://sshi.sa/): dictionary and source videos, used with the library's permission for public use.
 - [Alukah](https://www.alukah.net/): sermon texts.
 - [Terminology Encyclopedia](https://terminologyenc.com/ar): meaning references.
 - [Gemini](https://ai.google.dev/), [MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/guide), [Three.js](https://threejs.org/), [MakeHuman](http://www.makehumancommunity.org/) (avatar, CC0).
