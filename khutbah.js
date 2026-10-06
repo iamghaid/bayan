@@ -31,6 +31,9 @@
   }
 
   function has(id) { return id != null && (!AVAIL.size || AVAIL.has(String(id))); }
+  // Signs the review team accepted live in sshi_motion/staging/ until they are synced into the library.
+  const signOk = p => p.motion_dir === 'staging' ? p.id != null : has(p.id);
+  const motionItem = (p, tag) => p.motion_dir === 'staging' ? { motion: p.id, tag, base: 'sshi_motion/staging/' } : { motion: p.id, tag };
 
   window.BayanLoadPlan = data => {
     Signer.stop(); last = null;
@@ -45,7 +48,7 @@
       if (p.s !== s) { if (s >= 0) html.push('</p>'); html.push('<p>'); s = p.s; }
       let cls = 't ' + p.action;
       if (p.conf === 'review' || p.conf === 'low') cls += ' rev';
-      if (p.action === 'sign') { signed++; if (!has(p.id)) { cls += ' miss'; missing++; } }
+      if (p.action === 'sign') { signed++; if (!signOk(p)) { cls += ' miss'; missing++; } }
       if (p.action === 'spell') spelled++;
       const title = p.action === 'pending' ? p.review_note || 'تحتاج مراجعة — نص فقط' : p.action === 'sign' ? 'إشارة: ' + p.sign : p.action === 'spell' ? (p.under_review ? `تهجئة مؤقتة: الإشارة الجديدة «${p.under_review.sign}» قيد المراجعة — ` : 'تهجئة: ') + (p.base || '').split('').join('-') : p.action === 'quran' ? 'آية — تُعرض نصًا' : 'لا تُترجم بإشارة مستقلة';
       html.push(`<span class="${cls}" data-i="${i}" title="${esc(title)}">${esc(p.action === 'quran' ? '﴿' + p.text + '﴾' : p.text)}</span> `);
@@ -61,10 +64,10 @@
     for (let i = from; i < plan.length; i++) {
       const p = plan[i];
       if (p.s !== s) { items.push({ pause: 0.35, tag: null }); s = p.s; }
-      if (p.action === 'sign' && has(p.id)) items.push({ motion: p.id, tag: i });
+      if (p.action === 'sign' && signOk(p)) items.push(motionItem(p, i));
       else if (p.action === 'quran') { items.push({ pause: Math.min(6, 1 + p.text.length / 25), tag: i }); }
       else if (p.action === 'pending') { items.push({ pause: 1.5, tag: i }); }
-      else if (p.action === 'spell' || (p.action === 'sign' && !has(p.id))) {
+      else if (p.action === 'spell' || (p.action === 'sign' && !signOk(p))) {
         const L = (p.letters || []).filter(has);
         if (L.length) L.forEach((x, k) => items.push({ motion: x, rate: 1.5, tag: i, letter: k }));
       }
@@ -83,7 +86,7 @@
       ? `<div class="w">${esc(p.text)}</div><div class="s">${esc(p.review_note || 'تحتاج مراجعة — نص فقط')}</div>`
       : p.action === 'quran'
       ? `<div class="q">﴿${esc(p.text)}﴾</div><div class="s">آية — تُعرض نصًا (قرار الإشارة للمختص الشرعي)</div>`
-      : `<div class="w">${esc(p.text)}</div><div class="s">${p.action === 'sign' && has(p.id) ? 'إشارة: ' + esc(p.sign) : 'تهجئة: ' + esc((p.base || '').split('').join(' - '))}${p.preview_only ? ' — معاينة غير مراجعة' : ''}${err ? ' — لا توجد حركة' : ''}</div>`;
+      : `<div class="w">${esc(p.text)}</div><div class="s">${p.action === 'sign' && signOk(p) ? 'إشارة: ' + esc(p.sign) + (p.team_approved ? ' — اعتمدها الفريق' : '') : 'تهجئة: ' + esc((p.base || '').split('').join(' - '))}${p.preview_only ? ' — معاينة غير مراجعة' : ''}${err ? ' — لا توجد حركة' : ''}</div>`;
   }
 
   function start(from) { Signer.paused = false; $('pause').textContent = 'إيقاف مؤقت'; Signer.playList(build(from), onItem); }

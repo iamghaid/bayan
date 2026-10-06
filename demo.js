@@ -109,7 +109,7 @@
     const list = $('demoSources'); list.replaceChildren();
     for (const item of result.plan) {
       const li = document.createElement('li');
-      li.textContent = item.text + ' — ' + (item.action === 'quran' ? 'آية: نص فقط' : item.under_review ? `إشارة جديدة قيد المراجعة (${item.under_review.sign}، #${item.under_review.id})؛ تُهجّى مؤقتًا` : item.preview_only ? 'معاينة غير مراجعة' : item.action === 'sign' ? 'مطابقة في سجل المراجعة المحلي' : item.how === 'suffix-suggestion' ? 'اقتراح لصيغة الكلمة؛ يحتاج مراجعة ولن يُشغّل' : item.reason === 'ambiguous' ? 'مطابقة ملتبسة؛ لن تُشغّل' : 'تحتاج مراجعة؛ لن تُشغّل');
+      li.textContent = item.text + ' — ' + (item.action === 'quran' ? 'آية: نص فقط' : item.under_review ? `إشارة جديدة قيد المراجعة (${item.under_review.sign}، #${item.under_review.id})؛ تُهجّى مؤقتًا` : item.preview_only ? 'معاينة غير مراجعة' : item.team_approved ? `إشارة جديدة اعتمدها الفريق${item.team_approved.reviewer ? ' (' + item.team_approved.reviewer + ')' : ''}` : item.action === 'sign' ? 'مطابقة في سجل المراجعة المحلي' : item.how === 'suffix-suggestion' ? 'اقتراح لصيغة الكلمة؛ يحتاج مراجعة ولن يُشغّل' : item.reason === 'ambiguous' ? 'مطابقة ملتبسة؛ لن تُشغّل' : 'تحتاج مراجعة؛ لن تُشغّل');
       for (const source of item.sources) {
         const span = document.createElement('span');
         span.textContent = ` | ${source.sign} (#${source.id}) · ${source.motion ? 'حركة موجودة' : 'حركة غير متوفرة'} · `;

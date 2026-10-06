@@ -574,15 +574,15 @@ const Signer = (() => {
   // items: [{motion: id, rate?, tag?}] ← يُستدعى onItem(tag) عند بدء كل عنصر
   function playList(items, cb, base) {
     stop(); onItem = cb;
-    items.slice(0, 12).forEach(it => { if (it.motion != null) load(it.motion, base).catch(() => {}); });   // تحميل مسبق لأول العناصر
+    items.slice(0, 12).forEach(it => { if (it.motion != null) load(it.motion, it.base || base).catch(() => {}); });   // تحميل مسبق لأول العناصر
     queue = items.slice(); next(base);
   }
   async function next(base) {
     const it = queue.shift();
     if (!it) { cur = null; onItem && onItem(null); return; }
     if (it.pause) { cur = { pause: it.pause, t: 0, it }; onItem && onItem(it.tag); return; }
-    let d; try { d = await load(it.motion, base); } catch (e) { onItem && onItem(it.tag, 'missing'); return next(base); }
-    queue.slice(0, 6).forEach(n => { if (n.motion != null) load(n.motion, base).catch(() => {}); });
+    let d; try { d = await load(it.motion, it.base || base); } catch (e) { onItem && onItem(it.tag, 'missing'); return next(base); }
+    queue.slice(0, 6).forEach(n => { if (n.motion != null) load(n.motion, n.base || base).catch(() => {}); });
     cur = { d, t: 0, rate: (it.rate || 1), it, base };
     onItem && onItem(it.tag);
   }
