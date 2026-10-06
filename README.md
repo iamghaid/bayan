@@ -1,52 +1,88 @@
-# Bayan | بيان
+<p align="center">
+  <img src="brand/logo.png" alt="بيان" width="200">
+</p>
 
-**Arabic speech, Saudi sign-language visualization, and a human review workspace.**
+<h3 align="center">من الكلام العربي إلى لغة الإشارة السعودية بأفتار ثلاثي الأبعاد<br>Arabic speech → Saudi Sign Language on a 3D avatar</h3>
 
-**من الصوت العربي إلى عرض الإشارات السعودية، في مساحة واحدة للمشاهدة والمراجعة.**
+<p align="center">
+  <a href="https://bayan-gheid.vercel.app"><b>الموقع المباشر / Live site</b></a> ·
+  <a href="#العربية">العربية</a> ·
+  <a href="#english">English</a> ·
+  <a href="docs/ARCHITECTURE.md">Architecture</a> ·
+  <a href="docs/FILE_GUIDE.md">File guide</a>
+  <br><br>
+  <a href="https://github.com/iamghaid/bayan/actions/workflows/checks.yml"><img src="https://github.com/iamghaid/bayan/actions/workflows/checks.yml/badge.svg" alt="checks"></a>
+</p>
 
-[English](#english) · [العربية](#العربية) · [Architecture](docs/ARCHITECTURE.md) · [File guide](docs/FILE_GUIDE.md) · [Development](docs/DEVELOPMENT.md) · [Motion fixes](docs/MOTION_FIXES.md)
+<p align="center">
+  <img src="docs/images/voice-to-sign.jpg" alt="نص منطوق يتحول إلى إشارات على الأفتار" width="780">
+</p>
 
-## English
+---
 
-Bayan is a hackathon prototype combining Arabic audio transcription, dictionary-based motion retrieval, and a Saudi-dressed 3D avatar. Its unified workspace preserves the selected motion and draft notes while switching between sermon playback and individual motion review.
+## العربية
 
-**Workspace:** [khutbah-sign.vercel.app](https://khutbah-sign.vercel.app/), using the project's configured Vercel sign-in settings.
+### الفكرة
 
-### Features
+خطبة الجمعة تصل لمعظم الناس بالصوت فقط، والصم يحتاجون مترجمًا حاضرًا في كل مسجد. **بيان** يحوّل الكلام العربي إلى إشارات من **مكتبة لغة الإشارة السعودية** يؤديها أفتار بلباس سعودي، ويعطي فريق المراجعة مساحة مشتركة لاعتماد كل إشارة قبل استخدامها.
 
-- Record a microphone clip or upload audio, transcribe with Gemini, and edit the Arabic text.
-- Prepare a motion playlist from text or open one of five saved sermons.
-- Search the review catalog by Arabic label or exact numeric ID.
-- Inspect four dimensions: joint motion, viewer clarity, source fidelity, and depth/contact.
-- Save **accept**, **reject**, or **return for review** decisions with notes and a motion hash; export JSON.
-- **Three sign banks** covering all 2,146 motions (the 1,148 used by the sermons plus the staged candidates):
-  - **Trusted** (معتمد): the sermon motions (they keep playing) and every accepted motion. On the local server an accepted motion is copied into the playback library, its label is linked in `tools/approved.json`, and matching words in the saved sermons switch to it.
-  - **Under review** (قيد المراجعة): new motions not yet compared with the source video, or returned for another comparison. Until accepted, a word whose only new sign is under review is fingerspelled in the player.
-  - **Needs rework** (يحتاج مراجعة): rejected; must be rebuilt. Stored with an AI correction suggestion.
+> **نموذج تجريبي وليس ترجمة معتمدة.** المخرجات تحتاج مراجعة مترجم لغة إشارة سعودية معتمد قبل عرضها على الصم، والآيات تُعرض نصًا ويعود قرار ترجمتها لمختص شرعي.
 
-  A later decision undoes the earlier one. Records live in `tools/motion_bank.json`; deploy to publish. Rejecting a sermon motion does not remove it from playback.
-- Ask the AI assistant for inspection suggestions grounded in the selected motion's metadata and your question.
+### ماذا يفعل
 
-The assistant is text-only: it does not see the animation or footage, and never changes review decisions. Technical checks, reviewer decisions, and linguistic validation serve distinct purposes.
+| | |
+| --- | --- |
+| 🎙️ **من الصوت إلى الإشارة** | سجّل أو ارفع مقطعًا، يُفرَّغ بـ Gemini، تراجع النص، ثم يؤدي الأفتار الإشارات كلمة كلمة مع تمييز الكلمة الحالية. |
+| 📖 **خمس خطب جاهزة** | خطب كاملة مترجمة مسبقًا. كل كلماتها (2,868 كلمة) صارت مصدرًا لأي تسجيل جديد. |
+| 👥 **مراجعة الفريق** | كل المراجعين يرون نفس الأرقام والقوائم. الاعتماد أو الرفض يُحفظ للجميع باسم المراجع، والحركة التالية تفتح تلقائيًا. |
+| ⚡ **الاعتماد يدخل الترجمة فورًا** | أي إشارة جديدة يعتمدها الفريق تُستخدم مباشرة في الترجمة الصوتية والنصية، بدون نشر. |
+| 🎥 **مقارنة بالمصدر** | فيديو الإشارة الأصلي من sshi.sa بجانب أداء الأفتار، مع نسبة مطابقة الأفتار لبيانات الفيديو لكل حركة. |
+| 🤖 **مساعد مراجعة** | اقتراحات تصحيح مبنية على بيانات الحركة؛ لا يشاهد الفيديو ولا يغيّر أي قرار. |
 
-### Pipeline
+<p align="center">
+  <img src="docs/images/sermon-player.jpg" alt="مشغّل الخطبة" width="48%">
+  <img src="docs/images/review-board.jpg" alt="لوحة مراجعة الحركات" width="48%">
+</p>
+
+### كيف يعمل
 
 ```mermaid
 flowchart LR
-    A[Arabic audio] --> B[Gemini transcription]
-    B --> C[Editable Arabic text]
-    C --> D[Dictionary and phrase matching]
-    D --> E[Motion playlist]
-    E --> F[Saudi 3D avatar]
-    F --> G[Four-pass human review]
-    G --> H[Local decisions and JSON export]
-    M[Motion metadata + question] --> I[AI suggestions]
-    I --> G
+    A[صوت عربي] --> B[تفريغ Gemini]
+    B --> C[نص قابل للتعديل]
+    C --> D{مصدر الإشارة}
+    D -->|1| D1[روابط معتمدة يدويًا]
+    D -->|2| D2[كلمات الخطب الخمس]
+    D -->|3| D3[إشارات اعتمدها الفريق]
+    D -->|4| D4[تهجئة بالأصابع]
+    D1 & D2 & D3 & D4 --> E[قائمة تشغيل]
+    E --> F[أفتار ثلاثي الأبعاد]
+    G[مكتبة sshi.sa] --> H[MediaPipe: نقاط اليد والجسم]
+    H --> I[2,146 حركة]
+    I --> J[مراجعة الفريق: معتمد / قيد المراجعة / إعادة تصميم]
+    J --> D3
 ```
 
-### Quick start
+1. **المكتبة:** فيديوهات مكتبة لغة الإشارة السعودية تُحوَّل محليًا بـ MediaPipe إلى نقاط حركة (JSON). الفيديوهات لا تُرفع إلى أي مكان.
+2. **الأفتار:** `signer.js` ينقل النقاط إلى هيكل الأفتار (Three.js)، و`handfix.js` ينظّف التتبع، و`signfix.js` يصحح حركات بعينها بعد مقارنتها بالمرجع.
+3. **المطابقة:** الخادم يطابق كل كلمة بالترتيب أعلاه، ويُبقي الآيات نصًا.
+4. **المراجعة:** قرارات الفريق محفوظة في قاعدة بيانات Neon، ويقرؤها الموقع والمترجم معًا.
 
-The web demo needs **Python 3**; its server uses the standard library. Node.js is used for checks. Extraction tools have separate dependencies.
+### الأرقام
+
+| | العدد |
+| --- | ---: |
+| مدخلات القاموس | 8,818 |
+| حركات في المكتبة الأساسية (تستخدمها الخطب) | 1,148 |
+| حركات جديدة قيد مراجعة الفريق | 998 |
+| كلمات معروفة من الخطب الخمس | 2,868 |
+| اختبارات آلية | 64 |
+
+هذه أعداد بيانات، وليست نتيجة تدريب نموذج أو نسبة دقة للترجمة.
+
+### التشغيل محليًا
+
+يحتاج **Python 3** فقط (مكتبة قياسية):
 
 ```powershell
 git clone https://github.com/iamghaid/bayan.git
@@ -54,127 +90,90 @@ cd bayan
 python tools/demo_server.py
 ```
 
-Open **http://127.0.0.1:8020/**. Text planning and saved sermons work without an AI key. To enable transcription and the review assistant, configure the server:
+افتح **http://127.0.0.1:8020/**. الخطب والترجمة من النص تعمل بدون مفاتيح. للتفريغ الصوتي ومراجعة الفريق اضبط متغيرات البيئة في [`.env.example`](.env.example).
 
-```powershell
-$env:GEMINI_API_KEY = 'YOUR_SERVER_KEY'
-$env:BAYAN_AUDIO_MODEL = 'YOUR_AUDIO_CAPABLE_MODEL_ID'
-$env:BAYAN_REVIEW_MODEL = 'YOUR_TEXT_CAPABLE_MODEL_ID'
-python tools/demo_server.py
-```
+### على Vercel
 
-Only `GEMINI_API_KEY` is required; both model variables are optional and default to `gemini-flash-latest`. The review model falls back to the audio model when omitted. Browser recordings are converted to 16 kHz WAV before upload. Transcription errors name the cause (missing or invalid key, unknown model, quota, provider outage). Set the same variables in Vercel for the hosted version. `.env.example` documents names; the server does not automatically load `.env` files. Keep credentials out of browser JavaScript and Git.
-
-Audio uploads are limited to **4 MiB**; recording stops after **60 seconds**. Transcription sends audio to the provider only when requested. Review suggestions send the question and motion metadata, not source footage. On the hosted site, notes and decisions stay in the current browser until exported; only the local server writes the sign bank.
-
-### Dataset snapshot
-
-Development inventory on **5 October 2026**:
-
-| Inventory | Count | Meaning |
-| --- | ---: | --- |
-| Dictionary entries | 8,818 | Source records, not distinct ready animations |
-| Active motions | 1,148 | Main playback library |
-| Staged motion files | 998 | Additional development review files |
-| Unique active + staged IDs | 2,145 | One ID overlaps both sets |
-| Saved sermons | 5 | Arabic texts and prepared plans |
-
-Staged motion JSON (`sshi_motion/staging/*.json`, motions under review) is published so reviewers can play it on the hosted review page; it stays out of the sermons until accepted. Source footage and captured frames remain local. These counts describe data retrieval and extraction, not a completed model training run or measured translation accuracy.
-
-### Validation
-
-```powershell
-python -m unittest discover -s tools -p 'test_*.py' -q
-node tools/retarget_test.js
-node --check review-assistant.js
-node --check motion-review.js
-node --check unified-view.js
-```
-
-Tests cover matching, planning, review metadata, API boundaries, provider-response handling, and retargeting regressions. `tools/avatarcheck.html` samples the actual GLB for visual review. Numerical checks complement source comparisons.
-
-### Project rules
-
-- **Demo, not a certified translation.** Output must be reviewed by a certified Saudi sign-language interpreter before it is shown to Deaf viewers.
-- **Qur'an verses are shown as text.** Whether to sign them is a decision for a religious specialist.
-- **Fix motions one at a time.** Corrections go in `signfix.js`, keyed by motion ID and frame window, after comparing with the reference. Never change motions that are already correct through a global rule. See [Motion fixes](docs/MOTION_FIXES.md).
-- **Bump `?v=N`** on every changed browser script tag so viewers do not get a cached copy.
-- **Keep Arabic files in UTF-8.** On Windows, edit them with a Python read-modify-write, not PowerShell `Get-Content`/`Set-Content` without `-Encoding UTF8`.
-
-### Known limitations
-
-- No facial expressions yet, although they carry grammar in sign language.
-- About 9% of words are fingerspelled. «الرب» currently maps to the sign «الله» (`tools/approved.json`) and needs interpreter review.
-- Motion 419 «النبي»: right hand sits higher and further out than the reference. Motion 589 needs wrist/overlap repair.
-- Other motions may still show hand–hand penetration or missing face contact; fix them per motion.
-- The shemagh back is flat and flares at the shoulders.
-
-### Repository map
-
-| Path | Responsibility |
+| المتغير | الغرض |
 | --- | --- |
-| `index.html`, `workspace.js`, `unified-view.js` | Unified tabs and retained view state |
-| `khutbah.html`, `khutbah.js`, `demo.js` | Arabic input, audio workflow and sermon playback |
-| `motion-review.html`, `motion-review.js` | Four passes, decisions, notes and export |
-| `review-assistant.js`, `tools/review_assistant.py` | Review assistant UI and grounded Gemini request |
-| `signer.js`, `handfix.js`, `signfix.js` | Retargeting, tracking cleanup, per-motion fixes |
-| `man_dress.js`, `avatar/`, `lib/` | Saudi presentation, model and rendering libraries |
-| `api/` | Vercel HTTP entry points |
-| `tools/` | Local servers, extraction, audits and tests |
-| `sshi_motion/m/`, `translations/` | Active motions and saved sermon plans |
-| `docs/` | Architecture, development, motion fixes and file guide |
-| `.github/workflows/` | CI: unit tests, repository hygiene, retarget tests, script syntax |
+| `GEMINI_API_KEY` | التفريغ الصوتي ومساعد المراجعة (إلزامي لهما) |
+| `REVIEW_PASSWORD` | كلمة سر المراجعين لتسجيل القرارات |
+| `DATABASE_URL` | قاعدة Neon لقرارات الفريق؛ يضيفها Vercel عند ربط Neon (يقبل البادئة مثل `bayan_DATABASE_URL`) |
 
-### Sources
+### القيود المعروفة
 
-- [Saudi Sign Language Library](https://sshi.sa/): dictionary and motion references.
-- [Alukah](https://www.alukah.net/): saved sermon text.
-- [Terminology Encyclopedia](https://terminologyenc.com/ar): terminology links for meaning review.
-- [Gemini](https://ai.google.dev/): transcription and AI suggestions.
-- [MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/guide): landmark extraction.
-- [Three.js](https://threejs.org/): rendering; [MakeHuman](http://www.makehumancommunity.org/): avatar model (CC0).
+- لا توجد تعابير وجه بعد، وهي جزء من قواعد لغة الإشارة.
+- ترجمة الخطب أعدّها نموذج لغوي، وفيها مطابقات لم يراجعها مترجم معتمد بعد؛ وتُستخدم الآن في أي تسجيل، فالخطأ فيها يتكرر.
+- حوالي 9% من كلمات الخطب تُهجّى بالأصابع. «الرب» مربوطة بإشارة «الله» وتحتاج مراجعة.
+- الحركة 419 «النبي» والحركة 589 تحتاجان إصلاحًا. قد تظهر تداخلات بين اليدين في حركات أخرى.
+- الخطب الخمس المحفوظة لا تتحدث تلقائيًا بالإشارات الجديدة؛ تحتاج مزامنة (`python tools/team_bank.py --apply`).
 
-Additional research inventories are in `coverage/research/`. Third-party components retain their attribution and license notices.
+---
 
-## العربية
+## English
 
-**بيان** نموذج للهاكاثون يربط تفريغ الصوت العربي، واسترجاع الحركات من القاموس، وعرضها على أفتار بلباس سعودي. تجمع الصفحة الرئيسية الخطبة والصوت ومراجعة الحركات، وتحافظ على الاختيار والملاحظات أثناء التنقل.
+### The idea
 
-### الاستخدام
+Friday sermons reach most people only as sound; Deaf worshippers need an interpreter in every mosque. **Bayan** turns Arabic speech into signs from the **Saudi Sign Language library**, performed by a Saudi-dressed 3D avatar, and gives a review team one shared place to approve each sign before it is used.
 
-1. افتح **الخطبة والصوت** وسجّل مقطعًا أو ارفع ملفًا، ثم اطلب تفريغه.
-2. راجع النص، وأعدّ قائمة الإشارات، ثم شغّل العرض؛ أو اختر خطبة محفوظة.
-3. افتح **مراجعة الحركات** وابحث بالاسم أو رقم الحركة.
-4. افحص المفاصل والأصابع، والوضوح، والمطابقة للمصدر، والعمق والتلامس.
-5. اختر **اعتماد الحركة** أو **رفض الحركة** أو **إعادة للمراجعة**، ودوّن ملاحظاتك. الحركات مقسمة على ثلاثة بنوك تختارها من «البنك» أعلى الصفحة: **معتمد** (اعتمدتها؛ على الخادم المحلي تنتقل إلى ترجمة الخطب مباشرة)، و**قيد المراجعة** (الحركات الجديدة التي لم تُقارن بفيديو المصدر بعد أو أُعيدت للمقارنة؛ الكلمة التي إشارتها الجديدة قيد المراجعة تُهجّى مؤقتًا حتى تُعتمد). حركات الخطب تبقى شغالة وتبدأ في «معتمد»، و**يحتاج مراجعة** (مرفوضة وتحتاج إعادة تصميم، مع اقتراح المساعد). انشر الموقع ليظهر التحديث للجميع.
-6. اطلب اقتراحًا من **مساعد بيان للمراجعة**؛ القرار يبقى لك. صدّر السجل JSON لنقله إلى جهاز آخر.
+> **A prototype, not a certified translation.** Output must be reviewed by a certified Saudi sign-language interpreter before it is shown to Deaf viewers. Qur'an verses are shown as text; signing them is a decision for a religious specialist.
 
-### التشغيل والإعداد
+### Features
+
+- **Voice to sign:** record or upload audio, transcribe with Gemini, edit the text, and watch the avatar sign it word by word with the current word highlighted.
+- **Five ready sermons:** fully prepared plans; all 2,868 of their word renderings are reused for any new recording.
+- **Team review:** every reviewer sees the same banks and counts. Approvals and rejections are stored for everyone with the reviewer's name, and the next motion opens automatically.
+- **Approval goes live:** a new sign accepted by the team is used immediately by voice and text translation, without a deploy.
+- **Source comparison:** the original sshi.sa video next to the avatar, plus a per-motion avatar-vs-landmark match score.
+- **Review assistant:** correction suggestions grounded in motion metadata; it does not see the video and never changes a decision.
+
+### How it works
+
+| Layer | Files |
+| --- | --- |
+| Landmark extraction (local, MediaPipe) | `tools/sshi_extract.py`, `tools/expand_batch.py` → `sshi_motion/m/`, `sshi_motion/staging/` |
+| Retargeting and rendering (Three.js) | `signer.js`, `handfix.js`, `signfix.js`, `man_dress.js`, `avatar/man.glb` |
+| Word → sign planning | `tools/demo_server.py` (`/api/plan`): approved links → sermon renderings → team-accepted signs → fingerspelling |
+| Transcription and assistant | `api/transcribe.py`, `tools/review_assistant.py` (Gemini, server-side key) |
+| Team review | `motion-review.*`, `tools/team_bank.py`, `api/bank.py`, `api/decision.py` (Neon Postgres over HTTPS) |
+
+Details: [Architecture](docs/ARCHITECTURE.md) · [File guide](docs/FILE_GUIDE.md) · [Development](docs/DEVELOPMENT.md) · [Motion fixes](docs/MOTION_FIXES.md).
+
+### Run locally
 
 ```powershell
-python tools/demo_server.py
+git clone https://github.com/iamghaid/bayan.git
+cd bayan
+python tools/demo_server.py      # http://127.0.0.1:8020/
 ```
 
-افتح **http://127.0.0.1:8020/**. تشغيل النص والخطب لا يحتاج مفتاحًا. لتفريغ الصوت والمساعد يكفي ضبط `GEMINI_API_KEY` في بيئة الخادم (على Vercel: Settings ← Environment Variables ثم إعادة النشر). `BAYAN_AUDIO_MODEL` و`BAYAN_REVIEW_MODEL` اختياريان، والافتراضي `gemini-flash-latest`. رسالة الخطأ تحدد السبب: مفتاح مفقود أو غير صالح، نموذج غير متاح، تجاوز الحد، أو عطل عند المزوّد. الأوامر موضحة أعلاه.
+Sermons and text planning need no keys. See [`.env.example`](.env.example) for transcription and team review.
 
-حد الصوت **4 ميبيبايت** والتسجيل **60 ثانية**. الملاحظات محفوظة بالمتصفح، ولا تنتقل تلقائيًا بين الموقع والنسخة المحلية. المساعد يستقبل سؤالك وبيانات الحركة الفنية فقط؛ لا يشاهد الفيديو ولا يغيّر الحركة أو قرارها.
+### Tests
 
-### قواعد المشروع
+```powershell
+python -m unittest discover -s tools -p "test_*.py"   # 64 tests
+python tools/repo_check.py                            # no secrets or source media
+node tools/retarget_test.js                           # avatar retargeting
+```
 
-- **نموذج تجريبي وليس ترجمة معتمدة.** يجب أن يراجع المخرجات مترجم لغة إشارة سعودية معتمد قبل عرضها على الصم.
-- **آيات القرآن تُعرض نصًا.** قرار ترجمتها بالإشارة يعود لمختص شرعي.
-- **تصحيح الحركات واحدة واحدة.** التعديل في `signfix.js` برقم الحركة ونطاق الإطارات بعد المقارنة بالمرجع، ولا تُغيَّر الحركات السليمة بقاعدة عامة. التفاصيل في [تصحيح الحركات](docs/MOTION_FIXES.md).
-- **حدّث `?v=N`** في وسوم السكربت بعد كل تعديل حتى لا يعرض المتصفح نسخة قديمة.
-- **الملفات العربية بترميز UTF-8.** على ويندوز عدّلها عبر Python، لا عبر PowerShell بدون `-Encoding UTF8`.
+The same checks run on every push ([checks.yml](.github/workflows/checks.yml)).
 
-### قيود معروفة
+### Data and privacy
 
-لا توجد تعابير وجه بعد، وهي جزء من قواعد لغة الإشارة. حوالي 9% من الكلمات تُهجّى بالأصابع. «الرب» مربوطة حاليًا بإشارة «الله» وتحتاج مراجعة مترجم. الحركة 419 «النبي» اليد اليمنى أعلى وأبعد من المرجع، والحركة 589 تحتاج إصلاح المعصم والتداخل. ظهر الشماغ مسطّح ويتسع عند الكتفين.
+- Source videos and frames stay on the owner's computer (`.gitignore`, `tools/repo_check.py`). Only derived landmark JSON is published.
+- API keys and the reviewers' password live in server environment variables only.
+- Transcription sends audio to the provider only when requested; the assistant receives the question and motion metadata, never footage.
 
-### البيانات والتنظيم
+### Credits
 
-القاموس يحتوي **8,818 مدخلًا**، والتشغيل **1,148 حركة**، وبيئة المراجعة التطويرية **998 ملفًا**، بإجمالي **2,145 معرّفًا مختلفًا**. هذه أعداد بيانات وليست نتيجة تدريب نموذج أو نسبة دقة للترجمة.
+- [Saudi Sign Language Library (sshi.sa)](https://sshi.sa/): dictionary and source videos.
+- [Alukah](https://www.alukah.net/): sermon texts.
+- [Terminology Encyclopedia](https://terminologyenc.com/ar): meaning references.
+- [Gemini](https://ai.google.dev/), [MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/guide), [Three.js](https://threejs.org/), [MakeHuman](http://www.makehumancommunity.org/) (avatar, CC0).
+- Thmanyah typeface by thmanyah Publishing and Distribution, used under its licence.
 
-يمكن للجنة البدء من مخطط النظام ثم [دليل الملفات](docs/FILE_GUIDE.md) والاختبارات. تفاصيل الخدمات في [دليل التطوير](docs/DEVELOPMENT.md).
+---
 
-**Developed by Gheid Abdulkarim / تطوير غيد عبد الكريم** · [GitHub](https://github.com/iamghaid) · [LinkedIn](https://www.linkedin.com/in/gheid-abdulkarim-6567872ab)
+<p align="center"><b>Developed by Gheid Abdulkarim · تطوير غيد عبد الكريم</b><br>
+<a href="https://github.com/iamghaid">GitHub</a> · <a href="https://www.linkedin.com/in/gheid-abdulkarim-6567872ab">LinkedIn</a></p>
