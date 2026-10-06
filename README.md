@@ -57,7 +57,7 @@ $env:BAYAN_REVIEW_MODEL = 'YOUR_TEXT_CAPABLE_MODEL_ID'
 python tools/demo_server.py
 ```
 
-Use model IDs available in your Google AI project. The review model falls back to the audio model when omitted. Set the same variables in Vercel for the hosted version. `.env.example` documents names; the server does not automatically load `.env` files. Keep credentials out of browser JavaScript and Git.
+Only `GEMINI_API_KEY` is required; both model variables are optional and default to `gemini-flash-latest`. The review model falls back to the audio model when omitted. Browser recordings are converted to 16 kHz WAV before upload. Transcription errors name the cause (missing or invalid key, unknown model, quota, provider outage). Set the same variables in Vercel for the hosted version. `.env.example` documents names; the server does not automatically load `.env` files. Keep credentials out of browser JavaScript and Git.
 
 Audio uploads are limited to **4 MiB**; recording stops after **60 seconds**. Transcription sends audio to the provider only when requested. Review suggestions send the question and motion metadata, not source footage. Notes and decisions stay in the current browser/origin until exported; localhost and Vercel records do not sync automatically.
 
@@ -149,7 +149,7 @@ Additional research inventories are in `coverage/research/`. Third-party compone
 python tools/demo_server.py
 ```
 
-افتح **http://127.0.0.1:8020/**. تشغيل النص والخطب لا يحتاج مفتاحًا. لتفريغ الصوت والمساعد اضبط `GEMINI_API_KEY` و`BAYAN_AUDIO_MODEL`، واختياريًا `BAYAN_REVIEW_MODEL` في بيئة الخادم، باستخدام نماذج متاحة في حسابك. الأوامر موضحة أعلاه.
+افتح **http://127.0.0.1:8020/**. تشغيل النص والخطب لا يحتاج مفتاحًا. لتفريغ الصوت والمساعد يكفي ضبط `GEMINI_API_KEY` في بيئة الخادم (على Vercel: Settings ← Environment Variables ثم إعادة النشر). `BAYAN_AUDIO_MODEL` و`BAYAN_REVIEW_MODEL` اختياريان، والافتراضي `gemini-flash-latest`. رسالة الخطأ تحدد السبب: مفتاح مفقود أو غير صالح، نموذج غير متاح، تجاوز الحد، أو عطل عند المزوّد. الأوامر موضحة أعلاه.
 
 حد الصوت **4 ميبيبايت** والتسجيل **60 ثانية**. الملاحظات محفوظة بالمتصفح، ولا تنتقل تلقائيًا بين الموقع والنسخة المحلية. المساعد يستقبل سؤالك وبيانات الحركة الفنية فقط؛ لا يشاهد الفيديو ولا يغيّر الحركة أو قرارها.
 

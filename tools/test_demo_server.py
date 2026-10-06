@@ -1,3 +1,4 @@
+import io
 import json
 import re
 import threading
@@ -57,6 +58,30 @@ class DemoTests(unittest.TestCase):
     def test_missing_provider_configuration(self):
         with patch.dict('os.environ', {}, clear=True), self.assertRaises(ValueError):
             demo.transcribe(b'audio', 'audio/wav')
+
+    def test_missing_key_message_names_variable(self):
+        with patch.dict('os.environ', {'BAYAN_AUDIO_MODEL': 'm'}, clear=True), self.assertRaises(ValueError) as error:
+            demo.transcribe(b'audio', 'audio/wav')
+        self.assertIn('GEMINI_API_KEY', str(error.exception))
+
+    def test_default_model_and_stripped_key(self):
+        response = io.BytesIO(json.dumps({'candidates': [{'content': {'parts': [{'text': '{"text": "بسم الله"}'}]}}]}).encode())
+        with patch.dict('os.environ', {'GEMINI_API_KEY': ' test-only\n'}, clear=True), patch.object(demo.urllib.request, 'urlopen', return_value=response) as call:
+            self.assertEqual(demo.transcribe(b'audio', 'audio/wav'), {'text': 'بسم الله', 'model': demo.DEFAULT_AUDIO_MODEL})
+        request = call.call_args.args[0]
+        self.assertEqual(request.get_header('X-goog-api-key'), 'test-only')
+        self.assertIn(demo.DEFAULT_AUDIO_MODEL, request.full_url)
+
+    def test_provider_errors_are_explained_without_key(self):
+        cases = {400: ('API key not valid. AIzaSyFAKEFAKEFAKEFAKEFAKEFAKE', 'GEMINI_API_KEY'), 403: ('denied', 'صلاحية'), 404: ('not found', 'BAYAN_AUDIO_MODEL'), 429: ('quota', 'حد الاستخدام')}
+        for code, (message, expected) in cases.items():
+            body = io.BytesIO(json.dumps({'error': {'message': message}}).encode())
+            exc = urllib.error.HTTPError('https://example.invalid', code, 'x', {}, body)
+            with patch.dict('os.environ', {'GEMINI_API_KEY': 'test-only'}, clear=True), patch.object(demo.urllib.request, 'urlopen', side_effect=exc), patch('sys.stderr', io.StringIO()), self.assertRaises(ValueError) as error:
+                demo.transcribe(b'audio', 'audio/wav')
+            self.assertIn(expected, str(error.exception))
+            self.assertIn(f'HTTP {code}', str(error.exception))
+            self.assertNotIn('AIza', str(error.exception))
 
     def test_http_assets_and_security(self):
         server = ThreadingHTTPServer(('127.0.0.1', 0), partial(demo.Handler, directory=str(demo.ROOT)))

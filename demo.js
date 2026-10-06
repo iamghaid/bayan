@@ -40,6 +40,29 @@
   $('stopRecord').onclick = () => { if (recorder?.state === 'recording') recorder.stop(); };
   window.addEventListener('pagehide', () => { microphone?.getTracks().forEach(track => track.stop()); clearTimeout(recordingTimer); });
   function status(message) { $('demoStatus').textContent = message; }
+  // Browser recordings are WEBM/MP4, which Gemini may reject; send 16 kHz mono WAV instead.
+  async function toWav(file) {
+    const Context = window.AudioContext || window.webkitAudioContext;
+    if (!Context || !window.OfflineAudioContext) return null;
+    const context = new Context();
+    try {
+      const decoded = await context.decodeAudioData(await file.arrayBuffer());
+      const rate = 16000, length = Math.ceil(decoded.duration * rate);
+      if (!length || 44 + length * 2 > 4 * 1024 * 1024) return null;
+      const offline = new OfflineAudioContext(1, length, rate);
+      const source = offline.createBufferSource(); source.buffer = decoded; source.connect(offline.destination); source.start();
+      const samples = (await offline.startRendering()).getChannelData(0);
+      const view = new DataView(new ArrayBuffer(44 + samples.length * 2));
+      const text = (offset, value) => [...value].forEach((c, i) => view.setUint8(offset + i, c.charCodeAt(0)));
+      text(0, 'RIFF'); view.setUint32(4, 36 + samples.length * 2, true); text(8, 'WAVEfmt ');
+      view.setUint32(16, 16, true); view.setUint16(20, 1, true); view.setUint16(22, 1, true);
+      view.setUint32(24, rate, true); view.setUint32(28, rate * 2, true); view.setUint16(32, 2, true); view.setUint16(34, 16, true);
+      text(36, 'data'); view.setUint32(40, samples.length * 2, true);
+      samples.forEach((v, i) => view.setInt16(44 + i * 2, Math.max(-1, Math.min(1, v)) * 0x7fff, true));
+      return new Blob([view], {type: 'audio/wav'});
+    } catch { return null; }
+    finally { context.close(); }
+  }
   async function request(path, options) {
     let response;
     try { response = await fetch(path, options); }
@@ -72,7 +95,8 @@
     const mime = types[file.name.split('.').pop().toLowerCase()];
     if (!mime) throw Error('اختر MP3 أو WAV أو M4A أو WEBM أو OGG أو FLAC.');
     status('جارٍ تفريغ الصوت…');
-    const result = await request('/api/transcribe', {method:'POST', headers:{'Content-Type':mime}, body:file});
+    const wav = ['audio/webm', 'audio/mp4'].includes(mime) ? await toWav(file) : null;
+    const result = await request('/api/transcribe', {method:'POST', headers:{'Content-Type':wav ? 'audio/wav' : mime}, body:wav || file});
     $('transcript').value = result.text;
     status(result.text ? 'راجع النص، خصوصًا الآيات والأسماء والنفي، ثم أعد الإشارات.' : 'لم ينتج التفريغ كلامًا. جرّب تسجيلًا أوضح.');
     if (result.text && $('autoPrepare').checked) await preparePlan();

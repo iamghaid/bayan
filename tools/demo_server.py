@@ -10,9 +10,9 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 try:
-    from tools.review_assistant import ReviewAssistantHandler
+    from tools.review_assistant import ReviewAssistantHandler, provider_error
 except ModuleNotFoundError:
-    from review_assistant import ReviewAssistantHandler
+    from review_assistant import ReviewAssistantHandler, provider_error
 
 ROOT = Path(__file__).resolve().parent.parent
 MAX_AUDIO = 4 * 1024 * 1024
@@ -203,26 +203,37 @@ def make_plan(text, preview_unreviewed=False):
     return {'sentences': sentences, 'plan': plan, 'meaning_references': references, 'coverage': {'meaning_entries': sum(len(v) for v in TERM_INDEX.values()), 'entries': len(WORDS), 'aliases': len(INDEX), 'motions': len(MOTIONS), 'playable': sum(p['action'] == 'sign' for p in plan), 'pending': sum(p['action'] == 'pending' for p in plan)}, 'note': 'معاينة تجريبية: الأحمر غير مراجع. المطابقات الملتبسة والحركات المفقودة تبقى نصًا. سجل المراجعة المحلي لا يثبت اعتماد الجملة أو أداء الأفتار.'}
 
 
+DEFAULT_AUDIO_MODEL = 'gemini-flash-latest'
+
+
 def transcribe(data, mime):
-    key = os.environ.get('GEMINI_API_KEY', '')
-    model = os.environ.get('BAYAN_AUDIO_MODEL', '')
-    if not key or not re.fullmatch(r'[a-zA-Z0-9._-]+', model):
-        raise ValueError('التفريغ غير مهيأ: اضبط GEMINI_API_KEY وBAYAN_AUDIO_MODEL في الخادم المحلي.')
+    key = os.environ.get('GEMINI_API_KEY', '').strip()
+    model = os.environ.get('BAYAN_AUDIO_MODEL', '').strip() or DEFAULT_AUDIO_MODEL
+    if not key:
+        raise ValueError('التفريغ غير مهيأ: مفتاح GEMINI_API_KEY غير موجود في إعدادات الخادم (Vercel: Settings ← Environment Variables ثم أعد النشر؛ محليًا: اضبطه في نافذة PowerShell قبل تشغيل الخادم).')
+    if not re.fullmatch(r'[a-zA-Z0-9._-]{1,100}', model):
+        raise ValueError('قيمة BAYAN_AUDIO_MODEL غير صالحة. احذفها لاستخدام النموذج الافتراضي.')
     prompt = 'فرغ الكلام العربي المسموع حرفيًا فقط، دون تلخيص أو إضافة أو إكمال آيات أو تصحيح المعنى. ضع [غير واضح] للجزء غير المسموع. إذا لا يوجد كلام أعد نصًا فارغًا. أعد JSON بمفتاح text.'
     body = {'contents': [{'parts': [{'text': prompt}, {'inline_data': {'mime_type': mime, 'data': base64.b64encode(data).decode()}}]}], 'generationConfig': {'temperature': 0, 'responseMimeType': 'application/json'}}
     req = urllib.request.Request(f'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent', data=json.dumps(body).encode(), headers={'Content-Type': 'application/json', 'x-goog-api-key': key})
     try:
         with urllib.request.urlopen(req, timeout=55) as response:
             result = json.load(response)
+    except urllib.error.HTTPError as exc:
+        raise ValueError(provider_error(exc, 'BAYAN_AUDIO_MODEL', 'رفض المزوّد ملف الصوت أو الطلب. جرّب تسجيلًا أقصر أو ملف MP3/WAV.')) from None
+    except (TimeoutError, socket.timeout):
+        raise ValueError('انتهت مهلة التفريغ. جرّب مقطعًا أقصر.') from None
+    except (urllib.error.URLError, OSError):
+        raise ValueError('تعذر الاتصال بخدمة التفريغ من الخادم. تحقق من الشبكة ثم حاول مجددًا.') from None
+    try:
         raw = ''.join(p.get('text', '') for p in result['candidates'][0]['content']['parts'] if not p.get('thought'))
         text = json.loads(raw)['text']
         if not isinstance(text, str) or len(text) > 4000:
             raise ValueError()
         return {'text': text, 'model': model}
-    except urllib.error.HTTPError as exc:
-        raise ValueError(f'تعذر التفريغ من المزوّد (HTTP {exc.code}). حاول لاحقًا.') from None
-    except (KeyError, IndexError, ValueError, OSError):
-        raise ValueError('تعذر الحصول على تفريغ صالح. حاول لاحقًا أو أدخل النص يدويًا.') from None
+    except (KeyError, IndexError, TypeError, ValueError):
+        reason = (result.get('promptFeedback') or {}).get('blockReason') if isinstance(result, dict) else None
+        raise ValueError('رفض المزوّد المقطع.' if reason else 'تعذر الحصول على تفريغ صالح. حاول لاحقًا أو أدخل النص يدويًا.') from None
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -298,5 +309,5 @@ if __name__ == '__main__':
     server = DemoServer(('127.0.0.1', 8020), partial(Handler, directory=str(ROOT)))
     print('Bayan demo: http://127.0.0.1:8020/khutbah.html', flush=True)
     print('GEMINI_API_KEY: ' + ('configured' if os.environ.get('GEMINI_API_KEY') else 'MISSING'), flush=True)
-    print('BAYAN_AUDIO_MODEL: ' + ('configured' if os.environ.get('BAYAN_AUDIO_MODEL') else 'MISSING'), flush=True)
+    print('BAYAN_AUDIO_MODEL: ' + (os.environ.get('BAYAN_AUDIO_MODEL') or f'default ({DEFAULT_AUDIO_MODEL})'), flush=True)
     server.serve_forever()
