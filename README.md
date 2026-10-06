@@ -155,3 +155,7 @@ python tools/demo_server.py
 يمكن للجنة البدء من مخطط النظام ثم [دليل الملفات](docs/FILE_GUIDE.md) والاختبارات. تفاصيل الخدمات في [دليل التطوير](docs/DEVELOPMENT.md).
 
 **Developed by Gheid Abdulkarim / تطوير غيد عبد الكريم** · [GitHub](https://github.com/iamghaid) · [LinkedIn](https://www.linkedin.com/in/gheid-abdulkarim-6567872ab)
+
+### شرح الملفات بالعربية
+
+[دليل جميع الملفات: سطر لكل ملف](docs/FILE_INVENTORY_AR.md). يدعم الموقع الوضعين الداكن والفاتح مع حفظ الاختيار بين الصفحات.

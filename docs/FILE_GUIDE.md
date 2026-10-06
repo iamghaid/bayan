@@ -22,3 +22,5 @@
 See [tools/README.md](../tools/README.md) for development script groups. Output bundles, source media, staging files, caches and provider secrets are excluded from Git.
 
 ابدأ من `index.html` للواجهة، و`motion-review.js` للمراجعة، و`tools/review_assistant.py` للمساعد. محرك الأفتار في `signer.js` والتصحيحات في `signfix.js`. الملفات المولدة منفصلة عن محرك العرض والاختبارات.
+
+[شرح كل ملف بسطر واحد](FILE_INVENTORY_AR.md) — يتضمن جميع الملفات المتتبعة في Git.
