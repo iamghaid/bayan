@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-KEYS = ('id', 'ar', 'source', 'frames', 'seconds', 'tracked_ratio', 'schema_errors', 'motion_sha256', 'fidelity', 'signfix', 'uses')
+KEYS = ('id', 'ar', 'source', 'frames', 'seconds', 'tracked_ratio', 'schema_errors', 'motion_sha256', 'fidelity', 'signfix', 'uses', 'video')
 _cache = {}
 
 
@@ -56,7 +56,9 @@ def build(root=None):
     released = root / 'review-catalog.json'    # written into hosted bundles by prepare_interface_release.py
     if released.exists():
         return _read(released, [])
-    labels = {word['id']: _clean(word['ar']) for word in _read(root / 'coverage/sshi_words_v2.json', [])}
+    words = _read(root / 'coverage/sshi_words_v2.json', [])
+    labels = {word['id']: _clean(word['ar']) for word in words}
+    videos = {word['id']: word['video'] for word in words if word.get('video')}   # public file name on sshi.sa
     rows = {}
     for path in library.glob('*.json') if library.exists() else []:
         if path.stem.isdigit():
@@ -76,6 +78,8 @@ def build(root=None):
     for identifier in sorted(rows):
         row = rows[identifier]
         row['uses'] = uses.get(identifier, 0)
+        if identifier in videos:
+            row['video'] = videos[identifier]
         result.append({key: row[key] for key in KEYS if key in row})
     _cache.update(stamp=stamp, rows=result)
     return result
