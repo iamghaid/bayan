@@ -20,8 +20,8 @@ Bayan is a hackathon prototype combining Arabic audio transcription, dictionary-
 - Inspect four dimensions: joint motion, viewer clarity, source fidelity, and depth/contact.
 - Save **accept**, **reject**, or **return for review** decisions with notes and a motion hash; export JSON.
 - **Three sign banks** covering all 2,146 motions (the 1,148 used by the sermons plus the staged candidates):
-  - **Trusted** (موثوق ومعتمد): accepted. On the local server the motion is copied into the playback library, its label is linked in `tools/approved.json`, and matching words in the saved sermons switch to it.
-  - **Under review** (قيد المراجعة): not yet compared with the source video, or returned for another comparison. Sorted weakest avatar-to-video match first.
+  - **Trusted** (موثوق ومعتمد): the sermon motions (they keep playing) and every accepted motion. On the local server an accepted motion is copied into the playback library, its label is linked in `tools/approved.json`, and matching words in the saved sermons switch to it.
+  - **Under review** (قيد المراجعة): new motions not yet compared with the source video, or returned for another comparison. Until accepted, a word whose only new sign is under review is fingerspelled in the player.
   - **Needs rework** (يحتاج مراجعة): rejected; must be rebuilt. Stored with an AI correction suggestion.
 
   A later decision undoes the earlier one. Records live in `tools/motion_bank.json`; deploy to publish. Rejecting a sermon motion does not remove it from playback.
@@ -146,7 +146,7 @@ Additional research inventories are in `coverage/research/`. Third-party compone
 2. راجع النص، وأعدّ قائمة الإشارات، ثم شغّل العرض؛ أو اختر خطبة محفوظة.
 3. افتح **مراجعة الحركات** وابحث بالاسم أو رقم الحركة.
 4. افحص المفاصل والأصابع، والوضوح، والمطابقة للمصدر، والعمق والتلامس.
-5. اختر **اعتماد الحركة** أو **رفض الحركة** أو **إعادة للمراجعة**، ودوّن ملاحظاتك. الحركات مقسمة على ثلاثة بنوك تختارها من «البنك» أعلى الصفحة: **موثوق ومعتمد** (اعتمدتها؛ على الخادم المحلي تنتقل إلى ترجمة الخطب مباشرة)، و**قيد المراجعة** (لم تُقارن بفيديو المصدر بعد أو أُعيدت للمقارنة، مرتبة من الأضعف مطابقة)، و**يحتاج مراجعة** (مرفوضة وتحتاج إعادة تصميم، مع اقتراح المساعد). انشر الموقع ليظهر التحديث للجميع.
+5. اختر **اعتماد الحركة** أو **رفض الحركة** أو **إعادة للمراجعة**، ودوّن ملاحظاتك. الحركات مقسمة على ثلاثة بنوك تختارها من «البنك» أعلى الصفحة: **موثوق ومعتمد** (اعتمدتها؛ على الخادم المحلي تنتقل إلى ترجمة الخطب مباشرة)، و**قيد المراجعة** (الحركات الجديدة التي لم تُقارن بفيديو المصدر بعد أو أُعيدت للمقارنة؛ الكلمة التي إشارتها الجديدة قيد المراجعة تُهجّى مؤقتًا حتى تُعتمد). حركات الخطب تبقى شغالة وتبدأ في «موثوق ومعتمد»، و**يحتاج مراجعة** (مرفوضة وتحتاج إعادة تصميم، مع اقتراح المساعد). انشر الموقع ليظهر التحديث للجميع.
 6. اطلب اقتراحًا من **مساعد بيان للمراجعة**؛ القرار يبقى لك. صدّر السجل JSON لنقله إلى جهاز آخر.
 
 ### التشغيل والإعداد

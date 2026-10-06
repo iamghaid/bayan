@@ -136,6 +136,28 @@ def suggestions(text):
     return list(dict.fromkeys(ident for stem in stems for ident in lookup(stem)[0]))[:20]
 
 
+LETTERS = {}
+for word in WORDS:
+    if 'حروف' in (word.get('cat') or '') and str(word['id']) in MOTIONS:
+        letter = norm(re.sub(r'^حرف\s*(ال)?', '', word['ar'])).strip()
+        if len(letter) == 1:
+            LETTERS.setdefault(letter, word['id'])
+
+
+def spell(text):
+    """Fingerspelling letter IDs, without leading clitics (same rule as translate.py)."""
+    key = norm(text)
+    for prefix in ('وال', 'فال', 'بال', 'ال', 'و', 'ف'):
+        if key.startswith(prefix) and len(key) - len(prefix) >= 3:
+            key = key[len(prefix):]
+            break
+    return [LETTERS.get(ch) for ch in key], key
+
+
+def staged_ids():
+    return {row['id'] for row in motion_catalog.build(ROOT) if row.get('source') == 'staging' and not row.get('schema_errors')}
+
+
 def make_plan(text, preview_unreviewed=False):
     if not isinstance(text, str) or not text.strip() or len(text) > 4000:
         raise ValueError('أدخل نصًا من 1 إلى 4000 حرف.')
@@ -206,6 +228,16 @@ def make_plan(text, preview_unreviewed=False):
                         review_note=holds[norm(item['text'])])
             item.pop('id', None)
             item.pop('preview_only', None)
+    # A new sign still under review is fingerspelled until the reviewer accepts it.
+    staged = staged_ids()
+    for item in plan:
+        if item['action'] != 'pending' or item.get('reason') == 'reported-translation-issue':
+            continue
+        new = [source for source in item['sources'] if not source['motion'] and int(source['id']) in staged]
+        letters, base = spell(item['text'])
+        if new and letters and None not in letters:
+            item.update(action='spell', letters=letters, base=base, reason='new-sign-under-review',
+                        under_review={'id': int(new[0]['id']), 'sign': new[0]['sign']})
     return {'sentences': sentences, 'plan': plan, 'meaning_references': references, 'coverage': {'meaning_entries': sum(len(v) for v in TERM_INDEX.values()), 'entries': len(WORDS), 'aliases': len(INDEX), 'motions': len(MOTIONS), 'playable': sum(p['action'] == 'sign' for p in plan), 'pending': sum(p['action'] == 'pending' for p in plan)}, 'note': 'معاينة تجريبية: الأحمر غير مراجع. المطابقات الملتبسة والحركات المفقودة تبقى نصًا. سجل المراجعة المحلي لا يثبت اعتماد الجملة أو أداء الأفتار.'}
 
 

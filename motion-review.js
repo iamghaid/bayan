@@ -1,6 +1,6 @@
 /* Motion review controller: four-pass checks and hash-bound decisions.
- * Three banks: trusted (accepted), review (no decision yet or returned for another comparison
- * with the source video) and redesign (rejected; must be rebuilt). Decisions are kept in this
+ * Three banks: trusted (accepted, plus the sermon motions by default), review (new motions not yet
+ * compared with the source video, or returned for another comparison) and redesign (rejected; must be rebuilt). Decisions are kept in this
  * browser; on the owner's local server they also go to tools/motion_bank.py, which moves
  * accepted motions into the sermon translations and asks the AI assistant how to fix the rest.
  */
@@ -27,10 +27,12 @@
   let catalog = [], filtered = [], current, notes = {}, bank = null;
   const listNames = {trusted:'موثوق ومعتمد', review:'قيد المراجعة', redesign:'يحتاج مراجعة (إعادة تصميم)'};
   const localLists = {accepted:'trusted', rejected:'redesign'};
+  // Sermon motions stay trusted and playing until a reviewer decides otherwise; new ones start under review.
   function listOf(item) {
-    if (bank) return bank[item.id]?.list || 'review';
+    const fallback = item.source === 'active' ? 'trusted' : 'review';
+    if (bank) return bank[item.id]?.list || fallback;
     const entry = notes[item.id];
-    return entry?.motion_sha256 === item.motion_sha256 && localLists[entry.decision] || 'review';
+    return entry?.motion_sha256 === item.motion_sha256 && (localLists[entry.decision] || 'review') || fallback;
   }
   function showBank() {
     const record = current && bank?.[current.id];

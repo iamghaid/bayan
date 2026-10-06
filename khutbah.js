@@ -47,7 +47,7 @@
       if (p.conf === 'review' || p.conf === 'low') cls += ' rev';
       if (p.action === 'sign') { signed++; if (!has(p.id)) { cls += ' miss'; missing++; } }
       if (p.action === 'spell') spelled++;
-      const title = p.action === 'pending' ? p.review_note || 'تحتاج مراجعة — نص فقط' : p.action === 'sign' ? 'إشارة: ' + p.sign : p.action === 'spell' ? 'تهجئة: ' + (p.base || '').split('').join('-') : p.action === 'quran' ? 'آية — تُعرض نصًا' : 'لا تُترجم بإشارة مستقلة';
+      const title = p.action === 'pending' ? p.review_note || 'تحتاج مراجعة — نص فقط' : p.action === 'sign' ? 'إشارة: ' + p.sign : p.action === 'spell' ? (p.under_review ? `تهجئة مؤقتة: الإشارة الجديدة «${p.under_review.sign}» قيد المراجعة — ` : 'تهجئة: ') + (p.base || '').split('').join('-') : p.action === 'quran' ? 'آية — تُعرض نصًا' : 'لا تُترجم بإشارة مستقلة';
       html.push(`<span class="${cls}" data-i="${i}" title="${esc(title)}">${esc(p.action === 'quran' ? '﴿' + p.text + '﴾' : p.text)}</span> `);
     });
     html.push('</p>');

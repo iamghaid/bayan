@@ -95,6 +95,16 @@ class DemoTests(unittest.TestCase):
         self.assertIn('HTTP 503', str(error.exception))
         self.assertIn('ليست مشكلة في المفتاح', str(error.exception))
 
+    def test_new_sign_under_review_is_fingerspelled(self):
+        with patch.object(demo, 'lookup', return_value=(['4267'], 'dictionary')), patch.object(demo, 'staged_ids', return_value={4267}), patch.dict(demo.BY_ID, {'4267': {'ar': 'البرك'}}):
+            item = demo.make_plan('والبرك')['plan'][0]
+        self.assertEqual(item['action'], 'spell')
+        self.assertEqual(item['under_review'], {'id': 4267, 'sign': 'البرك'})
+        self.assertEqual(item['base'], 'برك')
+        self.assertNotIn(None, item['letters'])
+        with patch.object(demo, 'lookup', return_value=(['4267'], 'dictionary')), patch.object(demo, 'staged_ids', return_value=set()), patch.dict(demo.BY_ID, {'4267': {'ar': 'البرك'}}):
+            self.assertEqual(demo.make_plan('والبرك')['plan'][0]['action'], 'pending')
+
     def test_http_assets_and_security(self):
         server = ThreadingHTTPServer(('127.0.0.1', 0), partial(demo.Handler, directory=str(demo.ROOT)))
         worker = threading.Thread(target=server.serve_forever, daemon=True)
