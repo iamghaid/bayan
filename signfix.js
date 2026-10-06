@@ -54,6 +54,15 @@
       { hand: 'Right', from: 2, to: 22, hands: { base: 'Left', point: 'palm', basePoint: 'palm', gap: 0.012, slide: 0.009 } },
     ],
     419: [{ only: 'Right' }], // النبي
+    4857: [ // السلام عليكم: كف مسطحة عند الجبين (تحية)، ثم قبضة تنزل أمام الصدر
+      { only: 'Right' },
+      { hand: 'Right', from: 4, to: 13, shape: 'B' },
+      { hand: 'Right', from: 14, to: 32, shape: 'S' },
+      // عند الرأس: القبضة قائمة وباطن الأصابع المطوية نحو المشاهد
+      { hand: 'Right', from: 14, to: 18, orient: { palm: [0, 0.1, 1], fingers: [0, 1, 0.1] } },
+      // أمام الصدر: نفس القبضة، والأصابع المطوية تواجه المشاهد والإبهام فوقها
+      { hand: 'Right', from: 20, to: 31, orient: { palm: [0.1, -0.3, 1], fingers: [0.1, 0.9, 0.35] } },
+    ],
     11149: [ // رحمة: يمنى فقط، شكل F على الصدر
       { only: 'Right' },
       { hand: 'Right', from: 4, to: 19, shape: 'F' },
