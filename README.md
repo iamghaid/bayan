@@ -72,10 +72,10 @@ flowchart LR
 | | العدد |
 | --- | ---: |
 | مدخلات القاموس | 8,818 |
-| حركات في المكتبة الأساسية (تستخدمها الخطب) | 1,148 |
+| حركات في المكتبة الأساسية (تستخدمها الخطب) | 1,149 |
 | حركات جديدة قيد مراجعة الفريق | 998 |
 | كلمات معروفة من الخطب الخمس | 2,868 |
-| اختبارات آلية | 64 |
+| اختبارات آلية | 60 |
 
 هذه أعداد بيانات، وليست نتيجة تدريب نموذج أو نسبة دقة للترجمة.
 
@@ -106,7 +106,7 @@ python tools/demo_server.py
 ### القيود المعروفة
 
 - **الوجه لا يعبّر عن شيء بعد:** لا حواجب ولا عيون ولا شكل فم، مع أنها جزء من قواعد لغة الإشارة.
-- **حركات اليدين فيها أخطاء:** شكل الأصابع أو اتجاه الكف أو موضع اليد لا يطابق المصدر في بعض الحركات. مطابقة الأفتار لبيانات الفيديو 78% من إطارات اليد، و599 حركة فقط من 1,148 تتجاوز 80%. هذا يقيس النقل إلى الأفتار وليس صحة الإشارة.
+- **حركات اليدين فيها أخطاء:** شكل الأصابع أو اتجاه الكف أو موضع اليد لا يطابق المصدر في بعض الحركات. مطابقة الأفتار لبيانات الفيديو 78% من إطارات اليد، و599 حركة فقط من 1,149 تبلغ 80% أو أكثر. وقيست أيضًا الحركات الجديدة قيد المراجعة (997 حركة): متوسط 84%. هذا يقيس النقل إلى الأفتار وليس صحة الإشارة.
 - ترجمة الخطب أعدّها نموذج لغوي، وفيها مطابقات لم يراجعها مترجم معتمد بعد؛ وتُستخدم الآن في أي تسجيل، فالخطأ فيها يتكرر.
 - حوالي 9% من كلمات الخطب تُهجّى بالأصابع. «الرب» مربوطة بإشارة «الله» وتحتاج مراجعة.
 - أمثلة معروفة: الحركة 419 «النبي» والحركة 589، وتداخل اليدين في حركات أخرى.
@@ -160,7 +160,7 @@ Details: [Architecture](docs/ARCHITECTURE.md) · [File guide](docs/FILE_GUIDE.md
    - Drive the avatar's face with it, in sync with the hands.
    - Add the face as a fifth pass in team review, compared with the source video before approval.
 
-**2. Hand accuracy.** Hand movements still contain errors in finger shape, palm direction and hand contact. The avatar matches the source landmarks in 78% of hand frames, and only 599 of 1,148 motions exceed 80% (this measures retargeting, not sign correctness). Fix them motion by motion, starting with the most used and weakest matches, each reviewed by the team.
+**2. Hand accuracy.** Hand movements still contain errors in finger shape, palm direction and hand contact. The avatar matches the source landmarks in 78% of hand frames, and only 599 of 1,149 motions reach 80% (this measures retargeting, not sign correctness). The 997 staged motions under review are measured too: 84% on average. Fix them motion by motion, starting with the most used and weakest matches, each reviewed by the team.
 
 **3. Certified interpreter review** of every sign before any use with Deaf viewers.
 
@@ -177,7 +177,7 @@ Sermons and text planning need no keys. See [`.env.example`](.env.example) for t
 ### Tests
 
 ```powershell
-python -m unittest discover -s tools -p "test_*.py"   # 64 tests
+python -m unittest discover -s tools -p "test_*.py"   # 60 tests
 python tools/repo_check.py                            # no secrets or source media
 node tools/retarget_test.js                           # avatar retargeting
 ```

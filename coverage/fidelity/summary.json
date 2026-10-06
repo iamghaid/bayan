@@ -1,14 +1,14 @@
 {
- "generated": "2026-10-06T09:34:11.604Z",
- "motions": 1148,
- "hand_frames": 128427,
+ "generated": "2026-10-06T20:55:43.730Z",
+ "motions": 1149,
+ "hand_frames": 128513,
  "what": "Avatar vs MediaPipe landmarks extracted from the source videos (after handfix.js cleanup). Not sign correctness.",
  "limits_deg": {
   "dir": 30,
   "palm": 45,
   "curl": 45
  },
- "match_rate_pct": 78.3,
+ "match_rate_pct": 78.2,
  "motion_match_median_pct": 80.6,
  "motions_at_least_80_pct": 599,
  "finger_bend_agreement_pct": 85.2,
@@ -26,6 +26,13 @@
   "upper_arm": 3.8,
   "forearm": 8.4
  },
+ "staging": {
+  "motions": 997,
+  "motion_match_mean_pct": 84.3,
+  "motion_match_median_pct": 88.2,
+  "motions_at_least_80_pct": 697
+ },
+ "motion_match_mean_pct": 78.2,
  "signfix_motions": [
   {
    "id": 184,
@@ -46,6 +53,10 @@
   {
    "id": 3844,
    "match": 5.4
+  },
+  {
+   "id": 4857,
+   "match": 36
   },
   {
    "id": 6212,

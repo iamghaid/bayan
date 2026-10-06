@@ -71,7 +71,7 @@ def build(root=None):
         with fidelity_file.open(encoding='utf-8') as stream:
             for line in csv.DictReader(stream):
                 row = rows.get(int(line['id']))
-                if row and row['source'] == 'active' and line.get('match'):
+                if row and line.get('match'):
                     row['fidelity'], row['signfix'] = float(line['match']), line.get('signfix') == '1'
     uses = _uses(root)
     result = []
