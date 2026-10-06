@@ -1,4 +1,5 @@
 """Team-approved new motions are used by /api/plan (voice and text) right away."""
+import json
 import os
 import unittest
 from unittest.mock import patch
@@ -40,6 +41,22 @@ class TeamPlanTests(unittest.TestCase):
         with patch.dict(os.environ, {'DATABASE_URL': 'postgresql://u:p@ep-x.neon.tech/db'}, clear=True), \
              patch.object(demo_server.team_bank, 'records', side_effect=ValueError('down')):
             self.assertEqual(demo_server.make_plan('التشهد')['plan'][0]['action'], 'spell')
+
+
+class SermonWordsTests(unittest.TestCase):
+    def test_sermon_words_are_rendered_like_the_sermons(self):
+        with patch.dict(os.environ, {}, clear=True):
+            plan = {p['text']: p for p in demo_server.make_plan('إن الحمد لله نحمده')['plan']}
+        self.assertEqual(plan['إن']['action'], 'drop')
+        self.assertEqual((plan['الحمد']['action'], plan['الحمد']['how']), ('sign', 'sermon'))
+        self.assertTrue(all(str(p['id']) in demo_server.MOTIONS for p in plan.values() if p['action'] == 'sign'))
+
+    def test_approved_link_beats_sermon(self):
+        key, ident = next(iter(json.loads((demo_server.ROOT / 'tools/approved.json').read_text(encoding='utf-8')).items()))
+        with patch.dict(os.environ, {}, clear=True):
+            item = demo_server.make_plan(key)['plan'][0]
+        if item['action'] == 'sign':
+            self.assertEqual(item['how'], 'approved')
 
 
 if __name__ == '__main__':
