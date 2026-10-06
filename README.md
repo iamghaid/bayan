@@ -106,19 +106,23 @@ python tools/demo_server.py
 
 ### القيود المعروفة
 
-- لا توجد تعابير وجه بعد، وهي جزء من قواعد لغة الإشارة.
+- **الوجه لا يعبّر عن شيء بعد:** لا حواجب ولا عيون ولا شكل فم، مع أنها جزء من قواعد لغة الإشارة.
+- **حركات اليدين فيها أخطاء:** شكل الأصابع أو اتجاه الكف أو موضع اليد لا يطابق المصدر في بعض الحركات. مطابقة الأفتار لبيانات الفيديو 78% من إطارات اليد، و599 حركة فقط من 1,148 تتجاوز 80%. هذا يقيس النقل إلى الأفتار وليس صحة الإشارة.
 - ترجمة الخطب أعدّها نموذج لغوي، وفيها مطابقات لم يراجعها مترجم معتمد بعد؛ وتُستخدم الآن في أي تسجيل، فالخطأ فيها يتكرر.
 - حوالي 9% من كلمات الخطب تُهجّى بالأصابع. «الرب» مربوطة بإشارة «الله» وتحتاج مراجعة.
-- الحركة 419 «النبي» والحركة 589 تحتاجان إصلاحًا. قد تظهر تداخلات بين اليدين في حركات أخرى.
+- أمثلة معروفة: الحركة 419 «النبي» والحركة 589، وتداخل اليدين في حركات أخرى.
 - الخطب الخمس المحفوظة لا تتحدث تلقائيًا بالإشارات الجديدة؛ تحتاج مزامنة (`python tools/team_bank.py --apply`).
 
 ### خطة التطوير
 
-**تعابير الوجه هي الخطوة القادمة.** في لغة الإشارة، الوجه جزء من القواعد وليس زينة: رفع الحاجبين يحوّل الجملة إلى سؤال، وهز الرأس ينفيها، وشكل الفم يغيّر معنى بعض الإشارات. اليوم يستخرج بيان من الفيديو درجة انفتاح الفم فقط. الخطة:
+**1. تعابير الوجه.** في لغة الإشارة، الوجه جزء من القواعد وليس زينة: رفع الحاجبين يحوّل الجملة إلى سؤال، وهز الرأس ينفيها، وشكل الفم يغيّر معنى بعض الإشارات. اليوم لا يظهر أي تعبير على وجه الأفتار. الخطة:
+   - استخراج ملامح الوجه من نفس فيديوهات sshi.sa: الحاجبان، العينان، شكل الفم، وميل الرأس وحركته.
+   - نقلها إلى وجه الأفتار حتى يؤدي التعبير مع حركة اليدين في نفس اللحظة.
+   - إضافة الوجه كجانب خامس في مراجعة الفريق، يُقارَن بفيديو المصدر قبل الاعتماد.
 
-1. استخراج ملامح الوجه كاملة من نفس فيديوهات sshi.sa: الحاجبان، العينان، شكل الفم، وميل الرأس وحركته.
-2. نقلها إلى وجه الأفتار حتى يؤدي التعبير مع حركة اليدين في نفس اللحظة.
-3. إضافة الوجه كجانب خامس في مراجعة الفريق، يُقارَن بفيديو المصدر قبل الاعتماد.
+**2. دقة حركات اليدين.** رفع المطابقة مع المصدر من 78% وتصحيح الأخطاء الباقية في شكل الأصابع واتجاه الكف وتلامس اليدين، حركةً حركة، بدءًا بالحركات الأكثر استخدامًا في الخطب والأضعف مطابقة، مع مراجعة الفريق لكل تصحيح.
+
+**3. مراجعة مترجم معتمد** لكل الإشارات قبل أي استخدام مع الصم.
 
 ---
 
@@ -153,11 +157,14 @@ Details: [Architecture](docs/ARCHITECTURE.md) · [File guide](docs/FILE_GUIDE.md
 
 ### Roadmap
 
-**Facial expressions are next.** In sign language the face is grammar, not decoration: raised eyebrows turn a sentence into a question, a head shake negates it, and mouth shapes change the meaning of some signs. Today Bayan extracts only how open the mouth is. The plan:
+**1. Facial expressions.** In sign language the face is grammar, not decoration: raised eyebrows turn a sentence into a question, a head shake negates it, and mouth shapes change the meaning of some signs. Today the avatar's face shows no expression. The plan:
+   - Extract the face from the same sshi.sa videos: eyebrows, eyes, mouth shape, and head tilt and movement.
+   - Drive the avatar's face with it, in sync with the hands.
+   - Add the face as a fifth pass in team review, compared with the source video before approval.
 
-1. Extract the full face from the same sshi.sa videos: eyebrows, eyes, mouth shape, and head tilt and movement.
-2. Drive the avatar's face with it, in sync with the hands.
-3. Add the face as a fifth pass in team review, compared with the source video before approval.
+**2. Hand accuracy.** Hand movements still contain errors in finger shape, palm direction and hand contact. The avatar matches the source landmarks in 78% of hand frames, and only 599 of 1,148 motions exceed 80% (this measures retargeting, not sign correctness). Fix them motion by motion, starting with the most used and weakest matches, each reviewed by the team.
+
+**3. Certified interpreter review** of every sign before any use with Deaf viewers.
 
 ### Run locally
 
