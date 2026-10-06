@@ -24,7 +24,8 @@
   }
   const disclaimer=document.createElement('p');disclaimer.textContent='افحص الجوانب الأربعة وسجّل توقيت أي ملاحظة قبل اختيار القرار.';passPanel.append(disclaimer);
   $('notes').closest('section').before(passPanel);
-  let catalog = [], filtered = [], current, notes = {}, bank = null;
+  let catalog = [], filtered = [], current, notes = {}, bank = null, bankMode = null;
+  const teamKey = 'bayan-reviewer-v1';
   const listNames = {trusted:'معتمد', review:'قيد المراجعة', redesign:'تحتاج إعادة تصميم'};
   const localLists = {accepted:'trusted', rejected:'redesign'};
   // Sermon motions stay trusted and playing until a reviewer decides otherwise; new ones start under review.
@@ -39,9 +40,11 @@
     $('bankBox').hidden = !record;
     if (!record) return;
     $('bankBox').dataset.list = record.list;
-    $('bankTitle').textContent = `${listNames[record.list] || record.list} · ${new Date(record.at).toLocaleString('ar')}`;
+    $('bankTitle').textContent = `${listNames[record.list] || record.list}${record.reviewer ? ' · ' + record.reviewer : ''} · ${new Date(record.at).toLocaleString('ar')}`;
     const result = record.result;
-    $('bankResult').textContent = record.list === 'trusted'
+    $('bankResult').textContent = record.list === 'trusted' && record.team
+      ? `اعتمدها ${record.reviewer || 'أحد المراجعين'} للفريق. تدخل ترجمة الخطب بعد المزامنة من جهاز صاحبة المشروع.${record.note ? ' ملاحظة: ' + record.note : ''}`
+      : record.list === 'trusted'
       ? `رُبطت بالكلمات: ${result?.words?.join('، ') || 'لا كلمات جديدة'} · مواضع في الخطب: ${result?.sermon_items ?? 0}${result?.conflicts?.length ? ` · كلمات مربوطة سابقًا بإشارة أخرى (لم تتغير): ${result.conflicts.join('، ')}` : ''}`
       : `ملاحظة المراجع: ${record.note || 'لا توجد'}`;
     $('bankSuggestion').textContent = record.list !== 'trusted'
@@ -76,27 +79,35 @@
       card.querySelector('.card-pct').textContent = view === 'all' ? '' : `${pct(counts[view], counts.all)} من المكتبة`;
       card.setAttribute('aria-pressed', String($('view').value === view));
     }
-    document.querySelector('.card[data-view=trusted] .card-sub').textContent = `${fmt(fromSermons)} من الخطب · ${fmt(acceptedByReviewer)} اعتمدتِها`;
+    document.querySelector('.card[data-view=trusted] .card-sub').textContent = `${fmt(fromSermons)} من الخطب · ${fmt(acceptedByReviewer)} ${bankMode === 'team' ? 'اعتمدها الفريق' : 'اعتمدتِها'}`;
     document.querySelector('.card[data-view=all] .card-sub').textContent = `قرارات مسجّلة: ${fmt(decisions)} من ${fmt(counts.all)}`;
     for (const segment of $('bar').children) segment.style.width = pct(counts[segment.dataset.list], counts.all);
     for (const option of $('view').options) option.textContent = option.textContent.replace(/ \(\d+\)$/, '') + ` (${counts[option.value]})`;
-    $('boardScope').textContent = bank
+    $('boardScope').textContent = bankMode === 'team'
+      ? 'قرارات الفريق المشتركة: كل المراجعين يرون نفس الأرقام.'
+      : bank
       ? 'القرارات من سجل الخادم المحلي (tools/motion_bank.json).'
       : 'القرارات المحفوظة في هذا المتصفح فقط. القرارات النهائية تُسجَّل من الخادم المحلي.';
   }
   async function sendDecision(decision) {
     if (!bank || !current) return;
     const item = current;
+    const team = bankMode === 'team';
+    const reviewer = $('reviewerName').value.trim(), key = $('reviewerKey').value;
+    if (team && (!reviewer || !key)) { $('noteStatus').textContent = 'اكتب اسمك وكلمة سر المراجعين أعلى الصفحة ليُسجَّل القرار للفريق.'; $('reviewerName').focus(); return; }
     for (const id of ['acceptMotion','rejectMotion','reworkMotion']) $(id).disabled = true;
-    $('noteStatus').textContent = decision === 'accepted' ? 'جارٍ نقلها إلى «معتمد» وترجمة الخطب…' : 'جارٍ حفظ القرار وطلب اقتراح المساعد للتصحيح…';
+    $('noteStatus').textContent = team ? 'جارٍ حفظ القرار للفريق…' : decision === 'accepted' ? 'جارٍ نقلها إلى «معتمد» وترجمة الخطب…' : 'جارٍ حفظ القرار وطلب اقتراح المساعد للتصحيح…';
     try {
-      const response = await fetch('/api/decision', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:item.id, decision, note:$('notes').value, motion_sha256:item.motion_sha256, passes:Object.fromEntries(passes.map(([key])=>[key,$('pass-'+key).value]))})});
+      const headers = {'Content-Type':'application/json'};
+      if (team) headers['X-Review-Key'] = key;
+      const response = await fetch('/api/decision', {method:'POST', headers, body:JSON.stringify({id:item.id, decision, reviewer, note:$('notes').value, motion_sha256:item.motion_sha256, passes:Object.fromEntries(passes.map(([key])=>[key,$('pass-'+key).value]))})});
       const result = await response.json();
       if (!response.ok) throw Error(result.error || 'تعذر تحديث بنك الإشارات.');
       bank[item.id] = result;
-      $('noteStatus').textContent = result.list === 'trusted' ? `أضيفت «${result.ar}» إلى «معتمد» (${result.result.sermon_items} موضعًا جديدًا في الخطب).` : `أضيفت «${result.ar}» إلى «${listNames[result.list]}».`;
+      $('noteStatus').textContent = team ? `سُجّلت «${result.ar}» في «${listNames[result.list]}» لكل الفريق.`
+        : result.list === 'trusted' ? `أضيفت «${result.ar}» إلى «معتمد» (${result.result.sermon_items} موضعًا جديدًا في الخطب).` : `أضيفت «${result.ar}» إلى «${listNames[result.list]}».`;
     } catch (error) {
-      $('noteStatus').textContent = `حُفظ القرار في المتصفح فقط: ${error.message}`;
+      $('noteStatus').textContent = team ? `لم يُسجَّل القرار للفريق: ${error.message}` : `حُفظ القرار في المتصفح فقط: ${error.message}`;
     } finally {
       countViews(); filter(); if (current === item) { showDecision(); showBank(); }
     }
@@ -105,7 +116,8 @@
   const status = message => { $('status').textContent = message; };
   const decisionLabels={pending:'قيد المراجعة',accepted:'معتمد',rejected:'يحتاج مراجعة (إعادة تصميم)',rework:'قيد المراجعة (أُعيدت للمقارنة)'};
   function showDecision(){
-    const entry=current && notes[current.id];
+    const shared=current && bank?.[current.id];
+    const entry=shared ? {decision:shared.decision, motion_sha256:shared.motion_sha256} : current && notes[current.id];
     const stale=entry?.motion_sha256 && entry.motion_sha256!==current.motion_sha256;
     const decision=stale?'pending':entry?.decision||'pending';
     $('decisionStatus').textContent=stale?'تغيّر ملف الحركة؛ تحتاج قرارًا جديدًا.':decisionLabels[decision];
@@ -252,10 +264,29 @@
     try {
       const bankResponse = await fetch('/api/bank');
       if (bankResponse.ok) {
-        bank = (await bankResponse.json()).records;
-        $('bankNote').textContent = 'الخادم المحلي: الاعتماد ينقل الحركة إلى «معتمد» وترجمة الخطب، والرفض يضعها في «يحتاج مراجعة» مع اقتراح المساعد. انشر الموقع ليظهر التحديث للجميع.';
+        const state = await bankResponse.json();
+        bank = state.records; bankMode = state.mode || 'local';
+        $('bankNote').textContent = bankMode === 'team'
+          ? 'قرارات الفريق: يراها كل من يفتح الصفحة فورًا. تدخل الحركات المعتمدة ترجمة الخطب بعد المزامنة من جهاز صاحبة المشروع.'
+          : 'الخادم المحلي: الاعتماد ينقل الحركة إلى «معتمد» وترجمة الخطب، والرفض يضعها في «يحتاج مراجعة» مع اقتراح المساعد. انشر الموقع ليظهر التحديث للجميع.';
       }
     } catch {}
+    $('teamBox').hidden = bankMode !== 'team';
+    try { const saved = JSON.parse(localStorage.getItem(teamKey) || '{}'); $('reviewerName').value = saved.name || ''; $('reviewerKey').value = saved.key || ''; } catch {}
+    const remember = () => { try { localStorage.setItem(teamKey, JSON.stringify({name: $('reviewerName').value.trim(), key: $('reviewerKey').value})); } catch {} };
+    $('reviewerName').onchange = remember; $('reviewerKey').onchange = remember;
+    // Pick up teammates' decisions when the tab comes back and every 30 s.
+    const refreshTeam = async () => {
+      if (bankMode !== 'team' || document.hidden) return;
+      try {
+        const response = await fetch('/api/bank', {cache: 'no-store'});
+        if (!response.ok) return;
+        const fresh = (await response.json()).records;
+        if (JSON.stringify(fresh) === JSON.stringify(bank)) return;
+        bank = fresh; countViews(); filter();
+      } catch {}
+    };
+    setInterval(refreshTeam, 30000); document.addEventListener('visibilitychange', refreshTeam);
     countViews(); filter();   // numbers and list first, so they show even while the avatar loads
     await Signer.init($('cv'), 'avatar/man.glb?v=7');
     Signer.reviewSafety = $('safePose').checked;

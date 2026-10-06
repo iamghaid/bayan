@@ -74,7 +74,7 @@ def summary(record):
 
 
 def state():
-    return {'available': True, 'records': {key: summary(value) for key, value in read_json(paths()['bank'], {}).items()}}
+    return {'available': True, 'mode': 'local', 'records': {key: summary(value) for key, value in read_json(paths()['bank'], {}).items()}}
 
 
 def check_promotable(identifier, row, copied_before):
