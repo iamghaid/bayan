@@ -24,8 +24,23 @@
   }
   const disclaimer=document.createElement('p');disclaimer.textContent='افحص الجوانب الأربعة وسجّل توقيت أي ملاحظة قبل اختيار القرار.';passPanel.append(disclaimer);
   $('notes').closest('section').before(passPanel);
-  let catalog = [], filtered = [], current, notes = {}, bank = null, bankMode = null;
+  let catalog = [], filtered = [], current, notes = {}, bank = null, bankMode = null, refreshTeam = async () => {};
   const teamKey = 'bayan-reviewer-v1';
+  let login = {ok: false};
+  // Team login: the password is checked by the server once, then remembered in this browser.
+  function setLogin(value) {
+    login = value || {ok: false};
+    try { value ? localStorage.setItem(teamKey, JSON.stringify({name: value.name, key: value.key})) : localStorage.removeItem(teamKey); } catch {}
+    $('teamLogin').hidden = login.ok; $('teamSigned').hidden = !login.ok;
+    $('teamWho').textContent = login.ok ? `مسجّلة للمراجعة باسم: ${login.name} ✓ قراراتك تُحفظ عند كل الفريق.` : '';
+    $('teamStatus').textContent = ''; delete $('teamBox').dataset.need;
+    if (!login.ok) { $('reviewerName').value = value === null ? $('reviewerName').value : ''; $('reviewerKey').value = ''; }
+  }
+  function askLogin(message) {
+    $('teamBox').dataset.need = ''; $('teamStatus').textContent = message || 'سجّلي دخولك أولًا ليُحفظ القرار عند كل الفريق.';
+    $('teamBox').scrollIntoView({behavior: 'smooth', block: 'center'}); $(login.ok ? 'teamLogout' : 'reviewerName').focus();
+    $('noteStatus').textContent = 'لم يُحفظ القرار: سجّلي الدخول أعلى الصفحة ثم أعيدي المحاولة.';
+  }
   const listNames = {trusted:'معتمد', review:'قيد المراجعة', redesign:'تحتاج إعادة تصميم'};
   const localLists = {accepted:'trusted', rejected:'redesign'};
   // Sermon motions stay trusted and playing until a reviewer decides otherwise; new ones start under review.
@@ -93,8 +108,8 @@
     if (!bank || !current) return;
     const item = current;
     const team = bankMode === 'team';
-    const reviewer = $('reviewerName').value.trim(), key = $('reviewerKey').value;
-    if (team && (!reviewer || !key)) { $('noteStatus').textContent = 'اكتب اسمك وكلمة سر المراجعين أعلى الصفحة ليُسجَّل القرار للفريق.'; $('reviewerName').focus(); return; }
+    const reviewer = login.name, key = login.key;
+    if (team && !login.ok) { askLogin(); return; }
     for (const id of ['acceptMotion','rejectMotion','reworkMotion']) $(id).disabled = true;
     $('noteStatus').textContent = team ? 'جارٍ حفظ القرار للفريق…' : decision === 'accepted' ? 'جارٍ نقلها إلى «معتمد» وترجمة الخطب…' : 'جارٍ حفظ القرار وطلب اقتراح المساعد للتصحيح…';
     try {
@@ -104,10 +119,20 @@
       const result = await response.json();
       if (!response.ok) throw Error(result.error || 'تعذر تحديث بنك الإشارات.');
       bank[item.id] = result;
-      $('noteStatus').textContent = team ? `سُجّلت «${result.ar}» في «${listNames[result.list]}» لكل الفريق.`
+      if (team && $('view').value !== 'all' && result.list !== $('view').value) {
+        // The motion left this bank for everyone: open the next one in the same place.
+        const next = filtered[filtered.indexOf(item) + 1] || filtered[filtered.indexOf(item) - 1];
+        countViews(); filter();
+        if (next && filtered.includes(next)) { $('pick').value = next.id; select(); }
+        $('noteStatus').textContent = `«${result.ar}» انتقلت إلى «${listNames[result.list]}» عند كل الفريق${next ? '، وفُتحت الحركة التالية' : ''}.`;
+        return;
+      }
+      if (team && result.list === 'review') { await refreshTeam(true); }
+      $('noteStatus').textContent = team ? `سُجّلت «${result.ar}» في «${listNames[result.list]}» عند كل الفريق.`
         : result.list === 'trusted' ? `أضيفت «${result.ar}» إلى «معتمد» (${result.result.sermon_items} موضعًا جديدًا في الخطب).` : `أضيفت «${result.ar}» إلى «${listNames[result.list]}».`;
     } catch (error) {
-      $('noteStatus').textContent = team ? `لم يُسجَّل القرار للفريق: ${error.message}` : `حُفظ القرار في المتصفح فقط: ${error.message}`;
+      if (team && /كلمة سر/.test(error.message)) { setLogin(null); askLogin(error.message); }
+      $('noteStatus').textContent = team ? `لم يُحفظ القرار: ${error.message}` : `حُفظ القرار في المتصفح فقط: ${error.message}`;
     } finally {
       countViews(); filter(); if (current === item) { showDecision(); showBank(); }
     }
@@ -236,6 +261,7 @@
   $('speed').onchange = () => { Signer.speed = Number($('speed').value); };
   function saveReview(decision){
     if(!current)return;
+    if(decision && bankMode==='team'){ if(!login.ok){askLogin();return;} sendDecision(decision); return; }
     const old=notes[current.id]||{};
     const next={...old,id:current.id,ar:current.ar,note:$('notes').value,pose:Signer.poseDiagnostics,safety_enabled:Signer.reviewSafety,updated_at:new Date().toISOString(),motion_sha256:current.motion_sha256,approval:'not_approved',passes:Object.fromEntries(passes.map(([key])=>[key,$('pass-'+key).value]))};
     if(old.motion_sha256 && old.motion_sha256!==current.motion_sha256)next.decision='pending';
@@ -272,12 +298,24 @@
       }
     } catch {}
     $('teamBox').hidden = bankMode !== 'team';
-    try { const saved = JSON.parse(localStorage.getItem(teamKey) || '{}'); $('reviewerName').value = saved.name || ''; $('reviewerKey').value = saved.key || ''; } catch {}
-    const remember = () => { try { localStorage.setItem(teamKey, JSON.stringify({name: $('reviewerName').value.trim(), key: $('reviewerKey').value})); } catch {} };
-    $('reviewerName').onchange = remember; $('reviewerKey').onchange = remember;
+    try { const saved = JSON.parse(localStorage.getItem(teamKey) || 'null'); if (saved?.name && saved?.key) setLogin({...saved, ok: true}); } catch {}
+    $('teamLoginBtn').onclick = async () => {
+      const name = $('reviewerName').value.trim(), key = $('reviewerKey').value;
+      if (!name || !key) { $('teamStatus').textContent = 'اكتبي الاسم وكلمة السر.'; return; }
+      $('teamLoginBtn').disabled = true; $('teamStatus').textContent = '';
+      try {
+        const response = await fetch('/api/decision', {method:'POST', headers:{'Content-Type':'application/json', 'X-Review-Key': key}, body: JSON.stringify({check: true})});
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw Error(result.error || 'تعذر التحقق من كلمة السر.');
+        setLogin({name, key, ok: true});
+      } catch (error) { $('teamStatus').textContent = error.message; }
+      finally { $('teamLoginBtn').disabled = false; }
+    };
+    $('reviewerKey').onkeydown = event => { if (event.key === 'Enter') $('teamLoginBtn').click(); };
+    $('teamLogout').onclick = () => setLogin(null);
     // Pick up teammates' decisions when the tab comes back and every 30 s.
-    const refreshTeam = async () => {
-      if (bankMode !== 'team' || document.hidden) return;
+    refreshTeam = async (force) => {
+      if (bankMode !== 'team' || (document.hidden && !force)) return;
       try {
         const response = await fetch('/api/bank', {cache: 'no-store'});
         if (!response.ok) return;
@@ -286,7 +324,7 @@
         bank = fresh; countViews(); filter();
       } catch {}
     };
-    setInterval(refreshTeam, 30000); document.addEventListener('visibilitychange', refreshTeam);
+    setInterval(refreshTeam, 30000); document.addEventListener('visibilitychange', () => refreshTeam());
     countViews(); filter();   // numbers and list first, so they show even while the avatar loads
     await Signer.init($('cv'), 'avatar/man.glb?v=7');
     Signer.reviewSafety = $('safePose').checked;
