@@ -81,7 +81,7 @@
     status('جارٍ مطابقة النص مع المكتبة وسجل المراجعة المحلي…');
     const result = await request('/api/plan', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text:$('transcript').value, preview_unreviewed:$('previewUnreviewed').checked})});
     if (typeof window.BayanLoadPlan !== 'function') throw Error('انتظر اكتمال تحميل الأفتار ثم حاول مجددًا.');
-    window.BayanLoadPlan(result);
+    result.plan = await window.BayanLoadPlan(result);
     const list = $('demoSources'); list.replaceChildren();
     for (const item of result.plan) {
       const li = document.createElement('li');

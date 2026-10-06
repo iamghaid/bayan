@@ -51,6 +51,10 @@ def audit():
         combined.update({str(item['id']): item for item in json.loads(extra_report.read_text(encoding='utf-8'))})
         results = list(combined.values())
     rows = []
+    # Preflight notes apply only to the exact motion version that was sampled.
+    preflights = {}
+    for report in sorted(OUT.glob('batch_*_review.json')):
+        preflights.update({item['id']: item for item in json.loads(report.read_text(encoding='utf-8'))})
     for item in results:
         file = ROOT / f"sshi_motion/staging/{item['id']}.json"
         row = {'id': item['id'], 'ar': item['ar'], 'extraction_status': item['status'],
@@ -67,6 +71,12 @@ def audit():
         row['reference_sha256'] = hashlib.sha256(video.read_bytes()).hexdigest() if video.exists() else ''
         row['visual_review'] = 'pending'
         row['linguistic_review'] = 'pending'
+        preflight = preflights.get(item['id'])
+        row['technical_preflight'] = 'pending'
+        row['technical_notes'] = ''
+        if preflight and preflight.get('motion_sha256') == row['motion_sha256']:
+            row['technical_preflight'] = preflight['technical_status']
+            row['technical_notes'] = preflight.get('notes', '')
         rows.append(row)
     # Lowest tracking coverage and failed schemas are reviewed first.
     rows.sort(key=lambda row: (not bool(row['schema_errors']), row['tracked_ratio'], row['id']))

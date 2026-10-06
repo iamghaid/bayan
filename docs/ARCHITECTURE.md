@@ -19,3 +19,19 @@ Local review records use `bayan-motion-review-notes-v1`. Records contain ID, lab
 ## بالعربية
 
 المتصفح مسؤول عن العرض والمراجعة؛ الخادم مسؤول عن إعداد النص وتفريغ الصوت وطلب اقتراحات المساعد. الفصل يُبقي المفاتيح في الخادم، ويفصل اقتراحات الذكاء الاصطناعي عن قرار المراجع. البيانات تمر من البحث والاستخراج إلى التدقيق والمراجعة قبل نقلها إلى مكتبة التشغيل.
+
+## Solid torso constraint
+
+The render loop tests hand/finger spheres and six forearm samples against an ellipsoid sized from the pelvis and shoulders. It samples the sweep from the previously rendered pose, moves blocked paths toward the front surface through two-bone IK, and corrects an obstructed elbow pole. The final palm orientation is rate-limited in world space before a second clearance pass. This changes presentation only; source motion files are untouched.
+
+`Signer.bodyOverlap` reports remaining displacement needed to clear the torso envelope. `tools/avatarcheck.html` records its maximum in millimetres alongside wrist jumps. The envelope is a conservative approximation of the torso, not collision against every clothing triangle or a complete head/limb physics system.
+
+## Coupled arm joints
+
+The player calibrates upper-arm and forearm lengths from the GLB bind pose. A shared two-link solver handles tracking, rest poses, contacts and torso clearance. The upper-arm frame carries a fixed hinge axis; the lower-arm frame bends about that axis rather than independently aiming a freely rotating joint. Source elbow hints are limited toward a stable outward/downward pole. Near extension, the previous bend direction avoids an ambiguous flip.
+
+`ARM_LIMITS` defines conservative presentation envelopes: elbow flexion 2–145 degrees, shoulder elevation at most 165 degrees, forearm roll at most 85 degrees each way, and wrist bend components at most 65/25 degrees. Shoulder direction, elbow flexion and forearm roll advance at most 360 degrees/second; hinge-plane rotation advances at most 240 degrees/second. Each pass references the start of the rendered frame, so multiple collision iterations cannot multiply those speed limits. These are avatar settings, not medical or population-wide ranges.
+
+Pronation transfers to three runtime forearm twist bones, with skin weights blended along the forearm. The elbow hinge remains unrolled while the wrist receives the full roll. Bind-pose positions are preserved and the original GLB is unchanged. Residual axial wrist twist is removed. Wrist flexion and deviation share an elliptical envelope: reaching the limit of one component reduces the other, preventing an excessive diagonal bend. `Signer.jointDiagnostics` reports actual rendered hinge error, flexion, shoulder elevation, forearm roll, wrist twist/bend and bone-length error. The local GLB check records maxima across every sampled frame.
+
+References: [two-bone IK and bend hints (Unity)](https://docs.unity3d.com/ja/Packages/com.unity.animation.rigging%401.2/manual/constraints/TwoBoneIKConstraint.html), [clinical elbow anatomy](https://pmc.ncbi.nlm.nih.gov/articles/PMC5721323/). No source motion files are rewritten by this constraint.

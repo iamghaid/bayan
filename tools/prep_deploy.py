@@ -8,7 +8,7 @@ parser.add_argument('--output', type=pathlib.Path, default=pathlib.Path.home() /
 args = parser.parse_args()
 D = args.output.resolve()
 files = ['index.html',
-         'khutbah.html', 'khutbah.js', 'demo.js', 'demo.css', 'interface.css', 'unified-view.js', 'workspace.js', 'handfix.js', 'signfix.js', 'signer.js', 'man_dress.js',
+         'khutbah.html', 'khutbah.js', 'demo.js', 'demo.css', 'interface.css', 'theme.css', 'theme.js', 'review-library.js', 'unified-view.js', 'workspace.js', 'handfix.js', 'signfix.js', 'signer.js', 'man_dress.js',
          'lib/three.min.js', 'lib/GLTFLoader.js', 'lib/three-vrm.min.js', 'avatar/man.glb', 'sshi_motion/index.json']
 files += [p.relative_to(S).as_posix() for p in (S / 'translations').glob('*_gemini.json')]
 files += [p.relative_to(S).as_posix() for p in (S / 'translations').glob('*_gemini.txt')]

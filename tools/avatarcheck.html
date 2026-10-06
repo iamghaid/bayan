@@ -11,45 +11,85 @@ const RenderBase=THREE.WebGLRenderer;
 THREE.WebGLRenderer=class extends RenderBase {constructor(options){super({...options,preserveDrawingBuffer:true});}};
 const baseline = new URLSearchParams(location.search).has('baseline');
 const script = document.createElement('script');
-script.src = baseline ? '../coverage/research/signer_previous.js' : '../signer.js?v=40';
+script.src = baseline ? '../coverage/research/signer_previous.js' : '../signer.js?v=joint-review-3';
 script.onload = async () => {
   const out = document.getElementById('result');
   try {
     await Signer.init(document.getElementById('cv'), '../avatar/man.glb');
     const response=await fetch('../sshi_motion/needed.json'); let needed=await response.json();
     const requested=new URLSearchParams(location.search).get('motion');
-    if(requested && /^\d+$/.test(requested)) needed=[{id:Number(requested)}];
+    if(requested && /^\d+(,\d+)*$/.test(requested)) needed=requested.split(',').map(id=>({id:Number(id)}));
     const base=new URLSearchParams(location.search).has('staged')?'../sshi_motion/staging/':'../sshi_motion/m/';
     const results=[];
     for (const item of needed.slice(0,80)) {
       const d=await Signer.load(item.id,base);
       await new Promise(resolve=>Signer.playList([{motion:item.id}],tag=>{if(Signer._dbg())resolve();},base));
-      let prev={}, maxStep=0, jumpFrames=0, finite=true;
+      let prev={}, prevArm={}, maxArmStep=0, maxElbowStep=0, maxStep=0, jumpFrames=0, maxBodyOverlap=0, maxHingeError=0, minFlex=180, maxFlex=0, maxWristTwist=0, maxWristBend=0, maxForearmRoll=0, maxShoulder=0, maxLengthError=0, maxPhysicalWrist=0, bindOffset=0, finite=true;
       const sheetMode=new URLSearchParams(location.search).has('sheet');
+      const compact=new URLSearchParams(location.search).has('compact');
+      const sampleCount=compact?4:8, tileHeight=compact?280:450, imageHeight=compact?264:420;
       let sheet,ctx,sample=0;
-      if(sheetMode){sheet=document.createElement('canvas');sheet.width=1200;sheet.height=900;sheet.style.cssText='width:1200px;height:900px;max-width:100%';document.body.prepend(sheet);ctx=sheet.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,1200,900);}
+      if(sheetMode){sheet=document.createElement('canvas');sheet.width=1200;sheet.height=compact?280:900;sheet.style.cssText=`width:1200px;height:${sheet.height}px;max-width:100%`;document.body.prepend(sheet);ctx=sheet.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,1200,sheet.height);}
       const stopFrame=Number(new URLSearchParams(location.search).get('frame'));
       const ticks=new URLSearchParams(location.search).has('frame')?Math.max(1,Math.ceil(stopFrame/d.fps*60)):Math.ceil(d.frames.length/d.fps*60)-1;
       for(let i=0;i<ticks;i++) {
         Signer._tick();
-        if(sheetMode && sample<8 && i>=Math.round(sample*(ticks-1)/7)){
-          const x=(sample%4)*300,y=Math.floor(sample/4)*450;
-          ctx.drawImage(document.getElementById('cv'),x,y,300,420);
-          ctx.fillStyle='#111';ctx.font='16px sans-serif';ctx.fillText('ID '+item.id+' | '+(i/60).toFixed(2)+'s',x+10,y+440);sample++;
+        maxBodyOverlap=Math.max(maxBodyOverlap,Signer.bodyOverlap||0);
+        for (const joint of Object.values(Signer.jointDiagnostics||{})) {
+          finite=finite&&Object.values(joint).every(Number.isFinite);
+          maxHingeError=Math.max(maxHingeError,joint.elbow_hinge_error_deg);
+          minFlex=Math.min(minFlex,joint.elbow_flex_deg);maxFlex=Math.max(maxFlex,joint.elbow_flex_deg);
+          maxWristTwist=Math.max(maxWristTwist,Math.abs(joint.wrist_twist_deg));
+          maxWristBend=Math.max(maxWristBend,joint.wrist_bend_deg);
+          maxPhysicalWrist=Math.max(maxPhysicalWrist,joint.physical_wrist_angle_deg);
+          bindOffset=joint.bind_wrist_offset_deg;
+          maxForearmRoll=Math.max(maxForearmRoll,Math.abs(joint.forearm_roll_deg));
+          maxShoulder=Math.max(maxShoulder,joint.shoulder_elevation_deg);
+          maxLengthError=Math.max(maxLengthError,joint.upper_length_error_mm,joint.lower_length_error_mm);
+        }
+        if(sheetMode && sample<sampleCount && i>=Math.round(sample*(ticks-1)/(sampleCount-1))){
+          const x=(sample%4)*300,y=Math.floor(sample/4)*tileHeight;
+          ctx.drawImage(document.getElementById('cv'),x,y,300,imageHeight);
+          if(new URLSearchParams(location.search).has('bones')) {
+            for(const points of Object.values(Signer._jointProjection())) {
+              const p=points.map(q=>[x+(q[0]+1)*150,y+(1-q[1])*210]);
+              ctx.strokeStyle='#d27b00';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(...p[0]);ctx.lineTo(...p[1]);ctx.lineTo(...p[2]);ctx.lineTo(...p[3]);ctx.stroke();
+              p.forEach((q,i)=>{ctx.fillStyle=['#d00000','#008800','#0055ff','#990099'][i];ctx.beginPath();ctx.arc(...q,3,0,Math.PI*2);ctx.fill();});
+            }
+          }
+          ctx.fillStyle='#111';ctx.font='16px sans-serif';ctx.fillText('ID '+item.id+' | '+(i/60).toFixed(2)+'s',x+10,y+tileHeight-10);sample++;
         }
         for(const side of ['Left','Right']) {
           const b=Signer._bone(side+'Hand'), q=b.getWorldQuaternion(new THREE.Quaternion());
+          const shoulder=Signer._bone(side+'UpperArm').getWorldPosition(new THREE.Vector3());
+          const elbow=Signer._bone(side+'LowerArm').getWorldPosition(new THREE.Vector3());
+          const wrist=b.getWorldPosition(new THREE.Vector3());
+          const upper=elbow.clone().sub(shoulder).normalize(), lower=wrist.clone().sub(elbow).normalize();
+          const flex=upper.angleTo(lower);
+          if(prevArm[side]) {
+            maxArmStep=Math.max(maxArmStep,upper.angleTo(prevArm[side].upper)*180/Math.PI);
+            maxElbowStep=Math.max(maxElbowStep,Math.abs(flex-prevArm[side].flex)*180/Math.PI);
+          }
+          prevArm[side]={upper,flex};
           finite=finite&&q.toArray().every(Number.isFinite);
           if(prev[side]) {const angle=q.angleTo(prev[side])*180/Math.PI;maxStep=Math.max(maxStep,angle);if(angle>25)jumpFrames++;}
           prev[side]=q.clone();
         }
       }
       Signer.stop();
-      results.push({id:item.id,max_step_deg:Math.round(maxStep*100)/100,jump_frames:jumpFrames,finite});
+      results.push({id:item.id,max_step_deg:Math.round(maxStep*100)/100,jump_frames:jumpFrames,body_overlap_mm:Math.round(maxBodyOverlap*1000),
+        upper_step_deg:maxArmStep,elbow_step_deg:maxElbowStep,hinge_error_deg:maxHingeError,elbow_flex_deg:[minFlex,maxFlex],wrist_twist_deg:maxWristTwist,
+        physical_wrist_angle_deg:maxPhysicalWrist,bind_wrist_offset_deg:bindOffset,wrist_bend_deg:maxWristBend,forearm_roll_deg:maxForearmRoll,shoulder_elevation_deg:maxShoulder,
+        bone_length_error_mm:maxLengthError,finite});
       out.textContent=`${results.length}/80`; await new Promise(resolve=>setTimeout(resolve,0));
     }
     out.textContent=JSON.stringify({baseline,signs:results.length,jump_frames:results.reduce((n,r)=>n+r.jump_frames,0),finite:results.every(r=>r.finite),results},null,2);
     out.dataset.complete='true';
+    if(new URLSearchParams(location.search).has('gallery')) {
+      // Export avatar sheets without the live canvas or long diagnostic text.
+      document.getElementById('cv').style.display='none';
+      out.style.display='none';
+    }
   } catch(error) {out.textContent=error.stack;out.dataset.complete='error';}
 };
 document.head.append(script);
