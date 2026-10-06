@@ -90,7 +90,7 @@ for word in WORDS:
                 ids.append(str(word['id']))
 # Direct source matches take precedence over derived aliases.
 INDEX.update(DIRECT_INDEX)
-MAX_PHRASE = min(12, max(len(key.split()) for key in INDEX))
+MAX_PHRASE = min(12, max(len(key.split()) for key in [*INDEX, *json.loads((ROOT / 'tools/approved.json').read_text(encoding='utf-8'))]))
 
 
 def lookup(text):
@@ -234,7 +234,7 @@ def make_plan(text, preview_unreviewed=False):
                     if any(t in {',', '،', ';', '؛', ':'} or t.startswith(('﴿', '[')) for t in phrase_tokens):
                         continue
                     phrase = ' '.join(phrase_tokens)
-                    if norm(phrase) in INDEX:
+                    if norm(phrase) in INDEX or norm(phrase) in approved:   # approved phrases, e.g. the full greeting
                         token = phrase
                         position += length - 1
                         break
