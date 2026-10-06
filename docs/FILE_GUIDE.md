@@ -15,13 +15,17 @@
 | `sshi_motion/m/`, `translations/` | Active motion data and saved plans |
 | `coverage/` | Dictionary, research inventories and audit results |
 | `tools/approved.json`, `blocked.json`, `translation_holds.json` | Matching decisions and holds |
-| `tools/motion_bank.py`, `tools/motion_bank.json`, `tools/motion_catalog.py` | Three sign banks (trusted, under review, needs rework) and the review catalog |
+| `tools/motion_bank.py`, `tools/motion_bank.json`, `tools/motion_catalog.py` | Three sign banks (trusted, under review, needs rework) on the local server, and the review catalog |
+| `tools/team_bank.py`, `api/bank.py`, `api/decision.py`, `api/catalog.py` | Shared team decisions on the hosted site (Neon) and the hosted review catalog |
+| `sshi_motion/staging/` | New motions under review (landmark JSON only) |
+| `brand/`, `fonts/`, `fonts.css` | Logo, icons and the Thmanyah typeface (woff2 only) |
+| `docs/images/` | README screenshots |
 | `docs/` | Architecture, development, motion fixes, avatar signing review spec |
 | `.github/workflows/checks.yml` | CI checks on every push and pull request |
 | `.env.example` | Names of the server environment variables (not loaded automatically) |
 | `vercel.json`, `.vercelignore` | Hosting functions and excluded paths |
-| `مراجعة الترجمة.bat` | Windows shortcut that starts the local translation review page (`tools/review_server.py`, port 8010) |
+| `scripts/مراجعة الترجمة.bat` | Windows shortcut that starts the local translation review page (`tools/review_server.py`, port 8010) |
 
-See [tools/README.md](../tools/README.md) for development script groups. Output bundles, source media, staging files, caches and provider secrets are excluded from Git.
+See [tools/README.md](../tools/README.md) for development script groups. Output bundles, source media, caches and provider secrets are excluded from Git.
 
 ابدأ من `index.html` للواجهة، و`motion-review.js` للمراجعة، و`tools/review_assistant.py` للمساعد. محرك الأفتار في `signer.js` والتصحيحات في `signfix.js`. الملفات المولدة منفصلة عن محرك العرض والاختبارات.

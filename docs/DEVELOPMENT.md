@@ -4,11 +4,11 @@
 
 `python tools/demo_server.py` starts the unified workspace on port 8020. `python tools/motion_review_server.py` starts reference review on port 8021. `python tools/avatarcheck_server.py` serves deterministic GLB checks on port 8022. Stop the existing instance before starting another on the same port.
 
-Configure the variables documented in `.env.example` in the shell or hosting settings. The server does not load that example automatically. Audio and text models may differ.
+Configure the variables documented in `.env.example` in the shell or hosting settings. The server does not load that example automatically. Audio and text models may differ. On Vercel, team review needs a connected Neon database (`DATABASE_URL`, any prefix) and `REVIEW_PASSWORD` for Production and Preview.
 
 ## Dataset tools
 
-Active motion JSON is versioned. Staged JSON and source footage are local assets. `tools/expand_batch.py` requires OpenCV and a MediaPipe environment exposing `solutions`; `tools/staging_audit.py` generates the review catalog. These packages are not required by the demo runtime.
+Active and staged motion JSON are versioned; source footage stays local. `tools/expand_batch.py` requires OpenCV and a MediaPipe environment exposing `solutions`; `tools/staging_audit.py` generates the review catalog. These packages are not required by the demo runtime.
 
 ## Validation and releases
 

@@ -9,6 +9,17 @@ Python supplies conservative text planning, audio transcription and review sugge
 | `POST /api/plan` | JSON `text`, optional `preview_unreviewed` | Playlist and references |
 | `POST /api/transcribe` | Supported audio body, ≤4 MiB | `text`, `model` |
 | `POST /api/review_assistant` | JSON `motion_id`, `question` (1–2,000 characters), ≤12,000 bytes | `answer`, motion ID/hash, source URL, `visual_inspection: false` |
+| `GET /api/catalog` | — | Every motion (active and staged) with fidelity, sermon use and source-video name |
+| `GET /api/bank` | — | Shared team decisions: `{mode: "team", records}` (hosted) or `{mode: "local", records}` (loopback) |
+| `POST /api/decision` | JSON `id`, `decision` (`accepted`/`rejected`/`rework`), `reviewer`, `note`, `passes`, `motion_sha256`; header `X-Review-Key` | The stored record; `{check: true}` only verifies the password |
+
+### Word → sign planning
+
+`/api/plan` decides each word in this order: (1) a link in `tools/approved.json`; (2) how the five saved sermons render the word (sign, drop or fingerspelling; most common wins; signs only with an existing motion; 2,868 words); (3) a new motion the review team accepted (its label and listed alternatives, same file hash), played from `sshi_motion/staging/`; (4) fingerspelling while a new sign is still under review. Qur'an stays text and held words stay pending. If the team database is unreachable, planning continues without step 3.
+
+### Team review (hosted)
+
+`tools/team_bank.py` stores decisions in the Neon Postgres database connected to the Vercel project, through Neon's HTTPS SQL endpoint (no driver package). It also accepts Upstash Redis. Reading is open to the review page; writing needs `REVIEW_PASSWORD` and a reviewer name. Records keep the motion hash, the four passes, the reviewer, the time and a short history; a separate table logs every decision. On the hosted site a decision is saved only to this store. `python tools/team_bank.py --apply` on the owner's computer brings team approvals into the library and the saved sermon plans through `motion_bank.py`.
 
 The assistant resolves metadata server-side. It does not treat caller-supplied measurements as facts. Questions and labels are untrusted input. Responses are rendered as text rather than HTML. Requests have a 45-second provider timeout and do not modify decisions, animations or the dataset.
 
