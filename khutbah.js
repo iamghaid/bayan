@@ -38,6 +38,7 @@
     originalPlan = data.plan; plan = holdReportedItems(await BayanReviewLibrary.apply(originalPlan)); sents = data.sentences;
     $('now').textContent = 'معاينة تجريبية — راجع المطابقات الحمراء والمقاطع النصية';
     render();
+    return plan;
   };
 
   function render() {
