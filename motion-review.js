@@ -125,7 +125,7 @@
     for (const row of $('list').children) row.setAttribute?.('aria-selected', String(current != null && row.dataset.id === String(current.id)));
     $('list').querySelector('[aria-selected=true]')?.scrollIntoView({block: 'nearest'});
     $('position').textContent = current ? `الحركة ${fmt(filtered.indexOf(current) + 1)} من ${fmt(filtered.length)}` : `0 من ${fmt(filtered.length)}`;
-    $('reference').pause(); $('reference').removeAttribute('src'); $('reference').load();
+    $('reference').pause(); $('reference').removeAttribute('src'); $('reference').load(); $('referenceStatus').textContent = '';
     $('notes').value = current ? notes[current.id]?.note || '' : '';
     for(const [key] of passes)$('pass-'+key).value=current ? notes[current.id]?.passes?.[key] || 'pending' : 'pending';
     $('metrics').replaceChildren();
@@ -139,9 +139,21 @@
       : `${current.ar} (#${current.id}) — جاهزة للمعاينة`);
     const metrics = [current.source === 'active' ? `مستخدمة في الخطب: ${current.uses} مرة` : 'حركة جديدة (staging)', current.fidelity != null ? `مطابقة الأفتار لبيانات الفيديو: ${current.fidelity}%${current.signfix ? ' (مصححة يدويًا)' : ''}` : 'مطابقة الأفتار: لم تُقس', `إطارات: ${current.frames}`, `مدة الحركة: ${current.seconds} ثانية`, `تتبع إحدى اليدين: ${Math.round(current.tracked_ratio * 100)}%`, `بنية الملف: ${current.schema_errors.length ? 'تحتاج فحصًا' : 'سليمة'}`];
     for (const metric of metrics) { const span = document.createElement('span'); span.textContent = metric; $('metrics').append(span); }
-    if ($('showReference').checked) $('reference').src = `/reference/${current.id}.mp4`;
+    if ($('showReference').checked) showReference(current);
     $('previous').disabled = filtered.indexOf(current) === 0;
     $('next').disabled = filtered.indexOf(current) === filtered.length - 1;
+  }
+  // Reference video: the owner's local copy first, else the public original on sshi.sa (nothing is uploaded).
+  function showReference(item) {
+    const video = $('reference'), online = item.video ? 'https://sshi.sa/api/file/' + encodeURIComponent(item.video) : '';
+    $('referenceStatus').textContent = 'جارٍ تحميل فيديو المصدر…';
+    video.onloadeddata = () => { if (current === item) $('referenceStatus').textContent = video.src.startsWith('https://sshi.sa') ? 'فيديو المصدر من مكتبة sshi.sa' : 'فيديو المصدر من نسختك المحلية'; };
+    video.onerror = () => {
+      if (current !== item || !video.getAttribute('src')) return;
+      if (online && video.src !== online) { video.src = online; return; }
+      $('referenceStatus').textContent = 'تعذر تحميل فيديو المصدر لهذه الحركة.';
+    };
+    video.src = location.hostname === '127.0.0.1' || location.hostname === 'localhost' || !online ? `/reference/${item.id}.mp4` : online;
   }
   function filter() {
     const query = $('search').value.trim();
