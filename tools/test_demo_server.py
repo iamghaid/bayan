@@ -1,3 +1,4 @@
+import io
 import json
 import re
 import threading
@@ -57,6 +58,52 @@ class DemoTests(unittest.TestCase):
     def test_missing_provider_configuration(self):
         with patch.dict('os.environ', {}, clear=True), self.assertRaises(ValueError):
             demo.transcribe(b'audio', 'audio/wav')
+
+    def test_missing_key_message_names_variable(self):
+        with patch.dict('os.environ', {'BAYAN_AUDIO_MODEL': 'm'}, clear=True), self.assertRaises(ValueError) as error:
+            demo.transcribe(b'audio', 'audio/wav')
+        self.assertIn('GEMINI_API_KEY', str(error.exception))
+
+    def test_default_model_and_stripped_key(self):
+        response = io.BytesIO(json.dumps({'candidates': [{'content': {'parts': [{'text': '{"text": "بسم الله"}'}]}}]}).encode())
+        with patch.dict('os.environ', {'GEMINI_API_KEY': ' test-only\n'}, clear=True), patch.object(demo.urllib.request, 'urlopen', return_value=response) as call:
+            self.assertEqual(demo.transcribe(b'audio', 'audio/wav'), {'text': 'بسم الله', 'model': demo.DEFAULT_AUDIO_MODEL})
+        request = call.call_args.args[0]
+        self.assertEqual(request.get_header('X-goog-api-key'), 'test-only')
+        self.assertIn(demo.DEFAULT_AUDIO_MODEL, request.full_url)
+
+    def test_provider_errors_are_explained_without_key(self):
+        cases = {400: ('API key not valid. AIzaSyFAKEFAKEFAKEFAKEFAKEFAKE', 'GEMINI_API_KEY'), 403: ('denied', 'صلاحية'), 404: ('not found', 'BAYAN_AUDIO_MODEL'), 429: ('quota', 'حد الاستخدام')}
+        for code, (message, expected) in cases.items():
+            body = io.BytesIO(json.dumps({'error': {'message': message}}).encode())
+            exc = urllib.error.HTTPError('https://example.invalid', code, 'x', {}, body)
+            with patch.dict('os.environ', {'GEMINI_API_KEY': 'test-only'}, clear=True), patch.object(demo.urllib.request, 'urlopen', side_effect=exc), patch.object(demo.time, 'sleep'), patch('sys.stderr', io.StringIO()), self.assertRaises(ValueError) as error:
+                demo.transcribe(b'audio', 'audio/wav')
+            self.assertIn(expected, str(error.exception))
+            self.assertIn(f'HTTP {code}', str(error.exception))
+            self.assertNotIn('AIza', str(error.exception))
+
+    def test_overloaded_model_falls_back_once(self):
+        busy = urllib.error.HTTPError('https://example.invalid', 503, 'x', {}, io.BytesIO(b'{}'))
+        ok = io.BytesIO(json.dumps({'candidates': [{'content': {'parts': [{'text': '{"text": "الحمد لله"}'}]}}]}).encode())
+        with patch.dict('os.environ', {'GEMINI_API_KEY': 'test-only'}, clear=True), patch.object(demo.urllib.request, 'urlopen', side_effect=[busy, ok]) as call, patch.object(demo.time, 'sleep'), patch('sys.stderr', io.StringIO()):
+            self.assertEqual(demo.transcribe(b'audio', 'audio/wav'), {'text': 'الحمد لله', 'model': demo.FALLBACK_AUDIO_MODEL})
+        self.assertEqual(call.call_count, 2)
+        busy_again = urllib.error.HTTPError('https://example.invalid', 503, 'x', {}, io.BytesIO(b'{}'))
+        with patch.dict('os.environ', {'GEMINI_API_KEY': 'test-only'}, clear=True), patch.object(demo.urllib.request, 'urlopen', side_effect=[busy, busy_again]), patch.object(demo.time, 'sleep'), patch('sys.stderr', io.StringIO()), self.assertRaises(ValueError) as error:
+            demo.transcribe(b'audio', 'audio/wav')
+        self.assertIn('HTTP 503', str(error.exception))
+        self.assertIn('ليست مشكلة في المفتاح', str(error.exception))
+
+    def test_new_sign_under_review_is_fingerspelled(self):
+        with patch.object(demo, 'lookup', return_value=(['4267'], 'dictionary')), patch.object(demo, 'staged_ids', return_value={4267}), patch.dict(demo.BY_ID, {'4267': {'ar': 'البرك'}}):
+            item = demo.make_plan('والبرك')['plan'][0]
+        self.assertEqual(item['action'], 'spell')
+        self.assertEqual(item['under_review'], {'id': 4267, 'sign': 'البرك'})
+        self.assertEqual(item['base'], 'برك')
+        self.assertNotIn(None, item['letters'])
+        with patch.object(demo, 'lookup', return_value=(['4267'], 'dictionary')), patch.object(demo, 'staged_ids', return_value=set()), patch.dict(demo.BY_ID, {'4267': {'ar': 'البرك'}}):
+            self.assertEqual(demo.make_plan('والبرك')['plan'][0]['action'], 'pending')
 
     def test_http_assets_and_security(self):
         server = ThreadingHTTPServer(('127.0.0.1', 0), partial(demo.Handler, directory=str(demo.ROOT)))

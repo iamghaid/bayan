@@ -2,10 +2,15 @@
 import json
 import os
 import re
+import sys
 import urllib.error
 import urllib.request
 from http.server import BaseHTTPRequestHandler
 from pathlib import Path
+try:
+    from tools import motion_catalog
+except ModuleNotFoundError:
+    import motion_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
 MAX_REQUEST = 12000
@@ -27,20 +32,40 @@ source link when citing; do not fabricate other sources. If evidence is insuffic
 say what observation is needed. Answer in at most 350 words."""
 
 
+KEY_PATTERN = re.compile(r'AIza[A-Za-z0-9_-]{20,}')
+
+
+def provider_error(exc, model_variable, bad_request):
+    """Explain a Gemini HTTP failure in Arabic without echoing credentials."""
+    try:
+        detail = json.loads(exc.read().decode('utf-8', 'replace')).get('error', {})
+    except (ValueError, OSError, AttributeError):
+        detail = {}
+    message = KEY_PATTERN.sub('***', str(detail.get('message', '')))[:200]
+    print(f'gemini: HTTP {exc.code} {detail.get("status", "")} {message}', file=sys.stderr, flush=True)
+    if exc.code == 400 and 'api key' in message.lower():
+        reason = 'مفتاح GEMINI_API_KEY غير صالح. انسخه من جديد من Google AI Studio بدون مسافات.'
+    elif exc.code == 400:
+        reason = bad_request
+    elif exc.code in (401, 403):
+        reason = 'المفتاح مرفوض أو لا يملك صلاحية Gemini API. تأكد من المفتاح وتفعيل الخدمة في مشروع Google.'
+    elif exc.code == 404:
+        reason = f'اسم النموذج في {model_variable} غير متاح. احذف المتغير لاستخدام النموذج الافتراضي أو صحّح الاسم.'
+    elif exc.code == 429:
+        reason = 'تجاوزت حد الاستخدام عند المزوّد. انتظر دقيقة ثم حاول مجددًا.'
+    elif exc.code >= 500:
+        reason = 'خوادم Gemini مشغولة أو متوقفة مؤقتًا (ليست مشكلة في المفتاح). حاول بعد دقيقة.'
+    else:
+        reason = 'تعذر الاتصال بخدمة Gemini.'
+    return f'{reason} (HTTP {exc.code})'
+
+
 def motion_context(identifier):
     """Resolve trusted local metadata instead of accepting client-provided facts."""
     if isinstance(identifier, bool) or not isinstance(identifier, int) or identifier <= 0:
         raise ValueError('اختر حركة صالحة أولًا.')
-    catalog_file = ROOT / 'review-catalog.json'
-    if not catalog_file.exists():
-        catalog_file = ROOT / 'coverage/expansion/staging_qa.json'
-    if not catalog_file.exists():
-        raise ValueError('سجل الحركات غير متوفر في الخادم.')
-    rows = json.loads(catalog_file.read_text(encoding='utf-8'))
-    row = next((row for row in rows if row.get('id') == identifier), None)
-    if row is None:
-        raise ValueError('الحركة غير موجودة في سجل المراجعة.')
-    keys = ('id', 'ar', 'frames', 'seconds', 'tracked_ratio', 'schema_errors', 'motion_sha256')
+    row = motion_catalog.row(identifier, ROOT)
+    keys = ('id', 'ar', 'source', 'frames', 'seconds', 'tracked_ratio', 'schema_errors', 'motion_sha256', 'fidelity', 'uses')
     return {**{key: row[key] for key in keys if key in row}, 'source_url': 'https://sshi.sa/', 'visual_inspection': False}
 
 
@@ -52,9 +77,9 @@ def suggest(payload):
         raise ValueError('اكتب سؤالًا من 1 إلى 2000 حرف.')
     context = motion_context(payload.get('motion_id'))
     key = os.environ.get('GEMINI_API_KEY', '').strip()
-    model = os.environ.get('BAYAN_REVIEW_MODEL') or os.environ.get('BAYAN_AUDIO_MODEL', '')
+    model = (os.environ.get('BAYAN_REVIEW_MODEL') or os.environ.get('BAYAN_AUDIO_MODEL') or 'gemini-flash-latest').strip()
     if not key or not re.fullmatch(r'[A-Za-z0-9._-]{1,100}', model):
-        raise ValueError('مساعد المراجعة يحتاج إعداد النموذج في الخادم.')
+        raise ValueError('مساعد المراجعة غير مهيأ: GEMINI_API_KEY غير موجود في إعدادات الخادم، أو اسم النموذج غير صالح.')
     body = {'system_instruction': {'parts': [{'text': SYSTEM}]},
             'contents': [{'role': 'user', 'parts': [{'text': json.dumps({'motion': context, 'question': question.strip()}, ensure_ascii=False)}]}],
             'generationConfig': {'temperature': 0.2, 'maxOutputTokens': 1800}}
@@ -70,7 +95,7 @@ def suggest(payload):
         return {'answer': answer, 'motion_id': context['id'], 'motion_sha256': context.get('motion_sha256'),
                 'source_url': context['source_url'], 'visual_inspection': False}
     except urllib.error.HTTPError as exc:
-        raise ValueError(f'تعذر الاتصال بالمساعد (HTTP {exc.code}). حاول لاحقًا.') from None
+        raise ValueError(provider_error(exc, 'BAYAN_REVIEW_MODEL', 'رفض المزوّد طلب المساعد. اختصر السؤال وحاول مجددًا.')) from None
     except (OSError, ValueError, KeyError, IndexError, TypeError):
         raise ValueError('تعذر الحصول على اقتراح صالح. حاول مجددًا.') from None
 

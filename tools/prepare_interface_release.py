@@ -7,6 +7,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'tools'))
+import motion_catalog  # noqa: E402
 
 
 def prepare(output):
@@ -16,10 +18,8 @@ def prepare(output):
     subprocess.run([sys.executable, str(ROOT / 'tools/prep_deploy.py'), '--output', str(destination)], check=True)
     for name in ('motion-review.html', 'motion-review.js'):
         shutil.copy2(ROOT / name, destination / name)
-    catalog = json.loads((ROOT / 'coverage/expansion/staging_qa.json').read_text(encoding='utf-8'))
-    keys = ('id', 'ar', 'frames', 'seconds', 'tracked_ratio', 'schema_errors', 'motion_sha256')
-    sanitized = [{key: row[key] for key in keys if key in row} for row in catalog]
-    (destination / 'review-catalog.json').write_text(json.dumps(sanitized, ensure_ascii=False), encoding='utf-8')
+    catalog = motion_catalog.build(ROOT)
+    (destination / 'review-catalog.json').write_text(json.dumps(catalog, ensure_ascii=False), encoding='utf-8')
     for source in (ROOT / 'sshi_motion/staging').glob('*.json'):
         target = destination / 'sshi_motion/staging' / source.name
         target.parent.mkdir(parents=True, exist_ok=True)
