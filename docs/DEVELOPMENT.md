@@ -12,7 +12,7 @@ Active motion JSON is versioned. Staged JSON and source footage are local assets
 
 ## Validation and releases
 
-Run the README's Python and Node checks. Motion changes also require actual-model inspection and reference comparisons. Use motion-specific fixes rather than guessing a global handshape.
+Run the README's Python and Node checks. Motion changes also require actual-model inspection and reference comparisons. Use motion-specific fixes rather than guessing a global handshape; the workflow, fields and regression baseline are in [MOTION_FIXES.md](MOTION_FIXES.md).
 
 `python tools/prep_deploy.py --output <new-empty-directory>` builds the main bundle. `python tools/prepare_interface_release.py --output <new-empty-directory>` adds the review catalog. Link that directory to the intended hosting project. Use a fresh output directory; output bundles are ignored by Git. Preserve configured deployment access settings.
 
