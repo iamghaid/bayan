@@ -12,12 +12,13 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 try:
-    from tools import motion_catalog
-    from tools.motion_bank import BankHandler
+    from tools import motion_catalog, team_bank
+    from tools.motion_bank import BankHandler, label_keys
     from tools.review_assistant import ReviewAssistantHandler, provider_error
 except ModuleNotFoundError:
     import motion_catalog
-    from motion_bank import BankHandler
+    import team_bank
+    from motion_bank import BankHandler, label_keys
     from review_assistant import ReviewAssistantHandler, provider_error
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -158,6 +159,21 @@ def staged_ids():
     return {row['id'] for row in motion_catalog.build(ROOT) if row.get('source') == 'staging' and not row.get('schema_errors')}
 
 
+def team_approved():
+    """New motions the review team accepted on the hosted site: {id: (row, record)}.
+    Empty when no team database is connected or it cannot be reached (planning never fails on it)."""
+    if not team_bank.configured():
+        return {}
+    try:
+        records = team_bank.records()
+    except ValueError:
+        return {}
+    rows = {row['id']: row for row in motion_catalog.build(ROOT) if row.get('source') == 'staging' and not row.get('schema_errors')}
+    return {int(key): (rows[int(key)], record) for key, record in records.items()
+            if key.isdigit() and int(key) in rows and record.get('list') == 'trusted'
+            and record.get('motion_sha256') == rows[int(key)].get('motion_sha256')}
+
+
 def make_plan(text, preview_unreviewed=False):
     if not isinstance(text, str) or not text.strip() or len(text) > 4000:
         raise ValueError('أدخل نصًا من 1 إلى 4000 حرف.')
@@ -228,8 +244,30 @@ def make_plan(text, preview_unreviewed=False):
                         review_note=holds[norm(item['text'])])
             item.pop('id', None)
             item.pop('preview_only', None)
+    # New signs the team accepted play straight away (same word rule as motion_bank: the sign's label
+    # and its listed alternatives); words already linked in approved.json keep their sign.
+    accepted = team_approved()
+    team_words = {}
+    for ident, (row, record) in accepted.items():
+        for key in label_keys(row.get('ar', '')):
+            if key not in approved:
+                team_words.setdefault(key, ident)
+    for item in plan:
+        if item['action'] not in {'pending', 'spell'} or item.get('reason') == 'reported-translation-issue':
+            continue
+        key = ' '.join(norm(item['text']).split())
+        ident = team_words.get(key)
+        if ident is None:
+            hits = [int(source['id']) for source in item['sources'] if int(source['id']) in accepted]
+            ident = hits[0] if len(hits) == 1 and len(item['sources']) == 1 else None
+        if ident is not None:
+            row, record = accepted[ident]
+            item.update(action='sign', id=ident, sign=row.get('ar', ''), conf='team', motion_dir='staging',
+                        team_approved={'reviewer': record.get('reviewer', ''), 'at': record.get('at', '')})
+            for name in ('letters', 'under_review', 'preview_only'):
+                item.pop(name, None)
     # A new sign still under review is fingerspelled until the reviewer accepts it.
-    staged = staged_ids()
+    staged = staged_ids() - set(accepted)
     for item in plan:
         if item['action'] != 'pending' or item.get('reason') == 'reported-translation-issue':
             continue
