@@ -6,11 +6,11 @@
 <link rel="stylesheet" href="demo.css?v=32">
 <title>الخطبة كاملة بلغة الإشارة السعودية</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Readex+Pro:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="fonts.css?v=1">
 <style>
 :root{--bg:#f4f2ec;--card:#fff;--ink:#1c2420;--mute:#6a716c;--line:#e0ddd3;--acc:#1f6b4a;--sign:#1f6b4a;--spell:#8a5a00;--quran:#6b3fa0;--rev:#b3261e}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 "Readex Pro",Tahoma,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 var(--font-ui)}
 .wrap{max-width:1180px;margin:0 auto;padding:16px}
 h1{font-size:22px;margin:4px 0}
 .lede{color:var(--mute);margin:0 0 12px;font-size:14px}
@@ -20,14 +20,14 @@ h1{font-size:22px;margin:4px 0}
 .stage{position:sticky;top:12px}
 canvas{width:100%;height:440px;display:block;background:linear-gradient(#eef3ef,#dfe8e2);border-radius:10px}
 .now{text-align:center;margin-top:10px;min-height:64px}
-.now .w{font:700 28px Amiri,serif}
+.now .w{font:700 28px var(--font-read)}
 .now .s{color:var(--mute);font-size:14px}
 .now .q{font:20px Amiri,serif;color:var(--quran)}
 .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
 button,select{font:inherit;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:6px 14px;cursor:pointer}
 button.primary{background:var(--acc);color:#fff;border-color:var(--acc)}
 label{font-size:14px;color:var(--mute)}
-.text{font:20px/2.1 Amiri,serif;max-height:62vh;overflow:auto;padding-inline-end:6px}
+.text{font:20px/2.1 var(--font-read);max-height:62vh;overflow:auto;padding-inline-end:6px}
 .t{cursor:pointer;border-radius:4px;padding:0 2px}
 .t.sign{border-bottom:2px solid var(--sign)}
 .t.spell{border-bottom:2px dotted var(--spell)}
